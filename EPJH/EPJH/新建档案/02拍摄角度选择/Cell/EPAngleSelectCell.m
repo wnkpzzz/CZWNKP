@@ -8,6 +8,18 @@
 
 #import "EPAngleSelectCell.h"
 
+@interface EPAngleSelectCell()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIButton *showBtn;
+@property (weak, nonatomic) IBOutlet UICollectionView *selectView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectViewHeight;// 选择视图高度约束
+
+@property (nonatomic, strong) NSArray * titleArr;
+@property (nonatomic, assign) NSInteger rowIndex;// 显示行数
+@property (nonatomic, assign) NSInteger selectedIndex;// 选中索引
+
+@end
+
 @implementation EPAngleSelectCell
 
 - (void)awakeFromNib {
@@ -19,6 +31,38 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setupUI{
+       
+    self.rowIndex = 0;
+    self.selectedIndex = 0;
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake((APP_WIDTH - 40 - kWidth(60))/5, kWidth(20));
+    flowLayout.minimumLineSpacing = kWidth(10);
+    flowLayout.minimumInteritemSpacing = kWidth(15);
+    flowLayout.sectionInset = UIEdgeInsetsMake(kWidth(10), 20, 0, 20);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self.selectView.collectionViewLayout = flowLayout;
+//    [self.selectView registerClass:[YPAngleSelectColCell class] forCellWithReuseIdentifier:ID_YPAngleSelectColCell];
+    self.selectViewHeight.constant = kWidth(30);
+    self.selectView.delegate = self;
+    self.selectView.dataSource = self;
+}
+
+
+- (IBAction)shouAction:(UIButton *)sender{
+    
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.selectViewHeight.constant = self.rowIndex*kWidth(30);
+    }else{
+        self.selectViewHeight.constant = kWidth(30);
+    }
+    if (self.showBlock) {
+        self.showBlock();// 刷新界面
+    }
 }
 
 @end

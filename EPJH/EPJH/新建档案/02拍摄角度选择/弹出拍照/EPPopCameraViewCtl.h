@@ -1,8 +1,8 @@
 //
-//  EPAngleBottomCell.h
+//  EPPopCameraViewCtl.h
 //  EPJH
 //
-//  Created by Hans on 2020/7/27.
+//  Created by Hans on 2020/8/12.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPAngleBottomCell : RootTableViewCell
+@interface EPPopCameraViewCtl : UIViewController
 
 @end
 

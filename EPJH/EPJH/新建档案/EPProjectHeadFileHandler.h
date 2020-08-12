@@ -14,11 +14,14 @@
 #import "EPAngleSelectViewCtl.h"     // 02拍摄角度选择
 #import "EPProjectSelectViewCtl.h"   // 03项目选择
 
+#import "EPPopCameraViewCtl.h"       // 弹出拍照
 
 #import "EPImageModel.h"
 #import "EPProjectModel.h"
 #import "EPUserInfoModel.h"
 
 #import "EPAngleHeaderCell.h"
+#import "EPAngleSelectCell.h"
+#import "EPAngleBottomCell.h"
 
 #endif /* EPProjectHeadFileHandler_h */

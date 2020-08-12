@@ -10,7 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPAngleSelectCell : UITableViewCell
+@interface EPAngleSelectCell : RootTableViewCell
+
+
+ 
+/** 展开回调 */
+@property (nonatomic, copy)void(^showBlock)(void);
+/** 选择回调 */
+@property (nonatomic, copy)void(^selectBlock)(NSInteger selectIndex);
+
+
+- (void)reloadDataWithArray:(NSArray *)dataArray;
 
 @end
 

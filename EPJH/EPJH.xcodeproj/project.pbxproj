@@ -52,6 +52,8 @@
 		ED3E679E24C078260055B4E7 /* EPHomeCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E679D24C078260055B4E7 /* EPHomeCycleScrollView.m */; };
 		ED3E67A324C080550055B4E7 /* EPUserViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E67A124C080550055B4E7 /* EPUserViewCtl.m */; };
 		ED3E67A424C080550055B4E7 /* EPUserViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3E67A224C080550055B4E7 /* EPUserViewCtl.xib */; };
+		ED43B4C224E3F7B9004E2600 /* EPPopCameraViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */; };
+		ED43B4C324E3F7B9004E2600 /* EPPopCameraViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED43B4C124E3F7B9004E2600 /* EPPopCameraViewCtl.xib */; };
 		ED44F45624CE7D1400102BAA /* EPWKWebViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F45524CE7D1400102BAA /* EPWKWebViewCtl.m */; };
 		ED44F45F24CE814000102BAA /* TempTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F45D24CE814000102BAA /* TempTableViewCell.m */; };
 		ED44F46024CE814000102BAA /* TempTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED44F45E24CE814000102BAA /* TempTableViewCell.xib */; };
@@ -182,6 +184,9 @@
 		ED3E67A024C080550055B4E7 /* EPUserViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPUserViewCtl.h; sourceTree = "<group>"; };
 		ED3E67A124C080550055B4E7 /* EPUserViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPUserViewCtl.m; sourceTree = "<group>"; };
 		ED3E67A224C080550055B4E7 /* EPUserViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPUserViewCtl.xib; sourceTree = "<group>"; };
+		ED43B4BF24E3F7B9004E2600 /* EPPopCameraViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPopCameraViewCtl.h; sourceTree = "<group>"; };
+		ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPopCameraViewCtl.m; sourceTree = "<group>"; };
+		ED43B4C124E3F7B9004E2600 /* EPPopCameraViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPPopCameraViewCtl.xib; sourceTree = "<group>"; };
 		ED44F45424CE7D1400102BAA /* EPWKWebViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPWKWebViewCtl.h; sourceTree = "<group>"; };
 		ED44F45524CE7D1400102BAA /* EPWKWebViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPWKWebViewCtl.m; sourceTree = "<group>"; };
 		ED44F45C24CE814000102BAA /* TempTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempTableViewCell.h; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 		ED09A13024CE9FD200045106 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED43B4C424E4019C004E2600 /* SubCell */,
 				ED09A13124CEA1B900045106 /* EPAngleHeaderCell.h */,
 				ED09A13224CEA1B900045106 /* EPAngleHeaderCell.m */,
 				ED09A13424CEA1CA00045106 /* EPAngleSelectCell.h */,
@@ -553,6 +559,23 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		ED43B4BE24E3F77C004E2600 /* 弹出拍照 */ = {
+			isa = PBXGroup;
+			children = (
+				ED43B4BF24E3F7B9004E2600 /* EPPopCameraViewCtl.h */,
+				ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */,
+				ED43B4C124E3F7B9004E2600 /* EPPopCameraViewCtl.xib */,
+			);
+			path = "弹出拍照";
+			sourceTree = "<group>";
+		};
+		ED43B4C424E4019C004E2600 /* SubCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubCell;
+			sourceTree = "<group>";
+		};
 		ED44F46624CE888500102BAA /* 01选择用户 */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +609,7 @@
 				ED86404F24D7E6A900FD7F7D /* EPAngleSelectViewCtl.h */,
 				ED86405024D7E6A900FD7F7D /* EPAngleSelectViewCtl.m */,
 				ED86405124D7E6A900FD7F7D /* EPAngleSelectViewCtl.xib */,
+				ED43B4BE24E3F77C004E2600 /* 弹出拍照 */,
 				ED09A13024CE9FD200045106 /* Cell */,
 			);
 			path = "02拍摄角度选择";
@@ -861,6 +885,7 @@
 				ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */,
 				ED81FF4324CE740B009844CB /* backItemImage@2x.png in Resources */,
 				ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */,
+				ED43B4C324E3F7B9004E2600 /* EPPopCameraViewCtl.xib in Resources */,
 				ED09A13D24CEA1D900045106 /* EPAngleBottomCell.xib in Resources */,
 				ED3B556424BEDC4B008CBB51 /* EPLaunchViewCtl.xib in Resources */,
 				ED86405824D7E77D00FD7F7D /* EPProjectSelectViewCtl.xib in Resources */,
@@ -1028,6 +1053,7 @@
 				ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */,
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
+				ED43B4C224E3F7B9004E2600 /* EPPopCameraViewCtl.m in Sources */,
 				ED86405C24D7E7BD00FD7F7D /* EPUserSelectViewCtl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
