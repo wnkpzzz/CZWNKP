@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PopPrivacyProtocolView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-6D-eZD">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njl-Q6-KNX">
+                    <rect key="frame" x="56.5" y="217" width="301" height="462"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Te-i0-tEp">
+                            <rect key="frame" x="118" y="40" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFk-B4-heZ">
+                            <rect key="frame" x="18" y="79.5" width="265" height="210"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="210" id="IkQ-nM-RaP"/>
+                            </constraints>
+                            <string key="text">感谢您使用医拍即合。我们依据最新的法律法规、监管要求更新了《隐私权政策》，特向您说明如下
+
+1、为向您提供案例发布、注册验证，互动交流等基本功能，我们会收集您的部分必要信息。
+2、为提供上述服务，我们可能会收集位置、相册，拍照等敏感信息，您有权拒绝或取消授权。
+3、我们会采取业界先进的安全措施保护您的信息安全。
+4、未经您同意，我们不会从第三方获取、共享或对外提供您的信息。
+5、您可以查询、更正、删除您的个人信息，我们也提供账户注销的渠道。</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以阅读完整版" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-op-nMm">
+                            <rect key="frame" x="20" y="309.5" width="100" height="14.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="leA-qY-9yy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-vb-1mz">
+                            <rect key="frame" x="172" y="309.5" width="12.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gl-CM-HLe">
+                            <rect key="frame" x="121" y="302" width="50" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="b7K-EN-sJm"/>
+                                <constraint firstAttribute="width" constant="50" id="fI9-sy-6sO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="用户协议">
+                                <color key="titleColor" red="0.0" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ElN-ja-4X9"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nm-8D-SRv">
+                            <rect key="frame" x="185.5" y="302" width="50" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="RBq-Nm-9gE"/>
+                                <constraint firstAttribute="height" constant="30" id="fuB-94-26d"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="隐私政策">
+                                <color key="titleColor" red="0.0" green="0.25882352939999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="erh-dS-J8q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhY-JX-wvQ">
+                            <rect key="frame" x="30" y="362" width="241" height="45"/>
+                            <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="w3P-nJ-jTV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="同意并继续">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="dfu-Xw-qBp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7J-WM-t6n">
+                            <rect key="frame" x="30" y="417" width="241" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="V4l-4v-Tcc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="不同意并退出">
+                                <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="JCi-fy-bNU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="pmP-op-nMm" firstAttribute="top" secondItem="FFk-B4-heZ" secondAttribute="bottom" constant="20" id="1ig-LC-wQz"/>
+                        <constraint firstAttribute="height" constant="462" id="5ow-gE-0gv"/>
+                        <constraint firstItem="o7J-WM-t6n" firstAttribute="centerX" secondItem="njl-Q6-KNX" secondAttribute="centerX" id="7V2-ff-5yl"/>
+                        <constraint firstItem="4Te-i0-tEp" firstAttribute="top" secondItem="njl-Q6-KNX" secondAttribute="top" constant="40" id="7Vs-uE-H5b"/>
+                        <constraint firstItem="2nm-8D-SRv" firstAttribute="centerY" secondItem="7Gl-CM-HLe" secondAttribute="centerY" id="94S-Fn-E55"/>
+                        <constraint firstItem="7Gl-CM-HLe" firstAttribute="leading" secondItem="pmP-op-nMm" secondAttribute="trailing" constant="1" id="Ah4-cU-GRq"/>
+                        <constraint firstItem="FFk-B4-heZ" firstAttribute="top" secondItem="4Te-i0-tEp" secondAttribute="bottom" constant="20" id="C2Q-9J-kYx"/>
+                        <constraint firstItem="FFk-B4-heZ" firstAttribute="leading" secondItem="njl-Q6-KNX" secondAttribute="leading" constant="18" id="Dzp-Ew-dfP"/>
+                        <constraint firstAttribute="trailing" secondItem="JhY-JX-wvQ" secondAttribute="trailing" constant="30" id="IjM-se-S7l"/>
+                        <constraint firstItem="2nm-8D-SRv" firstAttribute="leading" secondItem="Qlv-vb-1mz" secondAttribute="trailing" constant="1" id="ORc-R9-peJ"/>
+                        <constraint firstItem="o7J-WM-t6n" firstAttribute="width" secondItem="JhY-JX-wvQ" secondAttribute="width" id="SFm-LT-HaA"/>
+                        <constraint firstAttribute="width" constant="301" id="Sgl-99-whQ"/>
+                        <constraint firstItem="JhY-JX-wvQ" firstAttribute="leading" secondItem="njl-Q6-KNX" secondAttribute="leading" constant="30" id="WN6-V3-H5u"/>
+                        <constraint firstAttribute="trailing" secondItem="FFk-B4-heZ" secondAttribute="trailing" constant="18" id="Xlt-Z0-RWo"/>
+                        <constraint firstItem="4Te-i0-tEp" firstAttribute="centerX" secondItem="njl-Q6-KNX" secondAttribute="centerX" id="bxm-g7-ZUk"/>
+                        <constraint firstItem="JhY-JX-wvQ" firstAttribute="top" secondItem="7Gl-CM-HLe" secondAttribute="bottom" constant="30" id="cD2-nk-MSh"/>
+                        <constraint firstItem="JhY-JX-wvQ" firstAttribute="centerX" secondItem="njl-Q6-KNX" secondAttribute="centerX" id="gmj-0w-LwS"/>
+                        <constraint firstItem="7Gl-CM-HLe" firstAttribute="centerY" secondItem="pmP-op-nMm" secondAttribute="centerY" id="hew-2o-KfL"/>
+                        <constraint firstItem="pmP-op-nMm" firstAttribute="leading" secondItem="njl-Q6-KNX" secondAttribute="leading" constant="20" id="m8U-Xt-lnS"/>
+                        <constraint firstItem="o7J-WM-t6n" firstAttribute="top" secondItem="JhY-JX-wvQ" secondAttribute="bottom" constant="10" id="rAE-qe-xP1"/>
+                        <constraint firstItem="Qlv-vb-1mz" firstAttribute="leading" secondItem="7Gl-CM-HLe" secondAttribute="trailing" constant="1" id="tHy-qC-gP4"/>
+                        <constraint firstItem="Qlv-vb-1mz" firstAttribute="centerY" secondItem="7Gl-CM-HLe" secondAttribute="centerY" id="v7q-re-fKV"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GNL-6D-eZD" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="E4X-Sr-aeQ"/>
+                <constraint firstItem="njl-Q6-KNX" firstAttribute="centerY" secondItem="GNL-6D-eZD" secondAttribute="centerY" id="OyG-J6-ewS"/>
+                <constraint firstItem="GNL-6D-eZD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bPg-7E-iVw"/>
+                <constraint firstAttribute="bottom" secondItem="GNL-6D-eZD" secondAttribute="bottom" id="j5l-dX-G4n"/>
+                <constraint firstItem="njl-Q6-KNX" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="nEX-Q8-wVs"/>
+                <constraint firstItem="GNL-6D-eZD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sOO-DO-auc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="maskBgView" destination="GNL-6D-eZD" id="L28-4b-5Uv"/>
+            </connections>
+            <point key="canvasLocation" x="-55" y="-6"/>
+        </view>
+    </objects>
+</document>

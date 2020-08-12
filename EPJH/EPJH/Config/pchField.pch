@@ -1,0 +1,60 @@
+//
+//  pchField.pch
+//  EPJH
+//
+//  Created by Hans on 2020/7/15.
+//  Copyright © 2020 hans3d. All rights reserved.
+//
+
+#ifndef pchField_pch
+#define pchField_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+#import "AppDelegate.h"
+
+//第三方框架引用
+#import "Masonry.h"
+#import "YYModel.h"
+#import "MJRefresh.h"
+#import "MJExtension.h"
+#import "AFNetworking.h"
+#import "SDCycleScrollView.h"
+#import "IQKeyboardManager.h"
+#import "ZipArchive.h" 
+
+// 基类
+#import "RootView.h"
+#import "RootViewModel.h"
+#import "RootTableViewCell.h"
+#import "RootViewController.h"
+#import "RootNavigationController.h"
+
+// 全局配置
+#import "AppURL.h"
+#import "AppTools.h"
+#import "AppCommon.h"
+
+// 封装全局工具类
+#import "AppJump.h"
+#import "AppUtils.h"
+#import "AppNetRequest.h"
+#import "MBProgressHUD+CZ.h"
+#import "UIView+Extension.h"
+
+#endif
+
+
+
+
+
+#endif /* pchField_pch */
+
+
