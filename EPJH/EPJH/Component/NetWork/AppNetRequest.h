@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 //图片上传
 -(void)AF_UploadImgWithHeaderUrlStr:(UIImage *)image Parameter:(id)parameter completion:(void (^)(NSDictionary *dic,NSError *error))completion;
 
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

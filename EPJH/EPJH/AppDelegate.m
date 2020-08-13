@@ -31,7 +31,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application { }
 
 - (void)loadRootViewController {
-    
+//    [AppJump goProjectTest]; return;
     if ( [AppJump isNewFeature]) { [AppJump goLaunch]; }
     else{ if ([AppJump isLogin]) { [AppJump goHomeVC]; } else { [AppJump goLoginVC]; } }
 }

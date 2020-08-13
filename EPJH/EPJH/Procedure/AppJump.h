@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 是否第一次登陆
 + (BOOL)isNewFeature;
 
+// 项目测试
++ (void)goProjectTest;
+
 @end
 
 NS_ASSUME_NONNULL_END

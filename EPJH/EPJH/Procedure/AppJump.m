@@ -10,6 +10,7 @@
 #import "EPLaunchViewCtl.h"
 #import "EPLoginViewCtl.h"
 #import "EPHomeViewCtl.h"
+#import "ViewController.h"
 
 @implementation AppJump
 
@@ -78,6 +79,15 @@
     [[NSUserDefaults standardUserDefaults] setObject:curVersion forKey:kVersionKey];
     
     return YES;
+}
+
+
+// 项目测试
++ (void)goProjectTest{
+    
+    ViewController *Vc = [[ViewController alloc] init];
+    UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
+    window.rootViewController = Vc;
 }
 
 
