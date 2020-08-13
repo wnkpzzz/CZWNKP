@@ -53,7 +53,7 @@
                 <constraint firstAttribute="trailing" secondItem="d2Q-Go-com" secondAttribute="trailing" id="wHH-Se-6i2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-158" y="146"/>
+            <point key="canvasLocation" x="125" y="122"/>
         </view>
     </objects>
 </document>

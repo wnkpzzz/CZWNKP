@@ -130,10 +130,13 @@
 /** 底部视图点击回调 */
 - (void)bottomViewSelectWithIndex:(NSInteger)index{
     
+    
+    
 //    [self checkIsHaveOpenCameraJurisdiction];
 //
-//    YPCameraController *cameraVC = [[YPCameraController alloc] init];
-//    [cameraVC reloadDataWithModel:[_model mutableCopy] photoArr:[self.photoArr mutableCopy] nowIndex:index];
+//    EPPopCameraViewCtl *Vc = [[EPPopCameraViewCtl alloc] init];
+    
+//    [Vc reloadDataWithModel:[_model mutableCopy] photoArr:[self.makePhotoArrays mutableCopy] nowIndex:index];
 //    WS(weakSelf);
 //    // 数据回传
 //    cameraVC.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
