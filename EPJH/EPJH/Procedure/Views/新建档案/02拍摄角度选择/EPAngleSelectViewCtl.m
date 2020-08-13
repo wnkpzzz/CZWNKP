@@ -42,6 +42,8 @@
     
     [self checkReminderAction]; // 检测弹框提醒
     [self createTableView];     // 初始化TableView
+    [self loadDefaultImageWithList:nil]; // 加载默认图片
+
 }
  
 #pragma mark - 事件处理
@@ -220,7 +222,7 @@
            photoModel.partsIndex = self.partsIndex;
            photoModel.index = i;
            if ([listArrays[i] rangeOfString:@"jpg"].location == NSNotFound) {
-               // 显示对比图
+              
                photoModel.defaultImage = [[SqliteManager sharedInstance] getImageFromSandboxWithName:listArrays[i] isBigPic:NO isOriginal:NO];
            }
            photoModel.title = kPartsImgsPoNameArr[self.partsIndex][i];
