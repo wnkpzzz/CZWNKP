@@ -39,7 +39,7 @@
        
     self.rowIndex = 0;
     self.isShowAdd = NO;
-//    self.collectionItems = [NSMutableArray arrayWithCapacity:10];
+    self.collectionItems = [NSMutableArray arrayWithCapacity:10];
     
     [self createCollectionView];
 }

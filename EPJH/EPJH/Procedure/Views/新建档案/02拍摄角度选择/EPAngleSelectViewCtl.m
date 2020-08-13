@@ -22,7 +22,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"拍摄角度选择";
  
-
     [self loadBaseConfig];
 }
 
@@ -166,7 +165,7 @@
     if (self.userModel.uid.length > 0 && ![self.proModel.subCateId isEqualToString:kShuQianID]) {
         [self loadImgDataForDataBase];  // 从数据库查询数据
     }else{
-        [self loadDefaultImageWithList:nil];  //
+        [self loadDefaultImageWithList:nil];
     }
 }
 
