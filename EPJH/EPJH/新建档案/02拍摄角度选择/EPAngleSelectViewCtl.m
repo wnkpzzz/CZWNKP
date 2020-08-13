@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;                     // 节点索引
-@property (nonatomic, strong) NSMutableArray<EPPhotoModel *> *takePhotoArray; // 拍照结果数组
+@property (nonatomic, strong) NSMutableArray<EPPhotoModel *> * makePhotoArrays; // 拍照结果数组
 
 @end
 
@@ -22,17 +22,15 @@
     [super viewDidLoad];
     self.navigationItem.title = @"拍摄角度选择";
  
+
     [self loadBaseConfig];
 }
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
     
-    // 检测弹框提醒
-    [self checkReminderAction];
-    // 初始化TableView
-    [self createTableView];
-     
+    self.makePhotoArrays = [NSMutableArray arrayWithCapacity:12];
+ 
     // 在这里初始化项目Model
     self.proModel = [[EPProjectModel alloc] init];
     self.proModel.cameraArr = [NSMutableArray arrayWithCapacity:12];
@@ -43,7 +41,8 @@
     self.proModel.cateId = kMianBuID;
     self.proModel.cateName = kPartsNameArr[0];
     
-    
+    [self checkReminderAction]; // 检测弹框提醒
+    [self createTableView];     // 初始化TableView
 }
  
 #pragma mark - 事件处理
@@ -145,16 +144,89 @@
 //    });
 }
 
+/** 拍照界面数据回传 */
+- (void)updateForModel:(EPProjectModel *)proModel array:(NSArray *)photoArr{
+
+    self.proModel = proModel;
+    
+    // 第二次补充拍摄（第二次补充拍摄的内容个数 >= 第一次拍摄的内容个数）
+    NSMutableArray *newArr = [NSMutableArray array];
+    [newArr addObjectsFromArray:photoArr];
+
+    [self.makePhotoArrays removeAllObjects];
+    [self.makePhotoArrays addObjectsFromArray:newArr];
+    [self.tableView reloadData];
+}
+
 /** 重置默认图片 */
 - (void)resetDefaultImage{
     
-//    [self.photoArr removeAllObjects];
-//    // 旧用户更新数据
-//    if (_userModel.uid.length > 0 && ![_model.subCateId isEqualToString:kShuQianID]) {
-//        [self loadImgDataForDataBase];  // 从数据库查询数据
-//    }else{
-//        [self loadDefaultImageWithList:nil];  //
-//    }
+    [self.makePhotoArrays removeAllObjects];
+    // 旧用户更新数据
+    if (self.userModel.uid.length > 0 && ![self.proModel.subCateId isEqualToString:kShuQianID]) {
+        [self loadImgDataForDataBase];  // 从数据库查询数据
+    }else{
+        [self loadDefaultImageWithList:nil];  //
+    }
+}
+
+/** 从数据库查询用户已有的数据 */
+- (void)loadImgDataForDataBase{
+    
+}
+
+/** 加载角度图片(list:对比图数组) */
+- (void)loadDefaultImageWithList:(NSMutableArray *)listArrays{
+    
+    [self.proModel.cameraArr removeAllObjects]; // 清空
+       [self.makePhotoArrays removeAllObjects]; // 清空
+       NSMutableArray *sortIdList = [NSMutableArray arrayWithCapacity:12];   // 部位ID数组
+       NSMutableArray *sortNameList = [NSMutableArray arrayWithCapacity:12]; // 部位名称数组
+       NSMutableArray *myImgList = [NSMutableArray arrayWithCapacity:12];    // 本次拍照数组
+       [sortIdList addObjectsFromArray:kPartsImgsPoIDArr[self.partsIndex]];
+       [sortNameList addObjectsFromArray:kPartsImgsPoNameArr[self.partsIndex]];
+       
+    if (!listArrays) {
+           listArrays = [NSMutableArray arrayWithCapacity:12]; // 对比图数组
+           [myImgList addObjectsFromArray:kDefaultTempImageArray[self.partsIndex]];
+           [listArrays addObjectsFromArray:kDefaultTempImageArray[self.partsIndex]];
+           // 删除非默认数据
+           [myImgList removeObjectsInRange:NSMakeRange([kPartsCountArr[self.partsIndex] intValue], 12 - [kPartsCountArr[self.partsIndex] intValue])];
+           [listArrays removeObjectsInRange:NSMakeRange([kPartsCountArr[self.partsIndex] intValue], 12 - [kPartsCountArr[self.partsIndex] intValue])];
+       }else{
+           for (int i = 0; i < listArrays.count; i++) {
+               [myImgList addObject:kDefaultTempImageArray[self.partsIndex][i]];
+               if ([[listArrays objectAtIndex:i] isEqualToString:@"占位数据"]) {
+                   [listArrays replaceObjectAtIndex:i withObject:kDefaultTempImageArray[self.partsIndex][i]];
+               }
+           }
+       }
+       // 默认显示的展示图
+       for (int i = 0; i < listArrays.count; i++) {
+           EPImageModel *modelPic = [EPImageModel new];
+           modelPic.subCateId = self.proModel.subCateId;
+           modelPic.subCateName = self.proModel.subCateName;
+           modelPic.cateId = self.proModel.cateId;
+           modelPic.cateName = self.proModel.cateName;
+           modelPic.sort = i;
+           modelPic.sortId = sortIdList[i];
+           modelPic.sortName = sortNameList[i];
+           modelPic.isPaiZhaoFlag = @"NO";
+           modelPic.cameraImgStr = myImgList[i];
+           modelPic.tempImgStr = listArrays[i];
+           modelPic.composeImgStr = @"";
+           [self.proModel.cameraArr addObject:modelPic];
+           
+           EPPhotoModel *photoModel = [EPPhotoModel new];
+           photoModel.partsIndex = self.partsIndex;
+           photoModel.index = i;
+           if ([listArrays[i] rangeOfString:@"jpg"].location == NSNotFound) {
+               // 显示对比图
+//               photoModel.defaultImage = [[SqliteManager sharedInstance] getImageWithName:list[i]];
+           }
+           photoModel.title = kPartsImgsPoNameArr[self.partsIndex][i];
+           [self.makePhotoArrays addObject:photoModel];
+       }
 }
 
 #pragma mark - UITableViewDataSource
@@ -220,17 +292,16 @@
         
     }else{
     
-       EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
-       cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//       cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
+        EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if ([self.proModel.subCateId isEqualToString:kShuQianID]) { cell.isShowAdd = YES; }else{ cell.isShowAdd = NO; }
+        [cell reloadDataSource:self.makePhotoArrays]; // 传入图片数组
+        cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
          
        return cell;
     }
 
 
 }
-
- 
-
 
 @end

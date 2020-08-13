@@ -48,6 +48,7 @@
 #import "AppUtils.h"
 #import "AppNetRequest.h"
 #import "MBProgressHUD+CZ.h"
+#import "SqilteConfig.h"
 
 // 分类扩展
 #import "UIColor+Util.h"

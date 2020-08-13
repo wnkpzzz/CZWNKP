@@ -39,7 +39,7 @@
        
     self.rowIndex = 0;
     self.isShowAdd = NO;
-    self.collectionItems = [NSMutableArray arrayWithCapacity:10];
+//    self.collectionItems = [NSMutableArray arrayWithCapacity:10];
     
     [self createCollectionView];
 }
@@ -49,7 +49,7 @@
     [self.collectionItems removeAllObjects]; // 清空
     [self.collectionItems addObjectsFromArray:dataArray];// 构造新数据源，新增加号占位图
        
-    if (dataArray.count < 12 && _isShowAdd) {
+    if (dataArray.count < 12 && self.isShowAdd) {
         EPPhotoModel *model = [EPPhotoModel new];
         model.cameraImage = [UIImage imageNamed:@"icon_pro_img_outLline"];
         model.title = @"添加";

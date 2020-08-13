@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_pro_right_arrow.png",
+      "filename" : "icon_pro_puzzle_infooff.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_pro_right_arrow@2x.png",
+      "filename" : "icon_pro_puzzle_infooff@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_pro_right_arrow@3x.png",
+      "filename" : "icon_pro_puzzle_infooff@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

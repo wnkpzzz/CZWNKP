@@ -23,14 +23,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-73-XYk">
-                        <rect key="frame" x="343" y="0.0" width="50" height="50"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-73-XYk">
+                        <rect key="frame" x="90.5" y="0.0" width="292.5" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="6eJ-73-XYk" secondAttribute="height" multiplier="1:1" id="foA-9m-bqX"/>
-                            <constraint firstAttribute="width" constant="50" id="heZ-1m-1eX"/>
+                            <constraint firstAttribute="height" constant="50" id="2OK-4P-PWG"/>
                         </constraints>
-                        <state key="normal" image="icon_pro_right_arrow"/>
-                        <state key="selected" image="puzzle_infoon"/>
+                        <state key="normal" image="icon_pro_puzzle_infooff"/>
+                        <state key="selected" image="icon_pro_puzzle_infoon"/>
                         <connections>
                             <action selector="shouAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="A95-pG-MW6"/>
                         </connections>
@@ -51,12 +50,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ldB-W3-MBc" firstAttribute="top" secondItem="PUJ-Hk-baE" secondAttribute="bottom" constant="11" id="8I5-NG-JjS"/>
-                    <constraint firstAttribute="trailing" secondItem="6eJ-73-XYk" secondAttribute="trailing" constant="5" id="EF2-nJ-lEG"/>
+                    <constraint firstAttribute="trailing" secondItem="6eJ-73-XYk" secondAttribute="trailing" constant="15" id="EF2-nJ-lEG"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ldB-W3-MBc" secondAttribute="bottom" constant="5" id="GH0-U9-ur6"/>
                     <constraint firstItem="PUJ-Hk-baE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Pxo-nO-DWM"/>
                     <constraint firstAttribute="trailing" secondItem="ldB-W3-MBc" secondAttribute="trailing" id="UQF-eU-UOk"/>
                     <constraint firstItem="ldB-W3-MBc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aeC-D3-EZB"/>
                     <constraint firstItem="6eJ-73-XYk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bfT-6V-LG3"/>
+                    <constraint firstItem="6eJ-73-XYk" firstAttribute="leading" secondItem="PUJ-Hk-baE" secondAttribute="trailing" constant="5" id="lbr-Sc-bLj"/>
                     <constraint firstItem="PUJ-Hk-baE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pKQ-gx-nqm"/>
                 </constraints>
             </tableViewCellContentView>
@@ -66,11 +66,11 @@
                 <outlet property="selectViewHeight" destination="INQ-MB-M01" id="VuE-FT-BDM"/>
                 <outlet property="showBtn" destination="6eJ-73-XYk" id="1xN-Ky-ydd"/>
             </connections>
-            <point key="canvasLocation" x="-310.14492753623193" y="-235.71428571428569"/>
+            <point key="canvasLocation" x="16" y="-366"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_pro_right_arrow" width="8" height="15"/>
-        <image name="puzzle_infoon" width="128" height="128"/>
+        <image name="icon_pro_puzzle_infooff" width="8" height="15"/>
+        <image name="icon_pro_puzzle_infoon" width="15" height="8"/>
     </resources>
 </document>
