@@ -222,7 +222,7 @@
            photoModel.index = i;
            if ([listArrays[i] rangeOfString:@"jpg"].location == NSNotFound) {
                // 显示对比图
-//               photoModel.defaultImage = [[SqliteManager sharedInstance] getImageWithName:list[i]];
+               photoModel.defaultImage = [[SqliteManager sharedInstance] getImageFromSandboxWithName:listArrays[i] isBigPic:NO isOriginal:NO];
            }
            photoModel.title = kPartsImgsPoNameArr[self.partsIndex][i];
            [self.makePhotoArrays addObject:photoModel];
