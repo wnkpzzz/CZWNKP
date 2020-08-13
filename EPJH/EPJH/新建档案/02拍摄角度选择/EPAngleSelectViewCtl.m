@@ -170,8 +170,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[EPAngleHeaderCell class] forCellReuseIdentifier:[EPAngleHeaderCell cellID]];
-    [self.tableView registerClass:[EPAngleSelectCell class] forCellReuseIdentifier:[EPAngleSelectCell cellID]];
-    [self.tableView registerClass:[EPAngleBottomCell class] forCellReuseIdentifier:[EPAngleBottomCell cellID]];
+    [self.tableView registerNib:[UINib nibWithNibName:[EPAngleSelectCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleSelectCell cellID]];
+    [self.tableView registerNib:[UINib nibWithNibName:[EPAngleBottomCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleBottomCell cellID]];
 
 }
 
@@ -212,7 +212,7 @@
         
         EPAngleSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleSelectCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        [cell reloadDataWithArray:kPartsNameArr];
         return cell;
         
     }else{

@@ -23,5 +23,6 @@
 #import "EPAngleHeaderCell.h"
 #import "EPAngleSelectCell.h"
 #import "EPAngleBottomCell.h"
+#import "EPAngleSelectColCell.h"
 
 #endif /* EPProjectHeadFileHandler_h */

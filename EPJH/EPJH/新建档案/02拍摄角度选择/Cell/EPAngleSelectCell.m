@@ -25,32 +25,31 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self loadBaseConfig];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//}
 
-    // Configure the view for the selected state
-}
+#pragma mark - 基础配置
 
-- (void)setupUI{
+- (void)loadBaseConfig{
        
     self.rowIndex = 0;
     self.selectedIndex = 0;
-    
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake((APP_WIDTH - 40 - kWidth(60))/5, kWidth(20));
-    flowLayout.minimumLineSpacing = kWidth(10);
-    flowLayout.minimumInteritemSpacing = kWidth(15);
-    flowLayout.sectionInset = UIEdgeInsetsMake(kWidth(10), 20, 0, 20);
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.selectView.collectionViewLayout = flowLayout;
-//    [self.selectView registerClass:[YPAngleSelectColCell class] forCellWithReuseIdentifier:ID_YPAngleSelectColCell];
-    self.selectViewHeight.constant = kWidth(30);
-    self.selectView.delegate = self;
-    self.selectView.dataSource = self;
+    [self createCollectionView];
 }
 
+- (void)reloadDataWithArray:(NSArray *)dataArray{
+    
+    self.titleArr = [[NSArray alloc] init];
+    self.titleArr = [NSArray arrayWithArray:dataArray];
+    [self.selectView reloadData];
+    self.rowIndex = self.titleArr.count%5==0?self.titleArr.count%5:(self.titleArr.count%5+1);
+}
 
 - (IBAction)shouAction:(UIButton *)sender{
     
@@ -65,4 +64,53 @@
     }
 }
 
+#pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
+- (void)createCollectionView{
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake((APP_WIDTH - 40 - kWidth(60))/5, kWidth(20));
+    flowLayout.minimumLineSpacing = kWidth(10);
+    flowLayout.minimumInteritemSpacing = kWidth(15);
+    flowLayout.sectionInset = UIEdgeInsetsMake(kWidth(10), 20, 0, 20);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self.selectView.collectionViewLayout = flowLayout;
+    
+    self.selectView.delegate = self;
+    self.selectView.dataSource = self;
+    self.selectViewHeight.constant = kWidth(30);
+    [self.selectView registerClass:[EPAngleSelectColCell class] forCellWithReuseIdentifier:[EPAngleSelectColCell cellID]];
+
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.titleArr.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EPAngleSelectColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPAngleSelectColCell cellID] forIndexPath:indexPath];
+    cell.mainLabel.text = self.titleArr[indexPath.item];
+    if (_selectedIndex == indexPath.item) {
+        cell.mainLabel.textColor = [UIColor whiteColor];
+        cell.mainLabel.backgroundColor = [UIColor colorWithHexString:@"#00B0FF"];
+    }else{
+        cell.mainLabel.textColor = [UIColor colorWithHexString:@"#737373"];
+        cell.mainLabel.backgroundColor = [UIColor colorWithHexString:@"#FAFAFA"];
+    }
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (_selectedIndex == indexPath.item) {
+        return;
+    }
+    if (self.selectBlock) {
+        self.selectBlock(indexPath.item);
+    }
+    _selectedIndex = indexPath.item;
+    [self.selectView reloadData];
+}
+
 @end
+

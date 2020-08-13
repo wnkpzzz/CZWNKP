@@ -76,6 +76,9 @@
 		ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86405F24D7E88400FD7F7D /* EPProjectModel.m */; };
 		ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86406224D7E89200FD7F7D /* EPUserInfoModel.m */; };
 		ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86406524D7E8FF00FD7F7D /* EPImageModel.m */; };
+		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
+		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
+		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +227,12 @@
 		ED86406224D7E89200FD7F7D /* EPUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPUserInfoModel.m; sourceTree = "<group>"; };
 		ED86406424D7E8FF00FD7F7D /* EPImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPImageModel.h; sourceTree = "<group>"; };
 		ED86406524D7E8FF00FD7F7D /* EPImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPImageModel.m; sourceTree = "<group>"; };
+		ED991AB424E51C68006F819C /* EPAngleSelectColCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleSelectColCell.h; sourceTree = "<group>"; };
+		ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleSelectColCell.m; sourceTree = "<group>"; };
+		ED991AB724E51CD5006F819C /* RootCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootCollectionViewCell.h; sourceTree = "<group>"; };
+		ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewCell.m; sourceTree = "<group>"; };
+		ED991ABB24E52302006F819C /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
+		ED991ABC24E52302006F819C /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +409,8 @@
 			children = (
 				ED74A6F224BFEDA200D9FA77 /* UIView+Extension.h */,
 				ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */,
+				ED991ABB24E52302006F819C /* UIColor+Util.h */,
+				ED991ABC24E52302006F819C /* UIColor+Util.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -429,6 +440,8 @@
 				ED3B554724BED945008CBB51 /* RootViewController.m */,
 				ED3B554C24BED964008CBB51 /* RootTableViewCell.h */,
 				ED3B554D24BED964008CBB51 /* RootTableViewCell.m */,
+				ED991AB724E51CD5006F819C /* RootCollectionViewCell.h */,
+				ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */,
 				ED3B554924BED953008CBB51 /* RootNavigationController.h */,
 				ED3B554A24BED953008CBB51 /* RootNavigationController.m */,
 				ED74A6F524BFEE0E00D9FA77 /* RootTableViewDataSource.h */,
@@ -572,6 +585,8 @@
 		ED43B4C424E4019C004E2600 /* SubCell */ = {
 			isa = PBXGroup;
 			children = (
+				ED991AB424E51C68006F819C /* EPAngleSelectColCell.h */,
+				ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */,
 			);
 			path = SubCell;
 			sourceTree = "<group>";
@@ -1031,6 +1046,7 @@
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
 				ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */,
+				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
 				ED3B559624BF0477008CBB51 /* SuccessToOriginController.m in Sources */,
@@ -1039,6 +1055,7 @@
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
 				ED3B554E24BED964008CBB51 /* RootTableViewCell.m in Sources */,
+				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,
 				ED3B553924BED868008CBB51 /* AppDelegate+Common.m in Sources */,
 				ED3B554524BED934008CBB51 /* AppNetRequest.m in Sources */,
 				ED3B558B24BEFB7E008CBB51 /* AppUtils.m in Sources */,
@@ -1054,6 +1071,7 @@
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
 				ED43B4C224E3F7B9004E2600 /* EPPopCameraViewCtl.m in Sources */,
+				ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */,
 				ED86405C24D7E7BD00FD7F7D /* EPUserSelectViewCtl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

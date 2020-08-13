@@ -35,6 +35,7 @@
 #import "RootViewModel.h"
 #import "RootTableViewCell.h"
 #import "RootViewController.h"
+#import "RootCollectionViewCell.h"
 #import "RootNavigationController.h"
 
 // 全局配置
@@ -47,6 +48,9 @@
 #import "AppUtils.h"
 #import "AppNetRequest.h"
 #import "MBProgressHUD+CZ.h"
+
+// 分类扩展
+#import "UIColor+Util.h"
 #import "UIView+Extension.h"
 
 #endif
