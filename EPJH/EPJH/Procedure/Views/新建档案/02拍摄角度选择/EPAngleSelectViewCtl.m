@@ -129,23 +129,19 @@
 
 /** 底部视图点击回调 */
 - (void)bottomViewSelectWithIndex:(NSInteger)index{
+     
+    WS(weakSelf);
+    EPPopCameraViewCtl *Vc = [[EPPopCameraViewCtl alloc] init];
+//    [Vc reloadDataWithModel:[self.proModel mutableCopy] photoArr:[self.makePhotoArrays mutableCopy] nowIndex:index];
+    Vc.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
+        [weakSelf updateForModel:proModel array:photoArr];
+    };
+    Vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:Vc animated:YES completion:nil];
+    });
     
-    
-    
-//    [self checkIsHaveOpenCameraJurisdiction];
-//
-//    EPPopCameraViewCtl *Vc = [[EPPopCameraViewCtl alloc] init];
-    
-//    [Vc reloadDataWithModel:[_model mutableCopy] photoArr:[self.makePhotoArrays mutableCopy] nowIndex:index];
-//    WS(weakSelf);
-//    // 数据回传
-//    cameraVC.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
-//        [weakSelf updateForModel:proModel array:photoArr];
-//    };
-//    cameraVC.modalPresentationStyle = UIModalPresentationFullScreen;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self presentViewController:cameraVC animated:YES completion:nil];
-//    });
+ 
 }
 
 /** 拍照界面数据回传 */

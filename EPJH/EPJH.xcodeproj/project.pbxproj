@@ -130,6 +130,7 @@
 		ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A6F624BFEE0E00D9FA77 /* RootTableViewDataSource.m */; };
 		ED74A70824C0049E00D9FA77 /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A70724C0049E00D9FA77 /* RootView.m */; };
 		ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A71924C024C900D9FA77 /* LoginViewModel.m */; };
+		ED74C7F924E5627900834A7F /* AppPhotoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74C7F824E5627900834A7F /* AppPhotoUtils.m */; };
 		ED81FF4224CE740B009844CB /* backItemImage_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED81FF4024CE740B009844CB /* backItemImage_hl@2x.png */; };
 		ED81FF4324CE740B009844CB /* backItemImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED81FF4124CE740B009844CB /* backItemImage@2x.png */; };
 		ED84879424C9A239002B3964 /* EPUserCenterViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED84879224C9A239002B3964 /* EPUserCenterViewCtl.m */; };
@@ -349,6 +350,8 @@
 		ED74A70724C0049E00D9FA77 /* RootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootView.m; sourceTree = "<group>"; };
 		ED74A71824C024C900D9FA77 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		ED74A71924C024C900D9FA77 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		ED74C7F724E5627900834A7F /* AppPhotoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPhotoUtils.h; sourceTree = "<group>"; };
+		ED74C7F824E5627900834A7F /* AppPhotoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppPhotoUtils.m; sourceTree = "<group>"; };
 		ED81FF4024CE740B009844CB /* backItemImage_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backItemImage_hl@2x.png"; sourceTree = "<group>"; };
 		ED81FF4124CE740B009844CB /* backItemImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backItemImage@2x.png"; sourceTree = "<group>"; };
 		ED84879124C9A239002B3964 /* EPUserCenterViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPUserCenterViewCtl.h; sourceTree = "<group>"; };
@@ -634,7 +637,6 @@
 				ED3B553D24BED914008CBB51 /* DataBase */,
 				ED3B553E24BED914008CBB51 /* Library */,
 				ED3B554224BED914008CBB51 /* Root */,
-				ED3B554024BED914008CBB51 /* Tools */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -658,10 +660,9 @@
 				ED3B553C24BED8A0008CBB51 /* AppURL.h */,
 				ED3B553B24BED896008CBB51 /* AppTools.h */,
 				ED3B553A24BED88A008CBB51 /* AppCommon.h */,
-				ED3B558924BEFB7E008CBB51 /* AppUtils.h */,
-				ED3B558A24BEFB7E008CBB51 /* AppUtils.m */,
 				ED3B553724BED868008CBB51 /* AppDelegate+Common.h */,
 				ED3B553824BED868008CBB51 /* AppDelegate+Common.m */,
+				ED3B554024BED914008CBB51 /* Tools */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -701,6 +702,10 @@
 		ED3B554024BED914008CBB51 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ED3B558924BEFB7E008CBB51 /* AppUtils.h */,
+				ED3B558A24BEFB7E008CBB51 /* AppUtils.m */,
+				ED74C7F724E5627900834A7F /* AppPhotoUtils.h */,
+				ED74C7F824E5627900834A7F /* AppPhotoUtils.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1370,6 +1375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED09A13324CEA1B900045106 /* EPAngleHeaderCell.m in Sources */,
+				ED74C7F924E5627900834A7F /* AppPhotoUtils.m in Sources */,
 				ED86405224D7E6A900FD7F7D /* EPAngleSelectViewCtl.m in Sources */,
 				ED3E678F24C061140055B4E7 /* EPHomeCollectionView.m in Sources */,
 				ED0A7FBA24E53F16005E3DC3 /* SqliteData.m in Sources */,

@@ -46,6 +46,7 @@
 // 封装全局工具类
 #import "AppJump.h"
 #import "AppUtils.h"
+#import "AppPhotoUtils.h"
 #import "AppNetRequest.h"
 #import "MBProgressHUD+CZ.h"
 #import "SqilteConfig.h"
