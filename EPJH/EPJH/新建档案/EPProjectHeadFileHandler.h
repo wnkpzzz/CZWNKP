@@ -16,6 +16,7 @@
 
 #import "EPPopCameraViewCtl.h"       // 弹出拍照
 
+#import "EPPhotoModel.h"
 #import "EPImageModel.h"
 #import "EPProjectModel.h"
 #import "EPUserInfoModel.h"
@@ -24,5 +25,6 @@
 #import "EPAngleSelectCell.h"
 #import "EPAngleBottomCell.h"
 #import "EPAngleSelectColCell.h"
+#import "EPBottomImgSelectColCell.h"
 
 #endif /* EPProjectHeadFileHandler_h */

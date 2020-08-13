@@ -28,12 +28,12 @@
     [self loadBaseConfig];
 }
 
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
 
+    // Configure the view for the selected state
+}
+ 
 #pragma mark - 基础配置
 
 - (void)loadBaseConfig{
@@ -65,6 +65,7 @@
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
+
 - (void)createCollectionView{
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -90,7 +91,7 @@
     
     EPAngleSelectColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPAngleSelectColCell cellID] forIndexPath:indexPath];
     cell.mainLabel.text = self.titleArr[indexPath.item];
-    if (_selectedIndex == indexPath.item) {
+    if (self.selectedIndex == indexPath.item) {
         cell.mainLabel.textColor = [UIColor whiteColor];
         cell.mainLabel.backgroundColor = [UIColor colorWithHexString:@"#00B0FF"];
     }else{
@@ -102,13 +103,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (_selectedIndex == indexPath.item) {
-        return;
-    }
-    if (self.selectBlock) {
-        self.selectBlock(indexPath.item);
-    }
-    _selectedIndex = indexPath.item;
+    if (self.selectedIndex == indexPath.item) { return; }
+    if (self.selectBlock) { self.selectBlock(indexPath.item);} 
+    self.selectedIndex = indexPath.item;
     [self.selectView reloadData];
 }
 

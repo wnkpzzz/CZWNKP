@@ -12,6 +12,9 @@
 		ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */; };
 		ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */; };
 		ED09A13D24CEA1D900045106 /* EPAngleBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */; };
+		ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */; };
+		ED0A7FA524E52910005E3DC3 /* EPBottomImgSelectColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0A7FA324E52910005E3DC3 /* EPBottomImgSelectColCell.xib */; };
+		ED0A7FA824E5328B005E3DC3 /* EPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
 		ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550924BEB0E8008CBB51 /* Assets.xcassets */; };
@@ -111,6 +114,11 @@
 		ED09A13924CEA1D900045106 /* EPAngleBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleBottomCell.h; sourceTree = "<group>"; };
 		ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleBottomCell.m; sourceTree = "<group>"; };
 		ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleBottomCell.xib; sourceTree = "<group>"; };
+		ED0A7FA124E52910005E3DC3 /* EPBottomImgSelectColCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPBottomImgSelectColCell.h; sourceTree = "<group>"; };
+		ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPBottomImgSelectColCell.m; sourceTree = "<group>"; };
+		ED0A7FA324E52910005E3DC3 /* EPBottomImgSelectColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPBottomImgSelectColCell.xib; sourceTree = "<group>"; };
+		ED0A7FA624E5328B005E3DC3 /* EPPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPhotoModel.h; sourceTree = "<group>"; };
+		ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPhotoModel.m; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 		ED09A13024CE9FD200045106 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				ED0A7FA924E532C3005E3DC3 /* Model */,
 				ED43B4C424E4019C004E2600 /* SubCell */,
 				ED09A13124CEA1B900045106 /* EPAngleHeaderCell.h */,
 				ED09A13224CEA1B900045106 /* EPAngleHeaderCell.m */,
@@ -284,6 +293,15 @@
 				ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		ED0A7FA924E532C3005E3DC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED0A7FA624E5328B005E3DC3 /* EPPhotoModel.h */,
+				ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ED3B54F424BEB0E7008CBB51 = {
@@ -587,6 +605,9 @@
 			children = (
 				ED991AB424E51C68006F819C /* EPAngleSelectColCell.h */,
 				ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */,
+				ED0A7FA124E52910005E3DC3 /* EPBottomImgSelectColCell.h */,
+				ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */,
+				ED0A7FA324E52910005E3DC3 /* EPBottomImgSelectColCell.xib */,
 			);
 			path = SubCell;
 			sourceTree = "<group>";
@@ -905,6 +926,7 @@
 				ED3B556424BEDC4B008CBB51 /* EPLaunchViewCtl.xib in Resources */,
 				ED86405824D7E77D00FD7F7D /* EPProjectSelectViewCtl.xib in Resources */,
 				ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */,
+				ED0A7FA524E52910005E3DC3 /* EPBottomImgSelectColCell.xib in Resources */,
 				ED3B557824BEE42B008CBB51 /* EPFindPwdViewCtl.xib in Resources */,
 				ED3B556E24BEDCD3008CBB51 /* EPHomeViewCtl.xib in Resources */,
 				ED44F46524CE83B700102BAA /* EPNewProjectViewCtl.xib in Resources */,
@@ -1047,10 +1069,12 @@
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
 				ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */,
 				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,
+				ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
 				ED3B559624BF0477008CBB51 /* SuccessToOriginController.m in Sources */,
 				ED3E678924C049170055B4E7 /* PopRegisterAgreementView.m in Sources */,
+				ED0A7FA824E5328B005E3DC3 /* EPPhotoModel.m in Sources */,
 				ED84879424C9A239002B3964 /* EPUserCenterViewCtl.m in Sources */,
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,

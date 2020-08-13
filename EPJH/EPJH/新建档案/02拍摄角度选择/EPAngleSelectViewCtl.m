@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;                     // 节点索引
+@property (nonatomic, strong) NSMutableArray<EPPhotoModel *> *takePhotoArray; // 拍照结果数组
 
 @end
 
@@ -91,8 +92,6 @@
         });
     }
 }
-
-
 
 #pragma mark - 事件处理
 
@@ -204,22 +203,27 @@
    
     WS(weakself)
     if (indexPath.section == 0) {
-       EPAngleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleHeaderCell cellID] forIndexPath:indexPath];
-           
-       cell.selectionStyle = UITableViewCellSelectionStyleNone;
-       return cell;
+        
+        EPAngleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleHeaderCell cellID] forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.clickBlock = ^(NSInteger selectIndex) { [weakself headerViewSelectWithIndex:selectIndex]; };
+        return cell;
+        
     }else if(indexPath.section == 1){
         
         EPAngleSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleSelectCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell reloadDataWithArray:kPartsNameArr];
+        cell.showBlock = ^{ [weakself.tableView reloadData]; };
+        cell.selectBlock = ^(NSInteger selectIndex) { [weakself selectViewSelectWithIndex:selectIndex]; };
         return cell;
         
     }else{
     
        EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+//       cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
+         
        return cell;
     }
 
