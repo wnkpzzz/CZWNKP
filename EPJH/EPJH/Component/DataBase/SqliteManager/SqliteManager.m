@@ -23,20 +23,17 @@
 
 @implementation SqliteManager
 
-//单例
+/** 单例 */
 + (instancetype)sharedInstance{
     static SqliteManager *g_instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         g_instance = [[SqliteManager alloc] init];
-        
     });
     return g_instance;
-    
 }
 
 #pragma mark --------------------------- 懒加载 ---------------------------
-
 
 - (NSMutableArray<CreatTable *> *)kUserInfoArray{
     if (!_kUserInfoArray) {
@@ -66,9 +63,7 @@
     return _kContrastInfoArray;
 }
 
-
 #pragma mark --------------------------- 图片存储 ---------------------------
-
 
 /*!
  * @getImageFromSandboxWithName
@@ -81,9 +76,9 @@
 - (UIImage *)getImageFromSandboxWithName:(NSString *)imageName isBigPic:(BOOL)isBigPic isOriginal:(BOOL)isCompress{
 
 
-    // imageNamed:加载时会缓存图片
-    // imageWithContentsOfFile:仅加载图片，图像数据不会缓存。因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
-        
+    //    imageNamed:加载时会缓存图片
+    //    imageWithContentsOfFile:仅加载图片，图像数据不会缓存。因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
+    //
     //    NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];
     //    UIImage *sandboxImage = [UIImage imageNamed:filePath];
     //    CGFloat scale = 1; if (isCompress) { scale = 1;}else{ scale = 0.01; }

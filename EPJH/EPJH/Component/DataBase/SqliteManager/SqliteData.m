@@ -17,7 +17,7 @@
 
 @implementation SqliteData
 
-//单例
+/** 单例 */
 + (instancetype)sharedInstance{
     static SqliteData *g_instance = nil;
     static dispatch_once_t onceToken;
