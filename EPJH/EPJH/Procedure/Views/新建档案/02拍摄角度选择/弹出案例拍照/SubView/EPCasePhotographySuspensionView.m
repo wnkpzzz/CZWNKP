@@ -1,14 +1,15 @@
 //
-//  EPPopCameraBottomView.m
+//  EPCasePhotographySuspensionView.m
 //  EPJH
 //
 //  Created by Hans on 2020/8/15.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "EPPopCameraBottomView.h"
+#import "EPCasePhotographySuspensionView.h"
 
-@interface EPPopCameraBottomView ()
+
+@interface EPCasePhotographySuspensionView ()
  
 @property (nonatomic,weak) UIButton *backButton; /** 返回按钮 */
 @property (nonatomic,weak) UIButton *saveButton; /** 完成并保存按钮 */
@@ -24,7 +25,7 @@
 
 @end
 
-@implementation EPPopCameraBottomView
+@implementation EPCasePhotographySuspensionView
 
 
 - (instancetype)initWithFrame:(CGRect)frame {

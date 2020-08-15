@@ -144,9 +144,10 @@
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
 		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
-		EDCC786D24E7924A00B0FC4C /* EPPopCameraBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */; };
 		EDCC787024E7957000B0FC4C /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */; };
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
+		EDCC787624E79A5300B0FC4C /* EPCasePhotographySuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */; };
+		EDCC787824E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -373,12 +374,13 @@
 		ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewCell.m; sourceTree = "<group>"; };
 		ED991ABB24E52302006F819C /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		ED991ABC24E52302006F819C /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
-		EDCC786B24E7924A00B0FC4C /* EPPopCameraBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPopCameraBottomView.h; sourceTree = "<group>"; };
-		EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPopCameraBottomView.m; sourceTree = "<group>"; };
 		EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
 		EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
 		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
 		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
+		EDCC787424E79A5300B0FC4C /* EPCasePhotographySuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographySuspensionView.h; sourceTree = "<group>"; };
+		EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographySuspensionView.m; sourceTree = "<group>"; };
+		EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographySuspensionView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1066,8 +1068,9 @@
 		EDCC786A24E7921B00B0FC4C /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				EDCC786B24E7924A00B0FC4C /* EPPopCameraBottomView.h */,
-				EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */,
+				EDCC787424E79A5300B0FC4C /* EPCasePhotographySuspensionView.h */,
+				EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */,
+				EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				ED86405324D7E6A900FD7F7D /* EPAngleSelectViewCtl.xib in Resources */,
 				ED0A802A24E54BA9005E3DC3 /* proSelect_11.png in Resources */,
 				ED0A7FE624E54B0D005E3DC3 /* Mark_Expression_02.jpg in Resources */,
+				EDCC787824E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1407,6 +1411,7 @@
 				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,
 				ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */,
 				ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */,
+				EDCC787624E79A5300B0FC4C /* EPCasePhotographySuspensionView.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
 				EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */,
@@ -1430,7 +1435,6 @@
 				ED3E678624C042AF0055B4E7 /* RootViewModel.m in Sources */,
 				ED3B554824BED945008CBB51 /* RootViewController.m in Sources */,
 				ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */,
-				EDCC786D24E7924A00B0FC4C /* EPPopCameraBottomView.m in Sources */,
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
 				ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */,

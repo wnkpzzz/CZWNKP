@@ -1,5 +1,5 @@
 //
-//  EPPopCameraBottomView.h
+//  EPCasePhotographySuspensionView.h
 //  EPJH
 //
 //  Created by Hans on 2020/8/15.
@@ -10,10 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPPopCameraBottomView : RootView
+@interface EPCasePhotographySuspensionView : RootView
 
 /** Block点击事件回调 */
 @property (copy,nonatomic) void (^btnClickBlock)(UIView *, NSInteger index);
+
 
 @end
 

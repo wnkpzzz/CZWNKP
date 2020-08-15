@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Block数据回调 */
 @property (nonatomic,copy)void(^saveClickBlock)(EPProjectModel *proModel, NSArray *photoArr);
  
-
+ 
 @end
 
 NS_ASSUME_NONNULL_END
