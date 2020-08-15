@@ -11,6 +11,9 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "UIImageView+WebCache.h"
 
+#import "EPCasePhotographySuspensionView.h"
+
+
 @interface EPCasePhotographyViewCtl ()
  
  
@@ -53,6 +56,9 @@
 @property (nonatomic, copy)   EPProjectModel *proModel;                   /** 数据源 */
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *photoArr; /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示） */
 
+
+@property (nonatomic, strong) EPCasePhotographySuspensionView *popView;
+
  
 @end
 
@@ -64,8 +70,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self loadBaseConfig];
+//    [self loadBaseConfig];
+    
+    self.deviceOrientation = UIDeviceOrientationPortrait;
+
+    
+    NSError *error;
+    self.session = [[AVCaptureSession alloc] init];
+    self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    self.deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:&error];
+    self.imageOutput = [[AVCapturePhotoOutput alloc] init];
+    //    [self.imageOutput setOutputSettings:[[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecTypeJPEG,AVVideoCodecKey, nil]];
+    if ([self.session canSetSessionPreset:AVCaptureSessionPresetPhoto]) { self.session.sessionPreset = AVCaptureSessionPresetPhoto; }
+    if ([self.session canAddInput:self.deviceInput]) {[self.session addInput:self.deviceInput]; }
+    if ([self.session canAddOutput:self.imageOutput]) {[self.session addOutput:self.imageOutput]; }
+    self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
+    self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    self.previewLayer.frame = CGRectMake(0, 0,APP_WIDTH, APP_HEIGHT / 2);
+    [self.view.layer insertSublayer:self.previewLayer atIndex:0];
+    
+    [self.view addSubview:self.popView];
+    
+    if (self.session) {  [self.session startRunning]; }
+     
 }
+
+- (EPCasePhotographySuspensionView *)popView{
+
+    if (!_popView) {
+        _popView = [EPCasePhotographySuspensionView initWithCustomView];
+        _popView.frame = FullViewRect;
+    }
+    return _popView;
+}
+
+ 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];

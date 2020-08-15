@@ -10,10 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 拍照状态枚举 */
+typedef NS_ENUM(NSInteger, CaseTakePicStatusType) {
+    CaseTakePicStatusTypeDefault  ,
+    CaseTakePicStatusTypeTakePic  ,
+};
+
 @interface EPCasePhotographySuspensionView : RootView
 
+/** 拍照状态枚举 */
+@property(nonatomic,assign) CaseTakePicStatusType takePicStatusType;
+
 /** Block点击事件回调 */
-@property (copy,nonatomic) void (^btnClickBlock)(UIView *, NSInteger index);
+@property (copy,nonatomic) void (^btnClickBlock)(NSInteger btnClickTag,CaseTakePicStatusType takePicStatusType);
 
 
 @end

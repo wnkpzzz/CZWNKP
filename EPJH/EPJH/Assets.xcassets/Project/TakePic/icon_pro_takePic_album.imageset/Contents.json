@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "icon_pro_takePic_confirm.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_pro_takePic_confirm@2x.png",
+      "filename" : "icon_pro_takePic_album@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_pro_takePic_confirm@3x.png",
+      "filename" : "icon_pro_takePic_album@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

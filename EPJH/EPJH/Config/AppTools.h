@@ -18,6 +18,8 @@
 #define Tab_Height                   49
 #define Nav_Height                   64 //  (APP_HEIGHT >= 812 ? 88 : 64) // 812是iPhoneX的高度
 #define kWidth(x)                    (x*[UIScreen mainScreen].bounds.size.width/375.0f) /*屏幕宽高适配,以iPhone6 和 iPad2为标准*/
+#define FullViewRect                 CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT);
+
 
 // 占位图
 #define placeHolderImg               [UIImage imageNamed:@"ic_common_avatar_default"]
