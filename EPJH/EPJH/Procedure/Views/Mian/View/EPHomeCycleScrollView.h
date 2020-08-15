@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) SDCycleScrollView * cycleScrollView;
 
+/** Block点击事件回调 */
 @property (copy,nonatomic) void (^btnClickBlock)(UIView *, NSInteger index);
 
 @end

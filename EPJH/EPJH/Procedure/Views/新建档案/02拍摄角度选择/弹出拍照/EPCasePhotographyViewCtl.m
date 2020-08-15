@@ -1,17 +1,17 @@
 //
-//  EPPopCameraViewCtl.m
+//  EPCasePhotographyViewCtl.m
 //  EPJH
 //
-//  Created by Hans on 2020/8/12.
+//  Created by Hans on 2020/8/15.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "EPPopCameraViewCtl.h"
+#import "EPCasePhotographyViewCtl.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "UIImageView+WebCache.h"
 
-@interface EPPopCameraViewCtl ()
+@interface EPCasePhotographyViewCtl ()
  
  
 // **************** 《相机属性》 **********************
@@ -50,13 +50,13 @@
  
 @property (nonatomic, assign) NSInteger partsIndex;                     /** 节点索引 */
 @property (nonatomic, assign) NSInteger nowIndex;                       /** 当前拍摄的索引 */
-@property (nonatomic, copy) EPProjectModel *proModel;                   /** 数据源 */
-@property (nonatomic, strong) NSMutableArray<EPPhotoModel *> *photoArr; /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示） */
+@property (nonatomic, copy)   EPProjectModel *proModel;                   /** 数据源 */
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *photoArr; /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示） */
 
  
 @end
 
-@implementation EPPopCameraViewCtl
+@implementation EPCasePhotographyViewCtl
 
 #pragma mark - 生命周期
  
@@ -299,7 +299,7 @@
 /** 手电筒 */
 - (void)flashlightAction:(UIButton *)button{
 
-    button.selected = !button.selected; 
+    button.selected = !button.selected;
     [AppPhotoUtils controlClashlightWith:button.selected];
  
 }

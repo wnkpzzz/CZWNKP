@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;                     // 节点索引
-@property (nonatomic, strong) NSMutableArray<EPPhotoModel *> * makePhotoArrays; // 拍照结果数组
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> * makePhotoArrays; // 拍照结果数组
 
 @end
 
@@ -131,7 +131,7 @@
 - (void)bottomViewSelectWithIndex:(NSInteger)index{
      
     WS(weakSelf);
-    EPPopCameraViewCtl *Vc = [[EPPopCameraViewCtl alloc] init];
+    EPCasePhotographyViewCtl *Vc = [[EPCasePhotographyViewCtl alloc] init];
 //    [Vc reloadDataWithModel:[self.proModel mutableCopy] photoArr:[self.makePhotoArrays mutableCopy] nowIndex:index];
     Vc.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
         [weakSelf updateForModel:proModel array:photoArr];
@@ -217,7 +217,7 @@
            modelPic.composeImgStr = @"";
            [self.proModel.cameraArr addObject:modelPic];
            
-           EPPhotoModel *photoModel = [EPPhotoModel new];
+           EPTakePictureModel *photoModel = [EPTakePictureModel new];
            photoModel.partsIndex = self.partsIndex;
            photoModel.index = i;
            if ([listArrays[i] rangeOfString:@"jpg"].location == NSNotFound) {

@@ -1,8 +1,8 @@
 //
-//  EPHomeCollectionView.h
+//  EPPopCameraBottomView.h
 //  EPJH
 //
-//  Created by Hans on 2020/7/16.
+//  Created by Hans on 2020/8/15.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPHomeCollectionView : RootView
-
-@property (strong, nonatomic)  UICollectionView * collectionView;
+@interface EPPopCameraBottomView : RootView
 
 /** Block点击事件回调 */
 @property (copy,nonatomic) void (^btnClickBlock)(UIView *, NSInteger index);

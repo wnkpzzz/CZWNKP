@@ -50,7 +50,7 @@
     [self.collectionItems addObjectsFromArray:dataArray];// 构造新数据源，新增加号占位图
        
     if (dataArray.count < 12 && self.isShowAdd) {
-        EPPhotoModel *model = [EPPhotoModel new];
+        EPTakePictureModel *model = [EPTakePictureModel new];
         model.cameraImage = [UIImage imageNamed:@"icon_pro_add_take"];
         model.title = @"添加";
         [self.collectionItems addObject:model];
@@ -97,7 +97,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     EPBottomImgSelectColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPBottomImgSelectColCell cellID] forIndexPath:indexPath];
-    EPPhotoModel *model = [self.collectionItems objectAtIndex:indexPath.item];
+    EPTakePictureModel *model = [self.collectionItems objectAtIndex:indexPath.item];
     cell.nameLab.text = model.title;
     if (model.cameraImage) { cell.contentImgView.image = model.cameraImage; }
     else{

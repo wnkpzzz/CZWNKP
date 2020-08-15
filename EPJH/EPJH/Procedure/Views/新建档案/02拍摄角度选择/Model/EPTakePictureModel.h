@@ -1,8 +1,8 @@
 //
-//  EPPhotoModel.h
+//  EPTakePictureModel.h
 //  EPJH
 //
-//  Created by Hans on 2020/8/13.
+//  Created by Hans on 2020/8/15.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPPhotoModel : NSObject
+@interface EPTakePictureModel : NSObject
 
 @property (nonatomic, assign) NSInteger partsIndex;             // 部位索引
 @property (nonatomic, assign) NSInteger index;                  // 位置索引

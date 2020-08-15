@@ -14,7 +14,6 @@
 		ED09A13D24CEA1D900045106 /* EPAngleBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */; };
 		ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */; };
 		ED0A7FA524E52910005E3DC3 /* EPBottomImgSelectColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0A7FA324E52910005E3DC3 /* EPBottomImgSelectColCell.xib */; };
-		ED0A7FA824E5328B005E3DC3 /* EPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */; };
 		ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB124E53DAE005E3DC3 /* FMDatabase+YHDatabase.m */; };
 		ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB224E53DAE005E3DC3 /* NSObject+YHDBRuntime.m */; };
 		ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB624E53F07005E3DC3 /* SqliteManager.m */; };
@@ -119,7 +118,6 @@
 		ED3E679E24C078260055B4E7 /* EPHomeCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E679D24C078260055B4E7 /* EPHomeCycleScrollView.m */; };
 		ED3E67A324C080550055B4E7 /* EPUserViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E67A124C080550055B4E7 /* EPUserViewCtl.m */; };
 		ED3E67A424C080550055B4E7 /* EPUserViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3E67A224C080550055B4E7 /* EPUserViewCtl.xib */; };
-		ED43B4C224E3F7B9004E2600 /* EPPopCameraViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */; };
 		ED44F45624CE7D1400102BAA /* EPWKWebViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F45524CE7D1400102BAA /* EPWKWebViewCtl.m */; };
 		ED44F45F24CE814000102BAA /* TempTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F45D24CE814000102BAA /* TempTableViewCell.m */; };
 		ED44F46024CE814000102BAA /* TempTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED44F45E24CE814000102BAA /* TempTableViewCell.xib */; };
@@ -146,6 +144,9 @@
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
 		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
+		EDCC786D24E7924A00B0FC4C /* EPPopCameraBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */; };
+		EDCC787024E7957000B0FC4C /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */; };
+		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,8 +182,6 @@
 		ED0A7FA124E52910005E3DC3 /* EPBottomImgSelectColCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPBottomImgSelectColCell.h; sourceTree = "<group>"; };
 		ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPBottomImgSelectColCell.m; sourceTree = "<group>"; };
 		ED0A7FA324E52910005E3DC3 /* EPBottomImgSelectColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPBottomImgSelectColCell.xib; sourceTree = "<group>"; };
-		ED0A7FA624E5328B005E3DC3 /* EPPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPhotoModel.h; sourceTree = "<group>"; };
-		ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPhotoModel.m; sourceTree = "<group>"; };
 		ED0A7FAB24E53D24005E3DC3 /* SqilteConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqilteConfig.h; sourceTree = "<group>"; };
 		ED0A7FAF24E53DAE005E3DC3 /* FMDatabase+YHDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+YHDatabase.h"; sourceTree = "<group>"; };
 		ED0A7FB024E53DAE005E3DC3 /* NSObject+YHDBRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YHDBRuntime.h"; sourceTree = "<group>"; };
@@ -329,8 +328,6 @@
 		ED3E67A024C080550055B4E7 /* EPUserViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPUserViewCtl.h; sourceTree = "<group>"; };
 		ED3E67A124C080550055B4E7 /* EPUserViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPUserViewCtl.m; sourceTree = "<group>"; };
 		ED3E67A224C080550055B4E7 /* EPUserViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPUserViewCtl.xib; sourceTree = "<group>"; };
-		ED43B4BF24E3F7B9004E2600 /* EPPopCameraViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPopCameraViewCtl.h; sourceTree = "<group>"; };
-		ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPopCameraViewCtl.m; sourceTree = "<group>"; };
 		ED44F45424CE7D1400102BAA /* EPWKWebViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPWKWebViewCtl.h; sourceTree = "<group>"; };
 		ED44F45524CE7D1400102BAA /* EPWKWebViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPWKWebViewCtl.m; sourceTree = "<group>"; };
 		ED44F45C24CE814000102BAA /* TempTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempTableViewCell.h; sourceTree = "<group>"; };
@@ -376,6 +373,12 @@
 		ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewCell.m; sourceTree = "<group>"; };
 		ED991ABB24E52302006F819C /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		ED991ABC24E52302006F819C /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
+		EDCC786B24E7924A00B0FC4C /* EPPopCameraBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPopCameraBottomView.h; sourceTree = "<group>"; };
+		EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPopCameraBottomView.m; sourceTree = "<group>"; };
+		EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
+		EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
+		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
+		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,8 +435,8 @@
 		ED0A7FA924E532C3005E3DC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ED0A7FA624E5328B005E3DC3 /* EPPhotoModel.h */,
-				ED0A7FA724E5328B005E3DC3 /* EPPhotoModel.m */,
+				EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */,
+				EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -760,7 +763,6 @@
 				ED3B556C24BEDCD3008CBB51 /* EPHomeViewCtl.xib */,
 				ED3E679824C0766C0055B4E7 /* EPHomeHeadFileHandler.h */,
 				ED74A6F824BFF17900D9FA77 /* View */,
-				ED84878C24C9A136002B3964 /* 新建档案 */,
 				ED84879624C9A290002B3964 /* 首页广告 */,
 				ED84879024C9A217002B3964 /* 个人中心 */,
 				ED84878D24C9A136002B3964 /* 3DScan */,
@@ -861,8 +863,9 @@
 		ED43B4BE24E3F77C004E2600 /* 弹出拍照 */ = {
 			isa = PBXGroup;
 			children = (
-				ED43B4BF24E3F7B9004E2600 /* EPPopCameraViewCtl.h */,
-				ED43B4C024E3F7B9004E2600 /* EPPopCameraViewCtl.m */,
+				EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */,
+				EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */,
+				EDCC786A24E7921B00B0FC4C /* SubView */,
 			);
 			path = "弹出拍照";
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 		ED74A71324C023EA00D9FA77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED84878C24C9A136002B3964 /* 新建档案 */,
 				ED3E679F24C0804E0055B4E7 /* User */,
 				ED3B555A24BEDC0F008CBB51 /* Launch */,
 				ED3B555824BEDC0E008CBB51 /* Login */,
@@ -1057,6 +1061,15 @@
 				ED81FF4424CE751D009844CB /* Resource */,
 			);
 			path = "首页广告";
+			sourceTree = "<group>";
+		};
+		EDCC786A24E7921B00B0FC4C /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				EDCC786B24E7924A00B0FC4C /* EPPopCameraBottomView.h */,
+				EDCC786C24E7924A00B0FC4C /* EPPopCameraBottomView.m */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		EFCDD8C1A46A569F45FDD2DD /* Frameworks */ = {
@@ -1396,9 +1409,9 @@
 				ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
+				EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */,
 				ED3B559624BF0477008CBB51 /* SuccessToOriginController.m in Sources */,
 				ED3E678924C049170055B4E7 /* PopRegisterAgreementView.m in Sources */,
-				ED0A7FA824E5328B005E3DC3 /* EPPhotoModel.m in Sources */,
 				ED84879424C9A239002B3964 /* EPUserCenterViewCtl.m in Sources */,
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
@@ -1417,11 +1430,12 @@
 				ED3E678624C042AF0055B4E7 /* RootViewModel.m in Sources */,
 				ED3B554824BED945008CBB51 /* RootViewController.m in Sources */,
 				ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */,
+				EDCC786D24E7924A00B0FC4C /* EPPopCameraBottomView.m in Sources */,
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
-				ED43B4C224E3F7B9004E2600 /* EPPopCameraViewCtl.m in Sources */,
 				ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */,
 				ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */,
+				EDCC787024E7957000B0FC4C /* EPCasePhotographyViewCtl.m in Sources */,
 				ED86405C24D7E7BD00FD7F7D /* EPUserSelectViewCtl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
