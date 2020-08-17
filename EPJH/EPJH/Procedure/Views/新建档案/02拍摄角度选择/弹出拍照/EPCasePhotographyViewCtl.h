@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EPCasePhotographyViewCtl : RootViewController
 
 /** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)model pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex;
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex;
 
 /** Block数据回调 */
 @property (nonatomic,copy)void(^saveClickBlock)(EPProjectModel *proModel, NSArray *photoArr);

@@ -43,12 +43,11 @@
 
 // **************** 《数据逻辑》 **********************
  
-@property(nonatomic,assign) CaseTakePicStatusType takePicStatusType;            /** 拍照状态枚举 */
-
-@property (nonatomic, assign) NSInteger partsIndex;                             /** 节点索引 */
-@property (nonatomic, assign) NSInteger nowIndex;                               /** 当前拍摄的索引 */
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;   /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
-@property (nonatomic, copy)   EPProjectModel *proModel;                         /** 数据源 */
+@property (nonatomic, assign) NSInteger partsIndex;                                     /** 节点索引 */
+@property (nonatomic, assign) NSInteger nowIndex;                                       /** 当前拍摄的索引 */
+@property (nonatomic, strong) EPProjectModel *proModel;                                 /** 数据源 */
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;     /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
+@property (nonatomic, assign) CaseTakePicStatusType takePicStatusType;                  /** 拍照状态枚举 */
 
 @end
 
@@ -64,8 +63,11 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
 
+    self.nowIndex = 0;
+    self.proModel = [[EPProjectModel alloc] init];
     self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
-
+    self.takePicStatusType = CaseTakePicStatusTypeDefault;
+    
     self.backBtn.layer.cornerRadius = 16;
     self.backBtn.layer.masksToBounds = YES;
     [self.backBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
@@ -77,36 +79,48 @@
    
 }
 
-#pragma mark - 事件处理
-- (IBAction)btnClickAction:(UIButton *)button {
+/** 传入数据 */
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
+    
+    self.nowIndex = nowIndex;
+    self.proModel = [proModel mutableCopy];
+    [self.takeCasePicArr addObjectsFromArray:takeCasePicArr];
 
-    if (button.tag == 0) {
-        /** 返回上一个界面 */
-        
-    }else if (button.tag == 3) {
-        /** 取消当前拍照 */
-        self.takePicStatusType = CaseTakePicStatusTypeDefault;
-        
-    }else if (button.tag == 4) {
-        /** 点击拍照 */
-        self.takePicStatusType = CaseTakePicStatusTypeTakePic;
-        
-    }else if (button.tag == 5) {
-        /** 点击拍摄下一张按钮 */
-        self.takePicStatusType = CaseTakePicStatusTypeDefault;
-        
-    }else if (button.tag == 7) {
-        /** 手电筒 */
-        button.selected = !button.selected;
-        [AppPhotoUtils controlClashlightWith:button.selected];
-       
-    }else if (button.tag == 8) {
-        /** 切换摄像头 */
-        [self switchCamerasBackFont];
+    for (int i = 0; i < kPartsIDArr.count; i++) {
+          if ([proModel.cateId isEqualToString:kPartsIDArr[i]]) {
+              self.partsIndex = i;
+              break;
+          }
     }
-
+    
+    // 添加相关补充(添加占位图model)
+     if (self.nowIndex == proModel.cameraArr.count) {
+         
+         // Data Model
+         EPImageModel *modelPic = [EPImageModel new];
+         modelPic.subCateId = self.proModel.subCateId;
+         modelPic.subCateName = self.proModel.subCateName;
+         modelPic.cateId = self.proModel.cateId;
+         modelPic.cateName = self.proModel.cateName;
+         modelPic.sort = (int)self.nowIndex;
+         modelPic.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+         modelPic.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+         modelPic.isPaiZhaoFlag = @"NO";
+         modelPic.cameraImgStr = @"";
+         modelPic.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
+         modelPic.composeImgStr = @"";
+         [self.proModel.cameraArr addObject:modelPic];
+         
+         // UI Model
+         EPTakePictureModel *photoModel = [EPTakePictureModel new];
+         photoModel.partsIndex = self.partsIndex;
+         photoModel.index = self.nowIndex;
+         photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+         [self.takeCasePicArr addObject:photoModel];
+     }
+    
 }
- 
+
 - (void)setTakePicStatusType:(CaseTakePicStatusType)takePicStatusType{
     
     switch (takePicStatusType) {
@@ -146,6 +160,46 @@
     }
 }
 
+#pragma mark - 事件处理
+- (IBAction)btnClickAction:(UIButton *)button {
+
+    if (button.tag == 0) {  /** 返回上一个界面 */
+        
+    }else if (button.tag == 1) {    /** 完成并保存*/
+        
+        [self confirmSaveTakePicture];
+        
+    }else if (button.tag == 3) {    /** 取消当前拍照 */
+        
+        self.takePicStatusType = CaseTakePicStatusTypeDefault;
+        
+    }else if (button.tag == 4) {    /** 点击拍照 */
+        
+        self.takePicStatusType = CaseTakePicStatusTypeTakePic;
+        
+    }else if (button.tag == 5) {    /** 点击拍摄下一张按钮 */
+        
+        self.takePicStatusType = CaseTakePicStatusTypeDefault;
+        
+    }else if (button.tag == 6) {    /** 跳过当前拍摄下一张按钮 */
+        
+        if (self.nowIndex == self.proModel.cameraArr.count) { return; } // 拍照上限
+        self.nowIndex = self.nowIndex + 1;// 更新索引
+        self.takePicStatusType = CaseTakePicStatusTypeDefault;
+
+            
+    }else if (button.tag == 7) {    /** 手电筒 */
+        
+        button.selected = !button.selected;
+        [AppPhotoUtils controlClashlightWith:button.selected];
+       
+    }else if (button.tag == 8) {     /** 切换摄像头 */
+       
+        [self switchCamerasBackFont];
+    }
+
+}
+ 
 #pragma mark - AVCaptureDevice
 
 /** 初始化系统相机 */
@@ -218,5 +272,33 @@
  
     return nil;
 }
+
+/** 保存拍摄的图片 */
+- (void)confirmSaveTakePicture{
+    
+    // 保存新Model(替换)
+    EPImageModel *model = [EPImageModel new];
+    model.subCateId = self.proModel.subCateId;
+    model.subCateName = self.proModel.subCateName;
+    model.cateId = self.proModel.cateId;
+    model.cateName = self.proModel.cateName;
+    model.sort = (int)self.nowIndex;
+    model.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+    model.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    model.isPaiZhaoFlag = @"YES";
+    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", [AppUtils getNowTimeCuo], [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
+    model.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
+    [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:model];
+    
+    // 确认照片
+    EPTakePictureModel *photoModel = [EPTakePictureModel new];
+    photoModel.index = self.nowIndex;
+//    photoModel.cameraImage = self.outImageModel.image;
+    photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
+    photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
+}
+
+ 
 
 @end

@@ -7,12 +7,8 @@
 //
 
 #import "EPCasePhotographyViewCtl.h"
-#import <AVFoundation/AVFoundation.h>
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "UIImageView+WebCache.h"
-
 #import "EPCasePhotographySuspensionView.h"
-
 
 @interface EPCasePhotographyViewCtl ()
  
@@ -54,9 +50,6 @@
     [[SDImageCache sharedImageCache] clearMemory];
 }
 
-/** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)model pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{}
-
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
     
@@ -64,12 +57,17 @@
 
 }
 
+/** 传入数据 */
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
+    
+//    [self.popView reloadDataWithModel:proModel pictureArr:takeCasePicArr nowSign:nowIndex];
+}
+
 - (EPCasePhotographySuspensionView *)popView{
 
     if (!_popView) {
         _popView = [EPCasePhotographySuspensionView initWithCustomView];
         _popView.frame = FullViewRect;
-        
     }
     return _popView;
 }

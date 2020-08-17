@@ -19,7 +19,8 @@ typedef NS_ENUM(NSInteger, CaseTakePicStatusType) {
 
 @interface EPCasePhotographySuspensionView : RootView
 
-
+/** 传入数据 */
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex;
 
 /** Block点击事件回调 */
 @property (copy,nonatomic) void (^btnClickBlock)(NSInteger btnClickTag);

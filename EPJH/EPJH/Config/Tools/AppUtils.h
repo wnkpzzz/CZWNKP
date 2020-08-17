@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)app_getUUID;
 
+/** 获得当前时间戳 */
++ (NSString *)getNowTimeCuo;
+
 @end
 
 NS_ASSUME_NONNULL_END
