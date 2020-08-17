@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EPProjectHeadFileHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 拍照状态枚举 */
 typedef NS_ENUM(NSInteger, CaseTakePicStatusType) {
-    CaseTakePicStatusTypeDefault  ,
-    CaseTakePicStatusTypeTakePic  ,
+    CaseTakePicStatusTypeDefault  , // 默认状态，隐藏下一步，取消按钮。
+    CaseTakePicStatusTypeTakePic  , // 拍摄完成界面，显示隐藏下一步，取消按钮，隐藏其他无关图标。
 };
 
 @interface EPCasePhotographySuspensionView : RootView

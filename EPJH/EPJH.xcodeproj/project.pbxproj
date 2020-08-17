@@ -123,6 +123,7 @@
 		ED44F46024CE814000102BAA /* TempTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED44F45E24CE814000102BAA /* TempTableViewCell.xib */; };
 		ED44F46424CE83B700102BAA /* EPNewProjectViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F46224CE83B700102BAA /* EPNewProjectViewCtl.m */; };
 		ED44F46524CE83B700102BAA /* EPNewProjectViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED44F46324CE83B700102BAA /* EPNewProjectViewCtl.xib */; };
+		ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */; };
 		ED74A6F424BFEDA200D9FA77 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */; };
 		ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A6F624BFEE0E00D9FA77 /* RootTableViewDataSource.m */; };
 		ED74A70824C0049E00D9FA77 /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A70724C0049E00D9FA77 /* RootView.m */; };
@@ -338,6 +339,8 @@
 		ED44F46224CE83B700102BAA /* EPNewProjectViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPNewProjectViewCtl.m; sourceTree = "<group>"; };
 		ED44F46324CE83B700102BAA /* EPNewProjectViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPNewProjectViewCtl.xib; sourceTree = "<group>"; };
 		ED44F47024CE894800102BAA /* EPProjectHeadFileHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPProjectHeadFileHandler.h; sourceTree = "<group>"; };
+		ED48BE3324EA28E600060411 /* CZAlbumScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZAlbumScrollView.h; sourceTree = "<group>"; };
+		ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CZAlbumScrollView.m; sourceTree = "<group>"; };
 		ED74A6F224BFEDA200D9FA77 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		ED74A6F524BFEE0E00D9FA77 /* RootTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewDataSource.h; sourceTree = "<group>"; };
@@ -867,6 +870,7 @@
 			children = (
 				EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */,
 				EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */,
+				ED48BE3224EA28CE00060411 /* Tools */,
 				EDCC786A24E7921B00B0FC4C /* SubView */,
 			);
 			path = "弹出案例拍照";
@@ -929,6 +933,15 @@
 			children = (
 			);
 			path = "05选填资料";
+			sourceTree = "<group>";
+		};
+		ED48BE3224EA28CE00060411 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ED48BE3324EA28E600060411 /* CZAlbumScrollView.h */,
+				ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		ED74A6F824BFF17900D9FA77 /* View */ = {
@@ -1420,6 +1433,7 @@
 				ED84879424C9A239002B3964 /* EPUserCenterViewCtl.m in Sources */,
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
+				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
 				ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */,
 				ED3B554E24BED964008CBB51 /* RootTableViewCell.m in Sources */,
 				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,

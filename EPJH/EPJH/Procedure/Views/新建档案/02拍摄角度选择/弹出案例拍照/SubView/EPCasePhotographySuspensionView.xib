@@ -17,6 +17,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-dj-zJi" userLabel="headView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y52-EI-w5E" customClass="CZAlbumScrollView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSH-p7-tpk">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-IR-rcK">
                             <rect key="frame" x="20" y="40" width="32" height="32"/>
                             <constraints>
@@ -24,8 +31,11 @@
                                 <constraint firstAttribute="width" constant="32" id="ol2-4e-jvI"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_back"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="MzG-MX-tCP"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-bw-XF7">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-bw-XF7">
                             <rect key="frame" x="334" y="40" width="60" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="T4y-su-OnT"/>
@@ -34,13 +44,24 @@
                             <state key="normal" title="完成">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="juI-cg-NWe"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xSH-p7-tpk" secondAttribute="bottom" id="0fE-nX-H8M"/>
+                        <constraint firstAttribute="trailing" secondItem="y52-EI-w5E" secondAttribute="trailing" id="0x9-ed-jD6"/>
+                        <constraint firstAttribute="bottom" secondItem="y52-EI-w5E" secondAttribute="bottom" id="AWM-2F-QV2"/>
+                        <constraint firstAttribute="trailing" secondItem="xSH-p7-tpk" secondAttribute="trailing" id="WEx-MM-3jY"/>
+                        <constraint firstItem="xSH-p7-tpk" firstAttribute="leading" secondItem="zpo-dj-zJi" secondAttribute="leading" id="gSX-8B-mVw"/>
                         <constraint firstItem="PrS-IR-rcK" firstAttribute="leading" secondItem="zpo-dj-zJi" secondAttribute="leading" constant="20" id="gve-dS-x7h"/>
                         <constraint firstItem="YY7-bw-XF7" firstAttribute="centerY" secondItem="PrS-IR-rcK" secondAttribute="centerY" id="mMY-43-WBm"/>
                         <constraint firstAttribute="trailing" secondItem="YY7-bw-XF7" secondAttribute="trailing" constant="20" id="p4d-Yx-aql"/>
+                        <constraint firstItem="y52-EI-w5E" firstAttribute="top" secondItem="zpo-dj-zJi" secondAttribute="top" id="vSl-Jj-JjR"/>
+                        <constraint firstItem="y52-EI-w5E" firstAttribute="leading" secondItem="zpo-dj-zJi" secondAttribute="leading" id="x5G-3x-B06"/>
                         <constraint firstItem="PrS-IR-rcK" firstAttribute="top" secondItem="zpo-dj-zJi" secondAttribute="top" constant="40" id="xPF-i3-eVX"/>
+                        <constraint firstItem="xSH-p7-tpk" firstAttribute="top" secondItem="zpo-dj-zJi" secondAttribute="top" id="zRV-cW-jN8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztx-NP-h4c" userLabel="bottomView">
@@ -49,15 +70,21 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mark_Face_01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-yS-oj6">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRj-Su-mpC">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qGO-Qy-U57">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                        </imageView>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRj-Su-mpC">
                             <rect key="frame" x="359" y="265.5" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="QcB-5s-XgH"/>
                                 <constraint firstAttribute="height" constant="35" id="sWw-bg-MqK"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_skip"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="S6x-96-I1E"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-zO-ZI2">
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-zO-ZI2">
                             <rect key="frame" x="359" y="320.5" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="7gj-tb-PYb"/>
@@ -65,45 +92,63 @@
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_flashlight_out"/>
                             <state key="selected" image="icon_pro_takePic_flashlight_on"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xq0-ro-jlv"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXj-xJ-rqs">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXj-xJ-rqs">
                             <rect key="frame" x="20" y="378" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="e70-NW-ZLd"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_album"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Nx3-gf-SPh"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-pP-1U4">
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-pP-1U4">
                             <rect key="frame" x="182" y="368" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="GEj-h9-bpe"/>
                                 <constraint firstAttribute="height" constant="50" id="fCq-Fd-vXv"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_make"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="X2a-F0-0Bj"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-xm-Yuc">
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-xm-Yuc">
                             <rect key="frame" x="359" y="375.5" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="lQY-rt-Y3o"/>
                                 <constraint firstAttribute="width" constant="35" id="zlI-xS-Xmc"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_switch"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Hcj-NE-Et1"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-wc-XGn">
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-wc-XGn">
                             <rect key="frame" x="272" y="368" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Xi1-wK-dyl"/>
                                 <constraint firstAttribute="width" constant="50" id="qIr-wY-ScS"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_next"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="hfT-El-clH"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpn-Ot-g5W">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpn-Ot-g5W">
                             <rect key="frame" x="92" y="368" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="Ilp-E2-hLW"/>
                                 <constraint firstAttribute="height" constant="50" id="fBL-eW-Ykd"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_cancel"/>
+                            <connections>
+                                <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="P6b-pB-LWE"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -116,8 +161,12 @@
                         <constraint firstAttribute="trailing" secondItem="Knh-yS-oj6" secondAttribute="trailing" id="AsC-58-SbI"/>
                         <constraint firstItem="eXj-xJ-rqs" firstAttribute="centerY" secondItem="ODj-pP-1U4" secondAttribute="centerY" id="B0d-98-fhl"/>
                         <constraint firstItem="ai4-wc-XGn" firstAttribute="centerY" secondItem="ODj-pP-1U4" secondAttribute="centerY" id="ChB-Zj-1tP"/>
+                        <constraint firstItem="qGO-Qy-U57" firstAttribute="top" secondItem="ztx-NP-h4c" secondAttribute="top" id="E2m-gX-mCF"/>
                         <constraint firstItem="eXj-xJ-rqs" firstAttribute="leading" secondItem="ztx-NP-h4c" secondAttribute="leading" constant="20" id="LNT-45-sqA"/>
                         <constraint firstItem="ai4-wc-XGn" firstAttribute="leading" secondItem="ODj-pP-1U4" secondAttribute="trailing" constant="40" id="Lf3-73-MVP"/>
+                        <constraint firstItem="qGO-Qy-U57" firstAttribute="leading" secondItem="ztx-NP-h4c" secondAttribute="leading" id="Pdy-gl-cCJ"/>
+                        <constraint firstAttribute="bottom" secondItem="qGO-Qy-U57" secondAttribute="bottom" id="TPe-NY-xhz"/>
+                        <constraint firstAttribute="trailing" secondItem="qGO-Qy-U57" secondAttribute="trailing" id="Tbn-Sx-2O1"/>
                         <constraint firstItem="ODj-pP-1U4" firstAttribute="centerX" secondItem="ztx-NP-h4c" secondAttribute="centerX" id="aqN-Da-LRD"/>
                         <constraint firstAttribute="trailing" secondItem="ARV-zO-ZI2" secondAttribute="trailing" constant="20" id="eGo-Pf-6RH"/>
                         <constraint firstItem="ZHT-xm-Yuc" firstAttribute="top" secondItem="ARV-zO-ZI2" secondAttribute="bottom" constant="20" id="lQH-aP-ofM"/>
@@ -142,16 +191,20 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="albumBtn" destination="eXj-xJ-rqs" id="6l4-2e-9C3"/>
-                <outlet property="backBtn" destination="PrS-IR-rcK" id="IQ7-dq-82t"/>
+                <outlet property="backBtn" destination="PrS-IR-rcK" id="Ql5-c1-san"/>
                 <outlet property="cancelBtn" destination="Wpn-Ot-g5W" id="pDl-hQ-kMz"/>
                 <outlet property="flashlightBtn" destination="ARV-zO-ZI2" id="PKe-aQ-On3"/>
+                <outlet property="footCKImgView" destination="qGO-Qy-U57" id="BTj-nW-YgC"/>
+                <outlet property="footStandardImgView" destination="Knh-yS-oj6" id="J32-7o-wzc"/>
+                <outlet property="headCKImgView" destination="xSH-p7-tpk" id="hy1-tx-KVL"/>
+                <outlet property="headOutputImgView" destination="y52-EI-w5E" id="NIW-Bk-q1V"/>
                 <outlet property="nextBtn" destination="ai4-wc-XGn" id="pqX-nD-sBe"/>
                 <outlet property="saveBtn" destination="YY7-bw-XF7" id="ODB-Wl-GVR"/>
                 <outlet property="skipBtn" destination="cRj-Su-mpC" id="fUe-EV-yrE"/>
                 <outlet property="switchBtn" destination="ZHT-xm-Yuc" id="be8-ce-T4O"/>
                 <outlet property="takeBtn" destination="ODj-pP-1U4" id="ZLa-7R-kmj"/>
             </connections>
-            <point key="canvasLocation" x="-319" y="25"/>
+            <point key="canvasLocation" x="-575.36231884057975" y="26.785714285714285"/>
         </view>
     </objects>
     <resources>

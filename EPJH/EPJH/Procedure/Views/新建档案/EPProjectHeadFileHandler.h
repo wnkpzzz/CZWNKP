@@ -15,8 +15,8 @@
 #import "EPProjectSelectViewCtl.h"   // 03项目选择
 
 #import "EPCasePhotographyViewCtl.h" // 弹出拍照
-
-#import "EPTakePictureModel.h"
+#import "EPTakePictureModel.h"       // 图片拍照流程中的数据Model
+#import "CZAlbumScrollView.h"        // 同屏放大缩小
 
 #import "EPImageModel.h"
 #import "EPProjectModel.h"
