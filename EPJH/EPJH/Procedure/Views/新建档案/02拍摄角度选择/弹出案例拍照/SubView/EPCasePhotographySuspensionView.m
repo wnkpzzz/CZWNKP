@@ -103,7 +103,10 @@
     switch (takePicStatusType) {
        
         case CaseTakePicStatusTypeDefault:
-
+            
+            [self.headCKImgView setHidden:YES];
+            [self.headOutputImgView setHidden:YES];
+ 
             [self.cancelBtn setHidden:YES];
             [self.nextBtn setHidden:YES];
 
@@ -115,6 +118,9 @@
             
             break;
         case CaseTakePicStatusTypeTakePic:
+
+            [self.headCKImgView setHidden:NO];
+            [self.headOutputImgView setHidden:NO];
 
             [self.cancelBtn setHidden:NO];
             [self.nextBtn setHidden:NO];
@@ -187,18 +193,20 @@
 }
  
 /** 相机状态 */
-- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position{
-
+- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition)position{
+    
     // 前置摄像头的时候隐藏闪光灯按钮
     if (position == AVCaptureDevicePositionBack) {  [self.flashlightBtn setHidden:NO];  }
     if (position == AVCaptureDevicePositionFront) {  [self.flashlightBtn setHidden:YES];  }
-    // 正常功能
-    NSArray *cameras = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *camera in cameras) {
-        if ([camera position] == position) {
-            return camera;
-        }
-    }
+ 
+    AVCaptureDeviceDiscoverySession *cameras = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
+ 
+     for (AVCaptureDevice *device in cameras.devices) {
+         if ([device position] == position) {
+             return device;
+         }
+     }
+ 
     return nil;
 }
 
