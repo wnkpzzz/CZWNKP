@@ -54,6 +54,9 @@
     
     if (sender.tag == 0) { // 个人中心
        
+        EPUserCenterViewCtl * Vc = [[EPUserCenterViewCtl alloc] init];
+        [self.navigationController pushViewController:Vc animated:YES];
+        
     } else if (sender.tag == 1) { // 3D
         
     } else if (sender.tag == 2) { //拍照
@@ -62,10 +65,7 @@
         [self.navigationController pushViewController:Vc animated:YES];
      
     } else if (sender.tag == 3) { // 对比
-         
-        //        EPWKWebViewCtl * Vc = [[EPWKWebViewCtl alloc] init];
-        //        Vc.url = @"http://www.baidu.com";
-        //        [self.navigationController pushViewController:Vc animated:YES];
+   
     }
 }
 

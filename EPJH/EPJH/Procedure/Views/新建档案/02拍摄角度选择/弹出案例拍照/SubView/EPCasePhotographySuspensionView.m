@@ -146,7 +146,7 @@
 
 #pragma mark - AVCaptureDevice
 
-/** 1.0初始化系统相机 */
+/** 初始化系统相机 */
 - (void)createAVCaptureDevice{
     
     NSError *error;
