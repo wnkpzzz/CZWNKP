@@ -19,8 +19,6 @@
 @property (nonatomic,strong) AVCapturePhotoOutput *imageOutput;         /** 照片流输出，用于输出图像 */
 @property (nonatomic,strong) AVCaptureVideoPreviewLayer *previewLayer;  /** 镜头扑捉到的预览图层 */
 @property (nonatomic,assign) UIDeviceOrientation deviceOrientation;     /** 屏幕的旋转方向 */
-@property (nonatomic,assign) CGFloat beginGestureScale;                 /** 开始的缩放比例 */
-@property (nonatomic,assign) CGFloat effectiveScale;                    /** 最后的缩放比例 */
 
 // **************** 《悬浮按钮》 **********************
 
@@ -45,9 +43,11 @@
 
 // **************** 《数据逻辑》 **********************
  
+@property(nonatomic,assign) CaseTakePicStatusType takePicStatusType;            /** 拍照状态枚举 */
+
 @property (nonatomic, assign) NSInteger partsIndex;                             /** 节点索引 */
 @property (nonatomic, assign) NSInteger nowIndex;                               /** 当前拍摄的索引 */
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *pictureArr;   /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;   /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
 @property (nonatomic, copy)   EPProjectModel *proModel;                         /** 数据源 */
 
 @end
@@ -63,6 +63,8 @@
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
+
+    self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
 
     self.backBtn.layer.cornerRadius = 16;
     self.backBtn.layer.masksToBounds = YES;

@@ -55,9 +55,7 @@
 }
 
 /** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)model pictureArr:(NSArray *)pictureArr nowSign:(NSInteger)nowIndex{
-
-}
+- (void)reloadDataWithModel:(EPProjectModel *)model pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{}
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
@@ -71,7 +69,7 @@
     if (!_popView) {
         _popView = [EPCasePhotographySuspensionView initWithCustomView];
         _popView.frame = FullViewRect;
-        _popView.takePicStatusType = CaseTakePicStatusTypeDefault;
+        
     }
     return _popView;
 }
