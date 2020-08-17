@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -74,7 +74,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                         </imageView>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRj-Su-mpC">
-                            <rect key="frame" x="359" y="265.5" width="35" height="35"/>
+                            <rect key="frame" x="359" y="265.66666666666663" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="QcB-5s-XgH"/>
                                 <constraint firstAttribute="height" constant="35" id="sWw-bg-MqK"/>
@@ -85,7 +85,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-zO-ZI2">
-                            <rect key="frame" x="359" y="320.5" width="35" height="35"/>
+                            <rect key="frame" x="359" y="320.66666666666663" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="7gj-tb-PYb"/>
                                 <constraint firstAttribute="height" constant="35" id="KHE-2z-0CM"/>
@@ -118,7 +118,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-xm-Yuc">
-                            <rect key="frame" x="359" y="375.5" width="35" height="35"/>
+                            <rect key="frame" x="359" y="375.66666666666663" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="lQY-rt-Y3o"/>
                                 <constraint firstAttribute="width" constant="35" id="zlI-xS-Xmc"/>
@@ -204,7 +204,7 @@
                 <outlet property="switchBtn" destination="ZHT-xm-Yuc" id="be8-ce-T4O"/>
                 <outlet property="takeBtn" destination="ODj-pP-1U4" id="ZLa-7R-kmj"/>
             </connections>
-            <point key="canvasLocation" x="-575.36231884057975" y="26.785714285714285"/>
+            <point key="canvasLocation" x="-139" y="25"/>
         </view>
     </objects>
     <resources>
@@ -214,7 +214,7 @@
         <image name="icon_pro_takePic_cancel" width="50" height="50"/>
         <image name="icon_pro_takePic_flashlight_on" width="34" height="34"/>
         <image name="icon_pro_takePic_flashlight_out" width="34" height="34"/>
-        <image name="icon_pro_takePic_make" width="50" height="50"/>
+        <image name="icon_pro_takePic_make" width="48.333332061767578" height="48.333332061767578"/>
         <image name="icon_pro_takePic_next" width="50" height="50"/>
         <image name="icon_pro_takePic_skip" width="34" height="34"/>
         <image name="icon_pro_takePic_switch" width="34" height="34"/>

@@ -64,6 +64,13 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
 
+    self.backBtn.layer.cornerRadius = 16;
+    self.backBtn.layer.masksToBounds = YES;
+    [self.backBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+    self.saveBtn.layer.cornerRadius = 16;
+    self.saveBtn.layer.masksToBounds = YES;
+    [self.saveBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+
     [self createAVCaptureDevice];
    
 }
