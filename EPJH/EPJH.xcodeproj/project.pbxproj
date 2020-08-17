@@ -865,7 +865,7 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		ED43B4BE24E3F77C004E2600 /* 弹出案例拍照 */ = {
+		ED43B4BE24E3F77C004E2600 /* 弹出拍照 */ = {
 			isa = PBXGroup;
 			children = (
 				EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */,
@@ -873,7 +873,7 @@
 				ED48BE3224EA28CE00060411 /* Tools */,
 				EDCC786A24E7921B00B0FC4C /* SubView */,
 			);
-			path = "弹出案例拍照";
+			path = "弹出拍照";
 			sourceTree = "<group>";
 		};
 		ED43B4C424E4019C004E2600 /* SubCell */ = {
@@ -923,7 +923,7 @@
 				ED86405124D7E6A900FD7F7D /* EPAngleSelectViewCtl.xib */,
 				ED09A13024CE9FD200045106 /* Cell */,
 				ED0A7FA924E532C3005E3DC3 /* Model */,
-				ED43B4BE24E3F77C004E2600 /* 弹出案例拍照 */,
+				ED43B4BE24E3F77C004E2600 /* 弹出拍照 */,
 			);
 			path = "02拍摄角度选择";
 			sourceTree = "<group>";

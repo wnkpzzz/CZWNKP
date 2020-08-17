@@ -18,11 +18,6 @@
  
 @property (nonatomic, strong) EPCasePhotographySuspensionView *popView;
 
-
-
- 
-
- 
 @end
 
 @implementation EPCasePhotographyViewCtl
@@ -60,10 +55,9 @@
 }
 
 /** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)model photoArr:(NSArray *)photoArr nowIndex:(NSInteger)nowIndex{
-    
-}
+- (void)reloadDataWithModel:(EPProjectModel *)model pictureArr:(NSArray *)pictureArr nowSign:(NSInteger)nowIndex{
 
+}
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
@@ -82,41 +76,4 @@
     return _popView;
 }
  
-
-
- 
-//#pragma mark - 懒加载
-//// 成像图
-//- (UIImageView *)outImageView{
-//
-//    if (!_outImageView) {
-//        _outImageView = [[UIImageView alloc] init];
-//        _outImageView.backgroundColor = [UIColor whiteColor];
-//        _outImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    }
-//    return _outImageView;
-//}
-//// 参考线框图
-//- (UIImageView *)tempImageView{
-//
-//    if (!_tempImageView) {
-//        _tempImageView = [[UIImageView alloc] init];
-//        _tempImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    }
-//    return _tempImageView;
-//}
-//// 标准对照图
-//- (UIImageView *)standardImageView{
-//
-//    if (!_standardImageView) {
-//        _standardImageView = [[UIImageView alloc] init];
-//        _standardImageView.backgroundColor = [UIColor whiteColor];
-//        _standardImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    }
-//    return _standardImageView;
-//}
-
-
- 
-
 @end

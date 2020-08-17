@@ -47,7 +47,7 @@
  
 @property (nonatomic, assign) NSInteger partsIndex;                             /** 节点索引 */
 @property (nonatomic, assign) NSInteger nowIndex;                               /** 当前拍摄的索引 */
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *photoArr;   /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *pictureArr;   /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
 @property (nonatomic, copy)   EPProjectModel *proModel;                         /** 数据源 */
 
 @end
