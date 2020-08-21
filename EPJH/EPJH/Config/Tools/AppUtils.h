@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 获得当前时间戳 */
 + (NSString *)getNowTimeCuo;
 
+/** iOS全面屏屏判断 */
++ (BOOL)isIPhoneX;
+
 @end
 
 NS_ASSUME_NONNULL_END

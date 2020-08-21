@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface EPCasePhotographySuspensionView ()
+@interface EPCasePhotographySuspensionView ()<AVCapturePhotoCaptureDelegate>
   
 // **************** 《相机属性》 **********************
 @property (nonatomic,strong) AVCaptureDevice *device;                   /** 获取相机设备的一些属性 */
@@ -27,10 +27,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *albumBtn;        /** 相册按钮 2 */
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;       /** 取消当前拍摄 3 */
-@property (weak, nonatomic) IBOutlet UIButton *takeBtn;         /** 拍照按钮 4 */
-@property (weak, nonatomic) IBOutlet UIButton *nextBtn;         /** 确认并进入下一张拍摄按钮 5 */
+@property (weak, nonatomic) IBOutlet UIButton *takeBtn;         /** 拍照 4 */
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;         /** 确认并拍摄下一张 5 */
 
-@property (weak, nonatomic) IBOutlet UIButton *skipBtn;         /** 跳过当前拍摄下一张按钮 6 */
+@property (weak, nonatomic) IBOutlet UIButton *skipBtn;         /** 跳过本次拍摄 6 */
 @property (weak, nonatomic) IBOutlet UIButton *flashlightBtn;   /** 手电筒按钮 7 */
 @property (weak, nonatomic) IBOutlet UIButton *switchBtn;       /** 切换摄像头 8 */
  
@@ -165,28 +165,79 @@
 
     if (button.tag == 0) {  /** 返回上一个界面 */
         
-    }else if (button.tag == 1) {    /** 完成并保存*/
+        [self.Vc dismissViewControllerAnimated:YES completion:nil];
+
         
-        [self confirmSaveTakePicture];
+    }else if (button.tag == 1) {    /** 完成并保存退出*/
+        
+        // 如果是拍完照处于预览界面
+        if (self.takePicStatusType == CaseTakePicStatusTypeTakePic ) { [self confirmSaveTakePicture]; }
+         
+        // 去除新增空位
+        if (self.takeCasePicArr.count > [kPartsCountArr[self.partsIndex] intValue] && !self.takeBtn.isHidden) {
+           [self.takeCasePicArr removeLastObject];
+           [self.proModel.cameraArr removeLastObject];
+        }
+        
+        // Block回传数据，返回上一页。
+//        if (self.saveClickBlock) {  self.saveClickBlock(self.proModel,self.photoArr); }
+        [self.Vc dismissViewControllerAnimated:YES completion:nil];
+        
         
     }else if (button.tag == 3) {    /** 取消当前拍照 */
         
         self.takePicStatusType = CaseTakePicStatusTypeDefault;
         
     }else if (button.tag == 4) {    /** 点击拍照 */
+       
+        // AVCapturePhotoCaptureDelegate  输出图片
+        [self.imageOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
+  
         
-        self.takePicStatusType = CaseTakePicStatusTypeTakePic;
+    }else if (button.tag == 5) {    /** 确认并拍摄下一张 */
+         
+        [self confirmSaveTakePicture];
         
-    }else if (button.tag == 5) {    /** 点击拍摄下一张按钮 */
+        // 新增空位
+        if (!self.nextBtn.selected) {
+            self.nowIndex = self.nowIndex + 1;// 更新索引
+            // 添加相关补充(添加占位图model)
+            if (self.nowIndex == self.proModel.cameraArr.count) {
+                EPImageModel *modelPic = [EPImageModel new];
+                modelPic.subCateId = self.proModel.subCateId;
+                modelPic.subCateName = self.proModel.subCateName;
+                modelPic.cateId = self.proModel.cateId;
+                modelPic.cateName = self.proModel.cateName;
+                modelPic.sort = (int)self.nowIndex;
+                modelPic.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+                modelPic.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+                modelPic.isPaiZhaoFlag = @"NO";
+                modelPic.cameraImgStr = @"";
+                modelPic.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
+                modelPic.composeImgStr = @"";
+                [self.proModel.cameraArr addObject:modelPic];
+                // 图片数组
+                EPTakePictureModel *photoModel = [EPTakePictureModel new];
+                photoModel.index = self.nowIndex;
+                photoModel.partsIndex = self.partsIndex;
+                photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+                [self.takeCasePicArr addObject:photoModel];
+            }
+            // 更新画面
+            [self updateUIAndLoadImageData];
+            self.takePicStatusType = CaseTakePicStatusTypeDefault;
+            
+        }else{
+            // 拍摄到最后一张,则执行完成并保存退出操作
+            [self btnClickAction:self.saveBtn];
+        }
         
-        self.takePicStatusType = CaseTakePicStatusTypeDefault;
+    }else if (button.tag == 6) {    /** 跳过本次拍摄 */
         
-    }else if (button.tag == 6) {    /** 跳过当前拍摄下一张按钮 */
-        
-        if (self.nowIndex == self.proModel.cameraArr.count) { return; } // 拍照上限
+        if (self.nowIndex == self.proModel.cameraArr.count) { return; } // 达到拍照上限
         self.nowIndex = self.nowIndex + 1;// 更新索引
-        self.takePicStatusType = CaseTakePicStatusTypeDefault;
-
+        self.takePicStatusType = CaseTakePicStatusTypeDefault; // 切换UI状态
+        [self updateUIAndLoadImageData]; // 刷新界面家在数据
             
     }else if (button.tag == 7) {    /** 手电筒 */
         
@@ -222,7 +273,7 @@
 
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    self.previewLayer.frame = CGRectMake(0, 0,APP_WIDTH, APP_HEIGHT / 2);
+    self.previewLayer.frame = CGRectMake(0, 0,APP_WIDTH, APP_HEIGHT * 0.5 );
     [self.layer insertSublayer:self.previewLayer atIndex:0];
 
     if (self.session) {  [self.session startRunning]; }
@@ -293,12 +344,155 @@
     // 确认照片
     EPTakePictureModel *photoModel = [EPTakePictureModel new];
     photoModel.index = self.nowIndex;
-//    photoModel.cameraImage = self.outImageModel.image;
+    photoModel.cameraImage = self.headOutputImgView.contentImg;
     photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
     photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
     [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
 }
 
- 
+/** 更新UI界面加载图片数据 */
+- (void)updateUIAndLoadImageData{
+     
+    UIImage *standardImage;
+    UIImage *tempImage;
+    EPTakePictureModel *model = [self.takeCasePicArr objectAtIndex:self.nowIndex];
+    if ([AppUtils isIPhoneX]) {
+        if (model.defaultImage) {
+            standardImage = model.defaultImage;
+        }else{
+            standardImage = [UIImage imageNamed:kCameraTempImageArrayX[self.partsIndex][self.nowIndex]];
+        }
+        tempImage = [UIImage imageNamed:kCameraFrameTempImageArrayX[self.partsIndex][self.nowIndex]];
+    }else{
+        if (model.defaultImage) {
+            standardImage = model.defaultImage;
+        }else{
+            standardImage = [UIImage imageNamed:kCameraTempImageArray[self.partsIndex][self.nowIndex]];
+        }
+        tempImage = [UIImage imageNamed:kCameraFrameTempImageArray[self.partsIndex][self.nowIndex]];
+    }
+    self.footStandardImgView.image = standardImage;
+    self.footCKImgView.image = tempImage;
+    if (self.nowIndex == self.proModel.cameraArr.count - 1) { self.nextBtn.hidden = YES; }
+    
+}
 
+#pragma mark AVCapturePhotoCaptureDelegate
+- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(NSError *)error {
+    
+    if (error) { NSLog(@"拍摄角度选择-弹出拍照-点击拍照-拍摄失败，原因:%@",error.localizedDescription); return; }
+    
+    if (photo) {
+
+        CGImageRef cgImage = [photo CGImageRepresentation];
+        UIImage * image = [UIImage imageWithCGImage:cgImage];
+        NSLog(@"拍摄角度选择-弹出拍照-点击拍照-拍摄成功:%@",image);
+ 
+        // 图片纠正
+//        image = [image normalizedImage];
+//
+        // 图片纠正
+        if (self.deviceInput.device.position == AVCaptureDevicePositionFront) {
+          UIImageOrientation imgOrientation = UIImageOrientationLeftMirrored;
+          image = [[UIImage alloc]initWithCGImage:cgImage scale:1.0f orientation:imgOrientation];
+        }else {
+          UIImageOrientation imgOrientation = UIImageOrientationRight;
+          image = [[UIImage alloc]initWithCGImage:cgImage scale:1.0f orientation:imgOrientation];
+        }
+        
+        
+        // 此时图片的尺寸为3024 × 4032，大约14M左右。
+        // 根据长宽比进行剪裁处理,XR举例： 375：406  ==  3024 ： 3274
+        CGFloat imgResultW = self.headOutputImgView.width;
+        CGFloat imgResultH = self.headOutputImgView.height  ;
+        CGFloat imgMyW =  image.size.width;
+        CGFloat imgMyH =  imgMyW * imgResultH / imgResultW ;
+        CGSize imgeSize = CGSizeMake(imgMyW, imgMyH);
+ 
+        //对图片尺寸进行剪裁
+        UIImage *imageNew = [self thumbnailWithImage:image size:imgeSize];
+        
+        //对图片大小进行压缩
+//        NSData *dataImg = UIImageJPEGRepresentation(imageNew, 0.2);
+//        UIImage *imageNewNew = [UIImage imageWithData:dataImg];
+ 
+        self.headOutputImgView.contentImg = imageNew;
+        [self.headOutputImgView setHidden:NO];
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
+    }
+}
+
+//对图片尺寸剪裁
+- (UIImage *)thumbnailWithImage:(UIImage *)originalImage size:(CGSize)size{
+ 
+     CGSize originalsize = [originalImage size];
+
+     //原图长宽均小于标准长宽的，不作处理返回原图
+     if (originalsize.width<size.width && originalsize.height<size.height) { return originalImage;}
+
+     //原图长宽均大于标准长宽的，按比例缩小至最大适应值
+     else if(originalsize.width>size.width && originalsize.height>size.height){
+
+         CGFloat rate = 1.0;
+         CGFloat widthRate = originalsize.width/size.width;
+         CGFloat heightRate = originalsize.height/size.height;
+         rate = widthRate>heightRate?heightRate:widthRate;
+         CGImageRef imageRef = nil;
+
+         if (heightRate>widthRate){
+            //获取图片整体部分
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(0, originalsize.height/2-size.height*rate/2, originalsize.width, size.height*rate));
+         }else {
+            //获取图片整体部分
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(originalsize.width/2-size.width*rate/2, 0, size.width*rate, originalsize.height));
+         }
+
+         UIGraphicsBeginImageContext(size);//指定要绘画图片的大小
+         CGContextRef con = UIGraphicsGetCurrentContext();
+         CGContextTranslateCTM(con, 0.0, size.height);
+         CGContextScaleCTM(con, 1.0, -1.0);
+         CGContextDrawImage(con, CGRectMake(0, 0, size.width, size.height), imageRef);
+         UIImage *standardImage = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+         CGImageRelease(imageRef);
+         return standardImage;
+     }
+
+     //原图长宽有一项大于标准长宽的，对大于标准的那一项进行裁剪，另一项保持不变
+     else if(originalsize.height>size.height || originalsize.width>size.width){
+
+         CGImageRef imageRef = nil;
+
+         if(originalsize.height>size.height){
+            //获取图片整体部分
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(0, originalsize.height/2-size.height/2, originalsize.width, size.height));
+
+         }else if (originalsize.width>size.width){
+
+            //获取图片整体部分
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(originalsize.width/2-size.width/2, 0, size.width, originalsize.height));
+
+         }
+
+        UIGraphicsBeginImageContext(size);//指定要绘画图片的大小
+        CGContextRef con = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(con, 0.0, size.height);
+        CGContextScaleCTM(con, 1.0, -1.0);
+        CGContextDrawImage(con, CGRectMake(0, 0, size.width, size.height), imageRef);
+        UIImage *standardImage = UIGraphicsGetImageFromCurrentImageContext();
+        NSLog(@"改变后图片的宽度为%f,图片的高度为%f",[standardImage size].width,[standardImage size].height);
+        UIGraphicsEndImageContext();
+        CGImageRelease(imageRef);
+        return standardImage;
+
+     }
+   
+    //原图为标准长宽的，不做处理
+     else{  return originalImage; }
+          
+ 
+}
+ 
+ 
 @end

@@ -124,6 +124,7 @@
 		ED44F46424CE83B700102BAA /* EPNewProjectViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED44F46224CE83B700102BAA /* EPNewProjectViewCtl.m */; };
 		ED44F46524CE83B700102BAA /* EPNewProjectViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED44F46324CE83B700102BAA /* EPNewProjectViewCtl.xib */; };
 		ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */; };
+		ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED48BE3724EA7A4100060411 /* UIImage+Util.m */; };
 		ED74A6F424BFEDA200D9FA77 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */; };
 		ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A6F624BFEE0E00D9FA77 /* RootTableViewDataSource.m */; };
 		ED74A70824C0049E00D9FA77 /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED74A70724C0049E00D9FA77 /* RootView.m */; };
@@ -341,6 +342,8 @@
 		ED44F47024CE894800102BAA /* EPProjectHeadFileHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPProjectHeadFileHandler.h; sourceTree = "<group>"; };
 		ED48BE3324EA28E600060411 /* CZAlbumScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZAlbumScrollView.h; sourceTree = "<group>"; };
 		ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CZAlbumScrollView.m; sourceTree = "<group>"; };
+		ED48BE3624EA7A4100060411 /* UIImage+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
+		ED48BE3724EA7A4100060411 /* UIImage+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		ED74A6F224BFEDA200D9FA77 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		ED74A6F524BFEE0E00D9FA77 /* RootTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewDataSource.h; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				ED74A6F324BFEDA200D9FA77 /* UIView+Extension.m */,
 				ED991ABB24E52302006F819C /* UIColor+Util.h */,
 				ED991ABC24E52302006F819C /* UIColor+Util.m */,
+				ED48BE3624EA7A4100060411 /* UIImage+Util.h */,
+				ED48BE3724EA7A4100060411 /* UIImage+Util.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1419,6 +1424,7 @@
 				ED3B557724BEE42B008CBB51 /* EPFindPwdViewCtl.m in Sources */,
 				ED3E679424C064CF0055B4E7 /* HomeCollectionViewCell.m in Sources */,
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
+				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
 				ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */,
 				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,

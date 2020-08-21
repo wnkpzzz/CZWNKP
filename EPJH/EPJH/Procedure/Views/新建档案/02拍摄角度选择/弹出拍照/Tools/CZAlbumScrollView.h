@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CZAlbumScrollView : UIScrollView
 
+@property (nonatomic, strong) UIImage * contentImg;
 
 @end
 

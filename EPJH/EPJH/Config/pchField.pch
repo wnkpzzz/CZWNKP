@@ -53,6 +53,7 @@
 
 // 分类扩展
 #import "UIColor+Util.h"
+#import "UIImage+Util.h"
 #import "UIView+Extension.h"
 
 #endif

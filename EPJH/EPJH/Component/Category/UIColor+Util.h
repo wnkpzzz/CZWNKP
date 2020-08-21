@@ -12,9 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Util)
 
-
-+(UIColor *)colorWithRGBHex:(UInt32)hex;
-
 /** 十六进制转UIColor */
 +(UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
