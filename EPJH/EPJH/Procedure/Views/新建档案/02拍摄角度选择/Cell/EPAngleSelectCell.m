@@ -59,9 +59,10 @@
     }else{
         self.selectViewHeight.constant = kWidth(30);
     }
-    if (self.showBlock) {
-        self.showBlock();// 刷新界面
-    }
+    
+    // 刷新界面
+    if (self.showBlock) { self.showBlock(); }
+    
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource

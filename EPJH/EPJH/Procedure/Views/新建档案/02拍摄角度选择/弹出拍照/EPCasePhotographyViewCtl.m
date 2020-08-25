@@ -59,7 +59,8 @@
 
 /** 传入数据 */
 - (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
-    
+ 
+    [self.popView reloadDataWithModel:proModel pictureArr:takeCasePicArr nowSign:nowIndex];
 }
 
 - (EPCasePhotographySuspensionView *)popView{

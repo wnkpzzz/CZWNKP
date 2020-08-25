@@ -11,8 +11,7 @@
  
 @interface CZAlbumScrollView () <UIScrollViewDelegate>
 
-/**图片*/
-@property(nonatomic,strong) UIImageView *contentImageView;
+
 
 @end
 
@@ -33,38 +32,45 @@
 - (void)setupUI{
  
     self.bounces = NO;
-    self.alwaysBounceVertical = YES;
-    self.alwaysBounceHorizontal = YES;
     self.bouncesZoom = NO;
     [self setZoomScale:1.0];
-    // 增加额外的滚动区域
-    self.contentInset = UIEdgeInsetsMake(1000, 1000, 1000, 1000);
-     
+    self.alwaysBounceVertical = YES;
+    self.alwaysBounceHorizontal = YES;
+    self.minimumZoomScale = 0.01; //最小缩放比例
+    self.maximumZoomScale =  10.0;    //最大缩放比例
+    self.contentInset = UIEdgeInsetsMake(800, 800, 800, 800);  // 增加额外的滚动区域
+    
+    [self addSubview:self.contentImageView];
 }
 
 - (void)layoutSubviews{
 
     [super layoutSubviews];
-
-     
     
-}
 
-- (void)setContentImg:(UIImage *)contentImg{
  
-    self.contentImageView.image = contentImg;
-    
 }
 
-- (UIImageView *)contentImageView
-{
+ 
+
+- (UIImageView *)contentImageView{
+
     if (!_contentImageView) {
         _contentImageView = [[UIImageView alloc] init];
         _contentImageView.contentMode = UIViewContentModeScaleToFill;
-        _contentImageView.frame = self.bounds;
-        [self addSubview:_contentImageView];
+//        _contentImageView.image = placeHolderImg;
+        _contentImageView.frame = CGRectMake(0, 0, self.width, self.height);
+
     }
     return _contentImageView;
 }
 
+
+- (void)setImageModel:(CZAlbumScanModel *)imageModel{
+    
+    _imageModel = imageModel;
+   
+}
+
 @end
+

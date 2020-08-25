@@ -16,7 +16,8 @@
 @property (nonatomic,strong) AVCaptureDevice *device;                   /** 获取相机设备的一些属性 */
 @property (nonatomic,strong) AVCaptureSession * session;                /** 执行输入设备和输出设备之间的数据交换 */
 @property (nonatomic,strong) AVCaptureDeviceInput *deviceInput;         /** 输入设备，调用所有的输入硬件，例如摄像头、麦克风 */
-@property (nonatomic,strong) AVCapturePhotoOutput *imageOutput;         /** 照片流输出，用于输出图像 */
+//@property (nonatomic,strong) AVCapturePhotoOutput *imageOutput;         /** 照片流输出，用于输出图像 */
+@property (nonatomic,strong) AVCaptureStillImageOutput *imageOutput;         /** 照片流输出，用于输出图像 */
 @property (nonatomic,strong) AVCaptureVideoPreviewLayer *previewLayer;  /** 镜头扑捉到的预览图层 */
 @property (nonatomic,assign) UIDeviceOrientation deviceOrientation;     /** 屏幕的旋转方向 */
 
@@ -35,11 +36,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchBtn;       /** 切换摄像头 8 */
  
 // **************** 《上下半区》 **********************
-@property (weak, nonatomic) IBOutlet CZAlbumScrollView *headOutputImgView;   /** 上半区成像后的图片 */
+@property (weak, nonatomic) IBOutlet UIView *headOutputImgView;              /** 上半区成像后的图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *headCKImgView;             /** 上半区参照虚线图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footStandardImgView;       /** 下半区标准对比图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footCKImgView;             /** 下半区参照虚线图 */
 @property (nonatomic, copy) NSString *standrandImageUrl;                     /** 下半区标准照图片地址 */
+
+@property (nonatomic, strong) CZAlbumScrollView *outImageView;
+@property (nonatomic, strong) CZAlbumScanModel *outImageModel;               /** 上半区成像图Model */
 
 // **************** 《数据逻辑》 **********************
  
@@ -63,11 +67,14 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
 
+    // 初始化数据
     self.nowIndex = 0;
     self.proModel = [[EPProjectModel alloc] init];
+    self.outImageModel = [[CZAlbumScanModel alloc] init];
     self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
     self.takePicStatusType = CaseTakePicStatusTypeDefault;
-    
+
+    // 配置UI
     self.backBtn.layer.cornerRadius = 16;
     self.backBtn.layer.masksToBounds = YES;
     [self.backBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
@@ -75,15 +82,18 @@
     self.saveBtn.layer.masksToBounds = YES;
     [self.saveBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
 
+    //成像后的显示视图
+    [self.headOutputImgView addSubview:self.outImageView];
+ 
     [self createAVCaptureDevice];
-   
+     
 }
 
 /** 传入数据 */
 - (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
     
     self.nowIndex = nowIndex;
-    self.proModel = [proModel mutableCopy];
+    self.proModel = proModel;
     [self.takeCasePicArr addObjectsFromArray:takeCasePicArr];
 
     for (int i = 0; i < kPartsIDArr.count; i++) {
@@ -171,7 +181,7 @@
     }else if (button.tag == 1) {    /** 完成并保存退出*/
         
         // 如果是拍完照处于预览界面
-        if (self.takePicStatusType == CaseTakePicStatusTypeTakePic ) { [self confirmSaveTakePicture]; }
+        if (self.takePicStatusType == CaseTakePicStatusTypeTakePic ) { [self saveTakePicture]; }
          
         // 去除新增空位
         if (self.takeCasePicArr.count > [kPartsCountArr[self.partsIndex] intValue] && !self.takeBtn.isHidden) {
@@ -191,12 +201,14 @@
     }else if (button.tag == 4) {    /** 点击拍照 */
        
         // AVCapturePhotoCaptureDelegate  输出图片
-        [self.imageOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
+//        [self.imageOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
+        
+        [self confirmWithCamera];
   
         
     }else if (button.tag == 5) {    /** 确认并拍摄下一张 */
          
-        [self confirmSaveTakePicture];
+        [self saveTakePicture];
         
         // 新增空位
         if (!self.nextBtn.selected) {
@@ -266,9 +278,12 @@
     self.deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:&error];
     if ([self.session canAddInput:self.deviceInput]) {[self.session addInput:self.deviceInput]; }
 
-    self.imageOutput = [[AVCapturePhotoOutput alloc] init];
-    self.imageOutput = [[AVCapturePhotoOutput alloc] init];
-    [self.imageOutput setPhotoSettingsForSceneMonitoring:[AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey:AVVideoCodecTypeJPEG}]];
+//    self.imageOutput = [[AVCapturePhotoOutput alloc] init];
+//    [self.imageOutput setPhotoSettingsForSceneMonitoring:[AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey:AVVideoCodecTypeJPEG}]];
+    
+    self.imageOutput = [[AVCaptureStillImageOutput alloc] init];
+    NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
+    [self.imageOutput setOutputSettings:outputSettings];
     if ([self.session canAddOutput:self.imageOutput]) {[self.session addOutput:self.imageOutput]; }
 
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
@@ -305,77 +320,67 @@
        }
     }
 }
- 
-/** 相机状态 */
-- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition)position{
+  
+/** 确认拍照--直接拍照选取 */
+- (void)confirmWithCamera{
     
-    // 前置摄像头的时候隐藏闪光灯按钮
-    if (position == AVCaptureDevicePositionBack) {  [self.flashlightBtn setHidden:NO];  }
-    if (position == AVCaptureDevicePositionFront) {  [self.flashlightBtn setHidden:YES];  }
+        //拍照
+        AVCaptureConnection *connection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
+        connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+        //成像镜面
+        NSArray *inputs = self.session.inputs;
+        for (AVCaptureDeviceInput *input in inputs ) {
+            AVCaptureDevice *device = input.device;
+            if ( [device hasMediaType:AVMediaTypeVideo] ) {
+                AVCaptureDevicePosition position = device.position;
+                if (position ==AVCaptureDevicePositionFront){
+                    connection.videoMirrored = YES;
+                }else{
+                    connection.videoMirrored = NO;
+                }
+                break;
+            }
+        }
+        // 输出图片
+        WS(weakSelf);
+        id takePictureSuccess = ^(CMSampleBufferRef sampleBuffer,NSError *error){
+            
+            if (sampleBuffer == NULL) { return ; }
+            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:sampleBuffer];
+            UIImage *image = [[UIImage alloc] initWithData:imageData];
+            // 切换预览模式
+            weakSelf.takePicStatusType = CaseTakePicStatusTypeTakePic;
+            // 图片纠正
+            image = [image normalizedImage];
+            // 显示成像的图片
+            // 比例剪裁举例：375：406 = 3024：3274
+            CGFloat imgResultW = self.headOutputImgView.width;
+            CGFloat imgResultH = self.headOutputImgView.height;
+            CGFloat imgMyW =  image.size.width;
+            CGFloat imgMyH =  imgMyW * imgResultH / imgResultW ;
+            CGSize imgeSize = CGSizeMake(imgMyW, imgMyH);
+            //对图片尺寸进行剪裁
+            UIImage *imageNew = [self thumbnailWithImage:image size:imgeSize];
+            //对图片大小进行压缩
+            NSData *dataImg = UIImageJPEGRepresentation(imageNew, 0.2);
+            UIImage *imageNewNew = [UIImage imageWithData:dataImg];
+
+            // 最终得到图片
+            weakSelf.outImageView.contentImageView.image = imageNewNew;
+            [self.outImageView setHidden:NO];
  
-    AVCaptureDeviceDiscoverySession *cameras = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
- 
-     for (AVCaptureDevice *device in cameras.devices) {
-         if ([device position] == position) {
-             return device;
-         }
-     }
- 
-    return nil;
+        };
+    
+        [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:takePictureSuccess];
 }
 
-/** 保存拍摄的图片 */
-- (void)confirmSaveTakePicture{
-    
-    // 保存新Model(替换)
-    EPImageModel *model = [EPImageModel new];
-    model.subCateId = self.proModel.subCateId;
-    model.subCateName = self.proModel.subCateName;
-    model.cateId = self.proModel.cateId;
-    model.cateName = self.proModel.cateName;
-    model.sort = (int)self.nowIndex;
-    model.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
-    model.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-    model.isPaiZhaoFlag = @"YES";
-    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", [AppUtils getNowTimeCuo], [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
-    model.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
-    [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:model];
-    
-    // 确认照片
-    EPTakePictureModel *photoModel = [EPTakePictureModel new];
-    photoModel.index = self.nowIndex;
-    photoModel.cameraImage = self.headOutputImgView.contentImg;
-    photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
-    photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-    [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
-}
 
-/** 更新UI界面加载图片数据 */
-- (void)updateUIAndLoadImageData{
-     
-    UIImage *standardImage;
-    UIImage *tempImage;
-    EPTakePictureModel *model = [self.takeCasePicArr objectAtIndex:self.nowIndex];
-    if ([AppUtils isIPhoneX]) {
-        if (model.defaultImage) {
-            standardImage = model.defaultImage;
-        }else{
-            standardImage = [UIImage imageNamed:kCameraTempImageArrayX[self.partsIndex][self.nowIndex]];
-        }
-        tempImage = [UIImage imageNamed:kCameraFrameTempImageArrayX[self.partsIndex][self.nowIndex]];
-    }else{
-        if (model.defaultImage) {
-            standardImage = model.defaultImage;
-        }else{
-            standardImage = [UIImage imageNamed:kCameraTempImageArray[self.partsIndex][self.nowIndex]];
-        }
-        tempImage = [UIImage imageNamed:kCameraFrameTempImageArray[self.partsIndex][self.nowIndex]];
-    }
-    self.footStandardImgView.image = standardImage;
-    self.footCKImgView.image = tempImage;
-    if (self.nowIndex == self.proModel.cameraArr.count - 1) { self.nextBtn.hidden = YES; }
-    
-}
+
+
+
+
+
+
 
 #pragma mark AVCapturePhotoCaptureDelegate
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(NSError *)error {
@@ -416,7 +421,7 @@
 //        NSData *dataImg = UIImageJPEGRepresentation(imageNew, 0.2);
 //        UIImage *imageNewNew = [UIImage imageWithData:dataImg];
  
-        self.headOutputImgView.contentImg = imageNew;
+//        self.headOutputImgView.contentImg = imageNew;
         [self.headOutputImgView setHidden:NO];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
@@ -494,5 +499,92 @@
  
 }
  
- 
+/** 相机状态 */
+- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition)position{
+    
+    // 前置摄像头的时候隐藏闪光灯按钮
+    if (position == AVCaptureDevicePositionBack) {  [self.flashlightBtn setHidden:NO];  }
+    if (position == AVCaptureDevicePositionFront) {  [self.flashlightBtn setHidden:YES];  }
+
+    AVCaptureDeviceDiscoverySession *cameras = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
+
+    for (AVCaptureDevice *device in cameras.devices) {
+        if ([device position] == position) {
+            return device;
+        }
+    }
+
+    return nil;
+}
+
+
+/** 保存拍摄的图片 */
+- (void)saveTakePicture{
+    
+    // 保存新Model(替换)
+    EPImageModel *model = [EPImageModel new];
+    model.subCateId = self.proModel.subCateId;
+    model.subCateName = self.proModel.subCateName;
+    model.cateId = self.proModel.cateId;
+    model.cateName = self.proModel.cateName;
+    model.sort = (int)self.nowIndex;
+    model.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+    model.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    model.isPaiZhaoFlag = @"YES";
+    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", [AppUtils getNowTimeCuo], [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
+    model.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
+    [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:model];
+    
+    // 确认照片
+    EPTakePictureModel *photoModel = [EPTakePictureModel new];
+    photoModel.index = self.nowIndex;
+    photoModel.cameraImage = self.outImageModel.image;
+    photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
+    photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
+}
+
+/** 更新UI界面加载图片数据 */
+- (void)updateUIAndLoadImageData{
+     
+    UIImage *standardImage;
+    UIImage *tempImage;
+    EPTakePictureModel *model = [self.takeCasePicArr objectAtIndex:self.nowIndex];
+    if ([AppUtils isIPhoneX]) {
+        if (model.defaultImage) {
+            standardImage = model.defaultImage;
+        }else{
+            standardImage = [UIImage imageNamed:kCameraTempImageArrayX[self.partsIndex][self.nowIndex]];
+        }
+        tempImage = [UIImage imageNamed:kCameraFrameTempImageArrayX[self.partsIndex][self.nowIndex]];
+    }else{
+        if (model.defaultImage) {
+            standardImage = model.defaultImage;
+        }else{
+            standardImage = [UIImage imageNamed:kCameraTempImageArray[self.partsIndex][self.nowIndex]];
+        }
+        tempImage = [UIImage imageNamed:kCameraFrameTempImageArray[self.partsIndex][self.nowIndex]];
+    }
+    self.footStandardImgView.image = standardImage;
+    self.footCKImgView.image = tempImage;
+    if (self.nowIndex == self.proModel.cameraArr.count - 1) { self.nextBtn.hidden = YES; }
+    
+}
+
+#pragma mark -- 懒加载
+- (CZAlbumScrollView *)outImageView{
+
+    if (!_outImageView) {
+        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, -45, self.headOutputImgView.width, self.headOutputImgView.height)];
+//        _outImageView.backgroundColor = [UIColor whiteColor];
+//        _outImageView.hidden = YES;
+//        _outImageView.layer.masksToBounds = YES;
+//        _outImageView.contentImageView.image = placeHolderImg;
+//        [_outImageView setHidden:NO];
+
+    }
+    
+    return _outImageView;
+}
+
 @end

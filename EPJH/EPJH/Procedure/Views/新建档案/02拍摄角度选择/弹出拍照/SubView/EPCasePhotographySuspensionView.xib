@@ -17,7 +17,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-dj-zJi" userLabel="headView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y52-EI-w5E" customClass="CZAlbumScrollView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y52-EI-w5E">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
@@ -197,14 +197,14 @@
                 <outlet property="footCKImgView" destination="qGO-Qy-U57" id="BTj-nW-YgC"/>
                 <outlet property="footStandardImgView" destination="Knh-yS-oj6" id="J32-7o-wzc"/>
                 <outlet property="headCKImgView" destination="xSH-p7-tpk" id="hy1-tx-KVL"/>
-                <outlet property="headOutputImgView" destination="y52-EI-w5E" id="NIW-Bk-q1V"/>
+                <outlet property="headOutputImgView" destination="y52-EI-w5E" id="Dka-eE-DfU"/>
                 <outlet property="nextBtn" destination="ai4-wc-XGn" id="pqX-nD-sBe"/>
                 <outlet property="saveBtn" destination="YY7-bw-XF7" id="ODB-Wl-GVR"/>
                 <outlet property="skipBtn" destination="cRj-Su-mpC" id="fUe-EV-yrE"/>
                 <outlet property="switchBtn" destination="ZHT-xm-Yuc" id="be8-ce-T4O"/>
                 <outlet property="takeBtn" destination="ODj-pP-1U4" id="ZLa-7R-kmj"/>
             </connections>
-            <point key="canvasLocation" x="-139" y="25"/>
+            <point key="canvasLocation" x="-449" y="23"/>
         </view>
     </objects>
     <resources>

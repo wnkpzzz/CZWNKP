@@ -150,6 +150,7 @@
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
 		EDCC787624E79A5300B0FC4C /* EPCasePhotographySuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */; };
 		EDCC787824E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */; };
+		EDF0844224F3A56E00AEE33B /* CZAlbumScanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0844124F3A56E00AEE33B /* CZAlbumScanModel.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -387,6 +388,8 @@
 		EDCC787424E79A5300B0FC4C /* EPCasePhotographySuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographySuspensionView.h; sourceTree = "<group>"; };
 		EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographySuspensionView.m; sourceTree = "<group>"; };
 		EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographySuspensionView.xib; sourceTree = "<group>"; };
+		EDF0844024F3A56E00AEE33B /* CZAlbumScanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZAlbumScanModel.h; sourceTree = "<group>"; };
+		EDF0844124F3A56E00AEE33B /* CZAlbumScanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CZAlbumScanModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -945,6 +948,8 @@
 			children = (
 				ED48BE3324EA28E600060411 /* CZAlbumScrollView.h */,
 				ED48BE3424EA28E600060411 /* CZAlbumScrollView.m */,
+				EDF0844024F3A56E00AEE33B /* CZAlbumScanModel.h */,
+				EDF0844124F3A56E00AEE33B /* CZAlbumScanModel.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1427,6 +1432,7 @@
 				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
 				ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */,
+				EDF0844224F3A56E00AEE33B /* CZAlbumScanModel.m in Sources */,
 				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,
 				ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */,
 				ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */,

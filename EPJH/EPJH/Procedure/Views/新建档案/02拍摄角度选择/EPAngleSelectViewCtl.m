@@ -11,7 +11,7 @@
 @interface EPAngleSelectViewCtl ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) NSInteger partsIndex;                     // 节点索引
+@property (nonatomic, assign) NSInteger partsIndex;                     // 部位节点索引，面部，身体，四肢。。。
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> * makePhotoArrays; // 拍照结果数组
 
 @end
@@ -132,7 +132,7 @@
      
     WS(weakSelf);
     EPCasePhotographyViewCtl *Vc = [[EPCasePhotographyViewCtl alloc] init];
-//    [Vc reloadDataWithModel:[self.proModel mutableCopy] photoArr:[self.makePhotoArrays mutableCopy] nowIndex:index];
+    [Vc reloadDataWithModel:self.proModel pictureArr:self.makePhotoArrays nowSign:index];
     Vc.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
         [weakSelf updateForModel:proModel array:photoArr];
     };

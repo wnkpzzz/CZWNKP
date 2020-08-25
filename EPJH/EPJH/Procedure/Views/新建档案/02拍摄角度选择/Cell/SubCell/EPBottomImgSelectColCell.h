@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel * nameLab;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImgView;
+ 
 
 @end
 

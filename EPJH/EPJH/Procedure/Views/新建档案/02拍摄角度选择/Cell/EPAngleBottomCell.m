@@ -98,12 +98,14 @@
 
     EPBottomImgSelectColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPBottomImgSelectColCell cellID] forIndexPath:indexPath];
     EPTakePictureModel *model = [self.collectionItems objectAtIndex:indexPath.item];
+    
     cell.nameLab.text = model.title;
     if (model.cameraImage) { cell.contentImgView.image = model.cameraImage; }
     else{
         if (model.defaultImage) { cell.contentImgView.image = model.defaultImage;}
         else{  cell.contentImgView.image = [UIImage imageNamed:kDefaultTempImageArray[model.partsIndex][indexPath.item]];}
     }
+    
     return cell;
 }
 
