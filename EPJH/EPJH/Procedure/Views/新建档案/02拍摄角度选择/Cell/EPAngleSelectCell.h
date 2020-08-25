@@ -13,14 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EPAngleSelectCell : RootTableViewCell
  
-/** 展开/收缩Block */
-@property (nonatomic, copy)void(^showBlock)(void);
+/** 数据源 */
+@property (nonatomic, strong) NSArray *dataArray;
 
+ 
 /** 点击回调Block */
 @property (nonatomic, copy)void(^selectBlock)(NSInteger selectIndex);
 
-/** 数据刷新 */
-- (void)reloadDataWithArray:(NSArray *)dataArray;
+
+ 
 
 @end
 

@@ -28,7 +28,7 @@
                     <rect key="frame" x="10" y="802" width="394" height="50"/>
                     <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="4JE-mf-OBA"/>
+                        <constraint firstAttribute="height" constant="50" id="xPd-rR-TGb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="下一步">
@@ -44,13 +44,13 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="2zN-mF-9Js" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="HfS-sM-0nP"/>
-                <constraint firstItem="d2Q-Go-com" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="NBB-5Q-YsO"/>
-                <constraint firstAttribute="trailing" secondItem="2zN-mF-9Js" secondAttribute="trailing" constant="10" id="RkP-J7-MQL"/>
-                <constraint firstItem="d2Q-Go-com" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YDH-D0-znC"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="d2Q-Go-com" secondAttribute="bottom" id="byM-vl-TfD"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="2zN-mF-9Js" secondAttribute="bottom" constant="10" id="dYX-lC-YN9"/>
-                <constraint firstAttribute="trailing" secondItem="d2Q-Go-com" secondAttribute="trailing" id="wHH-Se-6i2"/>
+                <constraint firstItem="d2Q-Go-com" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Aj0-WE-1ho"/>
+                <constraint firstItem="d2Q-Go-com" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="Gdm-o7-sCN"/>
+                <constraint firstItem="2zN-mF-9Js" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="LNB-4I-swz"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="2zN-mF-9Js" secondAttribute="bottom" constant="10" id="SxA-9h-8vR"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="2zN-mF-9Js" secondAttribute="trailing" constant="10" id="Zev-Tx-aat"/>
+                <constraint firstItem="d2Q-Go-com" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="v1g-95-h0I"/>
+                <constraint firstItem="d2Q-Go-com" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="yDP-gU-qd1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="125" y="122"/>

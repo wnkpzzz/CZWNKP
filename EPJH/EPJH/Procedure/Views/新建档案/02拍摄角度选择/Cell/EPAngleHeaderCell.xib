@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="KGk-i7-Jjw" customClass="EPAngleHeaderCell">
             <rect key="frame" x="0.0" y="0.0" width="430" height="101"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="430" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -152,7 +152,6 @@
                     <constraint firstItem="DHH-Ra-UQI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DsH-NF-U2V"/>
                     <constraint firstItem="81t-mR-0WU" firstAttribute="top" secondItem="DHH-Ra-UQI" secondAttribute="bottom" constant="5" id="Ojp-ht-0Eu"/>
                     <constraint firstItem="DHH-Ra-UQI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="aMh-Mp-ovF"/>
-                    <constraint firstAttribute="bottom" secondItem="81t-mR-0WU" secondAttribute="bottom" constant="5" id="erP-Ks-2Dg"/>
                     <constraint firstAttribute="trailing" secondItem="81t-mR-0WU" secondAttribute="trailing" id="vUK-PP-rzc"/>
                 </constraints>
             </tableViewCellContentView>
@@ -162,7 +161,7 @@
                 <outlet property="shuHouBtn" destination="y3M-W4-e68" id="Ibd-4q-aSh"/>
                 <outlet property="shuQianBtn" destination="xjA-Qk-wlm" id="H18-oy-dq5"/>
             </connections>
-            <point key="canvasLocation" x="-531.8840579710145" y="50.558035714285715"/>
+            <point key="canvasLocation" x="-748" y="-85"/>
         </tableViewCell>
     </objects>
 </document>

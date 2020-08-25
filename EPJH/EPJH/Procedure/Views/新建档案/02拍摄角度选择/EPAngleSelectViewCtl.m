@@ -11,8 +11,12 @@
 @interface EPAngleSelectViewCtl ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) NSInteger partsIndex;                     // 部位节点索引，面部，身体，四肢。。。
+@property (nonatomic, assign) NSInteger partsIndex;     // 部位节点索引，面部，身体，四肢。。。
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> * makePhotoArrays; // 拍照结果数组
+
+
+@property (nonatomic, assign) CGFloat twoCellHeight;
+@property (nonatomic, assign) CGFloat threeCellHeight;
 
 @end
 
@@ -28,6 +32,8 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
     
+    self.twoCellHeight = 90;
+    self.threeCellHeight = 305 * 4;
     self.makePhotoArrays = [NSMutableArray arrayWithCapacity:12];
  
     // 在这里初始化项目Model
@@ -237,15 +243,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.estimatedSectionHeaderHeight = 0;
-    self.tableView.estimatedSectionFooterHeight = 0;
-//    self.tableView.estimatedRowHeight = 200;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleHeaderCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleHeaderCell cellID]];
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleSelectCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleSelectCell cellID]];
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleBottomCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleBottomCell cellID]];
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -258,23 +259,26 @@
     return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    if (indexPath.section == 2) { return 800; }
-         
-     return 90;
+    if (indexPath.section == 0) { return 90; }
+    else if (indexPath.section == 1) { return self.twoCellHeight; }
+    else if (indexPath.section == 2) { return self.threeCellHeight; }
+    else{  return 90; }
+   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
     if (section == 2) { return 0; }
-        
+
     return kWidth(10);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
+
     if (section == 2) { return nil; }
-         
+
     UIView *view = [UIView new];
     view.backgroundColor = RGB(250, 250, 250);
     return view;
@@ -294,8 +298,6 @@
         
         EPAngleSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleSelectCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell reloadDataWithArray:kPartsNameArr];
-        cell.showBlock = ^{ [weakself.tableView reloadData]; };
         cell.selectBlock = ^(NSInteger selectIndex) { [weakself selectViewSelectWithIndex:selectIndex]; };
         return cell;
         
@@ -304,10 +306,9 @@
         EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if ([self.proModel.subCateId isEqualToString:kShuQianID]) { cell.isShowAdd = YES; }else{ cell.isShowAdd = NO; }
-        [cell reloadDataSource:self.makePhotoArrays]; // 传入图片数组
+        cell.dataArray = self.makePhotoArrays;
         cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
-         
-       return cell;
+        return cell;
     }
 
 

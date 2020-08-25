@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray * titleArr;
 @property (nonatomic, assign) NSInteger rowIndex;// 显示行数
 @property (nonatomic, assign) NSInteger selectedIndex;// 选中索引
+ 
 
 @end
 
@@ -40,17 +41,14 @@
        
     self.rowIndex = 0;
     self.selectedIndex = 0;
-    [self createCollectionView];
-}
-
-- (void)reloadDataWithArray:(NSArray *)dataArray{
-    
     self.titleArr = [[NSArray alloc] init];
-    self.titleArr = [NSArray arrayWithArray:dataArray];
-    [self.selectView reloadData];
+    self.titleArr = kPartsNameArr;
     self.rowIndex = self.titleArr.count%5==0?self.titleArr.count%5:(self.titleArr.count%5+1);
+    
+    [self createCollectionView];
+ 
 }
-
+ 
 - (IBAction)shouAction:(UIButton *)sender{
     
     sender.selected = !sender.selected;
@@ -59,10 +57,7 @@
     }else{
         self.selectViewHeight.constant = kWidth(30);
     }
-    
-    // 刷新界面
-    if (self.showBlock) { self.showBlock(); }
-    
+      
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource

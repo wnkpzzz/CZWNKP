@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView * bottomCollectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * bottomViewHeight; // 选择视图高度约束
 
-@property (nonatomic, assign) NSInteger rowIndex;// 显示行数
-@property (nonatomic, strong) NSMutableArray *collectionItems;// 新数据源，为了显示新增加号
+@property (nonatomic, assign) NSInteger rowIndex;   // 显示行数
+@property (nonatomic, strong) NSMutableArray *collectionItems;  // 新数据源，为了显示新增加号
 
 @end
 
@@ -43,8 +43,8 @@
     
     [self createCollectionView];
 }
-
-- (void)reloadDataSource:(NSArray *)dataArray{
+ 
+- (void)setDataArray:(NSArray *)dataArray{
     
     [self.collectionItems removeAllObjects]; // 清空
     [self.collectionItems addObjectsFromArray:dataArray];// 构造新数据源，新增加号占位图
@@ -55,10 +55,6 @@
         model.title = @"添加";
         [self.collectionItems addObject:model];
     }
-    [self updataViewHeight];
-}
- 
-- (void)updataViewHeight{
     
     // 设置高度
     if (self.collectionItems.count%2 == 0) { self.rowIndex = self.collectionItems.count/2; }
@@ -67,7 +63,14 @@
     // 更新高度
     self.bottomViewHeight.constant = ((APP_WIDTH - kWidth(10) - 40)/2 + kWidth(28))*self.rowIndex + kWidth(20)+60 + kWidth(10)*(self.rowIndex - 1);
     [self.bottomCollectionView reloadData];
+    
+    NSLog(@"%ld===%.2f===",self.rowIndex,self.bottomViewHeight.constant);
+    
+    if (self.cellHeightBlock) { self.cellHeightBlock(self.bottomViewHeight.constant); }
+
 }
+
+
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
 

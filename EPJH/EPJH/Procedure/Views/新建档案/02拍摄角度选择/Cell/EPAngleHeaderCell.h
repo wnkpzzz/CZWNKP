@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 点击按钮回调Block */
 @property (nonatomic, copy)void(^clickBlock)(NSInteger selectIndex);
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END
