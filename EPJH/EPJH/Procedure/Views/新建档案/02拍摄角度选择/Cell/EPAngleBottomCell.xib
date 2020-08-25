@@ -33,6 +33,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="okP-da-oCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7lb-nb-2Kz"/>
+                    <constraint firstAttribute="bottom" secondItem="okP-da-oCe" secondAttribute="bottom" constant="5" id="G9Q-qW-ZAS"/>
                     <constraint firstAttribute="trailing" secondItem="okP-da-oCe" secondAttribute="trailing" id="OpU-aM-RS4"/>
                     <constraint firstItem="okP-da-oCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Wox-4L-xrs"/>
                 </constraints>

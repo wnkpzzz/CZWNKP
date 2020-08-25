@@ -66,11 +66,5 @@
 }
 
 
-- (void)setImageModel:(CZAlbumScanModel *)imageModel{
-    
-    _imageModel = imageModel;
-   
-}
-
 @end
 

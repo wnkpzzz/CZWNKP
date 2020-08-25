@@ -152,6 +152,7 @@
                                 <constraint firstAttribute="height" constant="50" id="Gh1-SY-8um"/>
                             </constraints>
                             <state key="normal" backgroundImage="icon_pro_takePic_next"/>
+                            <state key="selected" backgroundImage="icon_pro_takePic_complete"/>
                             <connections>
                                 <action selector="btnClickAction:" destination="-1" eventType="touchUpInside" id="il5-D2-3Tc"/>
                             </connections>
@@ -215,6 +216,7 @@
         <image name="icon_pro_takePic_album" width="30" height="30"/>
         <image name="icon_pro_takePic_back" width="32" height="32"/>
         <image name="icon_pro_takePic_cancel" width="50" height="50"/>
+        <image name="icon_pro_takePic_complete" width="50" height="50"/>
         <image name="icon_pro_takePic_flashlight_on" width="34" height="34"/>
         <image name="icon_pro_takePic_flashlight_out" width="34" height="34"/>
         <image name="icon_pro_takePic_make" width="50" height="50"/>

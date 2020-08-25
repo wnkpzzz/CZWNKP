@@ -63,11 +63,7 @@
     // 更新高度
     self.bottomViewHeight.constant = ((APP_WIDTH - kWidth(10) - 40)/2 + kWidth(28))*self.rowIndex + kWidth(20)+60 + kWidth(10)*(self.rowIndex - 1);
     [self.bottomCollectionView reloadData];
-    
-    NSLog(@"%ld===%.2f===",self.rowIndex,self.bottomViewHeight.constant);
-    
-    if (self.cellHeightBlock) { self.cellHeightBlock(self.bottomViewHeight.constant); }
-
+     
 }
 
 

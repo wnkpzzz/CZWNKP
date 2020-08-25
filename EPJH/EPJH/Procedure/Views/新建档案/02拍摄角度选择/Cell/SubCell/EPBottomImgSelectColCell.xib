@@ -58,7 +58,7 @@
                 <outlet property="contentImgView" destination="TG5-5p-96o" id="Lhs-sP-qaH"/>
                 <outlet property="nameLab" destination="dca-En-YOm" id="lhl-A7-9Bw"/>
             </connections>
-            <point key="canvasLocation" x="-404.34782608695656" y="-150"/>
+            <point key="canvasLocation" x="-188" y="-156"/>
         </collectionViewCell>
     </objects>
     <resources>

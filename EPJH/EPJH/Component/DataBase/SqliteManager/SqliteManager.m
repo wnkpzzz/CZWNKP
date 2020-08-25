@@ -99,8 +99,6 @@
     if (resultImg) {  return resultImg; }else{  return placeHolderImg; }
      
 }
-
  
-
  
 @end

@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CZAlbumScanModel.h"
-
+ 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CZAlbumScrollView : UIScrollView
 
- 
-@property(nonatomic,strong) CZAlbumScanModel *imageModel;
-/**图片*/
 @property(nonatomic,strong) UIImageView *contentImageView;
 
 @end

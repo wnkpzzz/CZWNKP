@@ -28,7 +28,6 @@
 #import "EPBottomImgSelectColCell.h"
  
 // 同屏放大缩小相关
-#import "CZAlbumScanModel.h"
 #import "CZAlbumScrollView.h"
 
 

@@ -13,11 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;     // 部位节点索引，面部，身体，四肢。。。
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> * makePhotoArrays; // 拍照结果数组
-
-
-@property (nonatomic, assign) CGFloat twoCellHeight;
-@property (nonatomic, assign) CGFloat threeCellHeight;
-
+ 
 @end
 
 @implementation EPAngleSelectViewCtl
@@ -31,9 +27,7 @@
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
-    
-    self.twoCellHeight = 90;
-    self.threeCellHeight = 305 * 4;
+     
     self.makePhotoArrays = [NSMutableArray arrayWithCapacity:12];
  
     // 在这里初始化项目Model
@@ -158,7 +152,7 @@
     self.proModel = proModel;
     
     // 第二次补充拍摄（第二次补充拍摄的内容个数 >= 第一次拍摄的内容个数）
-    NSMutableArray *newArr = [NSMutableArray array];
+    NSMutableArray *newArr = [NSMutableArray arrayWithCapacity:12];
     [newArr addObjectsFromArray:photoArr];
 
     [self.makePhotoArrays removeAllObjects];
@@ -176,11 +170,6 @@
     }else{
         [self loadDefaultImageWithList:nil];
     }
-}
-
-/** 从数据库查询用户已有的数据 */
-- (void)loadImgDataForDataBase{
-    
 }
 
 /** 加载角度图片(list:对比图数组) */
@@ -237,12 +226,24 @@
        }
 }
 
+/** 从数据库查询用户已有的数据 */
+- (void)loadImgDataForDataBase{
+    
+     
+}
+
 #pragma mark - UITableViewDataSource
 
 - (void)createTableView{
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleHeaderCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleHeaderCell cellID]];
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleSelectCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleSelectCell cellID]];
@@ -258,16 +259,7 @@
 
     return 1;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    if (indexPath.section == 0) { return 90; }
-    else if (indexPath.section == 1) { return self.twoCellHeight; }
-    else if (indexPath.section == 2) { return self.threeCellHeight; }
-    else{  return 90; }
-   
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
 
     if (section == 2) { return 0; }

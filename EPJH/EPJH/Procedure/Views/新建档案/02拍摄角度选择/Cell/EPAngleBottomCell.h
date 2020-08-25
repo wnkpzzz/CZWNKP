@@ -21,10 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 点击回调Block */
 @property (nonatomic, copy)void(^angleSelectBlock)(NSInteger selectIndex );
-
-
-@property (nonatomic, copy)void(^cellHeightBlock)(CGFloat cellHeight);
-
+ 
 
 @end
 

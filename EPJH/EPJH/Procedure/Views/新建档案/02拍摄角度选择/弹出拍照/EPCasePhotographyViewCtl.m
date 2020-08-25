@@ -39,15 +39,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchBtn;       /** 切换摄像头 8 */
  
 // **************** 《上下半区》 **********************
-@property (weak, nonatomic) IBOutlet UIView *headOutputView;                 /** 上半区视图View */
+@property (weak, nonatomic) IBOutlet UIView *headOutputView;                 /** 上半区底部视图View */
+@property (nonatomic, strong) CZAlbumScrollView *outImageView;               /** 上半成像后的展示图 */
 @property (weak, nonatomic) IBOutlet UIImageView *headCKImgView;             /** 上半区参照虚线图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footStandardImgView;       /** 下半区标准对比图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footCKImgView;             /** 下半区参照虚线图 */
-@property (nonatomic, copy) NSString *standrandImageUrl;                     /** 下半区标准照图片地址 */
-
-@property (nonatomic, strong) CZAlbumScrollView *outImageView;               /** 上半成像后的展示图 */
-@property (nonatomic, strong) CZAlbumScanModel *outImageModel;               /** 上半区成像图Model */
-  
+ 
 // **************** 《数据逻辑》 **********************
  
 @property (nonatomic, assign) NSInteger partsIndex;                                     /** 节点索引 */
@@ -95,11 +92,7 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
      
-    // 初始化数据
-    self.nowIndex = 0;
-    self.proModel = [[EPProjectModel alloc] init];
-    self.outImageModel = [[CZAlbumScanModel alloc] init];
-    self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
+    // 初始化数据 
     self.takePicStatusType = CaseTakePicStatusTypeDefault;
 
     // 配置UI
@@ -114,11 +107,16 @@
     [self.headOutputView addSubview:self.outImageView];
 
     [self createAVCaptureDevice];
+    [self updateUIAndLoadImageData];
 }
 
 /** 传入数据 */
 - (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
  
+    self.nowIndex = 0;
+    self.proModel = [[EPProjectModel alloc] init];
+    self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
+
     self.nowIndex = nowIndex;
     self.proModel = proModel;
     [self.takeCasePicArr addObjectsFromArray:takeCasePicArr];
@@ -206,7 +204,7 @@
     }else if (button.tag == 1) {    /** 完成并保存退出*/
         
         // 如果是拍完照处于预览界面
-        if (self.takePicStatusType == CaseTakePicStatusTypeTakePic ) { [self saveTakePicture]; }
+        if (self.takeBtn.isHidden) { [self saveTakePicture]; }
          
         // 去除新增空位
         if (self.takeCasePicArr.count > [kPartsCountArr[self.partsIndex] intValue] && !self.takeBtn.isHidden) {
@@ -229,7 +227,7 @@
   
         
     }else if (button.tag == 5) {    /** 确认并拍摄下一张 */
-         
+          
         [self saveTakePicture];
         
         // 新增空位
@@ -341,6 +339,7 @@
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             // 切换预览模式
             weakSelf.takePicStatusType = CaseTakePicStatusTypeTakePic;
+           
             // 图片纠正
             image = [image normalizedImage];
             // 显示成像的图片
@@ -401,7 +400,10 @@
             [self.skipBtn setHidden:YES];
             [self.flashlightBtn setHidden:YES];
             [self.switchBtn setHidden:YES];
- 
+  
+            // 如果是最后一张
+            if (self.nowIndex == 11) { self.nextBtn.selected = YES; }else{ self.nextBtn.selected = NO; }
+               
             break;
         default:
             break;
@@ -446,13 +448,15 @@
     // 确认照片
     EPTakePictureModel *photoModel = [EPTakePictureModel new];
     photoModel.index = self.nowIndex;
-    photoModel.cameraImage = self.outImageModel.image;
+    photoModel.cameraImage = self.outImageView.contentImageView.image;
     photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
     photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
     [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
+    
+    
 }
 
-/** 本次拍摄完成,更新UI界面加载下一张图片数据 */
+/** 更新UI界面加载对比照图片数据 */
 - (void)updateUIAndLoadImageData{
      
     UIImage *standardImage;
