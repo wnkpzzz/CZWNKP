@@ -58,9 +58,9 @@
     if (!_contentImageView) {
         _contentImageView = [[UIImageView alloc] init];
         _contentImageView.contentMode = UIViewContentModeScaleToFill;
-//        _contentImageView.image = placeHolderImg;
         _contentImageView.frame = CGRectMake(0, 0, self.width, self.height);
 
+         
     }
     return _contentImageView;
 }

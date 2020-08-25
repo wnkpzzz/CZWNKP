@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED09A13324CEA1B900045106 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13224CEA1B900045106 /* EPAngleHeaderCell.m */; };
 		ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */; };
 		ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */; };
 		ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */; };
@@ -78,6 +77,10 @@
 		ED0A803824E54BA9005E3DC3 /* proSelect_no_12.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801C24E54BA9005E3DC3 /* proSelect_no_12.png */; };
 		ED0A803924E54BA9005E3DC3 /* proSelect_no_10.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */; };
 		ED0A803A24E54BA9005E3DC3 /* proSelect_no_11.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */; };
+		ED20479224F4B1D4000A6040 /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */; };
+		ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */; };
+		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
+		ED20479824F4BB2A000A6040 /* EPAngleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
 		ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550924BEB0E8008CBB51 /* Assets.xcassets */; };
@@ -146,10 +149,7 @@
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
 		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
-		EDCC787024E7957000B0FC4C /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */; };
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
-		EDCC787624E79A5300B0FC4C /* EPCasePhotographySuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */; };
-		EDCC787824E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */; };
 		EDF0844224F3A56E00AEE33B /* CZAlbumScanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0844124F3A56E00AEE33B /* CZAlbumScanModel.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
@@ -175,8 +175,6 @@
 		66F7AE9138D3463F78F0B961 /* Pods-EPJH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EPJH.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EPJH/Pods-EPJH.debug.xcconfig"; sourceTree = "<group>"; };
 		A1495340BD755DE7CFC5E0D5 /* Pods-EPJH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EPJH.release.xcconfig"; path = "Pods/Target Support Files/Pods-EPJH/Pods-EPJH.release.xcconfig"; sourceTree = "<group>"; };
 		A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EPJH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED09A13124CEA1B900045106 /* EPAngleHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleHeaderCell.h; sourceTree = "<group>"; };
-		ED09A13224CEA1B900045106 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
 		ED09A13424CEA1CA00045106 /* EPAngleSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleSelectCell.h; sourceTree = "<group>"; };
 		ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleSelectCell.m; sourceTree = "<group>"; };
 		ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleSelectCell.xib; sourceTree = "<group>"; };
@@ -256,6 +254,12 @@
 		ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_10.png; sourceTree = "<group>"; };
 		ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_11.png; sourceTree = "<group>"; };
 		ED0A803C24E54D52005E3DC3 /* ProjectDataCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDataCommon.h; sourceTree = "<group>"; };
+		ED20478F24F4B1D4000A6040 /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
+		ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
+		ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographyViewCtl.xib; sourceTree = "<group>"; };
+		ED20479424F4BB2A000A6040 /* EPAngleHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleHeaderCell.h; sourceTree = "<group>"; };
+		ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
+		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -381,13 +385,8 @@
 		ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewCell.m; sourceTree = "<group>"; };
 		ED991ABB24E52302006F819C /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		ED991ABC24E52302006F819C /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
-		EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
-		EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
 		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
 		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
-		EDCC787424E79A5300B0FC4C /* EPCasePhotographySuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographySuspensionView.h; sourceTree = "<group>"; };
-		EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographySuspensionView.m; sourceTree = "<group>"; };
-		EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographySuspensionView.xib; sourceTree = "<group>"; };
 		EDF0844024F3A56E00AEE33B /* CZAlbumScanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZAlbumScanModel.h; sourceTree = "<group>"; };
 		EDF0844124F3A56E00AEE33B /* CZAlbumScanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CZAlbumScanModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -431,8 +430,9 @@
 			isa = PBXGroup;
 			children = (
 				ED43B4C424E4019C004E2600 /* SubCell */,
-				ED09A13124CEA1B900045106 /* EPAngleHeaderCell.h */,
-				ED09A13224CEA1B900045106 /* EPAngleHeaderCell.m */,
+				ED20479424F4BB2A000A6040 /* EPAngleHeaderCell.h */,
+				ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */,
+				ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */,
 				ED09A13424CEA1CA00045106 /* EPAngleSelectCell.h */,
 				ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */,
 				ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */,
@@ -876,10 +876,10 @@
 		ED43B4BE24E3F77C004E2600 /* 弹出拍照 */ = {
 			isa = PBXGroup;
 			children = (
-				EDCC786E24E7957000B0FC4C /* EPCasePhotographyViewCtl.h */,
-				EDCC786F24E7957000B0FC4C /* EPCasePhotographyViewCtl.m */,
 				ED48BE3224EA28CE00060411 /* Tools */,
-				EDCC786A24E7921B00B0FC4C /* SubView */,
+				ED20478F24F4B1D4000A6040 /* EPCasePhotographyViewCtl.h */,
+				ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */,
+				ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */,
 			);
 			path = "弹出拍照";
 			sourceTree = "<group>";
@@ -1088,16 +1088,6 @@
 			path = "首页广告";
 			sourceTree = "<group>";
 		};
-		EDCC786A24E7921B00B0FC4C /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				EDCC787424E79A5300B0FC4C /* EPCasePhotographySuspensionView.h */,
-				EDCC787524E79A5300B0FC4C /* EPCasePhotographySuspensionView.m */,
-				EDCC787724E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib */,
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
 		EFCDD8C1A46A569F45FDD2DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1273,11 +1263,13 @@
 				ED0A803824E54BA9005E3DC3 /* proSelect_no_12.png in Resources */,
 				ED0A7FE124E54B0C005E3DC3 /* Mark_Expression_04.jpg in Resources */,
 				ED0A7FEC24E54B0D005E3DC3 /* Mark_Face_02.jpg in Resources */,
+				ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */,
 				ED0A7FF724E54B0D005E3DC3 /* Mark_Nose_05.jpg in Resources */,
 				ED0A802324E54BA9005E3DC3 /* proSelect_7.png in Resources */,
 				ED0A7FEF24E54B0D005E3DC3 /* Mark_Face_06.jpg in Resources */,
 				ED0A800024E54B0D005E3DC3 /* Mark_Section_06.jpg in Resources */,
 				ED0A802624E54BA9005E3DC3 /* proSelect_5.png in Resources */,
+				ED20479824F4BB2A000A6040 /* EPAngleHeaderCell.xib in Resources */,
 				ED0A803024E54BA9005E3DC3 /* proSelect_no_1.png in Resources */,
 				ED3B557E24BEEF5E008CBB51 /* PopPrivacyProtocolView.xib in Resources */,
 				ED0A7FE424E54B0D005E3DC3 /* Mark_Chest_02.jpg in Resources */,
@@ -1296,7 +1288,6 @@
 				ED86405324D7E6A900FD7F7D /* EPAngleSelectViewCtl.xib in Resources */,
 				ED0A802A24E54BA9005E3DC3 /* proSelect_11.png in Resources */,
 				ED0A7FE624E54B0D005E3DC3 /* Mark_Expression_02.jpg in Resources */,
-				EDCC787824E79A5F00B0FC4C /* EPCasePhotographySuspensionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,7 +1401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED09A13324CEA1B900045106 /* EPAngleHeaderCell.m in Sources */,
 				ED74C7F924E5627900834A7F /* AppPhotoUtils.m in Sources */,
 				ED86405224D7E6A900FD7F7D /* EPAngleSelectViewCtl.m in Sources */,
 				ED3E678F24C061140055B4E7 /* EPHomeCollectionView.m in Sources */,
@@ -1427,6 +1417,7 @@
 				ED3B554B24BED953008CBB51 /* RootNavigationController.m in Sources */,
 				ED3B556D24BEDCD3008CBB51 /* EPHomeViewCtl.m in Sources */,
 				ED3B557724BEE42B008CBB51 /* EPFindPwdViewCtl.m in Sources */,
+				ED20479224F4B1D4000A6040 /* EPCasePhotographyViewCtl.m in Sources */,
 				ED3E679424C064CF0055B4E7 /* HomeCollectionViewCell.m in Sources */,
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
 				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
@@ -1436,7 +1427,6 @@
 				ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */,
 				ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */,
 				ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */,
-				EDCC787624E79A5300B0FC4C /* EPCasePhotographySuspensionView.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
 				EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */,
@@ -1446,6 +1436,7 @@
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
 				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
+				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
 				ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */,
 				ED3B554E24BED964008CBB51 /* RootTableViewCell.m in Sources */,
 				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,
@@ -1465,7 +1456,6 @@
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
 				ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */,
 				ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */,
-				EDCC787024E7957000B0FC4C /* EPCasePhotographyViewCtl.m in Sources */,
 				ED86405C24D7E7BD00FD7F7D /* EPUserSelectViewCtl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

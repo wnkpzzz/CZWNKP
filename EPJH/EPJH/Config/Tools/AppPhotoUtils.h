@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 手机闪光灯控制打开/关闭 */
 + (void)controlClashlightWith:(BOOL)switchFlag;
  
+/** 对图片尺寸剪裁 */
++ (UIImage *)thumbnailWithImage:(UIImage *)originalImage size:(CGSize)size;
 
 @end
 

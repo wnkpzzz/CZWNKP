@@ -16,11 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否显示加号添加扩展位 */
 @property (nonatomic, assign) BOOL isShowAdd;
  
-/** 点击回调Block */
-@property (nonatomic, copy)void(^angleSelectBlock)(NSInteger selectIndex);
-
 /** 数据刷新 */
 - (void)reloadDataSource:(NSArray *)dataArray;
+
+/** 点击回调Block */
+@property (nonatomic, copy)void(^angleSelectBlock)(NSInteger selectIndex);
 
 @end
 

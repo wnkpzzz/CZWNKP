@@ -93,9 +93,9 @@
     }
 }
 
-#pragma mark - 事件处理
+#pragma mark - 点击事件处理
 
-/** 时间节点点击回调 */
+/** 时间节点按钮事件 */
 - (void)headerViewSelectWithIndex:(NSInteger)index{
     switch (index) {
         case 0:
@@ -117,7 +117,7 @@
     [self.tableView reloadData];
 }
 
-/** 部位选择点击回调 */
+/** 拍摄部位按钮事件 */
 - (void)selectViewSelectWithIndex:(NSInteger)index{
     
     self.partsIndex = index;
@@ -127,7 +127,7 @@
     [self.tableView reloadData];
 }
 
-/** 底部视图点击回调 */
+/** 各个部位图片按钮事件 */
 - (void)bottomViewSelectWithIndex:(NSInteger)index{
      
     WS(weakSelf);
@@ -143,6 +143,8 @@
     
  
 }
+
+#pragma mark - 业务逻辑处理
 
 /** 拍照界面数据回传 */
 - (void)updateForModel:(EPProjectModel *)proModel array:(NSArray *)photoArr{
@@ -235,12 +237,12 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 200;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[EPAngleHeaderCell class] forCellReuseIdentifier:[EPAngleHeaderCell cellID]];
+//    self.tableView.estimatedRowHeight = 200;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;    
+    [self.tableView registerNib:[UINib nibWithNibName:[EPAngleHeaderCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleHeaderCell cellID]];
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleSelectCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleSelectCell cellID]];
     [self.tableView registerNib:[UINib nibWithNibName:[EPAngleBottomCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPAngleBottomCell cellID]];
 
@@ -254,6 +256,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    if (indexPath.section == 2) { return 800; }
+         
+     return 90;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
