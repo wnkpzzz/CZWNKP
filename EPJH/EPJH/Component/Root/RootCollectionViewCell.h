@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootCollectionViewCell : UICollectionViewCell
 
-+(NSString *)cellID;
++ (NSString *)cellID;
 
 @end
 

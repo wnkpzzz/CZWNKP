@@ -410,24 +410,6 @@
     }
 }
 
-/** 相机状态 */
-- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition)position{
-    
-    // 前置摄像头的时候隐藏闪光灯按钮
-    if (position == AVCaptureDevicePositionBack) {  [self.flashlightBtn setHidden:NO];  }
-    if (position == AVCaptureDevicePositionFront) {  [self.flashlightBtn setHidden:YES];  }
-
-    AVCaptureDeviceDiscoverySession *cameras = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
-
-    for (AVCaptureDevice *device in cameras.devices) {
-        if ([device position] == position) {
-            return device;
-        }
-    }
-
-    return nil;
-}
-
 /** 保存拍摄的图片 */
 - (void)saveTakePicture{
     
@@ -481,6 +463,24 @@
     self.footCKImgView.image = tempImage;
     if (self.nowIndex == self.proModel.cameraArr.count - 1) { self.nextBtn.hidden = YES; }
     
+}
+
+/** 相机状态 */
+- (AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition)position{
+    
+    // 前置摄像头的时候隐藏闪光灯按钮
+    if (position == AVCaptureDevicePositionBack) {  [self.flashlightBtn setHidden:NO];  }
+    if (position == AVCaptureDevicePositionFront) {  [self.flashlightBtn setHidden:YES];  }
+
+    AVCaptureDeviceDiscoverySession *cameras = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
+
+    for (AVCaptureDevice *device in cameras.devices) {
+        if ([device position] == position) {
+            return device;
+        }
+    }
+
+    return nil;
 }
 
 @end

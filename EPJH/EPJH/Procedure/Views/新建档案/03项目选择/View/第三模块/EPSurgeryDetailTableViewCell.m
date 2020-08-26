@@ -1,21 +1,14 @@
 //
-//  RootTableViewCell.m
+//  EPSurgeryDetailTableViewCell.m
 //  EPJH
 //
-//  Created by Hans on 2020/7/15.
+//  Created by Hans on 2020/8/25.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "RootTableViewCell.h"
+#import "EPSurgeryDetailTableViewCell.h"
 
-@implementation RootTableViewCell
-
-+ (NSString *)cellID{
-    
-    NSString * const ID = [NSString stringWithUTF8String:object_getClassName(self)];
-    
-    return ID;
-}
+@implementation EPSurgeryDetailTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

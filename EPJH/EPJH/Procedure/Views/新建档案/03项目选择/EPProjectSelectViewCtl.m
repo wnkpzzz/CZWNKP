@@ -8,7 +8,14 @@
 
 #import "EPProjectSelectViewCtl.h"
 
-@interface EPProjectSelectViewCtl ()
+@interface EPProjectSelectViewCtl ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (nonatomic,strong) EPTypeListClassifyModel * localDataModel;
+
+@property (nonatomic,assign) NSUInteger thirdClassifyNum;   //现在选择的第三分类
+@property (nonatomic,assign) NSUInteger fourthClassifyNum;  //现在选择的第四分类
 
 @end
 
@@ -16,17 +23,261 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"项目选择";
+    [self loadBaseConfig];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 基础配置
+- (void)loadBaseConfig{
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    [self loadLocalData];
+    [self createTableView];
 }
-*/
 
+- (void)loadLocalData{
+    
+
+        // 拉取本地数据
+        NSDictionary * testDataDic = [AppUtils readLocalFileWithName:@"ProChoose"];
+        NSArray * testData = testDataDic[@"datas"];
+        
+        EPTypeListClassifyModel * model = [[EPTypeListClassifyModel alloc] init];
+        model.name = @"";
+        model.imageChooseUrl = @"";
+        model.imageUrl = @"";
+        model.parentId = [NSString stringWithFormat:@"%d",1];
+        model.tag = [NSString stringWithFormat:@"%d",1];
+        model.isSelected = NO;
+        
+        NSMutableArray * oneArr = [NSMutableArray arrayWithCapacity:10];  // 第一模块数组
+        
+        for (int z = 0; z < testData.count; z++) {
+            
+            NSDictionary * dic = testData[z];
+            NSArray * projectArr = dic[@"project"];
+
+            EPTypeListClassifyModel * modelOne = [[EPTypeListClassifyModel alloc] init];
+            modelOne.name = dic[@"part"];
+            modelOne.imageUrl = [NSString stringWithFormat:@"proSelect_no_%d",z];
+            modelOne.imageChooseUrl = [NSString stringWithFormat:@"proSelect_%d",z];
+            modelOne.parentId = [NSString stringWithFormat:@"%d",z];
+            modelOne.tag = [NSString stringWithFormat:@"%d",z];
+    //        if (z == 0) {  modelOne.isSelected = YES;  }else{   modelOne.isSelected = NO;  }  // 默认选择第一个 ZCZ1225
+            [oneArr addObject:modelOne];
+            
+            NSMutableArray * towArr = [NSMutableArray arrayWithCapacity:10]; // 第二模块数组
+            
+            for (int y = 0; y < projectArr.count ; y++) {
+                
+                NSDictionary * proDic = projectArr[y];
+                NSMutableArray * threeArr = [NSMutableArray arrayWithCapacity:10]; // 第三模块数组
+
+                EPTypeListClassifyModel * modelTwo = [[EPTypeListClassifyModel alloc] init];
+                modelTwo.name = proDic[@"name"];
+                modelTwo.imageChooseUrl = @"";
+                modelTwo.imageUrl = @"";
+                modelTwo.parentId = [NSString stringWithFormat:@"%d",y];
+                modelTwo.tag = [NSString stringWithFormat:@"%d",y];
+    //            if (y == 0 && z == 0) { modelTwo.isSelected = YES;  }else{  modelTwo.isSelected = NO;  }  // 默认选择第一个 ZCZ1225
+
+                NSArray * materialArr = proDic[@"material"];
+                if (materialArr && materialArr.count > 0) {
+                    
+                    for (int x = 0; x < materialArr.count ; x++) {
+                        NSString * materialStr = materialArr[x];
+                        EPTypeListClassifyModel * modelThree = [[EPTypeListClassifyModel alloc] init];
+                        modelThree.name = materialStr;
+                        modelThree.imageChooseUrl = @"";
+                        modelThree.imageUrl = @"";
+                        modelThree.parentId = [NSString stringWithFormat:@"%d",x];
+                        modelThree.tag = [NSString stringWithFormat:@"%d",x];
+                        modelThree.isSelected = NO;
+                        [threeArr addObject:modelThree];
+                    }
+                    modelTwo.cateViews = threeArr;
+                }
+                
+                
+                [towArr addObject:modelTwo];
+            }
+            modelOne.cateViews = towArr;
+        }
+        
+        model.cateViews = oneArr;
+        self.localDataModel = model;
+}
+
+#pragma mark - UITableViewDataSource, UITableViewDelegate
+
+- (void)createTableView{
+    
+    self.tableView.delegate     = self;
+    self.tableView.dataSource   = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:[EPBodyPartTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPBodyPartTableViewCell cellID]];
+    [self.tableView registerNib:[UINib nibWithNibName:[EPSurgeryTypeTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+    [self.tableView registerNib:[UINib nibWithNibName:[EPSurgeryDetailTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPSurgeryDetailTableViewCell cellID]];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        
+        return 210;
+    }else if(indexPath.section == 1){
+        
+        return 210;
+        
+    }else{
+        return 200;
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 10.f;
+    }else{
+        return 0;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section != 2) {
+        return 10.f;
+    }else{
+        return 0;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView * view = [[UIView alloc]init];
+    view.backgroundColor = RGB(250, 250, 250);
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView * view = [[UIView alloc]init];
+    view.backgroundColor = RGB(250, 250, 250);
+    return view;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    WS(weakSelf);
+    if (indexPath.section == 0) {
+        
+        EPBodyPartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPBodyPartTableViewCell cellID] forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.listData = self.localDataModel.cateViews;
+        cell.backSelectItemBlock = ^(NSInteger index, BOOL isSelected, BOOL isShowSubList) { 
+            [weakSelf oneCellSelectWithIndex:index And:isSelected And:isShowSubList];
+        };
+        return cell;
+        
+    }else if(indexPath.section == 1){
+        
+        EPSurgeryTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryTypeTableViewCell cellID] forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (self.localDataModel.cateViews.count > 0 ) {
+            EPTypeListClassifyModel * classifyModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+            cell.listData = classifyModel.cateViews;
+        }
+        cell.backSelectItemBlock = ^(NSInteger index, BOOL isSelected) {
+                  [weakSelf twoCellSelectWithIndex:index And:isSelected];
+        };
+        return cell;
+        
+    }else{
+        EPSurgeryDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryDetailTableViewCell cellID] forIndexPath:indexPath];
+           cell.selectionStyle = UITableViewCellSelectionStyleNone;
+           return cell;
+    }
+     
+}
+
+#pragma mark - 事件处理
+
+/** 时间节点按钮事件 */
+- (void)oneCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected And:(BOOL)showSubList{
+    
+    if (showSubList) {
+        self.thirdClassifyNum = index;
+        [self.tableView reloadData];
+    
+    }else{
+        
+        if (isSelected) {
+          
+            self.thirdClassifyNum = index;
+          
+            //选择第三级后 默认设置第一个
+            EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
+            if (thirdModel.cateViews.count>0) {
+              EPTypeListClassifyModel * fourthModel = thirdModel.cateViews[0];
+              fourthModel.isSelected = YES;
+            }
+            [self.tableView reloadData];
+          
+        }else{
+          
+          //当第三级变为未选时 下级全部变为未选
+          EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
+          for (EPTypeListClassifyModel * fourthModel in thirdModel.cateViews) {
+             
+              fourthModel.isSelected = NO;
+              for (EPTypeListClassifyModel *fifthModel in fourthModel.cateViews) {
+                  fifthModel.isSelected = NO;
+              }
+          }
+        }
+//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+/** 时间节点按钮事件 */
+- (void)twoCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected {
+    
+    if (isSelected) {
+        //第四级已选状态
+        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
+
+        if (fourModel.cateViews.count>0) {
+
+          [EPTypeMaterialListView showTypeMaterialListWithDataArr:fourModel.cateViews resultBlock:^(NSArray *listArray) {
+              fourModel.cateViews = listArray;
+//              [weakSelf.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+
+          }];
+        }
+
+//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+
+        }else{
+
+        //当第四级变为未选时 下级全部变为未选
+        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
+
+        for (EPTypeListClassifyModel * fifthModel in fourModel.cateViews) {
+          fifthModel.isSelected = NO;
+        }
+
+//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+
+
+    }
+}
 @end
+
+

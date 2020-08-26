@@ -47,9 +47,12 @@
 }
  
 #pragma mark - 事件处理
+
 /** 点击事件处理 */
 - (IBAction)btnClickAction:(UIButton *)sender {
     
+    EPProjectSelectViewCtl * Vc = [[EPProjectSelectViewCtl alloc] init];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 /** 检测弹框提醒 */
@@ -92,8 +95,6 @@
         });
     }
 }
-
-#pragma mark - 点击事件处理
 
 /** 时间节点按钮事件 */
 - (void)headerViewSelectWithIndex:(NSInteger)index{

@@ -10,7 +10,7 @@
 
 @implementation RootCollectionViewCell
 
-+(NSString *)cellID{
++ (NSString *)cellID{
     
     NSString * const ID = [NSString stringWithUTF8String:object_getClassName(self)];
     

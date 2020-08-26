@@ -1,8 +1,8 @@
 //
-//  RootTableViewCell.h
+//  EPSurgeryDetailTableViewCell.h
 //  EPJH
 //
-//  Created by Hans on 2020/7/15.
+//  Created by Hans on 2020/8/25.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RootTableViewCell : UITableViewCell
+@interface EPSurgeryDetailTableViewCell : RootTableViewCell
 
-+ (NSString *)cellID;
+
 
 @end
 

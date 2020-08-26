@@ -43,6 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** iOS全面屏屏判断 */
 + (BOOL)isIPhoneX;
 
+/** 读取本地JSON文件 */
++ (NSDictionary * )readLocalFileWithName:(NSString *)name;
+
 @end
 
 NS_ASSUME_NONNULL_END
