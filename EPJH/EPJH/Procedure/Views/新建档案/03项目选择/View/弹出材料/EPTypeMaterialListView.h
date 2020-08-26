@@ -12,11 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^typeMaterialListResultBlock)(NSArray * listArray);
 
-@interface EPTypeMaterialListView : UIView
+@interface EPTypeMaterialListView : RootView
 
 //选择展示回调
-+ (void)showTypeMaterialListWithDataArr:(NSArray *)DataArr resultBlock:(typeMaterialListResultBlock)resultBlock;
++ (void)showTypeMaterialListWithDataArr:(NSArray *)dataArr resultBlock:(typeMaterialListResultBlock)complete;
 
 @end
 
 NS_ASSUME_NONNULL_END
+

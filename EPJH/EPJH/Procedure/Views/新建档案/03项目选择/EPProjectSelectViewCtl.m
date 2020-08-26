@@ -108,6 +108,76 @@
         self.localDataModel = model;
 }
 
+#pragma mark - 事件处理
+
+- (void)oneCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected And:(BOOL)showSubList{
+    
+    if (showSubList) {
+        self.thirdClassifyNum = index;
+        [self.tableView reloadData];
+    
+    }else{
+        
+        if (isSelected) {
+          
+            self.thirdClassifyNum = index;
+          
+            //选择第三级后 默认设置第一个
+            EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
+            if (thirdModel.cateViews.count>0) {
+                EPTypeListClassifyModel * fourthModel = thirdModel.cateViews[0];
+                fourthModel.isSelected = YES;
+            }
+            [self.tableView reloadData];
+          
+        }else{
+          
+          //当第三级变为未选时 下级全部变为未选
+          EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
+          for (EPTypeListClassifyModel * fourthModel in thirdModel.cateViews) {
+             
+              fourthModel.isSelected = NO;
+              for (EPTypeListClassifyModel *fifthModel in fourthModel.cateViews) {
+                  fifthModel.isSelected = NO;
+              }
+          }
+        }
+//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (void)twoCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected {
+    
+    if (isSelected) {
+        //第四级已选状态
+        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
+
+        if (fourModel.cateViews.count>0) {
+
+            [EPTypeMaterialListView showTypeMaterialListWithDataArr:fourModel.cateViews resultBlock:^(NSArray *listArray) {
+            fourModel.cateViews = listArray;
+            //  [weakSelf.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+
+            }];
+        }
+
+        // [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+
+        }else{
+
+        //当第四级变为未选时 下级全部变为未选
+        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
+
+        for (EPTypeListClassifyModel * fifthModel in fourModel.cateViews) {
+            fifthModel.isSelected = NO;
+        }
+
+        // [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (void)createTableView{
@@ -199,85 +269,12 @@
         
     }else{
         EPSurgeryDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryDetailTableViewCell cellID] forIndexPath:indexPath];
-           cell.selectionStyle = UITableViewCellSelectionStyleNone;
-           return cell;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
      
 }
 
-#pragma mark - 事件处理
-
-/** 时间节点按钮事件 */
-- (void)oneCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected And:(BOOL)showSubList{
-    
-    if (showSubList) {
-        self.thirdClassifyNum = index;
-        [self.tableView reloadData];
-    
-    }else{
-        
-        if (isSelected) {
-          
-            self.thirdClassifyNum = index;
-          
-            //选择第三级后 默认设置第一个
-            EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
-            if (thirdModel.cateViews.count>0) {
-              EPTypeListClassifyModel * fourthModel = thirdModel.cateViews[0];
-              fourthModel.isSelected = YES;
-            }
-            [self.tableView reloadData];
-          
-        }else{
-          
-          //当第三级变为未选时 下级全部变为未选
-          EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[index];
-          for (EPTypeListClassifyModel * fourthModel in thirdModel.cateViews) {
-             
-              fourthModel.isSelected = NO;
-              for (EPTypeListClassifyModel *fifthModel in fourthModel.cateViews) {
-                  fifthModel.isSelected = NO;
-              }
-          }
-        }
-//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-    }
-}
-
-/** 时间节点按钮事件 */
-- (void)twoCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected {
-    
-    if (isSelected) {
-        //第四级已选状态
-        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
-        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
-
-        if (fourModel.cateViews.count>0) {
-
-          [EPTypeMaterialListView showTypeMaterialListWithDataArr:fourModel.cateViews resultBlock:^(NSArray *listArray) {
-              fourModel.cateViews = listArray;
-//              [weakSelf.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-
-          }];
-        }
-
-//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-
-        }else{
-
-        //当第四级变为未选时 下级全部变为未选
-        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
-        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
-
-        for (EPTypeListClassifyModel * fifthModel in fourModel.cateViews) {
-          fifthModel.isSelected = NO;
-        }
-
-//        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-
-
-    }
-}
 @end
 
 

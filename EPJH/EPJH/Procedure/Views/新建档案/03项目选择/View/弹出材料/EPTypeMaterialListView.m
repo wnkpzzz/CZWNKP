@@ -7,15 +7,82 @@
 //
 
 #import "EPTypeMaterialListView.h"
+#import "EPTypeMaterialListTableViewCell.h"
+
+@interface EPTypeMaterialListView ()<UITableViewDelegate,UITableViewDataSource>
+
+/** 背景蒙版 */
+@property (weak, nonatomic) IBOutlet UIView * maskBgView;
+
+/** Block数据返回 */
+@property (copy, nonatomic) typeMaterialListResultBlock completeBlock;
+
+
+@property (nonatomic,strong) NSArray * tableItems;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@end
 
 @implementation EPTypeMaterialListView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+//选择展示回调
++ (void)showTypeMaterialListWithDataArr:(NSArray *)dataArr resultBlock:(typeMaterialListResultBlock)complete{
+     
+    EPTypeMaterialListView *popView = [EPTypeMaterialListView initWithCustomView];
+    popView.completeBlock = complete;
+    popView.tableItems = dataArr;
 }
-*/
+ 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+     
+    [self loadBaseConfig];
+}
 
+- (void)loadBaseConfig {
+    
+    self.maskBgView.backgroundColor = RGB(0, 0, 0);
+    self.maskBgView.alpha = 0.3;
+    
+    self.frame = CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT);
+    [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
+}
+
+- (IBAction)btnClickAction:(UIButton *)sender {
+    
+    [self dismissPopView];
+
+    if (sender.tag == 0)      {   }
+    else if (sender.tag == 1) {   }
+ 
+    
+}
+
+#pragma mark
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.tableItems.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 35;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+     
+    EPTypeMaterialListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID] forIndexPath:indexPath];
+    EPTypeListClassifyModel * model = self.tableItems[indexPath.row];
+    cell.dataModel = model;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EPTypeListClassifyModel * model = self.tableItems[indexPath.row];
+    model.isSelected = !model.isSelected;
+    [self.tableView reloadData];
+}
+
+ 
 @end
