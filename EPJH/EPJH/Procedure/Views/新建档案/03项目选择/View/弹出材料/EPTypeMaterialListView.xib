@@ -16,7 +16,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ye-UC-I44">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-P5-CAN">
                     <rect key="frame" x="57" y="353" width="300" height="200"/>
@@ -36,9 +36,37 @@
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-Q0-wnB">
                             <rect key="frame" x="0.0" y="150" width="300" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-Qo-iJw">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                    <state key="normal" title="取消">
+                                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="LZ9-sE-vrJ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIA-tB-YTn">
+                                    <rect key="frame" x="150" y="0.0" width="150" height="50"/>
+                                    <state key="normal" title="确定">
+                                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="nem-Xh-ZJ6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="9yQ-Zk-val"/>
+                                <constraint firstAttribute="trailing" secondItem="aIA-tB-YTn" secondAttribute="trailing" id="H3w-Br-wKA"/>
+                                <constraint firstItem="v0M-Qo-iJw" firstAttribute="leading" secondItem="hOn-Q0-wnB" secondAttribute="leading" id="Lhu-Xr-6xn"/>
+                                <constraint firstAttribute="bottom" secondItem="v0M-Qo-iJw" secondAttribute="bottom" id="QsA-gq-xAO"/>
+                                <constraint firstAttribute="bottom" secondItem="aIA-tB-YTn" secondAttribute="bottom" id="RHU-bS-TM2"/>
+                                <constraint firstItem="v0M-Qo-iJw" firstAttribute="width" secondItem="hOn-Q0-wnB" secondAttribute="width" multiplier="0.5" id="Stt-FZ-BtD"/>
+                                <constraint firstItem="aIA-tB-YTn" firstAttribute="leading" secondItem="v0M-Qo-iJw" secondAttribute="trailing" id="VGs-sb-zWi"/>
+                                <constraint firstItem="aIA-tB-YTn" firstAttribute="top" secondItem="hOn-Q0-wnB" secondAttribute="top" id="auQ-we-k7R"/>
+                                <constraint firstItem="v0M-Qo-iJw" firstAttribute="top" secondItem="hOn-Q0-wnB" secondAttribute="top" id="wps-Bv-AUy"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -64,7 +92,6 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="gV8-P5-CAN" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="7B0-XO-RAV"/>
                 <constraint firstItem="7ye-UC-I44" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SXY-qx-flz"/>
@@ -75,9 +102,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="maskBgView" destination="7ye-UC-I44" id="h1L-di-pah"/>
                 <outlet property="tableView" destination="ArX-TO-t4P" id="4BS-YT-eei"/>
             </connections>
-            <point key="canvasLocation" x="-397" y="153"/>
+            <point key="canvasLocation" x="-375" y="9"/>
         </view>
     </objects>
 </document>
