@@ -14,9 +14,9 @@
 #define numCountIncolumn    3 // 每页N行,几个横行。
 
 @interface EPSurgeryTypeTableViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+ 
+@property (nonatomic,strong) UIPageControl * pageControl;
+@property (nonatomic,strong) UICollectionView * collectionView;
 
 @end
 
@@ -35,46 +35,111 @@
     // Configure the view for the selected state
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self loadBaseConfig];
+    }
+    return self;
+}
+
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
+     
+    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.bottom.equalTo(self.contentView);
+        make.height.equalTo(@20);
+    }];
+
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.left.equalTo(self.contentView);
+        make.bottom.equalTo(self.pageControl.mas_top);
+    }];
     
-    self.pageControl.currentPageIndicatorTintColor = kMainBlueColor;
-    self.pageControl.pageIndicatorTintColor = kMainTextColor;
-   
-    EPCameraTypeLayout *layout = [[EPCameraTypeLayout alloc] init];
-    [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    layout.rowCount = numCountIncolumn;
-    layout.itemCountPerRow = numCountInRow;
-    layout.minimumLineSpacing = 25;
-    layout.minimumInteritemSpacing = 15;
-    self.collectionView.collectionViewLayout = layout;
+}
+
+
+-(UIPageControl *)pageControl{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectZero];
+        _pageControl.currentPageIndicatorTintColor = kMainBlueColor;
+        _pageControl.pageIndicatorTintColor = kMainTextColor;
+        [self.contentView addSubview:_pageControl];
+    }
     
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.collectionView.pagingEnabled = YES;
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    [self.collectionView registerNib:[UINib nibWithNibName:[EPSurgeryTypeCollectionViewCell cellID] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:[EPSurgeryTypeCollectionViewCell cellID]];
+    return _pageControl;
+}
+
+//列表
+-(UICollectionView *)collectionView{
+    
+    if (!_collectionView) {
+        
+        if (self.listData.count >= numCountInRow *3) {
+            EPCameraTypeLayout *layout = [[EPCameraTypeLayout alloc] init];
+            [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+            layout.itemCountPerRow = numCountInRow;
+            layout.rowCount = numCountIncolumn;
+            layout.minimumLineSpacing = 25;
+            layout.minimumInteritemSpacing = 15;
+            _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+        }else{
+            
+            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+            _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+            layout.minimumLineSpacing = 25;
+            layout.minimumInteritemSpacing = 15;
+        }
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.pagingEnabled = YES;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [_collectionView registerClass:[EPSurgeryTypeCollectionViewCell class] forCellWithReuseIdentifier:[EPSurgeryTypeCollectionViewCell cellID]];
+        [self addSubview:_collectionView];
+
+        
+    }
+    return _collectionView;
 }
 
 - (void)setListData:(NSArray *)listData{
-    
+ 
     _listData = listData;
-      
-    if (listData.count / (numCountInRow * 3)) {
-      
-        if (listData.count % (numCountInRow * 3)) {
-            self.pageControl.numberOfPages = listData.count / (numCountInRow * 3) + 1;
-        }else{
-            self.pageControl.numberOfPages = listData.count / (numCountInRow * 3);
-        }
-        self.pageControl.hidden = NO;
-        
-    }else{
-      
-        self.pageControl.hidden = YES;
-    }
+     
+     self.collectionView = nil;
+     
+     if (listData.count / (numCountInRow * numCountIncolumn )) {
+         [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
+             make.right.left.bottom.equalTo(self.contentView);
+             make.height.equalTo(@20);
+         }];
+         
+         if (listData.count % (numCountInRow * numCountIncolumn )) {
+ 
+             _pageControl.numberOfPages = listData.count/(numCountInRow * numCountIncolumn )+1;
+         }else{
+             _pageControl.numberOfPages = listData.count/(numCountInRow * numCountIncolumn );
+             
+         }
+         
+         self.pageControl.hidden = NO;
+         
+     }else{
+         [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
+             make.right.left.bottom.equalTo(self.contentView);
+             make.height.equalTo(@0);
+         }];
+         self.pageControl.hidden = YES;
+     }
     
-    [self.collectionView reloadData];
+    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.left.equalTo(self.contentView);
+        make.bottom.equalTo(self.pageControl.mas_top);
+    }];
+     
+     [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
@@ -83,7 +148,7 @@
     
     CGFloat  LRMargin = 13;
 
-    NSInteger itemW = (APP_WIDTH- LRMargin * numCountInRow * numCountIncolumn) / numCountInRow;
+    NSInteger itemW = (APP_WIDTH- LRMargin * numCountInRow * 2) / numCountInRow;
 
     return CGSizeMake(itemW, 40);
 }
@@ -95,10 +160,10 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    if (self.listData.count/(numCountInRow*numCountIncolumn)) {
+    if (self.listData.count / ( numCountInRow * numCountIncolumn )) {
         
-        if (self.listData.count%(numCountInRow*numCountIncolumn)) {
-            return (self.listData.count/(numCountInRow*numCountIncolumn)+1)*(numCountInRow*numCountIncolumn);
+        if (self.listData.count % ( numCountInRow * numCountIncolumn )) {
+            return (self.listData.count / ( numCountInRow * numCountIncolumn ) + 1 ) * ( numCountInRow * numCountIncolumn );
         }else{
             return self.listData.count;
         }
@@ -111,6 +176,8 @@
    
     EPSurgeryTypeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPSurgeryTypeCollectionViewCell cellID] forIndexPath:indexPath];
 
+    cell.backgroundColor = [UIColor redColor];
+    
     if (indexPath.row >= self.listData.count) {
            cell.hidden = YES; 
        }else{
@@ -132,7 +199,7 @@
     [self.collectionView reloadData];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     CGFloat scrollViewW = scrollView.frame.size.width;
     

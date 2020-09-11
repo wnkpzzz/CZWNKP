@@ -185,7 +185,9 @@
     self.tableView.dataSource   = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:[EPBodyPartTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPBodyPartTableViewCell cellID]];
-    [self.tableView registerNib:[UINib nibWithNibName:[EPSurgeryTypeTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+//    [self.tableView registerNib:[UINib nibWithNibName:[EPSurgeryTypeTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+//    [self.tableView registerClass:[EPBodyPartTableViewCell class] forCellReuseIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+
     [self.tableView registerNib:[UINib nibWithNibName:[EPSurgeryDetailTableViewCell cellID] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[EPSurgeryDetailTableViewCell cellID]];
 }
 
@@ -199,16 +201,63 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 0) {
-        
-        return 210;
-    }else if(indexPath.section == 1){
-        
-        return 210;
-        
-    }else{
-        return 200;
-    }
+//    if (indexPath.section == 0) {
+//
+//        return 210;
+//    }else if(indexPath.section == 1){
+//
+//        return 210;
+//
+//    }else{
+//        return 200;
+//    }
+//
+    
+   if (indexPath.section == 0) {
+       
+//       if (KRealValue(210)<210) {
+//           return 210;
+//       }else{
+//           return KRealValue(210);
+//       }
+       return 210;
+   }else if(indexPath.section == 1){
+       
+       EPTypeListClassifyModel * model =self.localDataModel.cateViews[self.thirdClassifyNum];
+
+       NSUInteger countNum = 0;
+       if (model.cateViews.count%3) {
+           countNum = (model.cateViews.count/3+1);
+       }else{
+           countNum = model.cateViews.count/3;
+       }
+
+       if (countNum == 0) {
+           countNum = 1;
+       }else if (countNum>3) {
+           countNum = 3;
+       }
+
+       int oneCountHeight  = 0;
+       if (countNum<2) {
+           oneCountHeight = 56;
+       }else{
+           oneCountHeight = 67;
+       }
+
+//       if(KRealValue(countNum*oneCountHeight)<countNum*oneCountHeight) {
+//           return countNum*oneCountHeight;
+//       }else{
+//           return KRealValue(countNum*oneCountHeight);
+//       }
+       
+       return countNum*oneCountHeight;
+
+       
+   }else{
+       return 200;
+       
+   }
     
 }
 
@@ -255,8 +304,15 @@
          
     }else if(indexPath.section == 1){
 
-        EPSurgeryTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryTypeTableViewCell cellID] forIndexPath:indexPath];
+        EPSurgeryTypeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+        if (!cell) {
+            cell = [[EPSurgeryTypeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[EPSurgeryTypeTableViewCell cellID]];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
+//        EPSurgeryTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryTypeTableViewCell cellID] forIndexPath:indexPath];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (self.localDataModel.cateViews.count > 0 ) {
             EPTypeListClassifyModel * classifyModel = self.localDataModel.cateViews[self.thirdClassifyNum];
             cell.listData = classifyModel.cateViews;

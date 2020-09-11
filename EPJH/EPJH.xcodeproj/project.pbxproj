@@ -260,7 +260,6 @@
 		ED4B510824F5151600C0DCF9 /* EPBodyPartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B510624F5151600C0DCF9 /* EPBodyPartTableViewCell.m */; };
 		ED4B510924F5151600C0DCF9 /* EPBodyPartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4B510724F5151600C0DCF9 /* EPBodyPartTableViewCell.xib */; };
 		ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B510B24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m */; };
-		ED4B510E24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4B510C24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.xib */; };
 		ED4B511224F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B511024F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m */; };
 		ED4B511324F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4B511124F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.xib */; };
 		ED4C624E24F661D000333507 /* EPTypeMaterialListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4C624D24F661D000333507 /* EPTypeMaterialListTableViewCell.m */; };
@@ -626,7 +625,6 @@
 		ED4B510724F5151600C0DCF9 /* EPBodyPartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPBodyPartTableViewCell.xib; sourceTree = "<group>"; };
 		ED4B510A24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPSurgeryTypeTableViewCell.h; sourceTree = "<group>"; };
 		ED4B510B24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPSurgeryTypeTableViewCell.m; sourceTree = "<group>"; };
-		ED4B510C24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPSurgeryTypeTableViewCell.xib; sourceTree = "<group>"; };
 		ED4B510F24F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPSurgeryDetailTableViewCell.h; sourceTree = "<group>"; };
 		ED4B511024F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPSurgeryDetailTableViewCell.m; sourceTree = "<group>"; };
 		ED4B511124F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPSurgeryDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -1472,7 +1470,6 @@
 			children = (
 				ED4B510A24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.h */,
 				ED4B510B24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m */,
-				ED4B510C24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.xib */,
 				ED41547224F6551700FA07F2 /* Cell */,
 			);
 			path = "第二模块";
@@ -1827,7 +1824,6 @@
 				ED4B504F24F4F0EA00C0DCF9 /* Mark_X_Camera_Nose_09.jpg in Resources */,
 				ED4B509824F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Face_01.jpg in Resources */,
 				ED4B509724F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_09.jpg in Resources */,
-				ED4B510E24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.xib in Resources */,
 				ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */,
 				ED4B506B24F4F0EA00C0DCF9 /* Mark_Camera_Nose_03.jpg in Resources */,
 				ED81FF4324CE740B009844CB /* backItemImage@2x.png in Resources */,
