@@ -102,7 +102,7 @@
 
     if (indexPath.row >= self.listData.count) {
         cell.hidden = YES;
-    }else{
+    } else{
         cell.hidden = NO;
         EPTypeListClassifyModel * classifyModel = self.listData[indexPath.row];
         cell.dataModel = classifyModel;

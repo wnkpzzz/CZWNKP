@@ -72,23 +72,6 @@ static inline NSString *tableNameProject(NSString *friID){
 
     return [NSString stringWithFormat:@"pro_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
- 
-/** ******************图片表************** */
-
-//图片表数据目录
-#define ZCMyImageDir [ZCUserDir stringByAppendingPathComponent:@"MyImage"]
-
-//图片表路径
-static inline NSString *pathMyImageWithDir( NSString *dir,NSString *friID){
-    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"myimg_%@.sqlite",friID]];
-    return pathLog;
-}
-
-//图片表名的命名方式
-static inline NSString *tableNameMyImage(NSString *friID){
-
-    return [NSString stringWithFormat:@"myimg_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
-}
 
 /** ******************图片存储文件夹************** */
 

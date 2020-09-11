@@ -83,7 +83,6 @@
 
                 NSArray * materialArr = proDic[@"material"];
                 if (materialArr && materialArr.count > 0) {
-                    
                     for (int x = 0; x < materialArr.count ; x++) {
                         NSString * materialStr = materialArr[x];
                         EPTypeListClassifyModel * modelThree = [[EPTypeListClassifyModel alloc] init];
@@ -245,17 +244,17 @@
  
     WS(weakSelf);
     if (indexPath.section == 0) {
-        
+
         EPBodyPartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPBodyPartTableViewCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.listData = self.localDataModel.cateViews;
-        cell.backSelectItemBlock = ^(NSInteger index, BOOL isSelected, BOOL isShowSubList) { 
+        cell.backSelectItemBlock = ^(NSInteger index, BOOL isSelected, BOOL isShowSubList) {
             [weakSelf oneCellSelectWithIndex:index And:isSelected And:isShowSubList];
         };
         return cell;
-        
+         
     }else if(indexPath.section == 1){
-        
+
         EPSurgeryTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryTypeTableViewCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (self.localDataModel.cateViews.count > 0 ) {
@@ -266,13 +265,14 @@
                   [weakSelf twoCellSelectWithIndex:index And:isSelected];
         };
         return cell;
+ 
         
     }else{
         EPSurgeryDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryDetailTableViewCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-     
+   
 }
 
 @end

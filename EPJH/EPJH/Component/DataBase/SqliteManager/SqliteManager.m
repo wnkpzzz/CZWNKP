@@ -15,10 +15,10 @@
 
 @interface SqliteManager()
 @property(nonatomic,retain) FMDatabaseQueue *dbQueue;
-@property(nonatomic,strong) NSMutableArray < CreatTable *>*kUserInfoArray;  // 用户表数据组
-@property(nonatomic,strong) NSMutableArray < CreatTable *>*kProjectInfoArray; // 项目表数据组
-@property(nonatomic,strong) NSMutableArray < CreatTable *>*kImageInfoArray; // 图片表数据组
-@property(nonatomic,strong) NSMutableArray < CreatTable *>*kContrastInfoArray; // 对比相册表数据组
+@property(nonatomic,strong) NSMutableArray < CreatTable *>*kUserInfoArray;          // 用户表数据组
+@property(nonatomic,strong) NSMutableArray < CreatTable *>*kProjectInfoArray;       // 项目表数据组
+@property(nonatomic,strong) NSMutableArray < CreatTable *>*kImageInfoArray;         // 图片表数据组
+@property(nonatomic,strong) NSMutableArray < CreatTable *>*kContrastInfoArray;      // 对比相册表数据组
 @end
 
 @implementation SqliteManager

@@ -7,7 +7,6 @@
 //
 
 #import "EPCameraBodyPartCollectionViewCell.h"
-#import "UIImageView+WebCache.h"
 
 @interface EPCameraBodyPartCollectionViewCell ()
 
@@ -35,9 +34,9 @@
 
 - (void)setDataModel:(EPTypeListClassifyModel *)dataModel{
     
-    _dataModel = dataModel; 
+    _dataModel = dataModel;
     self.titleLab.text = dataModel.name;
-    [self.picImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.imageUrl]];
+    self.picImageView.image = [UIImage imageNamed:dataModel.imageUrl];
 }
 
 @end
