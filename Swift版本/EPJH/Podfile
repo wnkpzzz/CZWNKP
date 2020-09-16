@@ -1,0 +1,26 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, ‘12.0’
+use_frameworks!
+
+target 'EPJH' do
+
+       
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'ObjectMapper'
+    pod 'AlamofireObjectMapper'
+    pod 'AFNetworking'
+
+    pod 'SnapKit'                   # Masnory
+    pod 'MJRefresh'                 # 上下拉刷新 
+    pod 'Kingfisher'                # SDWebImage
+    pod 'MBProgressHUD'             # 菊花控件
+    pod 'SVProgressHUD'             # 菊花控件
+    pod 'IQKeyboardManagerSwift'    # 隐藏键盘
+
+     
+    #    pod 'LLCycleScrollView'      # 图片轮播
+
+end
