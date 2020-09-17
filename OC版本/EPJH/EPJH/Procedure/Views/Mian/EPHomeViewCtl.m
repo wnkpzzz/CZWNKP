@@ -54,7 +54,7 @@
     
     if (sender.tag == 0) { // 个人中心
        
-        EPUserCenterViewCtl * Vc = [[EPUserCenterViewCtl alloc] init];
+        EP_User_MainViewCtl * Vc = [[EP_User_MainViewCtl alloc] init];
         [self.navigationController pushViewController:Vc animated:YES];
         
     } else if (sender.tag == 1) { // 3D

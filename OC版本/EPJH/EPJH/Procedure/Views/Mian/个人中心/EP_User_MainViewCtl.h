@@ -1,5 +1,5 @@
 //
-//  EP_Files_FillInDataViewCtl.h
+//  EP_User_MainViewCtl.h
 //  EPJH
 //
 //  Created by Hans on 2020/9/17.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EP_Files_FillInDataViewCtl : UIViewController
+@interface EP_User_MainViewCtl : UIViewController
 
 @end
 

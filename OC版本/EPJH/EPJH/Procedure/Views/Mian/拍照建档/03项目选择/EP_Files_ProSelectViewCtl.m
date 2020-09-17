@@ -108,6 +108,12 @@
 }
 
 #pragma mark - 事件处理
+/** 下一步点击事件处理 */
+- (IBAction)btnClickAction:(UIButton *)sender {
+    
+    EP_Files_FillInDataViewCtl * Vc = [[EP_Files_FillInDataViewCtl alloc] init];
+    [self.navigationController pushViewController:Vc animated:YES];
+}
 
 - (void)oneCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected And:(BOOL)showSubList{
     
@@ -326,6 +332,8 @@
         
         EPSurgeryDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPSurgeryDetailTableViewCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
         cell.showRemark = YES;
 //        cell.timeLabel.text = _model.subCateName;
         cell.partLabel.text = @"部位:";
@@ -339,17 +347,16 @@
             if (thridModel.isSelected) {
               cell.partLabel.text = [NSString stringWithFormat:@"%@ %@",cell.partLabel.text,thridModel.name];
             }
-                for (EPTypeListClassifyModel * fourthModel in thridModel.cateViews) {
-                  if (fourthModel.isSelected) {
-                      cell.surgetyTypeLabel.text = [NSString stringWithFormat:@"%@ %@",cell.surgetyTypeLabel.text,fourthModel.name];
-                  }
-
-                      for (EPTypeListClassifyModel * fifthModel in fourthModel.cateViews) {
-                          if (fifthModel.isSelected) {
-                              cell.materialsLabel.text = [NSString stringWithFormat:@"%@ %@",cell.materialsLabel.text,fifthModel.name];
-                          }
-                      }
+            for (EPTypeListClassifyModel * fourthModel in thridModel.cateViews) {
+                if (fourthModel.isSelected) {
+                    cell.surgetyTypeLabel.text = [NSString stringWithFormat:@"%@ %@",cell.surgetyTypeLabel.text,fourthModel.name];
                 }
+                  for (EPTypeListClassifyModel * fifthModel in fourthModel.cateViews) {
+                      if (fifthModel.isSelected) {
+                          cell.materialsLabel.text = [NSString stringWithFormat:@"%@ %@",cell.materialsLabel.text,fifthModel.name];
+                      }
+                  }
+            }
         }
         
         return cell;

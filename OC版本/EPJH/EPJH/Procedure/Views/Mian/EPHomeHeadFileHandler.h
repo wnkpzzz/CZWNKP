@@ -14,7 +14,11 @@
 #import "EPWKWebViewCtl.h"         // 首页-广告WKWebView
 
 
-#import "EP_Files_CreateMainViewCtl.h"    // 首页-拍照
-#import "EPUserCenterViewCtl.h"           // 首页-个人中心
+#import "EP_Files_CreateMainViewCtl.h"    // 首页_档案_拍照建档
+#import "EP_Files_QueryMainViewCtl.h"     // 首页_档案_查询
+#import "EP_User_MainViewCtl.h"           // 首页_用户_个人中心
+ 
+
+
 
 #endif /* EPHomeHeadFileHandler_h */

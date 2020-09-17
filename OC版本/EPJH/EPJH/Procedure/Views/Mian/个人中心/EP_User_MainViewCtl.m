@@ -1,14 +1,15 @@
 //
-//  EPUserCenterViewCtl.m
+//  EP_User_MainViewCtl.m
 //  EPJH
 //
-//  Created by Hans on 2020/7/23.
+//  Created by Hans on 2020/9/17.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "EPUserCenterViewCtl.h"
+#import "EP_User_MainViewCtl.h"
 
-@interface EPUserCenterViewCtl ()
+
+@interface EP_User_MainViewCtl ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *sexImgView;
@@ -17,7 +18,7 @@
 
 @end
 
-@implementation EPUserCenterViewCtl
+@implementation EP_User_MainViewCtl
 
 #pragma mark - 生命周期
 

@@ -48,7 +48,7 @@
  
 #pragma mark - 事件处理
 
-/** 点击事件处理 */
+/** 下一步点击事件处理 */
 - (IBAction)btnClickAction:(UIButton *)sender {
     
     EP_Files_ProSelectViewCtl * Vc = [[EP_Files_ProSelectViewCtl alloc] init];
