@@ -37,7 +37,6 @@ extension AppDelegate {
         
         // 设置状态栏字体颜色TODO
         
-        
         // 设置导航栏字体
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
         

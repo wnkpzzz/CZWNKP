@@ -18,7 +18,7 @@
 @property (copy, nonatomic) typeMaterialListResultBlock completeBlock;
 
 
-@property (nonatomic,strong) NSArray * tableItems;
+@property (copy, nonatomic) NSArray * tableItems;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -41,10 +41,17 @@
 }
 
 - (void)loadBaseConfig {
+      
+    self.tableItems = [NSMutableArray arrayWithCapacity:10];
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.tableView registerClass:[EPTypeMaterialListTableViewCell class] forCellReuseIdentifier:[EPTypeMaterialListTableViewCell cellID]];
     
-    self.maskBgView.backgroundColor = RGB(0, 0, 0);
     self.maskBgView.alpha = 0.3;
-    
+    self.maskBgView.backgroundColor = RGB(0, 0, 0);
+
     self.frame = CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT);
     [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
 }
@@ -71,7 +78,14 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      
-    EPTypeMaterialListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID] forIndexPath:indexPath];
+//    EPTypeMaterialListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID] forIndexPath:indexPath];
+    
+    
+    EPTypeMaterialListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID]];
+    if (!cell) {
+        cell = [[EPTypeMaterialListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[EPTypeMaterialListTableViewCell cellID]];
+    }
+    
     EPTypeListClassifyModel * model = self.tableItems[indexPath.row];
     cell.dataModel = model;
     return cell;

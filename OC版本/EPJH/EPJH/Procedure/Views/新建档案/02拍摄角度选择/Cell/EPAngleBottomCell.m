@@ -51,7 +51,7 @@
        
     if (dataArray.count < 12 && self.isShowAdd) {
         EPTakePictureModel *model = [EPTakePictureModel new];
-        model.cameraImage = [UIImage imageNamed:@"icon_pro_add_take"];
+        model.cameraImage = kImage(@"icon_pro_add_take");
         model.title = @"添加";
         [self.collectionItems addObject:model];
     }

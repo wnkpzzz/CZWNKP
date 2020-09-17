@@ -96,8 +96,9 @@
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.pagingEnabled = YES;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        [_collectionView registerClass:[EPSurgeryTypeCollectionViewCell class] forCellWithReuseIdentifier:[EPSurgeryTypeCollectionViewCell cellID]];
+        [_collectionView registerNib:[UINib nibWithNibName:[EPSurgeryTypeCollectionViewCell cellID] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:[EPSurgeryTypeCollectionViewCell cellID]];
         [self addSubview:_collectionView];
+        
 
         
     }

@@ -49,18 +49,23 @@
         make.centerY.equalTo(self.contentView);
         make.width.height.equalTo(@27);
     }];
+    
 }
   
 - (void)setModel:(EPTypeListClassifyModel *)dataModel{
     
+    NSLog(@"7821369378125");
+    
     _dataModel = dataModel;
     self.titleLabel.text = dataModel.name;
+    NSLog(@"%@===KK",dataModel.name);
     self.selectBtn.selected = dataModel.isSelected;
 }
 
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]init];
+        _titleLabel.text = @"asdf;oihasdpo";
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:12];
         [self.contentView addSubview:_titleLabel];
