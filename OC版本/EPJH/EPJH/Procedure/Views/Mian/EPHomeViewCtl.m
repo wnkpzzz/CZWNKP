@@ -61,7 +61,8 @@
         
     } else if (sender.tag == 2) { //拍照
          
-        EPNewProjectViewCtl * Vc = [[EPNewProjectViewCtl alloc] init];
+//        EPNewProjectViewCtl * Vc = [[EPNewProjectViewCtl alloc] init];
+        EP_Files_CreateMainViewCtl * Vc = [[EP_Files_CreateMainViewCtl alloc] init]; 
         [self.navigationController pushViewController:Vc animated:YES];
      
     } else if (sender.tag == 3) { // 对比
