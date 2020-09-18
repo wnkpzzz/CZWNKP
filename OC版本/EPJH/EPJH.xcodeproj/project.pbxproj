@@ -49,6 +49,7 @@
 		ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */; };
 		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
 		ED20479824F4BB2A000A6040 /* EPAngleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */; };
+		ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
 		ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550924BEB0E8008CBB51 /* Assets.xcassets */; };
@@ -294,7 +295,6 @@
 		EDBC28632513878A00252E17 /* EP_Files_QueryMainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC28612513878A00252E17 /* EP_Files_QueryMainViewCtl.m */; };
 		EDBC28642513878A00252E17 /* EP_Files_QueryMainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */; };
 		EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */; };
-		EDBC2870251388FB00252E17 /* EP_User_MainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBC286F251388FB00252E17 /* EP_User_MainViewCtl.xib */; };
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
@@ -373,6 +373,7 @@
 		ED20479424F4BB2A000A6040 /* EPAngleHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleHeaderCell.h; sourceTree = "<group>"; };
 		ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
 		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
+		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -687,7 +688,6 @@
 		EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Files_QueryMainViewCtl.xib; sourceTree = "<group>"; };
 		EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EP_User_MainViewCtl.m; sourceTree = "<group>"; };
 		EDBC286B2513887300252E17 /* EP_User_MainViewCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EP_User_MainViewCtl.h; sourceTree = "<group>"; };
-		EDBC286F251388FB00252E17 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EP_User_MainViewCtl.xib; path = ../../../../../../../../../EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
 		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
 		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1595,7 +1595,7 @@
 			children = (
 				EDBC286B2513887300252E17 /* EP_User_MainViewCtl.h */,
 				EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */,
-				EDBC286F251388FB00252E17 /* EP_User_MainViewCtl.xib */,
+				ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */,
 			);
 			path = "个人中心";
 			sourceTree = "<group>";
@@ -1928,7 +1928,7 @@
 				ED4B50B624F4F0EB00C0DCF9 /* Mark_Camera_Frame_Section_06.jpg in Resources */,
 				ED4B505624F4F0EA00C0DCF9 /* Mark_X_Camera_Chest_04.jpg in Resources */,
 				ED4B50F624F502D600C0DCF9 /* Mark_Nose_07.jpg in Resources */,
-				EDBC2870251388FB00252E17 /* EP_User_MainViewCtl.xib in Resources */,
+				ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */,
 				ED0A803824E54BA9005E3DC3 /* proSelect_no_12.png in Resources */,
 				ED4B50EC24F502D600C0DCF9 /* Mark_Face_02.jpg in Resources */,
 				ED4B50BB24F4F0EB00C0DCF9 /* Mark_Camera_Frame_Nose_06.jpg in Resources */,
