@@ -8,7 +8,8 @@
 
 #import "EPHomeViewCtl.h"
 #import "EPHomeHeadFileHandler.h"
- 
+#import "EP_Pro_DataBaseTestViewCtl.h"
+
 
 @interface EPHomeViewCtl ()
 
@@ -57,6 +58,9 @@
         [self.navigationController pushViewController:Vc animated:YES];
         
     } else if (sender.tag == 1) { // 3D
+         
+        EP_Pro_DataBaseTestViewCtl * Vc = [[EP_Pro_DataBaseTestViewCtl alloc] init];
+        [self.navigationController pushViewController:Vc animated:YES];
         
     } else if (sender.tag == 2) { //拍照
           

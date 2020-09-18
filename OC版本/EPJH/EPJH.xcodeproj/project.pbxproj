@@ -81,6 +81,8 @@
 		ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B559124BF0144008CBB51 /* KCountdownButton.m */; };
 		ED3B559624BF0477008CBB51 /* SuccessToOriginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B559424BF0476008CBB51 /* SuccessToOriginController.m */; };
 		ED3B559724BF0477008CBB51 /* SuccessToOriginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3B559524BF0476008CBB51 /* SuccessToOriginController.xib */; };
+		ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */; };
+		ED3DB94725145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */; };
 		ED3E678624C042AF0055B4E7 /* RootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E678524C042AF0055B4E7 /* RootViewModel.m */; };
 		ED3E678924C049170055B4E7 /* PopRegisterAgreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3E678824C049170055B4E7 /* PopRegisterAgreementView.m */; };
 		ED3E678B24C049210055B4E7 /* PopRegisterAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3E678A24C049210055B4E7 /* PopRegisterAgreementView.xib */; };
@@ -433,6 +435,9 @@
 		ED3B559324BF0476008CBB51 /* SuccessToOriginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuccessToOriginController.h; sourceTree = "<group>"; };
 		ED3B559424BF0476008CBB51 /* SuccessToOriginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuccessToOriginController.m; sourceTree = "<group>"; };
 		ED3B559524BF0476008CBB51 /* SuccessToOriginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessToOriginController.xib; sourceTree = "<group>"; };
+		ED3DB94325145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Pro_DataBaseTestViewCtl.h; sourceTree = "<group>"; };
+		ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Pro_DataBaseTestViewCtl.m; sourceTree = "<group>"; };
+		ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Pro_DataBaseTestViewCtl.xib; sourceTree = "<group>"; };
 		ED3E678424C042AF0055B4E7 /* RootViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewModel.h; sourceTree = "<group>"; };
 		ED3E678524C042AF0055B4E7 /* RootViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewModel.m; sourceTree = "<group>"; };
 		ED3E678724C049170055B4E7 /* PopRegisterAgreementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopRegisterAgreementView.h; sourceTree = "<group>"; };
@@ -1038,6 +1043,9 @@
 				ED3B556B24BEDCD3008CBB51 /* EPHomeViewCtl.m */,
 				ED3B556C24BEDCD3008CBB51 /* EPHomeViewCtl.xib */,
 				ED3E679824C0766C0055B4E7 /* EPHomeHeadFileHandler.h */,
+				ED3DB94325145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.h */,
+				ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */,
+				ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */,
 				ED74A6F824BFF17900D9FA77 /* View */,
 				EDBC2832251379A500252E17 /* 拍照建档 */,
 				ED84879624C9A290002B3964 /* 首页广告 */,
@@ -1845,6 +1853,7 @@
 				ED4B509724F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_09.jpg in Resources */,
 				ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */,
 				ED4B506B24F4F0EA00C0DCF9 /* Mark_Camera_Nose_03.jpg in Resources */,
+				ED3DB94725145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib in Resources */,
 				ED81FF4324CE740B009844CB /* backItemImage@2x.png in Resources */,
 				ED4B50F824F502D600C0DCF9 /* Mark_Nose_04.jpg in Resources */,
 				ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */,
@@ -2170,6 +2179,7 @@
 				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
 				EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */,
 				ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */,
+				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
 				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
 				ED66F49124F6019D001E8F2C /* EPSurgeryTypeCollectionViewCell.m in Sources */,
 				ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */,

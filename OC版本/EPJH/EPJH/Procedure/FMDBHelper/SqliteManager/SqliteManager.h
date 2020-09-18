@@ -54,27 +54,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteFrisTableWithFriID:(NSString *)friID complete:(void(^)(BOOL success,id obj))complete;
 
 /*
+ *  模糊/条件病人表
+ *  @param userInfo       条件查询
+ *  @param fuzzyUserInfo  模糊查询
+ *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
+ */
+- (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete;
+
+
+/*
  * 模糊/条件查询病人数据
  *  @param userInfo       条件查询
  *  @param fuzzyUserInfo  模糊查询
  *  备注:多条件查询 @{@"sex":@"1",@"province":@"广东省"}
  *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
  */
-- (void)queryFrisTableWithTag:(NSString *)userID  userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete;
+- (void)queryFrisTableWithTag:(NSString *)friID  userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete;
 
 /*
- * 查询多个好友数据
- * @param friIDs    好友ID数组
+ * 查询多个病人表
+ * @param friIDs  表ID数组
  */
 - (void)queryFrisWithfriIDs:(NSArray<NSString *> *)friIDs complete:(void (^)(NSArray *successUserInfos,NSArray *failUids))complete;
 
-/*
- *  查询病人表
- *  @param userInfo       条件查询
- *  @param fuzzyUserInfo  模糊查询
- *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
- */
-- (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete;
 
  
 

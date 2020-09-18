@@ -130,6 +130,7 @@
         //存SQL语句
         NSString *tableName = tableNameFris(friID);
         NSString *userSql = [EPUserInfoModel yh_sqlForCreatTable:tableName primaryKey:@"id"];
+        
         NSArray *sqlArr = nil;
         if (userSql ) {  sqlArr = @[userSql];   }
         if (sqlArr) { model.sqlCreatTable = sqlArr;  }
@@ -295,18 +296,37 @@
 }
 
 /*
+*  模糊/条件病人表
+*  @param userInfo       条件查询
+*  @param fuzzyUserInfo  模糊查询
+*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
+*/
+- (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete{
+    
+    CreatTable *model = [self setupFrisDBqueueWithFriID:friID];
+    FMDatabaseQueue *queue = model.queue;
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        [db yh_excuteDatasWithTable:tableNameFris(friID) model:[EPUserInfoModel new] userInfo:userInfo fuzzyUserInfo:fuzzyUserInfo otherSQL:nil option:^(NSMutableArray *models) {
+            complete(YES,models);
+        }];
+    }];
+    
+}
+
+/*
 * 模糊/条件查询病人数据
 *  @param userInfo       条件查询
 *  @param fuzzyUserInfo  模糊查询
 *  备注:多条件查询 @{@"sex":@"1",@"province":@"广东省"}
 *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
 */
-- (void)queryFrisTableWithTag:(NSString *)userID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
+- (void)queryFrisTableWithTag:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
    
-    CreatTable *model = [self setupFrisDBqueueWithTag:userID];
+    CreatTable *model = [self setupFrisDBqueueWithTag:friID];
     FMDatabaseQueue *queue = model.queue;
     
-    NSString *tableName = tableNameFris(userID);
+    NSString *tableName = tableNameFris(friID);
     
     [queue inDatabase:^(FMDatabase *db) {
         [db yh_excuteDatasWithTable:tableName model:[EPUserInfoModel new] userInfo:userInfo fuzzyUserInfo:fuzzyUserInfo otherSQL:otherSQLDict option:^(NSMutableArray *models) {
@@ -317,8 +337,8 @@
 }
 
 /*
-* 查询多个好友数据
-* @param friIDs    好友ID数组
+* 查询多个病人表
+* @param friIDs  表ID数组
 */
 - (void)queryFrisWithfriIDs:(NSArray<NSString *> *)friIDs complete:(void (^)(NSArray *successUserInfos,NSArray *failUids))complete{
   
@@ -339,25 +359,6 @@
     }
     complete(successArr,failArr);
     
-    
-}
-
-/*
-*  查询病人表
-*  @param userInfo       条件查询
-*  @param fuzzyUserInfo  模糊查询
-*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
-*/
-- (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete{
-    
-    CreatTable *model = [self setupFrisDBqueueWithFriID:friID];
-    FMDatabaseQueue *queue = model.queue;
-    
-    [queue inDatabase:^(FMDatabase *db) {
-        [db yh_excuteDatasWithTable:tableNameFris(friID) model:[EPUserInfoModel new] userInfo:userInfo fuzzyUserInfo:fuzzyUserInfo otherSQL:nil option:^(NSMutableArray *models) {
-            complete(YES,models);
-        }];
-    }];
     
 }
 

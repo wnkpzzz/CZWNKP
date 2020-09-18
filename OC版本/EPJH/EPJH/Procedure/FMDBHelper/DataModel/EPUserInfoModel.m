@@ -8,6 +8,19 @@
 
 #import "EPUserInfoModel.h"
 
+
 @implementation EPUserInfoModel
+
+#pragma mark - YHFMDB
+
+// 定义主键
++ (NSString *)yh_primaryKey{
+    return @"uid";
+}
+
++ (NSDictionary *)yh_replacedKeyFromPropertyName{
+    return @{@"uid":YHDB_PrimaryKey};
+}
+
 
 @end

@@ -24,8 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    [self semaphoreTaskTest];
-
+//    [self semaphoreTaskTest];
 //    [self loadBaseConfig];
 //    [self asynchronousTaskTest];
 }

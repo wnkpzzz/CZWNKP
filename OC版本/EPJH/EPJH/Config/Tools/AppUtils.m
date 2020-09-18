@@ -77,6 +77,27 @@
     return [tmpResult copy];
 }
 
+/** iOS全面屏屏判断 */
++ (BOOL)isIPhoneX {
+    // 根据安全区域判断
+    if (@available(iOS 11.0, *)) {
+        CGFloat height = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom;
+        return (height > 0);
+    } else {
+        return NO;
+    }
+}
+
+/** 读取本地JSON文件 */
++ (NSDictionary * )readLocalFileWithName:(NSString *)name {
+    // 获取文件路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
+    // 将文件数据化
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    // 对数据进行JSON格式化并返回字典形式
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+}
+
 /** 获得当前时间戳 */
 + (NSString *)getNowTimeCuo{
      
@@ -100,25 +121,24 @@
     
 }
 
-/** iOS全面屏屏判断 */
-+ (BOOL)isIPhoneX {
-    // 根据安全区域判断
-    if (@available(iOS 11.0, *)) {
-        CGFloat height = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom;
-        return (height > 0);
-    } else {
-        return NO;
-    }
-}
-
-/** 读取本地JSON文件 */
-+ (NSDictionary * )readLocalFileWithName:(NSString *)name {
-    // 获取文件路径
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
-    // 将文件数据化
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-    // 对数据进行JSON格式化并返回字典形式
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+/** 时间戳转换为时间 */
++ (NSString *)timestampChangeTime:(NSString *)timestamp WithFormat:(NSString *)formatStr{
+    
+    NSString *str = timestamp;//时间戳
+    
+    NSTimeInterval time = [str doubleValue] / 1000 ;
+    
+    NSDate *detaildate = [NSDate dateWithTimeIntervalSince1970:time] ;
+    
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:formatStr];
+    
+    NSString *currentDateStr = [dateFormatter stringFromDate: detaildate];
+    
+    return currentDateStr;
 }
 
 @end

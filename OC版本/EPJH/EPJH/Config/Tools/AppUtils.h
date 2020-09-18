@@ -37,14 +37,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)app_getUUID;
 
-/** 获得当前时间戳 */
-+ (NSString *)getNowTimeCuo;
-
 /** iOS全面屏屏判断 */
 + (BOOL)isIPhoneX;
 
 /** 读取本地JSON文件 */
 + (NSDictionary * )readLocalFileWithName:(NSString *)name;
+
+/** 获得当前时间戳 */
++ (NSString *)getNowTimeCuo;
+
+/** 时间戳转换为时间 */
++ (NSString *)timestampChangeTime:(NSString *)timestamp WithFormat:(NSString *)formatStr;
+
 
 @end
 
