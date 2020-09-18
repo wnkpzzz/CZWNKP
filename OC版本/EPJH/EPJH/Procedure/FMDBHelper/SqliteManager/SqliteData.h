@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单例 */
 + (instancetype)sharedInstance;
 
-
-
 @end
 
 NS_ASSUME_NONNULL_END

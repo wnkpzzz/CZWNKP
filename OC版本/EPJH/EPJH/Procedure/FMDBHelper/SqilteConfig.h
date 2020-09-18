@@ -12,9 +12,8 @@
 #import "FMDatabase+YHDatabase.h"
 #import "NSObject+YHDBRuntime.h"
 
-
-
 #import "AppUtils.h"
+
 #import "SqliteData.h"
 #import "SqliteManager.h"
 #import "FilesDataCommon.h"
@@ -26,7 +25,6 @@
 /** ******************宏定义************** */
 
 #define kDatabaseVersionKey       @"ZC_DBVersion" // 记录本次数据库版本
-#define kDBCunInfoKey             [NSString stringWithFormat:@"%@DBCunInfo",KUID] // 旧版对比相册数据存储
 
 //Document目录路径
 #define ZCDocumentDir [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
@@ -71,6 +69,25 @@ static inline NSString *pathProjectWithDir( NSString *dir,NSString *friID){
 static inline NSString *tableNameProject(NSString *friID){
 
     return [NSString stringWithFormat:@"pro_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
+}
+ 
+
+/** ******************对比相册表************** */
+ 
+
+//对比相册表数据目录
+#define ZCContrastDir [ZCUserDir stringByAppendingPathComponent:@"Contrast"]
+
+//对比相册表路径
+static inline NSString *pathContrastWithDir( NSString *dir,NSString *friID){
+    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"duibi_%@.sqlite",friID]];
+    return pathLog;
+}
+
+//对比相册表名的命名方式
+static inline NSString *tableNameContrast(NSString *friID){
+    
+    return [NSString stringWithFormat:@"duibi_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
 
 /** ******************图片存储文件夹************** */

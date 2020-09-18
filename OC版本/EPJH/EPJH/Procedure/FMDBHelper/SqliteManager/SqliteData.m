@@ -10,8 +10,12 @@
 
 @interface SqliteData()
 
-@property(nonatomic,strong) NSMutableArray  *kUserInfoArray;  // 用户表数据组
-@property(nonatomic,strong) NSMutableArray  *kProjectInfoArray; // 项目表数据组
+/** 用户表数据组 */
+@property(nonatomic,strong) NSMutableArray  *kUserInfoArray;
+/** 项目表数据组 */
+@property(nonatomic,strong) NSMutableArray  *kProjectInfoArray;
+/** 项目图片表数据组 */
+@property(nonatomic,strong) NSMutableArray  *kProImageInfoArray;
 
 @end
 
@@ -30,7 +34,7 @@
 }
 
 
-#pragma mark - Lazy Load
+#pragma mark - 懒加载
 
 - (NSMutableArray  *)kUserInfoArray{
     if (!_kUserInfoArray) {
@@ -44,6 +48,13 @@
         _kProjectInfoArray = [NSMutableArray new];
     }
     return _kProjectInfoArray;
+}
+
+- (NSMutableArray *)kProImageInfoArray{
+    if (!_kProImageInfoArray) {
+        _kProImageInfoArray = [NSMutableArray new];
+    }
+    return _kProImageInfoArray;
 }
 
 @end
