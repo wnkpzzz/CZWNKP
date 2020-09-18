@@ -42,7 +42,6 @@
 
 #pragma mark --- 基础配置
 
-// 初始化配置
 - (void)loadBaseConfig{
     
     [self.headBgView addSubview:self.headerContentView];
@@ -60,8 +59,7 @@
     } else if (sender.tag == 1) { // 3D
         
     } else if (sender.tag == 2) { //拍照
-         
-//        EPNewProjectViewCtl * Vc = [[EPNewProjectViewCtl alloc] init];
+          
         EP_Files_CreateMainViewCtl * Vc = [[EP_Files_CreateMainViewCtl alloc] init]; 
         [self.navigationController pushViewController:Vc animated:YES];
      
@@ -71,6 +69,7 @@
 }
 
 #pragma mark - 懒加载
+
 - (EPHomeCollectionView *)centerContentView {
     
     if (!_centerContentView) {
