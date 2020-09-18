@@ -219,8 +219,8 @@
            photoModel.partsIndex = self.partsIndex;
            photoModel.index = i;
            if ([listArrays[i] rangeOfString:@"jpg"].location == NSNotFound) {
-              
-               photoModel.defaultImage = [[SqliteManager sharedInstance] getImageFromSandboxWithName:listArrays[i] isBigPic:NO isOriginal:NO];
+               
+               photoModel.defaultImage = [[SqliteManager sharedInstance] getImageFromSandboxWith:listArrays[i] isCacheImg:NO isOriginal:NO];
            }
            photoModel.title = kPartsImgsPoNameArr[self.partsIndex][i];
            [self.makePhotoArrays addObject:photoModel];

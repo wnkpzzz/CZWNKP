@@ -366,7 +366,6 @@
 		ED0A801C24E54BA9005E3DC3 /* proSelect_no_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_12.png; sourceTree = "<group>"; };
 		ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_10.png; sourceTree = "<group>"; };
 		ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_11.png; sourceTree = "<group>"; };
-		ED0A803C24E54D52005E3DC3 /* ProjectDataCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectDataCommon.h; sourceTree = "<group>"; };
 		ED20478F24F4B1D4000A6040 /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
 		ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
 		ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographyViewCtl.xib; sourceTree = "<group>"; };
@@ -374,6 +373,7 @@
 		ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
 		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
+		ED32341A25144BC200A6ABD9 /* FilesDataCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilesDataCommon.h; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -791,6 +791,7 @@
 		ED0A7FBB24E54B0C005E3DC3 /* DefaultData */ = {
 			isa = PBXGroup;
 			children = (
+				ED32341A25144BC200A6ABD9 /* FilesDataCommon.h */,
 				ED0A801024E54BA9005E3DC3 /* ProChoose.json */,
 				ED0A800F24E54BA9005E3DC3 /* ProvinceCity.json */,
 				ED4B50BF24F502D600C0DCF9 /* 拍摄角度 */,
@@ -908,7 +909,6 @@
 			children = (
 				ED3B554124BED914008CBB51 /* NetWork */,
 				ED3B553F24BED914008CBB51 /* Category */,
-				ED3B553D24BED914008CBB51 /* DataBase */,
 				ED3B553E24BED914008CBB51 /* Library */,
 				ED3B554224BED914008CBB51 /* Root */,
 			);
@@ -920,6 +920,7 @@
 			children = (
 				ED3B555224BED990008CBB51 /* AppJump.h */,
 				ED3B555324BED990008CBB51 /* AppJump.m */,
+				ED3B553D24BED914008CBB51 /* FMDBHelper */,
 				ED74A71324C023EA00D9FA77 /* Views */,
 				ED84878F24C9A15F002B3964 /* Model */,
 				ED74A71424C0240C00D9FA77 /* ViewModels */,
@@ -941,17 +942,16 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		ED3B553D24BED914008CBB51 /* DataBase */ = {
+		ED3B553D24BED914008CBB51 /* FMDBHelper */ = {
 			isa = PBXGroup;
 			children = (
 				ED0A7FAB24E53D24005E3DC3 /* SqilteConfig.h */,
-				ED0A803C24E54D52005E3DC3 /* ProjectDataCommon.h */,
 				ED0A7FAD24E53D68005E3DC3 /* SqliteManager */,
-				ED0A7FBB24E54B0C005E3DC3 /* DefaultData */,
 				ED0A7FAC24E53D67005E3DC3 /* YHFMDB */,
+				ED0A7FBB24E54B0C005E3DC3 /* DefaultData */,
 				ED0A7FAE24E53D7C005E3DC3 /* DataModel */,
 			);
-			path = DataBase;
+			path = FMDBHelper;
 			sourceTree = "<group>";
 		};
 		ED3B553E24BED914008CBB51 /* Library */ = {

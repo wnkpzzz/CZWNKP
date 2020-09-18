@@ -73,12 +73,11 @@
  * @isOriginal 是否压缩,这里返回原图/缩略图,默认NO。
  *
 */
-- (UIImage *)getImageFromSandboxWithName:(NSString *)imageName isBigPic:(BOOL)isBigPic isOriginal:(BOOL)isCompress{
+- (UIImage *)getImageFromSandboxWith:(NSString *)imageName isCacheImg:(BOOL)isCache isOriginal:(BOOL)isCompress{
 
 
     //    imageNamed:加载时会缓存图片
     //    imageWithContentsOfFile:仅加载图片，图像数据不会缓存。因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
-    //
     //    NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];
     //    UIImage *sandboxImage = [UIImage imageNamed:filePath];
     //    CGFloat scale = 1; if (isCompress) { scale = 1;}else{ scale = 0.01; }
@@ -89,16 +88,18 @@
     NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];
     
     UIImage *sandboxImage = [[UIImage alloc] init];
-    if (isBigPic) {  sandboxImage = [UIImage imageWithContentsOfFile:filePath];
-    }else{ sandboxImage = [UIImage imageNamed:filePath];}
-     
+     if (isCache) { sandboxImage = [UIImage imageNamed:filePath]; }else{ sandboxImage = [[UIImage alloc] initWithContentsOfFile:filePath]; }
+ 
     UIImage *resultImg = [[UIImage alloc] init];
-    if (isCompress) {  NSData *data = UIImageJPEGRepresentation(sandboxImage, 0.01); resultImg  = [UIImage imageWithData:data];
-    }else{  resultImg = sandboxImage;}
-    
+    if (isCompress) {
+        NSData *data = UIImageJPEGRepresentation(sandboxImage, 0.01); resultImg  = [UIImage imageWithData:data];
+    }else{
+        resultImg = sandboxImage;
+    }
     if (resultImg) {  return resultImg; }else{  return placeHolderImg; }
      
 }
+
  
  
 @end

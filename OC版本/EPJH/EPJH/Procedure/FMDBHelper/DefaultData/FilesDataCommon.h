@@ -1,13 +1,13 @@
 //
-//  ProjectDataCommon.h
+//  FilesDataCommon.h
 //  EPJH
 //
-//  Created by Hans on 2020/8/13.
+//  Created by Hans on 2020/9/18.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#ifndef ProjectDataCommon_h
-#define ProjectDataCommon_h
+#ifndef FilesDataCommon_h
+#define FilesDataCommon_h
 
 
 #define kTimeArray   @[@"术前",@"术后",@"复诊"]
@@ -140,5 +140,5 @@
 #define kSLZKArray           @[@"正常",@"痛经",@"经期延后",@"怀孕",@"月经提早",@"月经不调",@"月经期"]
 #define kSLZKIDArray         @[@"0",@"0",@"0",@"0",@"0",@"0",@"0"]
 
- 
-#endif /* ProjectDataCommon_h */
+
+#endif /* FilesDataCommon_h */

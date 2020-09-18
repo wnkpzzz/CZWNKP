@@ -208,6 +208,9 @@
                                     <integer key="value" value="25"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="submitAction:" destination="-1" eventType="touchUpInside" id="ykz-u1-hGE"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxE-TS-0fG">
                             <rect key="frame" x="132" y="315" width="150" height="50"/>
@@ -258,7 +261,7 @@
                 <constraint firstAttribute="bottom" secondItem="2Zz-1r-JXC" secondAttribute="bottom" id="kgC-Xh-tjk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="132" y="154"/>
+            <point key="canvasLocation" x="-512" y="157"/>
         </view>
     </objects>
     <resources>

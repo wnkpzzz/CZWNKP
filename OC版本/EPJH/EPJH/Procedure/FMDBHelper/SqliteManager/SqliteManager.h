@@ -28,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark --------------------------- 图片存储 --------------------------- 
  
 /** 根据名称从沙盒路径中取出原图/缩略图,是否大图 */
-- (UIImage *)getImageFromSandboxWithName:(NSString *)imageName isBigPic:(BOOL)isBigPic isOriginal:(BOOL)isCompress;
+- (UIImage *)getImageFromSandboxWith:(NSString *)imageName isCacheImg:(BOOL)isCache isOriginal:(BOOL)isCompress;
+
 
 @end
 
