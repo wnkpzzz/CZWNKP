@@ -39,8 +39,7 @@
     self.proModel.subCateName = kTimeArray[0];
     self.proModel.cateId = kMianBuID;
     self.proModel.cateName = kPartsNameArr[0];
-    
-    [self checkReminderAction]; // 检测弹框提醒
+     
     [self createTableView];     // 初始化TableView
     [self loadDefaultImageWithList:nil]; // 加载默认图片
 
@@ -286,16 +285,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.clickBlock = ^(NSInteger selectIndex) { [weakself headerViewSelectWithIndex:selectIndex]; };
         return cell;
-        
     }else if(indexPath.section == 1){
         
         EPAngleSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleSelectCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.selectBlock = ^(NSInteger selectIndex) { [weakself selectViewSelectWithIndex:selectIndex]; };
         return cell;
-        
     }else{
-    
+        
         EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if ([self.proModel.subCateId isEqualToString:kShuQianID]) { cell.isShowAdd = YES; }else{ cell.isShowAdd = NO; }
@@ -303,8 +300,6 @@
         cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
         return cell;
     }
-
-
 }
 
 @end
