@@ -61,7 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete;
 
-
 /*
  * 模糊/条件查询病人数据
  *  @param userInfo       条件查询

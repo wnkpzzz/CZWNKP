@@ -783,10 +783,10 @@
 		ED0A7FAE24E53D7C005E3DC3 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				ED86405E24D7E88400FD7F7D /* EPProjectModel.h */,
-				ED86405F24D7E88400FD7F7D /* EPProjectModel.m */,
 				ED86406124D7E89200FD7F7D /* EPUserInfoModel.h */,
 				ED86406224D7E89200FD7F7D /* EPUserInfoModel.m */,
+				ED86405E24D7E88400FD7F7D /* EPProjectModel.h */,
+				ED86405F24D7E88400FD7F7D /* EPProjectModel.m */,
 				ED86406424D7E8FF00FD7F7D /* EPImageModel.h */,
 				ED86406524D7E8FF00FD7F7D /* EPImageModel.m */,
 			);
@@ -1043,9 +1043,7 @@
 				ED3B556B24BEDCD3008CBB51 /* EPHomeViewCtl.m */,
 				ED3B556C24BEDCD3008CBB51 /* EPHomeViewCtl.xib */,
 				ED3E679824C0766C0055B4E7 /* EPHomeHeadFileHandler.h */,
-				ED3DB94325145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.h */,
-				ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */,
-				ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */,
+				EDDC6C792518447D004CC18F /* TEST */,
 				ED74A6F824BFF17900D9FA77 /* View */,
 				EDBC2832251379A500252E17 /* 拍照建档 */,
 				ED84879624C9A290002B3964 /* 首页广告 */,
@@ -1689,6 +1687,16 @@
 			path = "05选填资料";
 			sourceTree = "<group>";
 		};
+		EDDC6C792518447D004CC18F /* TEST */ = {
+			isa = PBXGroup;
+			children = (
+				ED3DB94325145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.h */,
+				ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */,
+				ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */,
+			);
+			path = TEST;
+			sourceTree = "<group>";
+		};
 		EFCDD8C1A46A569F45FDD2DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2107,6 +2115,7 @@
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2123,6 +2132,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -108,7 +108,7 @@
 }
 
 #pragma mark - 事件处理
-/** 下一步点击事件处理 */
+ 
 - (IBAction)btnClickAction:(UIButton *)sender {
     
     EP_Files_FillInDataViewCtl * Vc = [[EP_Files_FillInDataViewCtl alloc] init];
@@ -153,35 +153,25 @@
 
 - (void)twoCellSelectWithIndex:(NSInteger)index And:(BOOL)isSelected {
     
+    WS(weakSelf);
+    EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
+    EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
+    
+    //第四级已选状态
     if (isSelected) {
-        
-        //第四级已选状态
-        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
-        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
-
         if (fourModel.cateViews.count>0) {
-
             [EPTypeMaterialListView showTypeMaterialListWithDataArr:fourModel.cateViews resultBlock:^(NSArray *listArray) {
-            fourModel.cateViews = listArray;
-            //  [weakSelf.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-
+                fourModel.cateViews = listArray;
+                [weakSelf.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
             }];
         }
-
-        // [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-
-        }else{
-
+    
+    }else{
         //当第四级变为未选时 下级全部变为未选
-        EPTypeListClassifyModel * thirdModel = self.localDataModel.cateViews[self.thirdClassifyNum];
-        EPTypeListClassifyModel * fourModel = thirdModel.cateViews[index];
-
-        for (EPTypeListClassifyModel * fifthModel in fourModel.cateViews) {
-            fifthModel.isSelected = NO;
-        }
-
-        // [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
+        for (EPTypeListClassifyModel * fifthModel in fourModel.cateViews) { fifthModel.isSelected = NO;  }
     }
+    
+    [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -340,8 +330,7 @@
         cell.surgetyTypeLabel.text = @"项目:";
         cell.materialsLabel.text = @"材料:";
 //        cell.remarkTextView.text = self.remarkStr;
-        
-       
+         
         //设置列表
         for (EPTypeListClassifyModel * thridModel in self.localDataModel.cateViews) {
             if (thridModel.isSelected) {

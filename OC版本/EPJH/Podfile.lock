@@ -44,6 +44,9 @@ PODS:
     - UMCCommon
     - UMCShare/Core
   - WechatOpenSDK (1.8.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -65,6 +68,7 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
   - WechatOpenSDK (= 1.8.2)
+  - YYKit (= 1.0.9)
   - YYModel (= 1.0.4)
 
 SPEC REPOS:
@@ -85,6 +89,7 @@ SPEC REPOS:
     - UMCSecurityPlugins
     - UMCShare
     - WechatOpenSDK
+    - YYKit
     - YYModel
 
 SPEC CHECKSUMS:
@@ -104,8 +109,9 @@ SPEC CHECKSUMS:
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: f00ddf21463605cc802fbcc8f58eb67f17f7968e
+PODFILE CHECKSUM: 54cbeb6f6f913efe4c5be9e4f039adaf6acd6d25
 
 COCOAPODS: 1.5.2

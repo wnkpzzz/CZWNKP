@@ -55,7 +55,6 @@
  
 }
 
-
 - (void)showView{
     self.frame = CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT);
     [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
@@ -65,10 +64,8 @@
     
     [self dismissPopView];
 
-    if (sender.tag == 0)      {   }
-    else if (sender.tag == 1) {   }
- 
-    
+    if (sender.tag == 1) { if (self.completeBlock) { self.completeBlock(self.tableItems); } }
+     
 }
 
 #pragma mark
@@ -84,15 +81,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      
     EPTypeMaterialListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID] forIndexPath:indexPath];
-    
-//
-//    EPTypeMaterialListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:[EPTypeMaterialListTableViewCell cellID]];
-//    if (!cell) {
-//        cell = [[EPTypeMaterialListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[EPTypeMaterialListTableViewCell cellID]];
-//    }
-    
     EPTypeListClassifyModel * model = self.tableItems[indexPath.row];
- 
     cell.dataModel = model;
     return cell;
 }

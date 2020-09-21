@@ -21,6 +21,7 @@
 #import "AppDelegate.h"
 
 //第三方框架引用
+#import "YYKit.h"
 #import "Masonry.h"
 #import "YYModel.h"
 #import "MJRefresh.h"
