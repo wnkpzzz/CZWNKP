@@ -1,5 +1,5 @@
 //
-//  SqliteManager+friend.h
+//  SqliteManager+user.h
 //  EPJH
 //
 //  Created by Hans on 2020/9/22.
@@ -10,10 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SqliteManager (friend)
-
-
- 
+@interface SqliteManager (user)
 
 #pragma mark ---------我的病人/用户---------
 
@@ -56,10 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @param uids  表ID数组
  */
 - (void)queryUserTableWithUIDs:(NSArray<NSString *> *)uids complete:(void (^)(NSArray *successUserInfos,NSArray *failUids))complete;
-
-
- 
-
 
 @end
 

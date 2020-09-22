@@ -1,16 +1,15 @@
 //
-//  SqliteManager+friend.m
+//  SqliteManager+user.m
 //  EPJH
 //
 //  Created by Hans on 2020/9/22.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "SqliteManager+friend.h"
+#import "SqliteManager+user.h"
 
-@implementation SqliteManager (friend)
+@implementation SqliteManager (user)
 
- 
 #pragma mark ---------Private---------
 
 /** 校验是否存在数据表 */
@@ -258,7 +257,6 @@
         }];
     }];
 }
-
 
 
 @end
