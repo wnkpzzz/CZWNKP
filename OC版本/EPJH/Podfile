@@ -14,7 +14,6 @@ target 'EPJH' do
 
     pod 'FMDB'   , '2.7.2'
     pod 'YYKit'  , '1.0.9'
-    pod 'YYModel', '1.0.4'
     pod 'Masonry' , '1.1.0'
 
     pod 'UMCCommon'

@@ -41,7 +41,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="btnClickAction:" destination="-1" eventType="touchUpInside" id="ySB-c5-dfj"/>
+                        <action selector="submitAction:" destination="-1" eventType="touchUpInside" id="VFf-o0-zcr"/>
                     </connections>
                 </button>
             </subviews>

@@ -19,6 +19,7 @@
                 <outlet property="headCKImgView" destination="Y1M-RE-2pf" id="COn-SQ-1F6"/>
                 <outlet property="headOutputView" destination="O32-Lk-yZF" id="29j-fl-BDX"/>
                 <outlet property="nextBtn" destination="hfL-oK-fH3" id="OPa-ca-fjz"/>
+                <outlet property="outImageView" destination="Z27-ZK-TXn" id="fhH-VQ-dev"/>
                 <outlet property="saveBtn" destination="bZU-kp-PPg" id="lfP-zY-qbb"/>
                 <outlet property="skipBtn" destination="0ap-Cg-Tpt" id="ijT-sL-eJD"/>
                 <outlet property="switchBtn" destination="Qfo-fV-sE9" id="7mF-Rc-ote"/>
@@ -36,7 +37,19 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O32-Lk-yZF">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-ZK-TXn" customClass="CZAlbumScrollView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Z27-ZK-TXn" secondAttribute="bottom" id="Xad-Xa-Jz0"/>
+                                <constraint firstAttribute="trailing" secondItem="Z27-ZK-TXn" secondAttribute="trailing" id="gRB-kq-kVy"/>
+                                <constraint firstItem="Z27-ZK-TXn" firstAttribute="top" secondItem="O32-Lk-yZF" secondAttribute="top" id="pqK-Wc-VMe"/>
+                                <constraint firstItem="Z27-ZK-TXn" firstAttribute="leading" secondItem="O32-Lk-yZF" secondAttribute="leading" id="udA-cv-mtN"/>
+                            </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1M-RE-2pf">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
@@ -208,7 +221,7 @@
                 <constraint firstItem="Pjq-Lx-KUA" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="mnC-qO-Y9e"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-184" y="141"/>
+            <point key="canvasLocation" x="-561" y="142"/>
         </view>
     </objects>
     <resources>

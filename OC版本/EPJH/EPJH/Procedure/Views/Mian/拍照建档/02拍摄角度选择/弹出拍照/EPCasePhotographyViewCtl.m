@@ -40,7 +40,8 @@
  
 // **************** 《上下半区》 **********************
 @property (weak, nonatomic) IBOutlet UIView *headOutputView;                 /** 上半区底部视图View */
-@property (nonatomic, strong) CZAlbumScrollView *outImageView;               /** 上半成像后的展示图 */
+@property (weak, nonatomic) IBOutlet CZAlbumScrollView *outImageView;
+//@property (nonatomic, strong) CZAlbumScrollView *outImageView;               /** 上半成像后的展示图 */
 @property (weak, nonatomic) IBOutlet UIImageView *headCKImgView;             /** 上半区参照虚线图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footStandardImgView;       /** 下半区标准对比图 */
 @property (weak, nonatomic) IBOutlet UIImageView *footCKImgView;             /** 下半区参照虚线图 */
@@ -103,8 +104,9 @@
     self.saveBtn.layer.masksToBounds = YES;
     [self.saveBtn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
 
+    [self.outImageView setupUI];
     //成像后的显示视图
-    [self.headOutputView addSubview:self.outImageView];
+//    [self.headOutputView addSubview:self.outImageView];
 
     [self createAVCaptureDevice];
     [self updateUIAndLoadImageData];
@@ -181,17 +183,15 @@
     if (self.session) {  [self.session startRunning]; }
 }
 
-/** 懒加载 */
-- (CZAlbumScrollView *)outImageView{
-
-    if (!_outImageView) {
-        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT * 0.5)];
-//        _outImageView.contentOffset = CGPointMake(0, 0);
-  
-    }
-    
-    return _outImageView;
-}
+///** 懒加载 */
+//- (CZAlbumScrollView *)outImageView{
+//
+//    if (!_outImageView) {
+//        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT * 0.5)];
+//    }
+//
+//    return _outImageView;
+//}
 
 #pragma mark - 事件处理
 - (IBAction)btnClickAction:(UIButton *)button {

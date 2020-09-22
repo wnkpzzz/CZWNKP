@@ -12,8 +12,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;     // 部位节点索引，面部，身体，四肢。。。
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> * makePhotoArrays; // 拍照结果数组
- 
+
+@property (nonatomic, strong) EPUserInfoModel * userModel;
+@property (nonatomic, strong) EPProjectModel  * projectModel; 
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
+
 @end
 
 @implementation EP_Files_AngleSelectViewCtl
@@ -27,19 +30,17 @@
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
-     
-    self.makePhotoArrays = [NSMutableArray arrayWithCapacity:12];
- 
+       
     // 在这里初始化项目Model
-    self.proModel = [[EPProjectModel alloc] init];
-    self.proModel.cameraArr = [NSMutableArray arrayWithCapacity:12];
-    self.proModel.userInfo = [[EPUserInfoModel alloc] init];
-    self.proModel.bindUserId = KUID;
-    self.proModel.subCateId = kShuQianID;
-    self.proModel.subCateName = kTimeArray[0];
-    self.proModel.cateId = kMianBuID;
-    self.proModel.cateName = kPartsNameArr[0];
-     
+    self.projectModel.cameraArr = [NSMutableArray arrayWithCapacity:12];
+    self.projectModel.userInfo = [[EPUserInfoModel alloc] init];
+    self.projectModel.bindUserId = KUID;
+    self.projectModel.subCateId = kShuQianID;
+    self.projectModel.subCateName = kTimeArray[0];
+    self.projectModel.cateId = kMianBuID;
+    self.projectModel.cateName = kPartsNameArr[0];
+    self.takeCameraArr = [NSMutableArray arrayWithCapacity:10];
+
     [self createTableView];     // 初始化TableView
     [self loadDefaultImageWithList:nil]; // 加载默认图片
 
@@ -48,9 +49,12 @@
 #pragma mark - 事件处理
 
 /** 下一步点击事件处理 */
-- (IBAction)btnClickAction:(UIButton *)sender {
+- (IBAction)submitAction:(UIButton *)sender {
     
     EP_Files_ProSelectViewCtl * Vc = [[EP_Files_ProSelectViewCtl alloc] init];
+//    Vc.userModel = [self.userModel mutableCopy];
+    Vc.projectModel = [self.projectModel mutableCopy];
+    Vc.takeCameraArr = self.takeCameraArr;
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
@@ -99,16 +103,16 @@
 - (void)headerViewSelectWithIndex:(NSInteger)index{
     switch (index) {
         case 0:
-            self.proModel.subCateName = kTimeArray[0];
-            self.proModel.subCateId = kShuQianID;
+            self.projectModel.subCateName = kTimeArray[0];
+            self.projectModel.subCateId = kShuQianID;
             break;
         case 1:
-            self.proModel.subCateName = kTimeArray[1];
-            self.proModel.subCateId = kShuHouID;
+            self.projectModel.subCateName = kTimeArray[1];
+            self.projectModel.subCateId = kShuHouID;
             break;
         case 2:
-            self.proModel.subCateName = kTimeArray[2];
-            self.proModel.subCateId = kFuZhenID;
+            self.projectModel.subCateName = kTimeArray[2];
+            self.projectModel.subCateId = kFuZhenID;
             break;
         default:
             break;
@@ -121,8 +125,8 @@
 - (void)selectViewSelectWithIndex:(NSInteger)index{
     
     self.partsIndex = index;
-    self.proModel.cateId = kPartsIDArr[index];
-    self.proModel.cateName = kPartsNameArr[index];
+    self.projectModel.cateId = kPartsIDArr[index];
+    self.projectModel.cateName = kPartsNameArr[index];
     [self resetDefaultImage];
     [self.tableView reloadData];
 }
@@ -132,9 +136,9 @@
      
     WS(weakSelf);
     EPCasePhotographyViewCtl *Vc = [[EPCasePhotographyViewCtl alloc] init];
-    [Vc reloadDataWithModel:self.proModel pictureArr:self.makePhotoArrays nowSign:index];
-    Vc.saveClickBlock = ^(EPProjectModel *proModel,NSArray *photoArr) {
-        [weakSelf updateForModel:proModel array:photoArr];
+    [Vc reloadDataWithModel:self.projectModel pictureArr:self.takeCameraArr nowSign:index];
+    Vc.saveClickBlock = ^(EPProjectModel *projectModel,NSArray *photoArr) {
+        [weakSelf updateForModel:projectModel array:photoArr];
     };
     Vc.modalPresentationStyle = UIModalPresentationFullScreen;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -147,25 +151,25 @@
 #pragma mark - 业务逻辑处理
 
 /** 拍照界面数据回传 */
-- (void)updateForModel:(EPProjectModel *)proModel array:(NSArray *)photoArr{
+- (void)updateForModel:(EPProjectModel *)projectModel array:(NSArray *)photoArr{
 
-    self.proModel = proModel;
+    self.projectModel = projectModel;
     
     // 第二次补充拍摄（第二次补充拍摄的内容个数 >= 第一次拍摄的内容个数）
     NSMutableArray *newArr = [NSMutableArray arrayWithCapacity:12];
     [newArr addObjectsFromArray:photoArr];
 
-    [self.makePhotoArrays removeAllObjects];
-    [self.makePhotoArrays addObjectsFromArray:newArr];
+    [self.takeCameraArr removeAllObjects];
+    [self.takeCameraArr addObjectsFromArray:newArr];
     [self.tableView reloadData];
 }
 
 /** 重置默认图片 */
 - (void)resetDefaultImage{
     
-    [self.makePhotoArrays removeAllObjects];
+    [self.takeCameraArr removeAllObjects];
     // 旧用户更新数据
-    if (self.userModel.uid.length > 0 && ![self.proModel.subCateId isEqualToString:kShuQianID]) {
+    if (self.userModel.uid.length > 0 && ![self.projectModel.subCateId isEqualToString:kShuQianID]) {
         [self loadImgDataForDataBase];  // 从数据库查询数据
     }else{
         [self loadDefaultImageWithList:nil];
@@ -175,8 +179,8 @@
 /** 加载角度图片(list:对比图数组) */
 - (void)loadDefaultImageWithList:(NSMutableArray *)listArrays{
     
-    [self.proModel.cameraArr removeAllObjects]; // 清空
-       [self.makePhotoArrays removeAllObjects]; // 清空
+    [self.projectModel.cameraArr removeAllObjects]; // 清空
+       [self.takeCameraArr removeAllObjects]; // 清空
        NSMutableArray *sortIdList = [NSMutableArray arrayWithCapacity:12];   // 部位ID数组
        NSMutableArray *sortNameList = [NSMutableArray arrayWithCapacity:12]; // 部位名称数组
        NSMutableArray *myImgList = [NSMutableArray arrayWithCapacity:12];    // 本次拍照数组
@@ -201,10 +205,10 @@
        // 默认显示的展示图
        for (int i = 0; i < listArrays.count; i++) {
            EPImageModel *modelPic = [EPImageModel new];
-           modelPic.subCateId = self.proModel.subCateId;
-           modelPic.subCateName = self.proModel.subCateName;
-           modelPic.cateId = self.proModel.cateId;
-           modelPic.cateName = self.proModel.cateName;
+           modelPic.subCateId = self.projectModel.subCateId;
+           modelPic.subCateName = self.projectModel.subCateName;
+           modelPic.cateId = self.projectModel.cateId;
+           modelPic.cateName = self.projectModel.cateName;
            modelPic.sort = i;
            modelPic.sortId = sortIdList[i];
            modelPic.sortName = sortNameList[i];
@@ -212,7 +216,7 @@
            modelPic.cameraImgStr = myImgList[i];
            modelPic.tempImgStr = listArrays[i];
            modelPic.composeImgStr = @"";
-           [self.proModel.cameraArr addObject:modelPic];
+           [self.projectModel.cameraArr addObject:modelPic];
            
            EPTakePictureModel *photoModel = [EPTakePictureModel new];
            photoModel.partsIndex = self.partsIndex;
@@ -222,7 +226,7 @@
                photoModel.defaultImage = [[SqliteManager sharedInstance] getImageFromSandboxWith:listArrays[i] isCacheImg:NO isOriginal:NO];
            }
            photoModel.title = kPartsImgsPoNameArr[self.partsIndex][i];
-           [self.makePhotoArrays addObject:photoModel];
+           [self.takeCameraArr addObject:photoModel];
        }
 }
 
@@ -295,8 +299,8 @@
         
         EPAngleBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleBottomCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if ([self.proModel.subCateId isEqualToString:kShuQianID]) { cell.isShowAdd = YES; }else{ cell.isShowAdd = NO; }
-        cell.dataArray = self.makePhotoArrays;
+        if ([self.projectModel.subCateId isEqualToString:kShuQianID]) { cell.isShowAdd = YES; }else{ cell.isShowAdd = NO; }
+        cell.dataArray = self.takeCameraArr;
         cell.angleSelectBlock = ^(NSInteger selectIndex) {  [weakself bottomViewSelectWithIndex:selectIndex]; };
         return cell;
     }

@@ -7,16 +7,23 @@
 //
 
 #import "CZAlbumScrollView.h"
-
  
 @interface CZAlbumScrollView () <UIScrollViewDelegate>
-
-
-
+ 
 @end
 
 @implementation CZAlbumScrollView
 
+- (id)init{
+    
+     self = [super init];
+     if(self){
+         [self setupUI];
+     }
+ 
+     return self;
+}
+ 
 - (instancetype)initWithFrame:(CGRect)frame{
 
     if (self = [super initWithFrame:frame]) {
@@ -39,28 +46,24 @@
     self.minimumZoomScale = 0.01; //最小缩放比例
     self.maximumZoomScale =  10.0;    //最大缩放比例
     self.contentInset = UIEdgeInsetsMake(800, 800, 800, 800);  // 增加额外的滚动区域
-    
     [self addSubview:self.contentImageView];
+
 }
 
 - (void)layoutSubviews{
 
     [super layoutSubviews];
-    
-
- 
+     
 }
-
  
-
 - (UIImageView *)contentImageView{
 
     if (!_contentImageView) {
         _contentImageView = [[UIImageView alloc] init];
         _contentImageView.contentMode = UIViewContentModeScaleToFill;
-        _contentImageView.frame = CGRectMake(0, 0, self.width, self.height);
+//        _contentImageView.frame = CGRectMake(0, 0, self.width, self.height);
+        _contentImageView.frame = self.frame;
 
-         
     }
     return _contentImageView;
 }

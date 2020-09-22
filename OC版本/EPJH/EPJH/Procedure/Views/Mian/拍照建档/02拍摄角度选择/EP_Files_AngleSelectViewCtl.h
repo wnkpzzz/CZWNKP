@@ -16,9 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Files_AngleSelectViewCtl : RootViewController
  
-@property (nonatomic, strong) EPProjectModel * proModel;
-@property (nonatomic, strong) EPUserInfoModel * userModel;
 
+ 
 
 @end
 

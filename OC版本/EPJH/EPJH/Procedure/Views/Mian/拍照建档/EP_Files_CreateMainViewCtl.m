@@ -12,6 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *downView;
 
+@property (nonatomic, strong) EPProjectModel  * projectModel;
+
+
 @end
 
 @implementation EP_Files_CreateMainViewCtl
@@ -19,10 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"拍照";
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.downView.layer.borderColor = kMainBlueColor.CGColor;
-    self.downView.layer.borderWidth = 1.0f;
+ 
+    [self loadBaseConfig];
 }
+
+#pragma mark - 基础配置
+- (void)loadBaseConfig{
+
+    self.downView.layer.borderWidth = 1.0f;
+    self.downView.layer.borderColor = kMainBlueColor.CGColor;
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    self.projectModel = [[EPProjectModel alloc] init];
+
+}
+
 
 #pragma mark - 事件处理
 - (IBAction)btnClickAction:(UIButton *)sender {

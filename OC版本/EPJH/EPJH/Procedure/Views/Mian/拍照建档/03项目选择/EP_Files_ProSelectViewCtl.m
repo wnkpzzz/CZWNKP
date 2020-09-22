@@ -325,7 +325,7 @@
         
         
         cell.showRemark = YES;
-//        cell.timeLabel.text = _model.subCateName;
+        cell.timeLabel.text = self.projectModel.subCateName;
         cell.partLabel.text = @"部位:";
         cell.surgetyTypeLabel.text = @"项目:";
         cell.materialsLabel.text = @"材料:";
@@ -348,6 +348,13 @@
             }
         }
         
+        // Model赋值
+        self.projectModel.position = [cell.partLabel.text substringFromIndex:3];
+        self.projectModel.project = [cell.surgetyTypeLabel.text substringFromIndex:3];
+        self.projectModel.material = [cell.materialsLabel.text substringFromIndex:3];
+        self.projectModel.remark =  cell.remarkTextView.text;
+        self.projectModel.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
+
         return cell;
     }
    
