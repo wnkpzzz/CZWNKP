@@ -18,16 +18,9 @@
     
     //是否已存在Queue
     for (CreatTable *model in self.kUserInfoArray) {
-        
         NSString *aID = model.Id;
-        
-        if ([aID isEqualToString:friID]) {
-             
-            return model;
-            break;
-        }
+        if ([aID isEqualToString:friID]) { return model;  break; }
     }
-    
     //没有就创建我的好友表
     return [self creatFrisTableWithfriID:friID];
 }
@@ -38,14 +31,11 @@
     CreatTable *model = [self firstCreatFrisQueueWithFriID:friID];
     FMDatabaseQueue *queue = model.queue;
     NSArray *sqlArr    = model.sqlCreatTable;
+    
     for (NSString *sql in sqlArr) {
         [queue inDatabase:^(FMDatabase *db) {
-            
             BOOL ok = [db executeUpdate:sql];
-            if (ok == NO) {
-                NSLog(@"创建我的病人表失败:%@---",sql);
-            }
-            
+            if (ok == NO) {  NSLog(@"创建我的病人表失败:%@---",sql);}
         }];
     }
     return model;
@@ -150,6 +140,11 @@
         }];
     }];
 }
+
+
+
+
+
 
 /*
  * 更新/插入单条用户数据
