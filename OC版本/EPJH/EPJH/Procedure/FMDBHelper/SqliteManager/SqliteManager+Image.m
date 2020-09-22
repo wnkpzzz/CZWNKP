@@ -50,11 +50,77 @@
 
 
 
-
 #pragma mark ---------Private---------
 
+/** 校验是否存在数据表 */
+- (CreatTable *)setupImageProDBqueueWithUID:(NSString *)uid{
+    
+    //是否已存在Queue
+    for (CreatTable *model in self.kImageProInfoArray) {
+        NSString *aID = model.Id;
+        if ([aID isEqualToString:uid]) { return model; break; }
+    }
+    
+    //没有就创建我的好友表
+    return [self creatImageProTableWithUID:uid];
+}
 
+/** 创建我的项目表 */
+- (CreatTable *)creatImageProTableWithUID:(NSString *)uid{
+    
+    CreatTable *model = [self firstCreatImageProQueueWithUID:uid];
+    FMDatabaseQueue *queue = model.queue;
+    NSArray *sqlArr    = model.sqlCreatTable;
+    
+    for (NSString *sql in sqlArr) {
+        [queue inDatabase:^(FMDatabase *db) {
+            BOOL ok = [db executeUpdate:sql];
+            if (ok == NO) { NSLog(@"创建我的图片表SQL执行失败:%@",sql); }
+        }];
+    }
+    return model;
+}
 
+/** 第一次建我的项目表 */
+- (CreatTable *)firstCreatImageProQueueWithUID:(NSString *)uid{
+    
+    // 数据表路径
+    NSString *pathMyFri = pathImageProWithDir(ZCImageProDir, uid);
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    
+    //如果不存在,则说明是第一次运行这个程序，那么建立这个文件夹
+    if(![fileM fileExistsAtPath:ZCImageProDir]){
+        if (![fileM fileExistsAtPath:ZCUserDir]) {
+            [fileM createDirectoryAtPath:ZCUserDir withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+        if (![fileM fileExistsAtPath:ZCImageProDir]) {
+            [fileM createDirectoryAtPath:ZCImageProDir withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    }
+    
+    NSLog(@"第一次建我的项目表,数据库操作路径:\n%@",pathMyFri);
+    
+    
+    CreatTable *model = [[CreatTable alloc] init];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:pathMyFri];
+    
+    if (queue) {
+        //存ID和队列
+        model.Id = uid;
+        model.queue = queue;
+        
+        //存SQL语句
+        NSString *tableName = tableNameImagePro(uid);
+        NSString *userSql = [EPImageModel yh_sqlForCreatTable:tableName primaryKey:@"id"];
+        NSArray *sqlArr = nil;
+        if (userSql ) {  sqlArr = @[userSql];   }
+        if (sqlArr) { model.sqlCreatTable = sqlArr;  }
+        [self.kImageProInfoArray addObject:model];
+    }
+    
+    return model;
+}
+ 
  #pragma mark ---------我的图片---------
 
 
@@ -62,7 +128,28 @@
   * 向表中更新/插入多条数据
   */
 - (void)updateImagesListWithUID:(NSString *)uid frislist:(NSArray <EPImageModel *>*)imgslist complete:(void (^)(BOOL success,id obj))complete{
-    
+ 
+    CreatTable *model = [self setupImageProDBqueueWithUID:uid];
+      FMDatabaseQueue *queue = model.queue;
+
+      NSString *tableName = tableNameImagePro(uid);
+      for (int i= 0; i< imgslist.count; i++) {
+
+          EPImageModel *model = imgslist[i];
+
+          [queue inDatabase:^(FMDatabase *db) {
+              /** 存储:会自动调用insert或者update，不需要担心重复插入数据 */
+              [db yh_saveDataWithTable:tableName model:model userInfo:nil otherSQL:nil option:^(BOOL save) {
+                  if (i == imgslist.count-1) {
+                      complete(save,nil);
+                  }else{
+                      if (!save) {
+                          complete(save,@"【图片表】插入多/单条数据失败");
+                      }
+                  }
+              }];
+          }];
+      }
 }
 
 
@@ -71,7 +158,14 @@
   */
 - (void)deleteOneImageWithUID:(NSString *)uid dataModel:(EPImageModel *)dataModel complete:(void(^)(BOOL success,id obj))complete{
     
-    
+    CreatTable *model = [self setupImageProDBqueueWithUID:uid];
+    FMDatabaseQueue *queue = model.queue;
+
+    [queue inDatabase:^(FMDatabase *db) {
+        [db yh_deleteDataWithTable:tableNameImagePro(uid) model:dataModel userInfo:nil otherSQL:nil option:^(BOOL del) {
+            complete(del,@(del));
+        }];
+    }];
 }
 
 
@@ -85,6 +179,14 @@
  */
 - (void)queryImageTableWithUID:(NSString *)uid accurateInfo:(NSDictionary *)accurateInfo fuzzyInfo:(NSDictionary *)fuzzyInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
     
+    CreatTable *model = [self setupImageProDBqueueWithUID:uid];
+    FMDatabaseQueue *queue = model.queue;
+
+    [queue inDatabase:^(FMDatabase *db) {
+        [db yh_excuteDatasWithTable:tableNameImagePro(uid) model:[EPImageModel new] userInfo:accurateInfo fuzzyUserInfo:fuzzyInfo otherSQL:otherSQLDict option:^(NSMutableArray *models) {
+            complete(YES,models);
+        }];
+    }];
     
 }
 

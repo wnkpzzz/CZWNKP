@@ -74,6 +74,23 @@ static inline NSString *tableNameProject(NSString *friID){
 }
  
 
+/** ******************图片表************** */
+
+//图片表数据目录
+#define ZCImageProDir [ZCUserDir stringByAppendingPathComponent:@"ImagePro"]
+
+//项目表路径
+static inline NSString *pathImageProWithDir( NSString *dir,NSString *friID){
+    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"imagePro_%@.sqlite",friID]];
+    return pathLog;
+}
+
+//项目表名的命名方式
+static inline NSString *tableNameImagePro(NSString *friID){
+
+    return [NSString stringWithFormat:@"imagePro_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
+}
+
 /** ******************对比相册表************** */
  
 

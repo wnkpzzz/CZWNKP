@@ -14,8 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark ---------图片存储---------
 
+
+/** 图片保存到沙盒指定目录 */
+- (void)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName;
+
+/** 图片保存到沙盒指定目录+成功回调 */
+- (void)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName completion:(void (^)(BOOL isSucess))completion;
+
 /** 根据名称从沙盒路径中取出原图/缩略图,是否大图 */
 - (UIImage *)getImageFromSandboxWith:(NSString *)imageName isCacheImg:(BOOL)isCache isOriginal:(BOOL)isCompress;
+
+/** 删除沙盒指定目录下的图片+成功回调 */
+- (void)deleteImageFromSandboxWith:(NSString *)imageName completion:(void (^)(BOOL isSucess))completion;
 
 
 #pragma mark ---------我的图片---------
