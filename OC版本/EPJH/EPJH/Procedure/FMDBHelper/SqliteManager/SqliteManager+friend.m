@@ -10,11 +10,11 @@
 
 @implementation SqliteManager (friend)
 
-
-#pragma mark ---------我的病人/用户---------
+ 
+#pragma mark ---------Private---------
 
 /** 校验是否存在数据表 */
-- (CreatTable *)setupFrisDBqueueWithFriID:(NSString *)uid{
+- (CreatTable *)setupUserDBqueueWithUID:(NSString *)uid{
     
     //是否已存在Queue
     for (CreatTable *model in self.kUserInfoArray) {
@@ -22,13 +22,13 @@
         if ([aID isEqualToString:uid]) { return model;  break; }
     }
     //没有就创建我的好友表
-    return [self creatFrisTableWithfriID:uid];
+    return [self creatUserTableWithUID:uid];
 }
 
 /** 创建我的病人表 */
-- (CreatTable *)creatFrisTableWithfriID:(NSString *)uid{
+- (CreatTable *)creatUserTableWithUID:(NSString *)uid{
     
-    CreatTable *model = [self firstCreatFrisQueueWithFriID:uid];
+    CreatTable *model = [self firstCreatUserQueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
     NSArray *sqlArr    = model.sqlCreatTable;
     
@@ -42,7 +42,7 @@
 }
 
 /** 第一次创建我的病人表 */
-- (CreatTable *)firstCreatFrisQueueWithFriID:(NSString *)uid{
+- (CreatTable *)firstCreatUserQueueWithUID:(NSString *)uid{
     
     // 数据表路径
     NSString *pathMyFri = pathFrisWithDir(ZCFriendsDir, uid);
@@ -84,61 +84,8 @@
     return model;
 }
 
-/** 删除路径的表数据 */
-- (BOOL)deleteFileAtPath:(NSString *)filePath{
-    if (!filePath || filePath.length == 0) {
-        return NO;
-    }
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSLog(@"删除数据表文件出错, %@ is not exist!", filePath);
-        return NO;
-    }
-    NSError *removeErr = nil;
-    if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&removeErr] ) {
-        NSLog(@"删除数据表文件失败！ %@", removeErr);
-        return NO;
-    }
-    return YES;
-}
 
-/** 综合搜索表 */
-- (CreatTable *)setupFrisDBqueueWithTag:(NSString *)uid{
-    
-    //是否已存在Queue
-    for (CreatTable *model in self.kUserInfoArray) {
-        NSString *aID = model.Id;
-        if ([aID isEqualToString:uid]) {  return model; break; }
-    }
-    
-    //没有就创建动态表
-    return [self creatFrisTableWithfriID:uid];
-    
-}
-
-/** 查询某个好友信息 */
-- (void)queryOneFriWithID:(NSString *)uid complete:(void (^)(BOOL success,id obj))complete{
-    
-    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
-    FMDatabaseQueue *queue = model.queue;
-    
-    EPUserInfoModel *friInfo = [EPUserInfoModel new];
-    friInfo.uid = uid;
-    
-    [queue inDatabase:^(FMDatabase *db) {
-        [db yh_excuteDataWithTable:tableNameFris(uid) model:friInfo userInfo:nil fuzzyUserInfo:nil otherSQL:nil option:^(id output_model) {
-            if (output_model) {
-                complete(YES,output_model);
-            }else{
-                complete(NO,@"can not find user in dataBase");
-            }
-            
-        }];
-    }];
-}
-
-
-
-
+#pragma mark ---------我的病人/用户---------
 
 
 /*
@@ -151,7 +98,7 @@
     
     if (!dataModel.uid) {  complete( NO,@"dataModel is nil"); return; }
 
-    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
+    CreatTable *model = [self setupUserDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     NSDictionary *otherSQL = nil;
@@ -171,7 +118,7 @@
 */
 - (void)updateUsersListWithUID:(NSString *)uid frislist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete{
     
-    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
+    CreatTable *model = [self setupUserDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     NSString *tableName = tableNameFris(uid);
@@ -201,7 +148,7 @@
  */
 - (void)deleteOneUserWithUID:(NSString *)uid dataModel:(EPUserInfoModel *)dataModel  complete:(void(^)(BOOL success,id obj))complete{
    
-    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
+    CreatTable *model = [self setupUserDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     [queue inDatabase:^(FMDatabase *db) {
@@ -222,7 +169,7 @@
 */
 - (void)queryUserTableWithUID:(NSString *)uid  accurateInfo:(NSDictionary *)accurateInfo fuzzyInfo:(NSDictionary *)fuzzyInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
    
-    CreatTable *model = [self setupFrisDBqueueWithTag:uid];
+    CreatTable *model = [self setupUserDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     NSString *tableName = tableNameFris(uid);
@@ -235,13 +182,18 @@
     
 }
 
+
+
+#pragma mark ---------Other---------
+
+
 /*
  *  删除表
  */
 - (void)deleteUserTableWithUD:(NSString *)uid complete:(void(^)(BOOL success,id obj))complete{
     
     NSString *pathFris = pathFrisWithDir(ZCFriendsDir, uid);
-    BOOL success = [self deleteFileAtPath:pathFris];
+    BOOL success = [self deleteUserFileAtPath:pathFris];
    
     if (success) {
         for (CreatTable *model in self.kUserInfoArray) {
@@ -262,11 +214,49 @@
     __block NSMutableArray *successArr = [NSMutableArray new];
 
     for (NSString *uid in uids) {
-        [self queryOneFriWithID:uid complete:^(BOOL success, id obj) {
+        [self queryOneUserWithUID:uid complete:^(BOOL success, id obj) {
             if (success) { if (obj) {  [successArr addObject:obj]; } }else{ [failArr addObject:uid];}
         }];
     }
     complete(successArr,failArr);
+}
+
+/** 删除路径的表数据 */
+- (BOOL)deleteUserFileAtPath:(NSString *)filePath{
+    if (!filePath || filePath.length == 0) {
+        return NO;
+    }
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSLog(@"删除数据表文件出错, %@ is not exist!", filePath);
+        return NO;
+    }
+    NSError *removeErr = nil;
+    if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&removeErr] ) {
+        NSLog(@"删除数据表文件失败！ %@", removeErr);
+        return NO;
+    }
+    return YES;
+}
+
+/** 查询某个好友信息 */
+- (void)queryOneUserWithUID:(NSString *)uid complete:(void (^)(BOOL success,id obj))complete{
+    
+    CreatTable *model = [self setupUserDBqueueWithUID:uid];
+    FMDatabaseQueue *queue = model.queue;
+    
+    EPUserInfoModel *friInfo = [EPUserInfoModel new];
+    friInfo.uid = uid;
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        [db yh_excuteDataWithTable:tableNameFris(uid) model:friInfo userInfo:nil fuzzyUserInfo:nil otherSQL:nil option:^(id output_model) {
+            if (output_model) {
+                complete(YES,output_model);
+            }else{
+                complete(NO,@"can not find user in dataBase");
+            }
+            
+        }];
+    }];
 }
 
 

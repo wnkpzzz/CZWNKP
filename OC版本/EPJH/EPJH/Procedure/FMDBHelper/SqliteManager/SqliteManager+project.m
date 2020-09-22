@@ -10,7 +10,7 @@
 
 @implementation SqliteManager (project)
 
-#pragma mark ---------我的项目---------
+#pragma mark ---------Private---------
 
 /** 校验是否存在数据表 */
 - (CreatTable *)setupProjectDBqueueWithUID:(NSString *)uid{
@@ -80,12 +80,9 @@
     
     return model;
 }
-
-
-
-
-
-
+ 
+#pragma mark ---------我的项目---------
+ 
 /*
 * 向表中更新/插入单条数据
 * @param proModel         该条数据Model
