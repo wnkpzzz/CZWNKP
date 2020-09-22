@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EPProjectHeadFileHandler.h"
+
+@class EPTakePictureModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Files_FillInDataViewCtl : UIViewController
+
+@property (nonatomic, strong) EPProjectModel  * projectModel;
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
 
 @end
 

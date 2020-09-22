@@ -12,8 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *downView;
 
-@property (nonatomic, strong) EPProjectModel  * projectModel;
-
+ 
 
 @end
 
@@ -33,7 +32,6 @@
     self.downView.layer.borderColor = kMainBlueColor.CGColor;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.projectModel = [[EPProjectModel alloc] init];
 
 }
 

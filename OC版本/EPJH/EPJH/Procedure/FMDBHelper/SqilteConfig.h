@@ -16,6 +16,10 @@
 
 #import "SqliteData.h"
 #import "SqliteManager.h"
+#import "SqliteManager+friend.h"
+#import "SqliteManager+project.h"
+#import "SqliteManager+Image.h"
+
 #import "FilesDataCommon.h"
 
 #import "EPImageModel.h"

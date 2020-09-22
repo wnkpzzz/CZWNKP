@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Files_ProSelectViewCtl : RootViewController
 
-@property (nonatomic, strong) EPUserInfoModel * userModel;
-@property (nonatomic, strong) EPProjectModel  * projectModel; // 无需外部传入
+@property (nonatomic, strong) EPProjectModel  * projectModel;
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
 
 @end

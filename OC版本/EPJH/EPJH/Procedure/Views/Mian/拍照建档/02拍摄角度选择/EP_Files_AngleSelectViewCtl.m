@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger partsIndex;     // 部位节点索引，面部，身体，四肢。。。
 
+// 用户案例档案数据初始化
 @property (nonatomic, strong) EPUserInfoModel * userModel;
 @property (nonatomic, strong) EPProjectModel  * projectModel; 
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
@@ -31,7 +32,7 @@
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
        
-    // 在这里初始化项目Model
+    self.projectModel = [[EPProjectModel alloc] init];
     self.projectModel.cameraArr = [NSMutableArray arrayWithCapacity:12];
     self.projectModel.userInfo = [[EPUserInfoModel alloc] init];
     self.projectModel.bindUserId = KUID;
@@ -52,7 +53,6 @@
 - (IBAction)submitAction:(UIButton *)sender {
     
     EP_Files_ProSelectViewCtl * Vc = [[EP_Files_ProSelectViewCtl alloc] init];
-//    Vc.userModel = [self.userModel mutableCopy];
     Vc.projectModel = [self.projectModel mutableCopy];
     Vc.takeCameraArr = self.takeCameraArr;
     [self.navigationController pushViewController:Vc animated:YES];

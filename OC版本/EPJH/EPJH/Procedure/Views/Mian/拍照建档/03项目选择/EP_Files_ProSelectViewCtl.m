@@ -12,10 +12,13 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
-@property (nonatomic,strong) EPTypeListClassifyModel * localDataModel;
 
 @property (nonatomic,assign) NSUInteger thirdClassifyNum;   //现在选择的第三分类
 @property (nonatomic,assign) NSUInteger fourthClassifyNum;  //现在选择的第四分类
+
+@property (nonatomic, strong) EPUserInfoModel * userModel;
+@property (nonatomic, strong) EPTypeListClassifyModel * localDataModel;
+
 
 @end
 
@@ -112,6 +115,8 @@
 - (IBAction)btnClickAction:(UIButton *)sender {
     
     EP_Files_FillInDataViewCtl * Vc = [[EP_Files_FillInDataViewCtl alloc] init];
+    Vc.projectModel = [self.projectModel mutableCopy];
+    Vc.takeCameraArr = self.takeCameraArr;
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
