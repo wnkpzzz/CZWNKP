@@ -14,38 +14,38 @@
 #pragma mark ---------我的病人/用户---------
 
 /** 校验是否存在数据表 */
-- (CreatTable *)setupFrisDBqueueWithFriID:(NSString *)friID{
+- (CreatTable *)setupFrisDBqueueWithFriID:(NSString *)uid{
     
     //是否已存在Queue
     for (CreatTable *model in self.kUserInfoArray) {
         NSString *aID = model.Id;
-        if ([aID isEqualToString:friID]) { return model;  break; }
+        if ([aID isEqualToString:uid]) { return model;  break; }
     }
     //没有就创建我的好友表
-    return [self creatFrisTableWithfriID:friID];
+    return [self creatFrisTableWithfriID:uid];
 }
 
 /** 创建我的病人表 */
-- (CreatTable *)creatFrisTableWithfriID:(NSString *)friID{
+- (CreatTable *)creatFrisTableWithfriID:(NSString *)uid{
     
-    CreatTable *model = [self firstCreatFrisQueueWithFriID:friID];
+    CreatTable *model = [self firstCreatFrisQueueWithFriID:uid];
     FMDatabaseQueue *queue = model.queue;
     NSArray *sqlArr    = model.sqlCreatTable;
     
     for (NSString *sql in sqlArr) {
         [queue inDatabase:^(FMDatabase *db) {
             BOOL ok = [db executeUpdate:sql];
-            if (ok == NO) {  NSLog(@"创建我的病人表失败:%@---",sql);}
+            if (ok == NO) { NSLog(@"创建我的病人表SQL执行失败:%@",sql); }
         }];
     }
     return model;
 }
 
 /** 第一次创建我的病人表 */
-- (CreatTable *)firstCreatFrisQueueWithFriID:(NSString *)friID{
+- (CreatTable *)firstCreatFrisQueueWithFriID:(NSString *)uid{
     
     // 数据表路径
-    NSString *pathMyFri = pathFrisWithDir(ZCFriendsDir, friID);
+    NSString *pathMyFri = pathFrisWithDir(ZCFriendsDir, uid);
     NSFileManager *fileM = [NSFileManager defaultManager];
     
     //如果不存在,则说明是第一次运行这个程序，那么建立这个文件夹
@@ -59,20 +59,20 @@
         }
         
     }
-    
-    NSLog(@"第一次创建我的病人表,数据库操作路径------\n%@",pathMyFri);
-    
+ 
+    NSLog(@"第一次建我的病人表,数据库操作路径:\n%@",pathMyFri);
+
     
     CreatTable *model = [[CreatTable alloc] init];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:pathMyFri];
     
     if (queue) {
         //存ID和队列
-        model.Id = friID;
+        model.Id = uid;
         model.queue = queue;
         
         //存SQL语句
-        NSString *tableName = tableNameFris(friID);
+        NSString *tableName = tableNameFris(uid);
         NSString *userSql = [EPUserInfoModel yh_sqlForCreatTable:tableName primaryKey:@"id"];
         
         NSArray *sqlArr = nil;
@@ -102,35 +102,30 @@
 }
 
 /** 综合搜索表 */
-- (CreatTable *)setupFrisDBqueueWithTag:(NSString *)userID{
+- (CreatTable *)setupFrisDBqueueWithTag:(NSString *)uid{
     
     //是否已存在Queue
     for (CreatTable *model in self.kUserInfoArray) {
         NSString *aID = model.Id;
-        if ([aID isEqualToString:userID]) {
-            
-            return model;
-            break;
-        }
+        if ([aID isEqualToString:uid]) {  return model; break; }
     }
     
     //没有就创建动态表
-    return [self creatFrisTableWithfriID:userID];
+    return [self creatFrisTableWithfriID:uid];
     
 }
 
 /** 查询某个好友信息 */
-- (void)queryOneFriWithID:(NSString *)friID complete:(void (^)(BOOL success,id obj))complete{
+- (void)queryOneFriWithID:(NSString *)uid complete:(void (^)(BOOL success,id obj))complete{
     
-    NSString *myID = KUID;
-    CreatTable *model = [self setupFrisDBqueueWithFriID:myID];
+    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     EPUserInfoModel *friInfo = [EPUserInfoModel new];
-    friInfo.uid = friID;
+    friInfo.uid = uid;
     
     [queue inDatabase:^(FMDatabase *db) {
-        [db yh_excuteDataWithTable:tableNameFris(myID) model:friInfo userInfo:nil fuzzyUserInfo:nil otherSQL:nil option:^(id output_model) {
+        [db yh_excuteDataWithTable:tableNameFris(uid) model:friInfo userInfo:nil fuzzyUserInfo:nil otherSQL:nil option:^(id output_model) {
             if (output_model) {
                 complete(YES,output_model);
             }else{
@@ -147,31 +142,24 @@
 
 
 /*
- * 更新/插入单条用户数据
- * @param aFri         好友UserInfo
+ * 更新表中【单条】数据
+ * @param aFri         该条数据Model
  * @param updateItems  传nil就是更新model的所有字段,否则更新数组里面的指定字段。eg:updateItems = @[@"userName",@"job"];
  * 更新好友的姓名和职位，注意字段名要填写正确
  */
-- (void)updateOneFri:(EPUserInfoModel *)aFri updateItems:(NSArray <NSString *>*)updateItems complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateOneUserWithUID:(NSString *)uid dataModel:(EPUserInfoModel *)dataModel updateItems:(NSArray <NSString *>*)updateItems complete:(void (^)(BOOL success,id obj))complete{
     
-    if (!aFri.uid) {
-        complete(NO,@"friID is nil");
-        return;
-    }
-    
-    NSString *myID = KUID;
-    CreatTable *model = [self setupFrisDBqueueWithFriID:myID];
+    if (!dataModel.uid) {  complete( NO,@"dataModel is nil"); return; }
+
+    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     NSDictionary *otherSQL = nil;
-    if (updateItems) {
-        otherSQL = @{YHUpdateItemKey:updateItems};
-    }
-    
-    
+    if (updateItems) { otherSQL = @{YHUpdateItemKey:updateItems};}
+     
     [queue inDatabase:^(FMDatabase *db) {
         /** 存储:会自动调用insert或者update，不需要担心重复插入数据 */
-        [db yh_saveDataWithTable:tableNameFris(myID)  model:aFri userInfo:nil otherSQL:otherSQL option:^(BOOL save) {
+        [db yh_saveDataWithTable:tableNameFris(uid) model:dataModel userInfo:nil otherSQL:otherSQL option:^(BOOL save) {
             complete(save,nil);
         }];
         
@@ -179,14 +167,14 @@
 }
 
 /*
-*  插入/更新多条用户数据
+*  插入【表】中多/单条数据
 */
-- (void)updateFrisListWithFriID:(NSString *)friID frislist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateUsersListWithUID:(NSString *)uid frislist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete{
     
-    CreatTable *model = [self setupFrisDBqueueWithFriID:friID];
+    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
     FMDatabaseQueue *queue = model.queue;
     
-    NSString *tableName = tableNameFris(friID);
+    NSString *tableName = tableNameFris(uid);
     for (int i= 0; i< frislist.count; i++) {
         
         EPUserInfoModel *model = frislist[i];
@@ -211,105 +199,76 @@
 /*
  *  删除某一个病人数据
  */
-- (void)deleteOneFriWithfriID:(NSString *)friID fri:(EPUserInfoModel *)fri userInfo:(NSDictionary *)userInfo complete:(void(^)(BOOL success,id obj))complete{
+- (void)deleteOneUserWithUID:(NSString *)uid dataModel:(EPUserInfoModel *)dataModel  complete:(void(^)(BOOL success,id obj))complete{
    
-    CreatTable *model = [self setupFrisDBqueueWithFriID:friID];
+    CreatTable *model = [self setupFrisDBqueueWithFriID:uid];
     FMDatabaseQueue *queue = model.queue;
     
     [queue inDatabase:^(FMDatabase *db) {
-        [db yh_deleteDataWithTable:tableNameFris(friID) model:fri userInfo:userInfo otherSQL:nil option:^(BOOL del) {
+        [db yh_deleteDataWithTable:tableNameFris(uid) model:dataModel userInfo:nil otherSQL:nil option:^(BOOL del) {
             complete(del,@(del));
         }];
     }];
 }
 
+
 /*
- *  删除病人表数据
- */
-- (void)deleteFrisTableWithFriID:(NSString *)friID complete:(void(^)(BOOL success,id obj))complete{
+*  模糊/条件查询表数据
+*  @param userInfo       条件查询
+*  @param fuzzyUserInfo  模糊查询
+*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
+*  备注:多条件/模糊查询 @{@"sex":@"1",@"province":@"广东省",@"city":@""}
+*  备注:查询条件可以为空
+*/
+- (void)queryUserTableWithUID:(NSString *)uid  accurateInfo:(NSDictionary *)accurateInfo fuzzyInfo:(NSDictionary *)fuzzyInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
+   
+    CreatTable *model = [self setupFrisDBqueueWithTag:uid];
+    FMDatabaseQueue *queue = model.queue;
     
-    NSString *pathFris = pathFrisWithDir(ZCFriendsDir, friID);
+    NSString *tableName = tableNameFris(uid);
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        [db yh_excuteDatasWithTable:tableName model:[EPUserInfoModel new] userInfo:accurateInfo fuzzyUserInfo:fuzzyInfo otherSQL:otherSQLDict option:^(NSMutableArray *models) {
+            complete(YES,models);
+        }];
+    }];
+    
+}
+
+/*
+ *  删除表
+ */
+- (void)deleteUserTableWithUD:(NSString *)uid complete:(void(^)(BOOL success,id obj))complete{
+    
+    NSString *pathFris = pathFrisWithDir(ZCFriendsDir, uid);
     BOOL success = [self deleteFileAtPath:pathFris];
+   
     if (success) {
-        
         for (CreatTable *model in self.kUserInfoArray) {
             NSString *aID = model.Id;
-            if ([aID isEqualToString:friID]) {
-                [self.kUserInfoArray removeObject:model];
-                break;
-            }
+            if ([aID isEqualToString:uid]) {  [self.kUserInfoArray removeObject:model];  break; }
         }
-        
     }
     complete(success,nil);
 }
 
 /*
-*  模糊/条件病人表
-*  @param userInfo       条件查询
-*  @param fuzzyUserInfo  模糊查询
-*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
-*/
-- (void)queryFrisTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete{
-    
-    CreatTable *model = [self setupFrisDBqueueWithFriID:friID];
-    FMDatabaseQueue *queue = model.queue;
-    
-    [queue inDatabase:^(FMDatabase *db) {
-        [db yh_excuteDatasWithTable:tableNameFris(friID) model:[EPUserInfoModel new] userInfo:userInfo fuzzyUserInfo:fuzzyUserInfo otherSQL:nil option:^(NSMutableArray *models) {
-            complete(YES,models);
-        }];
-    }];
-    
-}
-
-/*
-* 模糊/条件查询病人数据
-*  @param userInfo       条件查询
-*  @param fuzzyUserInfo  模糊查询
-*  备注:多条件查询 @{@"sex":@"1",@"province":@"广东省"}
-*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
-*/
-- (void)queryFrisTableWithTag:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete{
-   
-    CreatTable *model = [self setupFrisDBqueueWithTag:friID];
-    FMDatabaseQueue *queue = model.queue;
-    
-    NSString *tableName = tableNameFris(friID);
-    
-    [queue inDatabase:^(FMDatabase *db) {
-        [db yh_excuteDatasWithTable:tableName model:[EPUserInfoModel new] userInfo:userInfo fuzzyUserInfo:fuzzyUserInfo otherSQL:otherSQLDict option:^(NSMutableArray *models) {
-            complete(YES,models);
-        }];
-    }];
-    
-}
-
-/*
-* 查询多个病人表
-* @param friIDs  表ID数组
-*/
-- (void)queryFrisWithfriIDs:(NSArray<NSString *> *)friIDs complete:(void (^)(NSArray *successUserInfos,NSArray *failUids))complete{
+ * 查询多个表数据
+ * @param uids  表ID数组
+ */
+- (void)queryUserTableWithUIDs:(NSArray<NSString *> *)uids complete:(void (^)(NSArray *successUserInfos,NSArray *failUids))complete{
   
-    __block NSMutableArray *successArr = [NSMutableArray new];
     __block NSMutableArray *failArr    = [NSMutableArray new];
-    for (NSString *friID in friIDs) {
-        [self queryOneFriWithID:friID complete:^(BOOL success, id obj) {
-            if (success) {
-                if (obj) {
-                    [successArr addObject:obj];
-                }
-                
-            }else{
-                
-                [failArr addObject:friID];
-            }
+    __block NSMutableArray *successArr = [NSMutableArray new];
+
+    for (NSString *uid in uids) {
+        [self queryOneFriWithID:uid complete:^(BOOL success, id obj) {
+            if (success) { if (obj) {  [successArr addObject:obj]; } }else{ [failArr addObject:uid];}
         }];
     }
     complete(successArr,failArr);
-    
-    
 }
+
 
 
 @end

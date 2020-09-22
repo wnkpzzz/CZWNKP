@@ -32,10 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  *  删除表中某一条数据
  */
-- (void)deleteOneProjectWithUID:(NSString *)uid pro:(EPProjectModel *)proModel complete:(void(^)(BOOL success,id obj))complete;
+- (void)deleteOneProjectWithUID:(NSString *)uid dataModel:(EPProjectModel *)dataModel complete:(void(^)(BOOL success,id obj))complete;
 
 /*
-*  模糊/条件查询表表数据
+*  模糊/条件查询表数据
 *  @param accurateInfo       条件查询
 *  @param fuzzyInfo          模糊查询
 *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索

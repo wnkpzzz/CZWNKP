@@ -92,9 +92,9 @@
 * @param updateItems      传nil就是更新Model的所有字段,否则更新数组里面的指定字段。
 * eg:updateItems = @[@"userName",@"job"]; 更新好友的姓名和职位，注意字段名要填写正确
 */
-- (void)updateOneProjectWithUID:(NSString *)uid  dataModel:(EPProjectModel *)proModel updateItems:(NSArray <NSString *>*)updateItems complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateOneProjectWithUID:(NSString *)uid  dataModel:(EPProjectModel *)dataModel updateItems:(NSArray <NSString *>*)updateItems complete:(void (^)(BOOL success,id obj))complete{
     
-    if (!proModel.projectId) {  complete(NO,@"proModel is nil"); return; }
+    if (!dataModel.projectId) {  complete( NO,@"dataModel is nil"); return; }
          
     CreatTable *model = [self setupProjectDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
@@ -104,7 +104,7 @@
      
     [queue inDatabase:^(FMDatabase *db) {
         /** 存储:会自动调用insert或者update，不需要担心重复插入数据 */
-        [db yh_saveDataWithTable:tableNameProject(uid)  model:proModel userInfo:nil otherSQL:otherSQL option:^(BOOL save) {
+        [db yh_saveDataWithTable:tableNameProject(uid)  model:dataModel userInfo:nil otherSQL:otherSQL option:^(BOOL save) {
             complete(save,nil);
         }];
         
@@ -142,20 +142,20 @@
 /*
 *  删除表中某一条数据
 */
-- (void)deleteOneProjectWithUID:(NSString *)uid pro:(EPProjectModel *)proModel complete:(void(^)(BOOL success,id obj))complete{
+- (void)deleteOneProjectWithUID:(NSString *)uid dataModel:(EPProjectModel *)dataModel complete:(void(^)(BOOL success,id obj))complete{
         
     CreatTable *model = [self setupProjectDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;
 
     [queue inDatabase:^(FMDatabase *db) {
-        [db yh_deleteDataWithTable:tableNameProject(uid) model:proModel userInfo:nil otherSQL:nil option:^(BOOL del) {
+        [db yh_deleteDataWithTable:tableNameProject(uid) model:dataModel userInfo:nil otherSQL:nil option:^(BOOL del) {
             complete(del,@(del));
         }];
     }];
 }
 
 /*
-*  模糊/条件查询表表数据
+*  模糊/条件查询表数据
 *  @param accurateInfo       条件查询
 *  @param fuzzyInfo          模糊查询
 *  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索

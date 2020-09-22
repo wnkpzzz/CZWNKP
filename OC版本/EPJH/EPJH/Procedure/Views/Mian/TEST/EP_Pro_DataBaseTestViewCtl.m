@@ -81,14 +81,14 @@
 // 更新我的好友表
 - (IBAction)updateMyFriTable:(id)sender {
     
-    [[SqliteManager sharedInstance] updateFrisListWithFriID:KUID frislist:self.myFrisDataArr complete:^(BOOL success, id  _Nonnull obj) {
-        
-        if (success) {
-            NSLog(@"更新多个好友信息成功");
-        }else{
-            NSLog(@"更新多个好友信息失败%@",obj);
-        }
-    }];
+//    [[SqliteManager sharedInstance] updateFrisListWithFriID:KUID frislist:self.myFrisDataArr complete:^(BOOL success, id  _Nonnull obj) {
+//
+//        if (success) {
+//            NSLog(@"更新多个好友信息成功");
+//        }else{
+//            NSLog(@"更新多个好友信息失败%@",obj);
+//        }
+//    }];
 }
 // 删除我的好友表
 - (IBAction)deleteMyFriTable:(id)sender {
@@ -101,14 +101,14 @@
     
     NSArray *frisIdArray = @[@"2016",@"2018",@"2020",@"2025"];
 
-    [[SqliteManager sharedInstance] queryFrisWithfriIDs:frisIdArray complete:^(NSArray * _Nonnull successUserInfos, NSArray * _Nonnull failUids) {
-        if (successUserInfos.count) {
-            NSLog(@"查询多个好友结果%@",successUserInfos);
-        }
-        if (failUids.count) {
-            NSLog(@"%@ not find in database",failUids);
-        }
-    }];
+//    [[SqliteManager sharedInstance] queryFrisWithfriIDs:frisIdArray complete:^(NSArray * _Nonnull successUserInfos, NSArray * _Nonnull failUids) {
+//        if (successUserInfos.count) {
+//            NSLog(@"查询多个好友结果%@",successUserInfos);
+//        }
+//        if (failUids.count) {
+//            NSLog(@"%@ not find in database",failUids);
+//        }
+//    }];
 }
 // 查询我的好友表
 - (IBAction)selectMyFriTable:(id)sender {
@@ -123,13 +123,13 @@
     
     NSDictionary *userInfoArr = @{@"sex":@"男",@"city":@""};//查找动态内容包含性别女的搜索内容
 
-    [[SqliteManager sharedInstance] queryFrisTableWithFriID:KUID userInfo:userInfoArr fuzzyUserInfo:nil complete:^(BOOL success, id  _Nonnull obj) {
-        if (success) {
-        NSLog(@"多条件查询好友,搜索结果为\n%@",obj);
-        }else{
-        NSLog(@"多条件查询好友表失败");
-        }
-    }];
+//    [[SqliteManager sharedInstance] queryFrisTableWithFriID:KUID userInfo:userInfoArr fuzzyUserInfo:nil complete:^(BOOL success, id  _Nonnull obj) {
+//        if (success) {
+//        NSLog(@"多条件查询好友,搜索结果为\n%@",obj);
+//        }else{
+//        NSLog(@"多条件查询好友表失败");
+//        }
+//    }];
     
 }
 //模糊查询好友
@@ -137,13 +137,13 @@
     
     NSDictionary *fuzzyUserInfo = @{@"sex":@"男",@"city":@""};//查找动态内容包含性别女的搜索内容
 
-    [[SqliteManager sharedInstance] queryFrisTableWithFriID:KUID userInfo:nil fuzzyUserInfo:fuzzyUserInfo complete:^(BOOL success, id  _Nonnull obj) {
-        if (success) {
-        NSLog(@"模糊查询好友,搜索结果为\n%@",obj);
-        }else{
-        NSLog(@"模糊查询好友表失败");
-        }
-    }];
+//    [[SqliteManager sharedInstance] queryFrisTableWithFriID:KUID userInfo:nil fuzzyUserInfo:fuzzyUserInfo complete:^(BOOL success, id  _Nonnull obj) {
+//        if (success) {
+//        NSLog(@"模糊查询好友,搜索结果为\n%@",obj);
+//        }else{
+//        NSLog(@"模糊查询好友表失败");
+//        }
+//    }];
 }
 
 

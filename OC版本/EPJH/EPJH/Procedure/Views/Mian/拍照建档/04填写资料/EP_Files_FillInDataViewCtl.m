@@ -49,21 +49,21 @@
     
     return;
     
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
-    //任务A
-    NSMutableArray * usersList = [NSMutableArray arrayWithCapacity:10];
-    [usersList addObject:self.userModel];
-    [[SqliteManager sharedInstance] updateFrisListWithFriID:KUID frislist:usersList complete:^(BOOL success, id  _Nonnull obj) {
-        
-        if (success) {
-            
-        }
-        
-        dispatch_semaphore_signal(semaphore);
-
-    }];
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+//    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    
+//    //任务A
+//    NSMutableArray * usersList = [NSMutableArray arrayWithCapacity:10];
+//    [usersList addObject:self.userModel];
+//    [[SqliteManager sharedInstance] updateFrisListWithFriID:KUID frislist:usersList complete:^(BOOL success, id  _Nonnull obj) {
+//        
+//        if (success) {
+//            
+//        }
+//        
+//        dispatch_semaphore_signal(semaphore);
+//
+//    }];
     
  
     
