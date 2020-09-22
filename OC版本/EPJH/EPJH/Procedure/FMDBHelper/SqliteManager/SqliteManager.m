@@ -8,11 +8,6 @@
 
 #import "SqliteManager.h"
 
-#define kDocumentDir            [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
-#define kUserInfoPath           [kDocumentDir stringByAppendingPathComponent:@"kUserInfoTab.sqlite"]
-#define kUserProjectPath        [kDocumentDir stringByAppendingPathComponent:@"kUserProjectTab.sqlite"]
-#define kUserProImagePath       [kDocumentDir stringByAppendingPathComponent:@"kUserProImageTab.sqlite"]
-#define kUserContrastPath       [kDocumentDir stringByAppendingPathComponent:@"kUserContrastTab.sqlite"]
 
 @implementation CreatTable @end
 
@@ -46,6 +41,13 @@
         _kProjectInfoArray = [NSMutableArray new];
     }
     return _kProjectInfoArray;
+}
+
+- (NSMutableArray<CreatTable *> *)kImageProInfoArray{
+    if (!_kImageProInfoArray) {
+        _kImageProInfoArray = [NSMutableArray new];
+    }
+    return _kImageProInfoArray;
 }
 
 - (NSMutableArray<CreatTable *> *)kContrastInfoArray{

@@ -22,20 +22,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*
- *  插入/更新图片表多条信息
+ * 向表中更新/插入多条数据
  */
-- (void)updateImagesListWithFriID:(NSString *)friID frislist:(NSArray <EPImageModel *>*)imgslist complete:(void (^)(BOOL success,id obj))complete;
+- (void)updateImagesListWithUID:(NSString *)uid frislist:(NSArray <EPImageModel *>*)imgslist complete:(void (^)(BOOL success,id obj))complete;
 
 
 /*
  *  删除某个图片
  */
-- (void)deleteOneImageWithfriID:(NSString *)friID img:(EPImageModel *)img userInfo:(NSDictionary *)userInfo complete:(void(^)(BOOL success,id obj))complete;
+- (void)deleteOneImageWithUID:(NSString *)uid dataModel:(EPImageModel *)dataModel complete:(void(^)(BOOL success,id obj))complete;
+
 
 /*
- * 查询图片表
- */
-- (void)queryImageTableWithFriID:(NSString *)friID userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo complete:(void (^)(BOOL success,id obj))complete;
+*  模糊/条件查询表数据
+*  @param accurateInfo       条件查询
+*  @param fuzzyInfo          模糊查询
+*  备注:userInfo = nil && fuzzyUserInfo = nil 为全文搜索
+*  备注:多条件/模糊查询 @{@"sex":@"1",@"province":@"广东省",@"city":@""}
+*  备注:查询条件可以为空
+*/
+- (void)queryImageTableWithUID:(NSString *)uid accurateInfo:(NSDictionary *)accurateInfo fuzzyInfo:(NSDictionary *)fuzzyInfo otherSQLDict:(NSDictionary *)otherSQLDict complete:(void (^)(BOOL success,id obj))complete;
 
 
 @end

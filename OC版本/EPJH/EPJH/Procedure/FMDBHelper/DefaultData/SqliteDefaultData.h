@@ -1,15 +1,14 @@
 //
-//  FilesDataCommon.h
+//  SqliteDefaultData.h
 //  EPJH
 //
-//  Created by Hans on 2020/9/18.
+//  Created by Hans on 2020/9/22.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#ifndef FilesDataCommon_h
-#define FilesDataCommon_h
-
-
+#ifndef SqliteDefaultData_h
+#define SqliteDefaultData_h
+ 
 #define kTimeArray   @[@"术前",@"术后",@"复诊"]
 
 // 时间节点ID
@@ -141,4 +140,4 @@
 #define kSLZKIDArray         @[@"0",@"0",@"0",@"0",@"0",@"0",@"0"]
 
 
-#endif /* FilesDataCommon_h */
+#endif /* SqliteDefaultData_h */

@@ -9,23 +9,21 @@
 #ifndef SqilteConfig_h
 #define SqilteConfig_h
 
-#import "FMDatabase+YHDatabase.h"
 #import "NSObject+YHDBRuntime.h"
+#import "FMDatabase+YHDatabase.h"
 
 #import "AppUtils.h"
-
-#import "SqliteData.h"
-#import "SqliteManager.h"
-#import "SqliteManager+friend.h"
-#import "SqliteManager+project.h"
-#import "SqliteManager+Image.h"
-
-#import "FilesDataCommon.h"
-
 #import "EPImageModel.h"
 #import "EPProjectModel.h"
 #import "EPUserInfoModel.h"
- 
+
+#import "SqliteManager.h"
+#import "SqliteDefaultData.h"
+#import "SqliteManager+user.h"
+#import "SqliteManager+project.h"
+#import "SqliteManager+Image.h"
+
+
 /** ******************宏定义************** */
 
 #define kDatabaseVersionKey       @"ZC_DBVersion" // 记录本次数据库版本

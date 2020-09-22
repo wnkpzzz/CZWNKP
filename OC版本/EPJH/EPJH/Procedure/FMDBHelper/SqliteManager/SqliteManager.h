@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSMutableArray < CreatTable *>*kUserInfoArray;
 /** 项目表数据组 */
 @property(nonatomic,strong) NSMutableArray < CreatTable *>*kProjectInfoArray;
+/** 图片表数据组 */
+@property(nonatomic,strong) NSMutableArray < CreatTable *>*kImageProInfoArray;
 /** 对比相册表数据组 */
 @property(nonatomic,strong) NSMutableArray < CreatTable *>*kContrastInfoArray;
 

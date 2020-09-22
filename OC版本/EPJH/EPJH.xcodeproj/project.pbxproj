@@ -16,7 +16,6 @@
 		ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB124E53DAE005E3DC3 /* FMDatabase+YHDatabase.m */; };
 		ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB224E53DAE005E3DC3 /* NSObject+YHDBRuntime.m */; };
 		ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB624E53F07005E3DC3 /* SqliteManager.m */; };
-		ED0A7FBA24E53F16005E3DC3 /* SqliteData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FB924E53F16005E3DC3 /* SqliteData.m */; };
 		ED0A801F24E54BA9005E3DC3 /* proSelect_1.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A800224E54BA9005E3DC3 /* proSelect_1.png */; };
 		ED0A802024E54BA9005E3DC3 /* proSelect_0.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A800324E54BA9005E3DC3 /* proSelect_0.png */; };
 		ED0A802124E54BA9005E3DC3 /* proSelect_2.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A800424E54BA9005E3DC3 /* proSelect_2.png */; };
@@ -341,8 +340,6 @@
 		ED0A7FB224E53DAE005E3DC3 /* NSObject+YHDBRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YHDBRuntime.m"; sourceTree = "<group>"; };
 		ED0A7FB524E53F07005E3DC3 /* SqliteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
 		ED0A7FB624E53F07005E3DC3 /* SqliteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
-		ED0A7FB824E53F16005E3DC3 /* SqliteData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteData.h; sourceTree = "<group>"; };
-		ED0A7FB924E53F16005E3DC3 /* SqliteData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteData.m; sourceTree = "<group>"; };
 		ED0A800224E54BA9005E3DC3 /* proSelect_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_1.png; sourceTree = "<group>"; };
 		ED0A800324E54BA9005E3DC3 /* proSelect_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_0.png; sourceTree = "<group>"; };
 		ED0A800424E54BA9005E3DC3 /* proSelect_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_2.png; sourceTree = "<group>"; };
@@ -378,7 +375,6 @@
 		ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
 		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
-		ED32341A25144BC200A6ABD9 /* FilesDataCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilesDataCommon.h; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -468,6 +464,7 @@
 		ED444EE32519D784004920D2 /* SqliteManager+Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SqliteManager+Image.m"; sourceTree = "<group>"; };
 		ED444EE82519F37D004920D2 /* SqliteManager+user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SqliteManager+user.h"; sourceTree = "<group>"; };
 		ED444EE92519F37D004920D2 /* SqliteManager+user.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SqliteManager+user.m"; sourceTree = "<group>"; };
+		ED444EEB2519F77C004920D2 /* SqliteDefaultData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteDefaultData.h; sourceTree = "<group>"; };
 		ED44F45424CE7D1400102BAA /* EPWKWebViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPWKWebViewCtl.h; sourceTree = "<group>"; };
 		ED44F45524CE7D1400102BAA /* EPWKWebViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPWKWebViewCtl.m; sourceTree = "<group>"; };
 		ED44F45C24CE814000102BAA /* TempTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempTableViewCell.h; sourceTree = "<group>"; };
@@ -781,8 +778,6 @@
 		ED0A7FAD24E53D68005E3DC3 /* SqliteManager */ = {
 			isa = PBXGroup;
 			children = (
-				ED0A7FB824E53F16005E3DC3 /* SqliteData.h */,
-				ED0A7FB924E53F16005E3DC3 /* SqliteData.m */,
 				ED0A7FB524E53F07005E3DC3 /* SqliteManager.h */,
 				ED0A7FB624E53F07005E3DC3 /* SqliteManager.m */,
 				ED444EE82519F37D004920D2 /* SqliteManager+user.h */,
@@ -795,7 +790,7 @@
 			path = SqliteManager;
 			sourceTree = "<group>";
 		};
-		ED0A7FAE24E53D7C005E3DC3 /* DataModel */ = {
+		ED0A7FAE24E53D7C005E3DC3 /* SqliteModel */ = {
 			isa = PBXGroup;
 			children = (
 				ED86406124D7E89200FD7F7D /* EPUserInfoModel.h */,
@@ -805,7 +800,7 @@
 				ED86406424D7E8FF00FD7F7D /* EPImageModel.h */,
 				ED86406524D7E8FF00FD7F7D /* EPImageModel.m */,
 			);
-			path = DataModel;
+			path = SqliteModel;
 			sourceTree = "<group>";
 		};
 		ED0A7FBB24E54B0C005E3DC3 /* DefaultData */ = {
@@ -813,7 +808,7 @@
 			children = (
 				ED0A801024E54BA9005E3DC3 /* ProChoose.json */,
 				ED0A800F24E54BA9005E3DC3 /* ProvinceCity.json */,
-				ED32341A25144BC200A6ABD9 /* FilesDataCommon.h */,
+				ED444EEB2519F77C004920D2 /* SqliteDefaultData.h */,
 				ED4B50BF24F502D600C0DCF9 /* 拍摄角度 */,
 				ED4B4FBA24F4F0EA00C0DCF9 /* 拍摄角度选择 */,
 				ED0A800124E54BA9005E3DC3 /* 项目选择_YES */,
@@ -969,7 +964,7 @@
 				ED0A7FAD24E53D68005E3DC3 /* SqliteManager */,
 				ED0A7FAC24E53D67005E3DC3 /* YHFMDB */,
 				ED0A7FBB24E54B0C005E3DC3 /* DefaultData */,
-				ED0A7FAE24E53D7C005E3DC3 /* DataModel */,
+				ED0A7FAE24E53D7C005E3DC3 /* SqliteModel */,
 			);
 			path = FMDBHelper;
 			sourceTree = "<group>";
@@ -2165,7 +2160,6 @@
 				ED3E678F24C061140055B4E7 /* EPHomeCollectionView.m in Sources */,
 				ED4C624E24F661D000333507 /* EPTypeMaterialListTableViewCell.m in Sources */,
 				EDBC28542513821800252E17 /* EP_Files_ProSelectViewCtl.m in Sources */,
-				ED0A7FBA24E53F16005E3DC3 /* SqliteData.m in Sources */,
 				ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */,
 				ED44F45F24CE814000102BAA /* TempTableViewCell.m in Sources */,
 				ED74A70824C0049E00D9FA77 /* RootView.m in Sources */,
