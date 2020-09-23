@@ -136,34 +136,57 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="207" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-9w-y9P">
-                            <rect key="frame" x="15" y="723" width="128" height="70"/>
+                            <rect key="frame" x="25" y="590" width="128" height="70"/>
                             <color key="backgroundColor" red="0.40448784430000001" green="0.59744835460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="70" id="LAq-s3-8Eh"/>
-                                <constraint firstAttribute="width" constant="128" id="kUB-Yj-hu2"/>
+                                <constraint firstAttribute="width" constant="128" id="6Qr-b9-x1m"/>
+                                <constraint firstAttribute="height" constant="70" id="6wl-9a-NVQ"/>
                             </constraints>
-                            <state key="normal" title="模拟单用户下载">
+                            <state key="normal" title="批量插入用户信息">
                                 <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="moniUserUploadAction:" destination="-1" eventType="touchUpInside" id="dVr-fI-CQ9"/>
+                                <action selector="moniInserUserListAction:" destination="-1" eventType="touchUpInside" id="6xz-Oo-c1e"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="207" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIt-kS-8DU">
+                            <rect key="frame" x="25" y="668" width="123" height="30"/>
+                            <color key="backgroundColor" red="0.40448784430000001" green="0.59744835460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="查询所有用户信息">
+                                <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="moniQueryUserListAction:" destination="-1" eventType="touchUpInside" id="fpB-iE-bOs"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="207" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJa-Sq-2qx">
+                            <rect key="frame" x="15" y="706" width="169" height="30"/>
+                            <color key="backgroundColor" red="0.40448784430000001" green="0.59744835460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="查询用户下面所有的项目">
+                                <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="moniQueryUserProInfoAction:" destination="-1" eventType="touchUpInside" id="yiz-sq-tbB"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="MIt-kS-8DU" firstAttribute="top" secondItem="Fvr-9w-y9P" secondAttribute="bottom" constant="8" id="0WG-5t-Lzq"/>
                         <constraint firstItem="SwP-xA-uMB" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="0fn-Xy-IQu"/>
-                        <constraint firstAttribute="bottom" secondItem="Fvr-9w-y9P" secondAttribute="bottom" constant="25" id="0hM-6e-e4D"/>
-                        <constraint firstItem="Fvr-9w-y9P" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="15" id="AbI-7b-3X3"/>
                         <constraint firstItem="q8W-zd-krC" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="D9P-rI-O96"/>
+                        <constraint firstItem="Fvr-9w-y9P" firstAttribute="leading" secondItem="MIt-kS-8DU" secondAttribute="leading" id="Ily-1S-nIu"/>
                         <constraint firstItem="Fkq-Sp-fIt" firstAttribute="centerX" secondItem="f8n-xt-0dl" secondAttribute="centerX" id="Olc-eY-3IX"/>
                         <constraint firstItem="Jgw-fQ-xpX" firstAttribute="top" secondItem="QSl-nf-pUq" secondAttribute="bottom" constant="10" id="Rc9-zc-bwd"/>
                         <constraint firstItem="t5t-b7-bKc" firstAttribute="top" secondItem="q8W-zd-krC" secondAttribute="bottom" constant="10" id="SeH-l7-Tph"/>
+                        <constraint firstItem="tJa-Sq-2qx" firstAttribute="top" secondItem="MIt-kS-8DU" secondAttribute="bottom" constant="8" id="U2Y-Ld-CAR"/>
                         <constraint firstItem="SwP-xA-uMB" firstAttribute="top" secondItem="Jgw-fQ-xpX" secondAttribute="bottom" constant="10" id="XdG-EX-owb"/>
+                        <constraint firstItem="Fvr-9w-y9P" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="25" id="aPz-4V-3SW"/>
                         <constraint firstItem="QSl-nf-pUq" firstAttribute="top" secondItem="t5t-b7-bKc" secondAttribute="bottom" constant="10" id="bLR-iv-nEh"/>
                         <constraint firstItem="Fkq-Sp-fIt" firstAttribute="top" secondItem="f8n-xt-0dl" secondAttribute="top" constant="30" id="doT-g4-EKa"/>
                         <constraint firstItem="k6C-wX-9ay" firstAttribute="centerX" secondItem="f8n-xt-0dl" secondAttribute="centerX" id="e5C-BE-85d"/>
                         <constraint firstItem="Jgw-fQ-xpX" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="gC3-Qx-p7Z"/>
+                        <constraint firstItem="tJa-Sq-2qx" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="15" id="he3-BZ-NRw"/>
                         <constraint firstItem="k70-RE-dtJ" firstAttribute="centerX" secondItem="QE5-K2-VPI" secondAttribute="centerX" id="kSr-42-HCG"/>
                         <constraint firstItem="k70-RE-dtJ" firstAttribute="top" secondItem="QE5-K2-VPI" secondAttribute="bottom" constant="10" id="kyy-qn-B1D"/>
                         <constraint firstItem="t5t-b7-bKc" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="nLm-cA-Kcp"/>
@@ -171,6 +194,7 @@
                         <constraint firstItem="k6C-wX-9ay" firstAttribute="top" secondItem="Fkq-Sp-fIt" secondAttribute="bottom" constant="30" id="nvC-kr-ndK"/>
                         <constraint firstItem="QSl-nf-pUq" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="ska-GV-vQc"/>
                         <constraint firstItem="QE5-K2-VPI" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="thM-nt-qsd"/>
+                        <constraint firstAttribute="bottom" secondItem="tJa-Sq-2qx" secondAttribute="bottom" constant="82" id="wKo-Uk-s05"/>
                         <constraint firstItem="QE5-K2-VPI" firstAttribute="top" secondItem="k6C-wX-9ay" secondAttribute="bottom" constant="10" id="z2R-oG-Rcb"/>
                     </constraints>
                 </view>
@@ -183,7 +207,7 @@
                 <constraint firstItem="f8n-xt-0dl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xo8-RL-bqO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-420" y="8"/>
+            <point key="canvasLocation" x="-481" y="-31"/>
         </view>
     </objects>
 </document>

@@ -117,10 +117,12 @@ typedef void(^RuntimeObjectIvarsOption)(YHDBRuntimeIvar *ivar);
 /** 创表*/
 //创表一:自定义表名
 + (NSString *)yh_sqlForCreatTable:(NSString *)table primaryKey:(NSString *)primaryKey;
+
 //创表二:表名默认为类名
 + (NSString *)yh_sqlForCreateTableWithPrimaryKey:(NSString *)primaryKey ;
 
 /**创表：除模型的属性之外， 有多余的字段 */
+
 //创表三:
 + (NSString *)yh_sqlForCreateTable:(NSString *)table primaryKey:(NSString *)primaryKey  extraKeyValues:(NSArray <YHDBRuntimeIvar *> *)extraKeyValues;
 
@@ -128,7 +130,5 @@ typedef void(^RuntimeObjectIvarsOption)(YHDBRuntimeIvar *ivar);
 
 //条件查询语句
 + (NSString *)yh_sqlForExcuteWithTable:(NSString *)table primaryKey:(NSString *)primaryKey userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQL:(NSDictionary *)otherSQL value:(id )value;
-
-
 
 @end

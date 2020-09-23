@@ -22,6 +22,7 @@ typedef void(^YHDeleteOption)(BOOL del);
 typedef void(^YHSaveOption)(BOOL save);
 typedef void(^YHExcuteOption)(id output_model);
 typedef void(^YHAllModelsOption)(NSMutableArray *models);
+
 @interface FMDatabase (YHDatabase)
 
 /** 保存一个模型 */
@@ -43,9 +44,9 @@ typedef void(^YHAllModelsOption)(NSMutableArray *models);
 - (id )yh_excuteDataWithTable:(NSString *)table model:(id )model  primaryKey:(NSString *)primaryKey userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQL:(NSDictionary *)otherSQL option:(YHExcuteOption )option;
 /** 查询某种所有的模型数据 */
 - (void)yh_excuteDatasWithTable:(NSString *)table model:(id )model  primaryKey:(NSString *)primaryKey userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQL:(NSDictionary *)otherSQL option:(YHAllModelsOption )option;
-
 /** 查询表数据条数 */
 - (void)numberOfDatasWithTable:(NSString *)table complete:(void(^)(NSInteger count))complete;
+
 #pragma mark -- Method
 /** 根据文件名获取文件全路径 */
 - (NSString *)fullPathWithFileName:(NSString *)fileName;

@@ -105,7 +105,7 @@
 }
 
 
-- (IBAction)moniUserUploadAction:(id)sender {
+- (IBAction)moniInserUserListAction:(id)sender {
     
 
     // 使用信号量保证串行队列+异步操作
@@ -162,9 +162,33 @@
     
 }
 
+- (IBAction)moniQueryUserListAction:(id)sender {
+    
+    [[SqliteManager sharedInstance] queryUserTableWithUID:KUID accurateInfo:nil fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
+       
+        if (success) {
+         
+            NSArray * dataArr = obj;
+            NSArray * sortDataArr = [[dataArr reverseObjectEnumerator] allObjects];
+            NSLog(@"%@====KK",sortDataArr );
+        }
+        
+    }];
+}
 
-
-
+- (IBAction)moniQueryUserProInfoAction:(id)sender {
+    
+    NSDictionary *accurateInfo = @{@"customerId":@"20191600846810000"};
+    
+    [[SqliteManager sharedInstance] queryProjectTableWithUID:KUID accurateInfo:accurateInfo fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
+      
+        if (success) {
+             NSLog(@"%@====KK",obj );
+        }
+        
+    }];
+ 
+}
 
 
 

@@ -486,6 +486,7 @@
     
     
 }
+
 #pragma mark -- excuteDataWithModel
 - (id )yh_excuteDataWithTable:(NSString *)table model:(id )fmodel  primaryKey:(NSString *)primaryKey userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQL:(NSDictionary *)otherSQL option:(YHExcuteOption )option{
     NSString *modelPrimaryKey = nil;
@@ -759,6 +760,7 @@
 }
 
 #pragma mark - PrivateMethod
+
 /** 根据文件名获取文件全路径 */
 - (NSString *)fullPathWithFileName:(NSString *)fileName{
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"YHDatabase%@",fileName]];
