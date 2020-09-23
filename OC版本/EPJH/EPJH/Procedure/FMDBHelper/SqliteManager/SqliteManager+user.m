@@ -124,20 +124,13 @@
     for (int i= 0; i< frislist.count; i++) {
         
         EPUserInfoModel *model = frislist[i];
-        
         [queue inDatabase:^(FMDatabase *db) {
             /** 存储:会自动调用insert或者update，不需要担心重复插入数据 */
             [db yh_saveDataWithTable:tableName model:model userInfo:nil otherSQL:nil option:^(BOOL save) {
                 if (i == frislist.count-1) {
                     complete(save,nil);
-                }else{
-                    if (!save) {
-                        complete(save,@"插入/更新用户数据失败");
-                    }
-                }
-                
+                }else{ if (!save) {complete(save,@"插入/更新用户数据失败");}}
             }];
-            
         }];
     }
 }

@@ -13,26 +13,39 @@
 
 #pragma mark ---------图片存储---------
 
-/*!
- * @getImageFromSandboxWithName
- *
- * @isBigPic 是否是大图片,采用不同加载方式
- *
- * @isOriginal 是否压缩,这里返回原图/缩略图,默认NO。
- *
+/** 图片保存到沙盒指定目录 */
+- (BOOL)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName {
+    
+    
+    //如果不存在,则说明是第一次运行这个程序，那么建立这个文件夹
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    if(![fileM fileExistsAtPath:ZCImageDir]){
+        
+        if (![fileM fileExistsAtPath:ZCUserDir]) {
+            [fileM createDirectoryAtPath:ZCUserDir withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+        if (![fileM fileExistsAtPath:ZCImageDir]) {
+            [fileM createDirectoryAtPath:ZCImageDir withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    }
+    
+    NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];  // 保存文件的名称
+    BOOL result = [UIImagePNGRepresentation(image)writeToFile:filePath atomically:YES]; // 执行保存命令
+    if (result == YES) {  NSLog(@"图片保存到沙盒指定目录,保存成功");  }else{  NSLog(@"图片保存到沙盒指定目录,保存失败");}
+    return result;
+}
+
+/*
+ * 根据名称从沙盒路径中取出原图/缩略图,是否大图
+ * @isBigPic    是否是大图片,采用不同加载方式
+ * @isOriginal  是否压缩,这里返回原图/缩略图,默认NO。
 */
 - (UIImage *)getImageFromSandboxWith:(NSString *)imageName isCacheImg:(BOOL)isCache isOriginal:(BOOL)isCompress{
 
 
-    //    imageNamed:加载时会缓存图片
-    //    imageWithContentsOfFile:仅加载图片，图像数据不会缓存。因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
-    //    NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];
-    //    UIImage *sandboxImage = [UIImage imageNamed:filePath];
-    //    CGFloat scale = 1; if (isCompress) { scale = 1;}else{ scale = 0.01; }
-    //    NSData *data = UIImageJPEGRepresentation(sandboxImage, scale);
-    //    UIImage *resultImg  = [UIImage imageWithData:data];
-    //    if (resultImg) {  return resultImg; }else{  return [UIImage imageNamed:@"ic_common_avatar_default"]; }
- 
+    //  imageNamed:加载时会缓存图片
+    //  imageWithContentsOfFile:仅加载图片，图像数据不会缓存。因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
+
     NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];
     
     UIImage *sandboxImage = [[UIImage alloc] init];
@@ -48,6 +61,32 @@
      
 }
 
+/** 删除沙盒指定目录下的图片 */
+- (BOOL)deleteImageFromSandboxWith:(NSString *)imageName{
+    
+    NSLog(@"执行删除沙盒指定目录下的图片操作");
+
+    if (imageName && imageName.length > 0) {
+        
+        NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];  // 保存文件的名称
+        BOOL isHave = [[NSFileManager defaultManager] fileExistsAtPath:filePath]; // 判断文件是否存在
+
+        if (isHave == YES) {
+          
+          BOOL result = [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+          if (result == YES) { NSLog(@"删除成功");  }else{  NSLog(@"删除失败"); }
+          return result;
+            
+        }else{  NSLog(@"删除的文件不存在");}
+        
+        return isHave;
+
+    }else{
+         
+        NSLog(@"删除的文件名为空");
+        return NO;
+    }
+}
 
 
 #pragma mark ---------Private---------

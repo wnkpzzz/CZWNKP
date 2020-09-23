@@ -37,13 +37,14 @@
 - (void)getLocalFrisData{
   
      for (int i=0; i<4; i++) {
-        
+         
+        long idNum = 2016 + i;
+         
         EPUserInfoModel *userModel=  [[EPUserInfoModel alloc] init];
         userModel.bindUserId = KUID;
-        userModel.uid = [NSString stringWithFormat:@"%@%@",@"12",[AppUtils getNowTimeCuo]];
+        userModel.uid = [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
         userModel.createTime = [AppUtils getNowTimeCuo];
         userModel.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
-
         userModel.realName = [NSString stringWithFormat:@"userName%d",i];     //姓名
         userModel.sex = (arc4random()%2==1)?@"男":@"女";            // 1-男， 0-女
         userModel.headImg = @"";
@@ -51,20 +52,21 @@
         userModel.city  = (arc4random()%2==1)?@"随机工作城市":@"广州";     //工作城市
         userModel.addr  = (arc4random()%2==1)?@"随机工作地点":@"广州移动"; //工作地点
 
-//          for (int i = 0; i < 3; i++) {
-//             EPProjectModel *proInfo = [self getProjectInfoWithFriID:userModel.uid];
-//             [self.myProsDataArr addObject:proInfo];
-//         }
+        for (int i = 0; i < 2; i++) {
+            long idNum = 3016 + i;
+            NSString * proID =  [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
+            EPProjectModel *proInfo = [self getProjectInfoWithFriID:userModel.uid ProID:proID];
+            [self.myProsDataArr addObject:proInfo];
+        }
           
         [self.myFrisDataArr addObject:userModel];
      }
    
 }
 
-- (EPProjectModel *)getProjectInfoWithFriID:(NSString *)friID{
+- (EPProjectModel *)getProjectInfoWithFriID:(NSString *)friID ProID:(NSString *)proID{
 
     EPProjectModel *proInfo=  [[EPProjectModel alloc] init];
-    
     proInfo.bindUserId = KUID;
     proInfo.customerId = friID;
     proInfo.projectId  = [NSString stringWithFormat:@"%@%@",@"13",[AppUtils getNowTimeCuo]];
@@ -76,24 +78,24 @@
     proInfo.remark = (arc4random()%2==1)?@"激光祛皱皮":@"玻尿酸";
 
  
-    for (int i = 0; i < 6; i++) {
-        EPImageModel *imgInfo = [self getImageProInfoWithFriID:proInfo.customerId ProID:proInfo.projectId];
+    for (int i = 0; i < 4; i++) {
+        long idNum = 4016 + i;
+        NSString * imgID =  [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
+        EPImageModel *imgInfo = [self getImageProInfoWithFriID:proInfo.customerId ProID:proInfo.projectId ImgID:imgID];
         [self.myImgsProDataArr addObject:imgInfo];
     }
- 
- 
+  
     return proInfo;
 
 }
 
-- (EPImageModel *)getImageProInfoWithFriID:(NSString *)friID  ProID:(NSString *)proID{
+- (EPImageModel *)getImageProInfoWithFriID:(NSString *)friID  ProID:(NSString *)proID ImgID:(NSString *)imgID{
 
     EPImageModel *imgInfo = [[EPImageModel alloc] init];
-
     imgInfo.bindUserId = KUID;
     imgInfo.customerId = friID;
     imgInfo.projectId  = proID;
-    imgInfo.imageId  = [NSString stringWithFormat:@"%@%@",@"14",[AppUtils getNowTimeCuo]];
+    imgInfo.imageId    = imgID;
     imgInfo.createTime = [AppUtils getNowTimeCuo];
     imgInfo.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
 
@@ -106,45 +108,45 @@
 - (IBAction)moniUserUploadAction:(id)sender {
     
 
-//    // 使用信号量保证串行队列+异步操作
-//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-//    __block BOOL isEnd = NO;
-//
-//    NSLog(@"1111111");
-//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//    [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:self.myImgsProDataArr complete:^(BOOL success, id  _Nonnull obj) {
-//
-//
-//        if (success) {
-//            NSLog(@"1111111-OK");
-//
-//
-//        }else{
-//            NSLog(@"1111111-NO");
-//            isEnd = YES;
-//            return;
-//        }
-//        dispatch_semaphore_signal(semaphore);
-//
-//
-//    }];
+    // 使用信号量保证串行队列+异步操作
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    __block BOOL isEnd = NO;
+
+    NSLog(@"1111111");
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:self.myImgsProDataArr complete:^(BOOL success, id  _Nonnull obj) {
+
+
+        if (success) {
+            NSLog(@"1111111-OK");
+
+
+        }else{
+            NSLog(@"1111111-NO");
+            isEnd = YES;
+            return;
+        }
+        dispatch_semaphore_signal(semaphore);
+
+
+    }];
     
 //    if (isEnd) {
 //        return;
 //    }
     
-//    NSLog(@"22222222");
-//
-//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//    [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:self.myProsDataArr complete:^(BOOL success, id  _Nonnull obj) {
-//
-//        dispatch_semaphore_signal(semaphore);
-//        NSLog(@"22222222-OK");
-//
-//    }];
-//    NSLog(@"33333333");
+    NSLog(@"22222222");
 
-//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:self.myProsDataArr complete:^(BOOL success, id  _Nonnull obj) {
+
+        dispatch_semaphore_signal(semaphore);
+        NSLog(@"22222222-OK");
+
+    }];
+    NSLog(@"33333333");
+
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     
     [[SqliteManager sharedInstance] updateUsersListWithUID:KUID datalist:self.myFrisDataArr complete:^(BOOL success, id  _Nonnull obj) {
         if (success) {
@@ -153,7 +155,7 @@
         }else{
             NSLog(@"33333333-NO");
         }
-//        dispatch_semaphore_signal(semaphore);
+        dispatch_semaphore_signal(semaphore);
     }];
 
     
