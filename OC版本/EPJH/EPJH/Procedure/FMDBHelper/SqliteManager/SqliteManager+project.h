@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  * 向表中更新/插入多条数据
  */
-- (void)updateProjectsListWithUID:(NSString *)uid frislist:(NSArray <EPProjectModel *>*)proslist complete:(void (^)(BOOL success,id obj))complete;
+- (void)updateProjectsListWithUID:(NSString *)uid datalist:(NSArray <EPProjectModel *>*)proslist complete:(void (^)(BOOL success,id obj))complete;
 
 /*
  *  删除表中某一条数据

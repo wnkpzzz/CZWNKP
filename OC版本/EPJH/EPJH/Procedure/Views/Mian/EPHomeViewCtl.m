@@ -26,6 +26,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self loadBaseConfig];
+     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,6 +48,12 @@
     
     [self.headBgView addSubview:self.headerContentView];
     [self.centerBgView addSubview:self.centerContentView];
+    
+    #ifdef DEBUG
+        // 查看沙盒目录文件
+        [[PAirSandbox sharedInstance] enableSwipe];
+        [[SBWatcherManager shareManager] registWatcher];
+    #endif
 }
 
 #pragma mark - 事件处理

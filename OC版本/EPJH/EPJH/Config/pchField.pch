@@ -31,22 +31,10 @@
 #import "ZipArchive.h" 
 #import "MBProgressHUD+CZ.h"
 
-// 基类
-#import "RootView.h"
-#import "RootViewModel.h"
-#import "RootTableViewCell.h"
-#import "RootViewController.h"
-#import "RootCollectionViewCell.h"
-#import "RootNavigationController.h"
-
- 
 // 分类扩展
 #import "UIColor+Util.h"
 #import "UIImage+Util.h"
 #import "UIView+Extension.h"
-
-
-
 
 #endif
 
@@ -57,12 +45,23 @@
 #import "AppCommon.h"
 #import "SqilteConfig.h"
 
+// 基类
+#import "RootView.h"
+#import "RootViewModel.h"
+#import "RootTableViewCell.h"
+#import "RootViewController.h"
+#import "RootCollectionViewCell.h"
+#import "RootNavigationController.h"
+
 // 封装全局工具类
 #import "AppJump.h"
 #import "AppUtils.h"
 #import "AppPhotoUtils.h"
 #import "AppNetRequest.h"
 
+// 查看 沙盒文件
+#import "PAirSandbox.h"
+#import "SBWatcherHeader.h"
 
 #endif /* pchField_pch */
 

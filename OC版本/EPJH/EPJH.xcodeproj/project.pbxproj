@@ -300,6 +300,23 @@
 		EDBC28642513878A00252E17 /* EP_Files_QueryMainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */; };
 		EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */; };
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
+		EDFBDDD6251AFFE50077B4DE /* PAirSandbox.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDB1251AFFE40077B4DE /* PAirSandbox.m */; };
+		EDFBDDD7251AFFE50077B4DE /* SBMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDB7251AFFE50077B4DE /* SBMenuController.m */; };
+		EDFBDDD8251AFFE50077B4DE /* SBStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDB8251AFFE50077B4DE /* SBStartView.m */; };
+		EDFBDDD9251AFFE50077B4DE /* SBDataDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDBA251AFFE50077B4DE /* SBDataDisplayView.m */; };
+		EDFBDDDA251AFFE50077B4DE /* SBScanDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDBE251AFFE50077B4DE /* SBScanDataCell.m */; };
+		EDFBDDDB251AFFE50077B4DE /* SBScanDataHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC0251AFFE50077B4DE /* SBScanDataHeaderView.m */; };
+		EDFBDDDC251AFFE50077B4DE /* SBScanDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC1251AFFE50077B4DE /* SBScanDataController.m */; };
+		EDFBDDDD251AFFE50077B4DE /* SBScanDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC4251AFFE50077B4DE /* SBScanDBController.m */; };
+		EDFBDDDE251AFFE50077B4DE /* SBFileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC5251AFFE50077B4DE /* SBFileItem.m */; };
+		EDFBDDDF251AFFE50077B4DE /* resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EDFBDDC6251AFFE50077B4DE /* resource.bundle */; };
+		EDFBDDE0251AFFE50077B4DE /* SBScanTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC8251AFFE50077B4DE /* SBScanTableController.m */; };
+		EDFBDDE1251AFFE50077B4DE /* SBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDC9251AFFE50077B4DE /* SBNavigationController.m */; };
+		EDFBDDE2251AFFE50077B4DE /* SBTableInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDCF251AFFE50077B4DE /* SBTableInfoItem.m */; };
+		EDFBDDE3251AFFE50077B4DE /* SBTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD0251AFFE50077B4DE /* SBTableItem.m */; };
+		EDFBDDE4251AFFE50077B4DE /* SBWatcherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD1251AFFE50077B4DE /* SBWatcherManager.m */; };
+		EDFBDDE5251AFFE50077B4DE /* SBSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD2251AFFE50077B4DE /* SBSqliteManager.m */; };
+		EDFBDDE6251AFFE50077B4DE /* SBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD4251AFFE50077B4DE /* SBClient.m */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -701,6 +718,40 @@
 		EDBC286B2513887300252E17 /* EP_User_MainViewCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EP_User_MainViewCtl.h; sourceTree = "<group>"; };
 		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
 		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
+		EDFBDDB1251AFFE40077B4DE /* PAirSandbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAirSandbox.m; sourceTree = "<group>"; };
+		EDFBDDB2251AFFE40077B4DE /* PAirSandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAirSandbox.h; sourceTree = "<group>"; };
+		EDFBDDB5251AFFE50077B4DE /* SBScanDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScanDataController.h; sourceTree = "<group>"; };
+		EDFBDDB6251AFFE50077B4DE /* SBScanDataHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScanDataHeaderView.h; sourceTree = "<group>"; };
+		EDFBDDB7251AFFE50077B4DE /* SBMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMenuController.m; sourceTree = "<group>"; };
+		EDFBDDB8251AFFE50077B4DE /* SBStartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStartView.m; sourceTree = "<group>"; };
+		EDFBDDB9251AFFE50077B4DE /* SBFileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFileItem.h; sourceTree = "<group>"; };
+		EDFBDDBA251AFFE50077B4DE /* SBDataDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDataDisplayView.m; sourceTree = "<group>"; };
+		EDFBDDBB251AFFE50077B4DE /* SBScanDBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScanDBController.h; sourceTree = "<group>"; };
+		EDFBDDBC251AFFE50077B4DE /* SBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBNavigationController.h; sourceTree = "<group>"; };
+		EDFBDDBD251AFFE50077B4DE /* SBScanTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScanTableController.h; sourceTree = "<group>"; };
+		EDFBDDBE251AFFE50077B4DE /* SBScanDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScanDataCell.m; sourceTree = "<group>"; };
+		EDFBDDBF251AFFE50077B4DE /* SBMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMenuController.h; sourceTree = "<group>"; };
+		EDFBDDC0251AFFE50077B4DE /* SBScanDataHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScanDataHeaderView.m; sourceTree = "<group>"; };
+		EDFBDDC1251AFFE50077B4DE /* SBScanDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScanDataController.m; sourceTree = "<group>"; };
+		EDFBDDC2251AFFE50077B4DE /* SBStartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStartView.h; sourceTree = "<group>"; };
+		EDFBDDC3251AFFE50077B4DE /* SBDataDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDataDisplayView.h; sourceTree = "<group>"; };
+		EDFBDDC4251AFFE50077B4DE /* SBScanDBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScanDBController.m; sourceTree = "<group>"; };
+		EDFBDDC5251AFFE50077B4DE /* SBFileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFileItem.m; sourceTree = "<group>"; };
+		EDFBDDC6251AFFE50077B4DE /* resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resource.bundle; sourceTree = "<group>"; };
+		EDFBDDC7251AFFE50077B4DE /* SBScanDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBScanDataCell.h; sourceTree = "<group>"; };
+		EDFBDDC8251AFFE50077B4DE /* SBScanTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBScanTableController.m; sourceTree = "<group>"; };
+		EDFBDDC9251AFFE50077B4DE /* SBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBNavigationController.m; sourceTree = "<group>"; };
+		EDFBDDCB251AFFE50077B4DE /* SBWatcherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWatcherManager.h; sourceTree = "<group>"; };
+		EDFBDDCC251AFFE50077B4DE /* SBTableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableItem.h; sourceTree = "<group>"; };
+		EDFBDDCD251AFFE50077B4DE /* SBSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSqliteManager.h; sourceTree = "<group>"; };
+		EDFBDDCE251AFFE50077B4DE /* SBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBClient.h; sourceTree = "<group>"; };
+		EDFBDDCF251AFFE50077B4DE /* SBTableInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableInfoItem.m; sourceTree = "<group>"; };
+		EDFBDDD0251AFFE50077B4DE /* SBTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableItem.m; sourceTree = "<group>"; };
+		EDFBDDD1251AFFE50077B4DE /* SBWatcherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWatcherManager.m; sourceTree = "<group>"; };
+		EDFBDDD2251AFFE50077B4DE /* SBSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSqliteManager.m; sourceTree = "<group>"; };
+		EDFBDDD3251AFFE50077B4DE /* SBTableInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableInfoItem.h; sourceTree = "<group>"; };
+		EDFBDDD4251AFFE50077B4DE /* SBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBClient.m; sourceTree = "<group>"; };
+		EDFBDDD5251AFFE50077B4DE /* SBWatcherHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWatcherHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -972,6 +1023,8 @@
 		ED3B553E24BED914008CBB51 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EDFBDDB0251AFFE40077B4DE /* AirSandbox（查看沙盒文件） */,
+				EDFBDDB3251AFFE40077B4DE /* SBWatcher（查看沙盒文件） */,
 				ED3B558524BEF487008CBB51 /* MBProgressHUD */,
 			);
 			path = Library;
@@ -1707,6 +1760,70 @@
 			path = TEST;
 			sourceTree = "<group>";
 		};
+		EDFBDDB0251AFFE40077B4DE /* AirSandbox（查看沙盒文件） */ = {
+			isa = PBXGroup;
+			children = (
+				EDFBDDB1251AFFE40077B4DE /* PAirSandbox.m */,
+				EDFBDDB2251AFFE40077B4DE /* PAirSandbox.h */,
+			);
+			path = "AirSandbox（查看沙盒文件）";
+			sourceTree = "<group>";
+		};
+		EDFBDDB3251AFFE40077B4DE /* SBWatcher（查看沙盒文件） */ = {
+			isa = PBXGroup;
+			children = (
+				EDFBDDB4251AFFE40077B4DE /* UI */,
+				EDFBDDCA251AFFE50077B4DE /* Core */,
+				EDFBDDD5251AFFE50077B4DE /* SBWatcherHeader.h */,
+			);
+			path = "SBWatcher（查看沙盒文件）";
+			sourceTree = "<group>";
+		};
+		EDFBDDB4251AFFE40077B4DE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EDFBDDB5251AFFE50077B4DE /* SBScanDataController.h */,
+				EDFBDDB6251AFFE50077B4DE /* SBScanDataHeaderView.h */,
+				EDFBDDB7251AFFE50077B4DE /* SBMenuController.m */,
+				EDFBDDB8251AFFE50077B4DE /* SBStartView.m */,
+				EDFBDDB9251AFFE50077B4DE /* SBFileItem.h */,
+				EDFBDDBA251AFFE50077B4DE /* SBDataDisplayView.m */,
+				EDFBDDBB251AFFE50077B4DE /* SBScanDBController.h */,
+				EDFBDDBC251AFFE50077B4DE /* SBNavigationController.h */,
+				EDFBDDBD251AFFE50077B4DE /* SBScanTableController.h */,
+				EDFBDDBE251AFFE50077B4DE /* SBScanDataCell.m */,
+				EDFBDDBF251AFFE50077B4DE /* SBMenuController.h */,
+				EDFBDDC0251AFFE50077B4DE /* SBScanDataHeaderView.m */,
+				EDFBDDC1251AFFE50077B4DE /* SBScanDataController.m */,
+				EDFBDDC2251AFFE50077B4DE /* SBStartView.h */,
+				EDFBDDC3251AFFE50077B4DE /* SBDataDisplayView.h */,
+				EDFBDDC4251AFFE50077B4DE /* SBScanDBController.m */,
+				EDFBDDC5251AFFE50077B4DE /* SBFileItem.m */,
+				EDFBDDC6251AFFE50077B4DE /* resource.bundle */,
+				EDFBDDC7251AFFE50077B4DE /* SBScanDataCell.h */,
+				EDFBDDC8251AFFE50077B4DE /* SBScanTableController.m */,
+				EDFBDDC9251AFFE50077B4DE /* SBNavigationController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EDFBDDCA251AFFE50077B4DE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EDFBDDCB251AFFE50077B4DE /* SBWatcherManager.h */,
+				EDFBDDCC251AFFE50077B4DE /* SBTableItem.h */,
+				EDFBDDCD251AFFE50077B4DE /* SBSqliteManager.h */,
+				EDFBDDCE251AFFE50077B4DE /* SBClient.h */,
+				EDFBDDCF251AFFE50077B4DE /* SBTableInfoItem.m */,
+				EDFBDDD0251AFFE50077B4DE /* SBTableItem.m */,
+				EDFBDDD1251AFFE50077B4DE /* SBWatcherManager.m */,
+				EDFBDDD2251AFFE50077B4DE /* SBSqliteManager.m */,
+				EDFBDDD3251AFFE50077B4DE /* SBTableInfoItem.h */,
+				EDFBDDD4251AFFE50077B4DE /* SBClient.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		EFCDD8C1A46A569F45FDD2DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1836,6 +1953,7 @@
 				ED4B505324F4F0EA00C0DCF9 /* Mark_X_Camera_Face_04.jpg in Resources */,
 				ED4B509624F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Face_03.jpg in Resources */,
 				ED0A802924E54BA9005E3DC3 /* proSelect_10.png in Resources */,
+				EDFBDDDF251AFFE50077B4DE /* resource.bundle in Resources */,
 				ED0A802524E54BA9005E3DC3 /* proSelect_4.png in Resources */,
 				ED4B504624F4F0EA00C0DCF9 /* Mark_X_Camera_Section_04.jpg in Resources */,
 				ED4B506F24F4F0EA00C0DCF9 /* Mark_Camera_Face_04.jpg in Resources */,
@@ -2155,10 +2273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFBDDD8251AFFE50077B4DE /* SBStartView.m in Sources */,
 				ED74C7F924E5627900834A7F /* AppPhotoUtils.m in Sources */,
 				EDBC284F2513820B00252E17 /* EP_Files_SelectUserViewCtl.m in Sources */,
 				ED3E678F24C061140055B4E7 /* EPHomeCollectionView.m in Sources */,
+				EDFBDDD7251AFFE50077B4DE /* SBMenuController.m in Sources */,
 				ED4C624E24F661D000333507 /* EPTypeMaterialListTableViewCell.m in Sources */,
+				EDFBDDE5251AFFE50077B4DE /* SBSqliteManager.m in Sources */,
 				EDBC28542513821800252E17 /* EP_Files_ProSelectViewCtl.m in Sources */,
 				ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */,
 				ED44F45F24CE814000102BAA /* TempTableViewCell.m in Sources */,
@@ -2171,11 +2292,15 @@
 				ED74A6F424BFEDA200D9FA77 /* UIView+Extension.m in Sources */,
 				ED3B554B24BED953008CBB51 /* RootNavigationController.m in Sources */,
 				ED3B556D24BEDCD3008CBB51 /* EPHomeViewCtl.m in Sources */,
+				EDFBDDDC251AFFE50077B4DE /* SBScanDataController.m in Sources */,
 				ED3B557724BEE42B008CBB51 /* EPFindPwdViewCtl.m in Sources */,
 				ED20479224F4B1D4000A6040 /* EPCasePhotographyViewCtl.m in Sources */,
+				EDFBDDDD251AFFE50077B4DE /* SBScanDBController.m in Sources */,
 				ED66F48C24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.m in Sources */,
 				EDBC28592513822400252E17 /* EP_Files_FillInDataViewCtl.m in Sources */,
+				EDFBDDE0251AFFE50077B4DE /* SBScanTableController.m in Sources */,
 				ED3E679424C064CF0055B4E7 /* HomeCollectionViewCell.m in Sources */,
+				EDFBDDE6251AFFE50077B4DE /* SBClient.m in Sources */,
 				EDBC285E2513822F00252E17 /* EP_Files_OptionalDataViewCtl.m in Sources */,
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
 				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
@@ -2193,18 +2318,23 @@
 				EDBC28632513878A00252E17 /* EP_Files_QueryMainViewCtl.m in Sources */,
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED444EEA2519F37D004920D2 /* SqliteManager+user.m in Sources */,
+				EDFBDDD9251AFFE50077B4DE /* SBDataDisplayView.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
+				EDFBDDDA251AFFE50077B4DE /* SBScanDataCell.m in Sources */,
 				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
 				EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */,
 				ED444EE12519D774004920D2 /* SqliteManager+project.m in Sources */,
 				ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */,
 				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
 				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
+				EDFBDDDE251AFFE50077B4DE /* SBFileItem.m in Sources */,
 				ED66F49124F6019D001E8F2C /* EPSurgeryTypeCollectionViewCell.m in Sources */,
 				ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */,
+				EDFBDDE3251AFFE50077B4DE /* SBTableItem.m in Sources */,
 				ED3B554E24BED964008CBB51 /* RootTableViewCell.m in Sources */,
 				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,
 				ED3B553924BED868008CBB51 /* AppDelegate+Common.m in Sources */,
+				EDFBDDE4251AFFE50077B4DE /* SBWatcherManager.m in Sources */,
 				ED3B554524BED934008CBB51 /* AppNetRequest.m in Sources */,
 				ED66F48624F5F629001E8F2C /* EPTypeListClassifyModel.m in Sources */,
 				EDBC284A2513819B00252E17 /* EP_Files_CreateMainViewCtl.m in Sources */,
@@ -2212,7 +2342,10 @@
 				ED3B558824BEF487008CBB51 /* MBProgressHUD+CZ.m in Sources */,
 				ED4B511224F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m in Sources */,
 				ED41546D24F631F100FA07F2 /* EPCameraTypeLayout.m in Sources */,
+				EDFBDDE1251AFFE50077B4DE /* SBNavigationController.m in Sources */,
+				EDFBDDDB251AFFE50077B4DE /* SBScanDataHeaderView.m in Sources */,
 				ED3B557D24BEEF5E008CBB51 /* PopPrivacyProtocolView.m in Sources */,
+				EDFBDDD6251AFFE50077B4DE /* PAirSandbox.m in Sources */,
 				ED3E679E24C078260055B4E7 /* EPHomeCycleScrollView.m in Sources */,
 				ED444EE42519D784004920D2 /* SqliteManager+Image.m in Sources */,
 				EDBC2845251380E200252E17 /* EP_Files_AngleSelectViewCtl.m in Sources */,
@@ -2224,6 +2357,7 @@
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
 				ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */,
+				EDFBDDE2251AFFE50077B4DE /* SBTableInfoItem.m in Sources */,
 				ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

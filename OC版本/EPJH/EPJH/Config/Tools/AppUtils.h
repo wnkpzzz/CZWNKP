@@ -49,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 时间戳转换为时间 */
 + (NSString *)timestampChangeTime:(NSString *)timestamp WithFormat:(NSString *)formatStr;
 
+/** 获取一个随机整数，范围在[from,to），包括from，不包括to */
++ (int)getRandomNumber:(int)from to:(int)to ;
 
 @end
 

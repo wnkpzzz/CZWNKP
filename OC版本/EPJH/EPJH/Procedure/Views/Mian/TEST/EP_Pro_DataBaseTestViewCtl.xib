@@ -111,16 +111,6 @@
                                 <action selector="conditionSelectMyFriTable:" destination="-1" eventType="touchUpInside" id="ESX-Lb-bOM"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-d9-7ok" userLabel="result">
-                            <rect key="frame" x="30" y="588" width="354" height="200"/>
-                            <color key="backgroundColor" red="0.80784313730000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="200" id="7IS-8w-Czn"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FMDB封装DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkq-Sp-fIt">
                             <rect key="frame" x="107" y="30" width="200" height="28"/>
                             <constraints>
@@ -129,12 +119,6 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <color key="textColor" red="0.0" green="0.74901960779999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Output:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4b-fb-KHW">
-                            <rect key="frame" x="30" y="556" width="49" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="207" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwP-xA-uMB">
@@ -151,29 +135,40 @@
                                 <action selector="vagueSelectMyFriTable:" destination="-1" eventType="touchUpInside" id="QpL-4f-GhK"/>
                             </connections>
                         </button>
+                        <button opaque="NO" tag="207" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-9w-y9P">
+                            <rect key="frame" x="15" y="723" width="128" height="70"/>
+                            <color key="backgroundColor" red="0.40448784430000001" green="0.59744835460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="LAq-s3-8Eh"/>
+                                <constraint firstAttribute="width" constant="128" id="kUB-Yj-hu2"/>
+                            </constraints>
+                            <state key="normal" title="模拟单用户下载">
+                                <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="moniUserUploadAction:" destination="-1" eventType="touchUpInside" id="dVr-fI-CQ9"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="SwP-xA-uMB" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="0fn-Xy-IQu"/>
+                        <constraint firstAttribute="bottom" secondItem="Fvr-9w-y9P" secondAttribute="bottom" constant="25" id="0hM-6e-e4D"/>
+                        <constraint firstItem="Fvr-9w-y9P" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="15" id="AbI-7b-3X3"/>
                         <constraint firstItem="q8W-zd-krC" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="D9P-rI-O96"/>
-                        <constraint firstItem="f4b-fb-KHW" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="30" id="Nse-bU-Ed6"/>
                         <constraint firstItem="Fkq-Sp-fIt" firstAttribute="centerX" secondItem="f8n-xt-0dl" secondAttribute="centerX" id="Olc-eY-3IX"/>
                         <constraint firstItem="Jgw-fQ-xpX" firstAttribute="top" secondItem="QSl-nf-pUq" secondAttribute="bottom" constant="10" id="Rc9-zc-bwd"/>
                         <constraint firstItem="t5t-b7-bKc" firstAttribute="top" secondItem="q8W-zd-krC" secondAttribute="bottom" constant="10" id="SeH-l7-Tph"/>
                         <constraint firstItem="SwP-xA-uMB" firstAttribute="top" secondItem="Jgw-fQ-xpX" secondAttribute="bottom" constant="10" id="XdG-EX-owb"/>
                         <constraint firstItem="QSl-nf-pUq" firstAttribute="top" secondItem="t5t-b7-bKc" secondAttribute="bottom" constant="10" id="bLR-iv-nEh"/>
-                        <constraint firstAttribute="bottom" secondItem="3nu-d9-7ok" secondAttribute="bottom" constant="30" id="bjO-dJ-SwA"/>
-                        <constraint firstItem="3nu-d9-7ok" firstAttribute="leading" secondItem="f8n-xt-0dl" secondAttribute="leading" constant="30" id="d79-uZ-009"/>
                         <constraint firstItem="Fkq-Sp-fIt" firstAttribute="top" secondItem="f8n-xt-0dl" secondAttribute="top" constant="30" id="doT-g4-EKa"/>
                         <constraint firstItem="k6C-wX-9ay" firstAttribute="centerX" secondItem="f8n-xt-0dl" secondAttribute="centerX" id="e5C-BE-85d"/>
                         <constraint firstItem="Jgw-fQ-xpX" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="gC3-Qx-p7Z"/>
-                        <constraint firstAttribute="trailing" secondItem="3nu-d9-7ok" secondAttribute="trailing" constant="30" id="hh6-CT-89j"/>
                         <constraint firstItem="k70-RE-dtJ" firstAttribute="centerX" secondItem="QE5-K2-VPI" secondAttribute="centerX" id="kSr-42-HCG"/>
                         <constraint firstItem="k70-RE-dtJ" firstAttribute="top" secondItem="QE5-K2-VPI" secondAttribute="bottom" constant="10" id="kyy-qn-B1D"/>
                         <constraint firstItem="t5t-b7-bKc" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="nLm-cA-Kcp"/>
                         <constraint firstItem="q8W-zd-krC" firstAttribute="top" secondItem="k70-RE-dtJ" secondAttribute="bottom" constant="10" id="nNK-2v-NUO"/>
                         <constraint firstItem="k6C-wX-9ay" firstAttribute="top" secondItem="Fkq-Sp-fIt" secondAttribute="bottom" constant="30" id="nvC-kr-ndK"/>
-                        <constraint firstItem="3nu-d9-7ok" firstAttribute="top" secondItem="f4b-fb-KHW" secondAttribute="bottom" constant="15" id="pQq-8f-TS0"/>
                         <constraint firstItem="QSl-nf-pUq" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="ska-GV-vQc"/>
                         <constraint firstItem="QE5-K2-VPI" firstAttribute="centerX" secondItem="k6C-wX-9ay" secondAttribute="centerX" id="thM-nt-qsd"/>
                         <constraint firstItem="QE5-K2-VPI" firstAttribute="top" secondItem="k6C-wX-9ay" secondAttribute="bottom" constant="10" id="z2R-oG-Rcb"/>
@@ -188,7 +183,7 @@
                 <constraint firstItem="f8n-xt-0dl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xo8-RL-bqO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-226" y="100"/>
+            <point key="canvasLocation" x="-420" y="8"/>
         </view>
     </objects>
 </document>

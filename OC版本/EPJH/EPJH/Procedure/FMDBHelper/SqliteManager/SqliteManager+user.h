@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*
 *  插入【表】中多/单条数据
 */
-- (void)updateUsersListWithUID:(NSString *)uid frislist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete;
+- (void)updateUsersListWithUID:(NSString *)uid datalist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete;
 
 /*
 *  删除表中某一条数据

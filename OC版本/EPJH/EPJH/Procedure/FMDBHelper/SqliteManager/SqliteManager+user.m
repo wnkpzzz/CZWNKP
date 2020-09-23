@@ -20,7 +20,7 @@
         NSString *aID = model.Id;
         if ([aID isEqualToString:uid]) { return model;  break; }
     }
-    //没有就创建我的好友表
+    //没有就创建我的病人表
     return [self creatUserTableWithUID:uid];
 }
 
@@ -115,7 +115,7 @@
 /*
 *  插入【表】中多/单条数据
 */
-- (void)updateUsersListWithUID:(NSString *)uid frislist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateUsersListWithUID:(NSString *)uid datalist:(NSArray <EPUserInfoModel *>*)frislist complete:(void (^)(BOOL success,id obj))complete{
     
     CreatTable *model = [self setupUserDBqueueWithUID:uid];
     FMDatabaseQueue *queue = model.queue;

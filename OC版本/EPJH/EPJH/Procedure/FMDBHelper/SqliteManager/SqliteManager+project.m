@@ -111,7 +111,7 @@
 /*
  *  插入【表】中多/单条数据
  */
-- (void)updateProjectsListWithUID:(NSString *)uid frislist:(NSArray <EPProjectModel *>*)proslist complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateProjectsListWithUID:(NSString *)uid datalist:(NSArray <EPProjectModel *>*)proslist complete:(void (^)(BOOL success,id obj))complete{
     
       CreatTable *model = [self setupProjectDBqueueWithUID:uid];
         FMDatabaseQueue *queue = model.queue;

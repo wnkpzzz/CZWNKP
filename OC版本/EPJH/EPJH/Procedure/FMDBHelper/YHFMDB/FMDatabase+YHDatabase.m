@@ -687,7 +687,6 @@
 
 #pragma mark -- 查询所有
 - (void)yh_excuteDatasWithTable:(NSString *)table model:(id )model  primaryKey:(NSString *)primaryKey userInfo:(NSDictionary *)userInfo fuzzyUserInfo:(NSDictionary *)fuzzyUserInfo otherSQL:(NSDictionary *)otherSQL option:(YHAllModelsOption )option{
-    
     NSString *modelPrimaryKey = [[model class] yh_primaryKey];
     NSString *tableName = nil;
     if (!table) {
@@ -741,9 +740,6 @@
             [arr addObject:submodel];
         }
     }
-    
-    
-    
     if (option) option(arr);
     
 }

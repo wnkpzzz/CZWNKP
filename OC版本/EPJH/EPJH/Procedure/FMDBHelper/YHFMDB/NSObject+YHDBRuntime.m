@@ -145,6 +145,7 @@ NSString *const YHDB_AutoIncreaseID = @"AutoIncreaseID";
     
 }
 
+
 + (NSString *)yh_sqlForCreateTableWithPrimaryKey:(NSString *)primaryKey {
     return [self yh_sqlForCreateTableWithPrimaryKey:primaryKey extraKeyValues:nil];
 }
@@ -335,8 +336,9 @@ NSString *const YHDB_AutoIncreaseID = @"AutoIncreaseID";
     return sql ;
 }
 
-#pragma mark -- replaceKeyValue
 
+
+#pragma mark -- replaceKeyValue
 /** 通过属性名获取正确的字段名 */
 + (void)yh_replaceKeyWithIvarModel:(YHDBRuntimeIvar *)model option:(RuntimeObjectIvarsOption )option {
     

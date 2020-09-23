@@ -127,7 +127,7 @@
  /*
   * 向表中更新/插入多条数据
   */
-- (void)updateImagesListWithUID:(NSString *)uid frislist:(NSArray <EPImageModel *>*)imgslist complete:(void (^)(BOOL success,id obj))complete{
+- (void)updateImagesListWithUID:(NSString *)uid datalist:(NSArray <EPImageModel *>*)imgslist complete:(void (^)(BOOL success,id obj))complete{
  
     CreatTable *model = [self setupImageProDBqueueWithUID:uid];
       FMDatabaseQueue *queue = model.queue;
