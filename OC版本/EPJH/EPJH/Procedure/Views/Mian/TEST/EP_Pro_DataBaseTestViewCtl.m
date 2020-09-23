@@ -16,6 +16,13 @@
 @property (nonatomic,strong) NSMutableArray *myFrisDataArr;
 @property (nonatomic,strong) NSMutableArray *myProsDataArr;
 @property (nonatomic,strong) NSMutableArray *myImgsProDataArr;
+@property (nonatomic,strong) NSMutableArray *resultFrisDataArr;
+@property (nonatomic,strong) NSMutableArray *resultProsDataArr;
+@property (nonatomic,strong) NSMutableArray *resultImgsProDataArr;
+
+// 信号量控制线程同步
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;
+
 
 @end
 
@@ -29,14 +36,17 @@
     self.myFrisDataArr = [NSMutableArray arrayWithCapacity:10];
     self.myProsDataArr = [NSMutableArray arrayWithCapacity:10];
     self.myImgsProDataArr = [NSMutableArray arrayWithCapacity:10];
-    
+    self.resultFrisDataArr = [NSMutableArray arrayWithCapacity:10];
+    self.resultProsDataArr = [NSMutableArray arrayWithCapacity:10];
+    self.resultImgsProDataArr = [NSMutableArray arrayWithCapacity:10];
+
     [self getLocalFrisData];
 
 }
  
 - (void)getLocalFrisData{
   
-     for (int i=0; i<4; i++) {
+     for (int i=0; i<1; i++) {
          
         long idNum = 2016 + i;
          
@@ -52,7 +62,7 @@
         userModel.city  = (arc4random()%2==1)?@"随机工作城市":@"广州";     //工作城市
         userModel.addr  = (arc4random()%2==1)?@"随机工作地点":@"广州移动"; //工作地点
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             long idNum = 3016 + i;
             NSString * proID =  [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
             EPProjectModel *proInfo = [self getProjectInfoWithFriID:userModel.uid ProID:proID];
@@ -69,7 +79,7 @@
     EPProjectModel *proInfo=  [[EPProjectModel alloc] init];
     proInfo.bindUserId = KUID;
     proInfo.customerId = friID;
-    proInfo.projectId  = [NSString stringWithFormat:@"%@%@",@"13",[AppUtils getNowTimeCuo]];
+    proInfo.projectId  = proID;
     proInfo.createTime = [AppUtils getNowTimeCuo];
  
     proInfo.position = (arc4random()%2==1)?@"术前":@"术后";
@@ -107,7 +117,7 @@
 
 - (IBAction)moniInserUserListAction:(id)sender {
     
-
+    
     // 使用信号量保证串行队列+异步操作
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
     __block BOOL isEnd = NO;
@@ -164,6 +174,15 @@
 
 - (IBAction)moniQueryUserListAction:(id)sender {
     
+    [self.resultFrisDataArr removeAllObjects];
+    [self.resultProsDataArr removeAllObjects];
+    [self.resultImgsProDataArr removeAllObjects];
+    
+    // 使用信号量保证串行队列+异步操作
+    self.semaphore = dispatch_semaphore_create(1);
+    
+    WS(weakSelf);
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
     [[SqliteManager sharedInstance] queryUserTableWithUID:KUID accurateInfo:nil fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
        
         if (success) {
@@ -171,22 +190,55 @@
             NSArray * dataArr = obj;
             NSArray * sortDataArr = [[dataArr reverseObjectEnumerator] allObjects];
             NSLog(@"%@====KK",sortDataArr );
+            if (sortDataArr && sortDataArr.count > 0) {
+                [weakSelf.resultFrisDataArr addObjectsFromArray:sortDataArr];
+            }
         }
         
+        dispatch_semaphore_signal(weakSelf.semaphore);
+
     }];
 }
 
 - (IBAction)moniQueryUserProInfoAction:(id)sender {
     
-    NSDictionary *accurateInfo = @{@"customerId":@"20191600846810000"};
-    
+    WS(weakSelf);
+    EPUserInfoModel * userModel = self.resultFrisDataArr.firstObject;
+    NSDictionary *accurateInfo = @{@"customerId":userModel.uid};
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
     [[SqliteManager sharedInstance] queryProjectTableWithUID:KUID accurateInfo:accurateInfo fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
       
         if (success) {
-             NSLog(@"%@====KK",obj );
+          
+            NSArray * dataArr = obj;
+            NSArray * sortDataArr = [[dataArr reverseObjectEnumerator] allObjects];
+            NSLog(@"%@====PP",sortDataArr );
+            if (sortDataArr && sortDataArr.count > 0) {
+                [weakSelf.resultProsDataArr addObjectsFromArray:sortDataArr];
+            }
         }
-        
+        dispatch_semaphore_signal(weakSelf.semaphore);
+
     }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    for (EPProjectModel * proModel in weakSelf.resultProsDataArr) {
+     
+        NSDictionary *accurateInfo = @{@"projectId":proModel.projectId};
+        [[SqliteManager sharedInstance] queryImageTableWithUID:KUID accurateInfo:accurateInfo fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
+            
+            NSArray * dataArr = obj;
+            NSArray * sortDataArr = [[dataArr reverseObjectEnumerator] allObjects];
+            NSLog(@"%@====KK",sortDataArr );
+            if (sortDataArr && sortDataArr.count > 0) {
+                [weakSelf.resultImgsProDataArr addObjectsFromArray:sortDataArr];
+                [proModel.cameraArr addObjectsFromArray:sortDataArr];
+            }
+        }];
+                 
+        dispatch_semaphore_signal(weakSelf.semaphore);
+
+    }
  
 }
 

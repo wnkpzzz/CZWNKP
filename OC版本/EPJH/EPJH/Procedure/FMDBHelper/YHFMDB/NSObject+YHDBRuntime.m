@@ -339,6 +339,7 @@ NSString *const YHDB_AutoIncreaseID = @"AutoIncreaseID";
 
 
 #pragma mark -- replaceKeyValue
+
 /** 通过属性名获取正确的字段名 */
 + (void)yh_replaceKeyWithIvarModel:(YHDBRuntimeIvar *)model option:(RuntimeObjectIvarsOption )option {
     
