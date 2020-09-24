@@ -44,12 +44,13 @@
 
 }
  
+
+// 模拟得到批量用户+项目+图片数据
 - (void)getLocalFrisData{
   
      for (int i=0; i<1; i++) {
          
         long idNum = 2016 + i;
-         
         EPUserInfoModel *userModel=  [[EPUserInfoModel alloc] init];
         userModel.bindUserId = KUID;
         userModel.uid = [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
@@ -109,11 +110,14 @@
     imgInfo.createTime = [AppUtils getNowTimeCuo];
     imgInfo.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
 
-
     return imgInfo;
 
 }
 
+// 批量插入多条数据到用户+项目+图片表中，需要保证全部成功/失败。
+// 1、使用用数据库的事务功能，来保证同时执行成功。
+// 2、自己做开关标记，记录失败，回滚。
+// 备注:考虑到事务需要SQL语句，这里使用框架的模型转换SQL的形式，使用信号量+标记开关来控制数据。
 
 - (IBAction)moniInserUserListAction:(id)sender {
     
@@ -123,49 +127,62 @@
     __block BOOL isEnd = NO;
 
     NSLog(@"1111111");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
     [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:self.myImgsProDataArr complete:^(BOOL success, id  _Nonnull obj) {
-
+        dispatch_semaphore_signal(semaphore); // + 1 释放
 
         if (success) {
             NSLog(@"1111111-OK");
 
-
         }else{
-            NSLog(@"1111111-NO");
+
             isEnd = YES;
-            return;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"1111111-NO");
+                return;
+            });
         }
-        dispatch_semaphore_signal(semaphore);
-
-
     }];
     
-//    if (isEnd) {
-//        return;
-//    }
-    
+    if (isEnd) { return; }
+   
     NSLog(@"22222222");
-
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:self.myProsDataArr complete:^(BOOL success, id  _Nonnull obj) {
 
         dispatch_semaphore_signal(semaphore);
-        NSLog(@"22222222-OK");
+        if (success) {
+            NSLog(@"22222222-OK");
+
+        }else{
+
+            isEnd = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"22222222-NO");
+                return;
+            });
+        }
 
     }];
-    NSLog(@"33333333");
-
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     
+    if (isEnd) { return; }
+    
+    NSLog(@"33333333");
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     [[SqliteManager sharedInstance] updateUsersListWithUID:KUID datalist:self.myFrisDataArr complete:^(BOOL success, id  _Nonnull obj) {
-        if (success) {
         
-            NSLog(@"33333333-OK");
-        }else{
-            NSLog(@"33333333-NO");
-        }
         dispatch_semaphore_signal(semaphore);
+        if (success) {
+            NSLog(@"33333333-OK");
+
+        }else{
+
+            isEnd = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"33333333-NO");
+                return;
+            });
+        }
     }];
 
     

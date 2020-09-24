@@ -53,7 +53,8 @@
 @property (nonatomic, strong) EPProjectModel *proModel;                                 /** 数据源 */
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;     /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
 @property (nonatomic, assign) CaseTakePicStatusType takePicStatusType;                  /** 拍照状态枚举 */
- 
+ @property (nonatomic, copy)  NSString  * timeStampStr;                                 /** 整个项目唯一时间戳标记 */
+
 @end
 
 @implementation EPCasePhotographyViewCtl
@@ -113,12 +114,13 @@
 }
 
 /** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray *)takeCasePicArr nowSign:(NSInteger)nowIndex{
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray<EPTakePictureModel *> *)takeCasePicArr indexSign:(NSInteger)nowIndex timeStamp:(NSString *)timeStampStr{
  
     self.nowIndex = 0;
     self.proModel = [[EPProjectModel alloc] init];
     self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
-
+    self.timeStampStr = timeStampStr;
+    
     self.nowIndex = nowIndex;
     self.proModel = proModel;
     [self.takeCasePicArr addObjectsFromArray:takeCasePicArr];
@@ -182,16 +184,6 @@
 
     if (self.session) {  [self.session startRunning]; }
 }
-
-///** 懒加载 */
-//- (CZAlbumScrollView *)outImageView{
-//
-//    if (!_outImageView) {
-//        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT * 0.5)];
-//    }
-//
-//    return _outImageView;
-//}
 
 #pragma mark - 事件处理
 - (IBAction)btnClickAction:(UIButton *)button {
@@ -423,7 +415,7 @@
     model.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
     model.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
     model.isPaiZhaoFlag = @"YES";
-    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", [AppUtils getNowTimeCuo], [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
+    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", self.timeStampStr, [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
     model.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
     [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:model];
     
@@ -484,3 +476,13 @@
 }
 
 @end
+
+///** 懒加载 */
+//- (CZAlbumScrollView *)outImageView{
+//
+//    if (!_outImageView) {
+//        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT * 0.5)];
+//    }
+//
+//    return _outImageView;
+//}

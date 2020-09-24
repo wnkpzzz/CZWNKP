@@ -17,6 +17,9 @@
 @property (nonatomic, strong) EPUserInfoModel * userModel;
 @property (nonatomic, strong) EPProjectModel  * projectModel; 
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
+@property (nonatomic, copy)   NSString  * timeStampStr; // 整个项目唯一时间戳标记
+
+
 
 @end
 
@@ -31,7 +34,16 @@
 
 #pragma mark - 基础配置
 - (void)loadBaseConfig{
-       
+        
+    [self initWithProjectInfo];
+    [self createTableView];     // 初始化TableView
+    [self loadDefaultImageWithList:nil]; // 加载默认图片
+
+}
+
+- (void)initWithProjectInfo{
+    
+    // 项目创建-初始化项目信息
     self.projectModel = [[EPProjectModel alloc] init];
     self.projectModel.cameraArr = [NSMutableArray arrayWithCapacity:12];
     self.projectModel.userInfo = [[EPUserInfoModel alloc] init];
@@ -42,9 +54,8 @@
     self.projectModel.cateName = kPartsNameArr[0];
     self.takeCameraArr = [NSMutableArray arrayWithCapacity:10];
 
-    [self createTableView];     // 初始化TableView
-    [self loadDefaultImageWithList:nil]; // 加载默认图片
-
+    // 项目创建-初始化时间戳信息,ID唯一标识只用
+    self.timeStampStr = [AppUtils getNowTimeCuo];
 }
  
 #pragma mark - 事件处理
@@ -52,9 +63,11 @@
 /** 下一步点击事件处理 */
 - (IBAction)submitAction:(UIButton *)sender {
     
+    // 将案例信息，拍摄图片信息，时间戳流转到下一界面。
     EP_Files_ProSelectViewCtl * Vc = [[EP_Files_ProSelectViewCtl alloc] init];
-    Vc.projectModel = [self.projectModel mutableCopy];
+    Vc.projectModel  = [self.projectModel mutableCopy];
     Vc.takeCameraArr = self.takeCameraArr;
+    Vc.timeStampStr  = self.timeStampStr;
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
@@ -136,7 +149,10 @@
      
     WS(weakSelf);
     EPCasePhotographyViewCtl *Vc = [[EPCasePhotographyViewCtl alloc] init];
-    [Vc reloadDataWithModel:self.projectModel pictureArr:self.takeCameraArr nowSign:index];
+    [Vc reloadDataWithModel:self.projectModel
+                 pictureArr:self.takeCameraArr
+                  indexSign:index
+                  timeStamp:self.timeStampStr];
     Vc.saveClickBlock = ^(EPProjectModel *projectModel,NSArray *photoArr) {
         [weakSelf updateForModel:projectModel array:photoArr];
     };

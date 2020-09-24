@@ -32,11 +32,11 @@
     self.userModel.physiologicalCondition = [kJWBSIDArray componentsJoinedByString:@","];
     
     // 创建病人信息
-     self.userModel.uid = [NSString stringWithFormat:@"%@%@",@"12",[AppUtils getNowTimeCuo]];
+     self.userModel.uid = [NSString stringWithFormat:@"%@%@",@"12",self.timeStampStr];
      self.userModel.createTime = [AppUtils getNowTimeCuo];
-     self.userModel.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
+     self.userModel.timeFormat = [AppUtils timestampChangeTime:self.timeStampStr WithFormat:@"yyyy-MM-dd"];
 
-     self.userModel.realName = [NSString stringWithFormat:@"%@%@",@"PK",[AppUtils getNowTimeCuo]];
+     self.userModel.realName = [NSString stringWithFormat:@"%@%@",@"PK",self.timeStampStr];
      self.userModel.sex = @"男";
      self.userModel.headImg = @"";
      self.userModel.province = @"广东省";

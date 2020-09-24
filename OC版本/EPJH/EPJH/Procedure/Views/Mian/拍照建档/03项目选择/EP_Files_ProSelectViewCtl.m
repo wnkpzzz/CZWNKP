@@ -113,10 +113,12 @@
 #pragma mark - 事件处理
  
 - (IBAction)btnClickAction:(UIButton *)sender {
-    
+   
+    // 将案例信息，拍摄图片信息，时间戳流转到下一界面。
     EP_Files_FillInDataViewCtl * Vc = [[EP_Files_FillInDataViewCtl alloc] init];
     Vc.projectModel = [self.projectModel mutableCopy];
     Vc.takeCameraArr = self.takeCameraArr;
+    Vc.timeStampStr  = self.timeStampStr;
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
