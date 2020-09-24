@@ -1,28 +1,29 @@
 //
-//  DatabaseLogicHandler.m
+//  SqliteLogicHandler.m
 //  EPJH
 //
 //  Created by Hans on 2020/9/24.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "DatabaseLogicHandler.h"
+#import "SqliteLogicHandler.h"
 
-@interface DatabaseLogicHandler()
+@interface SqliteLogicHandler()
 
 @end
 
 
-@implementation DatabaseLogicHandler
+@implementation SqliteLogicHandler
 
 /** 单例 */
 + (instancetype)sharedInstance{
-    static DatabaseLogicHandler *g_instance = nil;
+    
+    static SqliteLogicHandler *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        g_instance = [[DatabaseLogicHandler alloc] init];
+        instance = [[SqliteLogicHandler alloc] init];
     });
-    return g_instance;
+    return instance;
 }
 
 /** 1、用户档案创建-图片存入数据库 */

@@ -48,7 +48,7 @@
 		ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */; };
 		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
 		ED20479824F4BB2A000A6040 /* EPAngleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */; };
-		ED2778E1251CA15F007946A3 /* DatabaseLogicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2778E0251CA15F007946A3 /* DatabaseLogicHandler.m */; };
+		ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */; };
 		ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
@@ -392,8 +392,8 @@
 		ED20479424F4BB2A000A6040 /* EPAngleHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleHeaderCell.h; sourceTree = "<group>"; };
 		ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleHeaderCell.m; sourceTree = "<group>"; };
 		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
-		ED2778DF251CA15F007946A3 /* DatabaseLogicHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseLogicHandler.h; sourceTree = "<group>"; };
-		ED2778E0251CA15F007946A3 /* DatabaseLogicHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseLogicHandler.m; sourceTree = "<group>"; };
+		ED2778E2251CAA26007946A3 /* SqliteLogicHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteLogicHandler.h; sourceTree = "<group>"; };
+		ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteLogicHandler.m; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1015,8 +1015,8 @@
 			isa = PBXGroup;
 			children = (
 				ED0A7FAB24E53D24005E3DC3 /* SqilteConfig.h */,
-				ED2778DF251CA15F007946A3 /* DatabaseLogicHandler.h */,
-				ED2778E0251CA15F007946A3 /* DatabaseLogicHandler.m */,
+				ED2778E2251CAA26007946A3 /* SqliteLogicHandler.h */,
+				ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */,
 				ED0A7FAD24E53D68005E3DC3 /* SqliteManager */,
 				ED0A7FBB24E54B0C005E3DC3 /* Default */,
 				ED0A7FAE24E53D7C005E3DC3 /* Model */,
@@ -2304,7 +2304,6 @@
 				ED66F48C24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.m in Sources */,
 				EDBC28592513822400252E17 /* EP_Files_FillInDataViewCtl.m in Sources */,
 				EDFBDDE0251AFFE50077B4DE /* SBScanTableController.m in Sources */,
-				ED2778E1251CA15F007946A3 /* DatabaseLogicHandler.m in Sources */,
 				ED3E679424C064CF0055B4E7 /* HomeCollectionViewCell.m in Sources */,
 				EDFBDDE6251AFFE50077B4DE /* SBClient.m in Sources */,
 				EDBC285E2513822F00252E17 /* EP_Files_OptionalDataViewCtl.m in Sources */,
@@ -2331,6 +2330,7 @@
 				EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */,
 				ED444EE12519D774004920D2 /* SqliteManager+project.m in Sources */,
 				ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */,
+				ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */,
 				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
 				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
 				EDFBDDDE251AFFE50077B4DE /* SBFileItem.m in Sources */,

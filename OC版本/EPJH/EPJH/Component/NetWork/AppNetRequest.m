@@ -28,8 +28,7 @@ static NSDictionary *app_httpHeaders = nil;                         // 请求头
 -(instancetype)initShowLog:(BOOL)show{
     if (self = [super init]) {
         self.showLog = show;
-    }
-    
+    } 
     return self;
 }
 

@@ -19,12 +19,13 @@
 
 /** 单例 */
 + (instancetype)sharedInstance{
-    static SqliteManager *g_instance = nil;
+    
+    static SqliteManager *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        g_instance = [[SqliteManager alloc] init];
+        instance = [[SqliteManager alloc] init];
     });
-    return g_instance;
+    return instance;
 }
 
 #pragma mark - 懒加载

@@ -23,7 +23,7 @@
 #import "SqliteManager+project.h"
 #import "SqliteManager+Image.h"
 
-#import "DatabaseLogicHandler.h"
+#import "SqliteLogicHandler.h"
 
 /** ******************宏定义************** */
 

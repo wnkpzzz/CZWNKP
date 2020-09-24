@@ -1,5 +1,5 @@
 //
-//  DatabaseLogicHandler.h
+//  SqliteLogicHandler.h
 //  EPJH
 //
 //  Created by Hans on 2020/9/24.
@@ -15,7 +15,7 @@ typedef void(^resultBackBlock)(BOOL isSucess);
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DatabaseLogicHandler : NSObject
+@interface SqliteLogicHandler : NSObject
 
 /** 单例 */
 + (instancetype)sharedInstance;
