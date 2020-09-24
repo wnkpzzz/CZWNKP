@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, CaseTakePicStatusType) {
 - (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray<EPTakePictureModel *> *)takeCasePicArr indexSign:(NSInteger)nowIndex timeStamp:(NSString *)timeStampStr;
 
 /** Block数据回调 */
-@property (nonatomic,copy)void(^saveClickBlock)(EPProjectModel *proModel, NSArray *takeCasePicArr);
+@property (nonatomic,copy)void(^saveClickBlock)(EPProjectModel *proModel, NSArray<EPTakePictureModel *> *takeCasePicArr);
  
 @end
 

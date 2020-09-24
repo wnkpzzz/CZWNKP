@@ -138,7 +138,7 @@
 
             isEnd = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"1111111-NO");
+                NSLog(@"1111111-NO,");
                 return;
             });
         }

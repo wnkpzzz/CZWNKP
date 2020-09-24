@@ -14,8 +14,7 @@
 #pragma mark ---------图片存储---------
 
 /** 图片保存到沙盒指定目录 */
-- (BOOL)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName {
-    
+- (void)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName complete:(resultBackBlock)complete {
     
     //如果不存在,则说明是第一次运行这个程序，那么建立这个文件夹
     NSFileManager *fileM = [NSFileManager defaultManager];
@@ -32,7 +31,7 @@
     NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];  // 保存文件的名称
     BOOL result = [UIImagePNGRepresentation(image)writeToFile:filePath atomically:YES]; // 执行保存命令
     if (result == YES) {  NSLog(@"图片保存到沙盒指定目录,保存成功");  }else{  NSLog(@"图片保存到沙盒指定目录,保存失败");}
-    return result;
+    complete(result);
 }
 
 /*
@@ -62,29 +61,24 @@
 }
 
 /** 删除沙盒指定目录下的图片 */
-- (BOOL)deleteImageFromSandboxWith:(NSString *)imageName{
-    
+- (void)deleteImageFromSandboxWith:(NSString *)imageName complete:(resultBackBlock)complete{
+
     NSLog(@"执行删除沙盒指定目录下的图片操作");
 
     if (imageName && imageName.length > 0) {
-        
         NSString *filePath = [ZCImageDir stringByAppendingPathComponent:imageName];  // 保存文件的名称
         BOOL isHave = [[NSFileManager defaultManager] fileExistsAtPath:filePath]; // 判断文件是否存在
 
         if (isHave == YES) {
-          
           BOOL result = [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
           if (result == YES) { NSLog(@"删除成功");  }else{  NSLog(@"删除失败"); }
-          return result;
-            
-        }else{  NSLog(@"删除的文件不存在");}
-        
-        return isHave;
+          complete(result);
+        }else{  NSLog(@"删除沙盒指定目录下的图片,删除的文件不存在");}
+         
+        complete(isHave);
 
     }else{
-         
-        NSLog(@"删除的文件名为空");
-        return NO;
+        NSLog(@"删除沙盒指定目录下的图片,删除的文件名为空"); complete(NO); 
     }
 }
 

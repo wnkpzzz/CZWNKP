@@ -17,6 +17,8 @@
 #import "EPProjectModel.h"
 #import "EPUserInfoModel.h"
 
+#import "SqliteDataHandler.h"
+
 #import "SqliteManager.h"
 #import "SqliteDefaultData.h"
 #import "SqliteManager+user.h"

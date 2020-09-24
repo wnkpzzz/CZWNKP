@@ -10,7 +10,7 @@
 
 
 /** 数据返回Block */
-typedef void(^handleBackBlock)(BOOL isSucess);
+typedef void(^resultBackBlock)(BOOL isSucess);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,10 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark ---------图片存储---------
 
 /** 项目图片保存到沙盒指定目录 */
-- (BOOL)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName;
+- (void)saveImageToSandboxWith:(UIImage *)image AndName:(NSString *)imageName complete:(resultBackBlock)complete;
 
 /** 删除沙盒指定目录下的图片 */
-- (BOOL)deleteImageFromSandboxWith:(NSString *)imageName;
+- (void)deleteImageFromSandboxWith:(NSString *)imageName complete:(resultBackBlock)complete;
+
 
 /*
  * 根据名称从沙盒路径中取出原图/缩略图,是否大图

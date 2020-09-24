@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Files_ProSelectViewCtl : RootViewController
 
+@property (nonatomic, copy)   NSString  * timeStampStr;
 @property (nonatomic, strong) EPProjectModel  * projectModel;
 @property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
-@property (nonatomic, copy)   NSString  * timeStampStr; // 整个项目唯一时间戳标记
 
 @end
 

@@ -153,30 +153,28 @@
                  pictureArr:self.takeCameraArr
                   indexSign:index
                   timeStamp:self.timeStampStr];
-    Vc.saveClickBlock = ^(EPProjectModel *projectModel,NSArray *photoArr) {
-        [weakSelf updateForModel:projectModel array:photoArr];
+    Vc.saveClickBlock = ^(EPProjectModel * proModel, NSArray<EPTakePictureModel *> * takeCasePicArr) {
+         [weakSelf updateForModel:proModel array:takeCasePicArr];
     };
     Vc.modalPresentationStyle = UIModalPresentationFullScreen;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:Vc animated:YES completion:nil];
     });
-    
- 
 }
 
 #pragma mark - 业务逻辑处理
 
 /** 拍照界面数据回传 */
-- (void)updateForModel:(EPProjectModel *)projectModel array:(NSArray *)photoArr{
+- (void)updateForModel:(EPProjectModel *)projectModel array:(NSArray<EPTakePictureModel *> *)takeCasePicArr{
 
     self.projectModel = projectModel;
     
     // 第二次补充拍摄（第二次补充拍摄的内容个数 >= 第一次拍摄的内容个数）
-    NSMutableArray *newArr = [NSMutableArray arrayWithCapacity:12];
-    [newArr addObjectsFromArray:photoArr];
+    NSMutableArray *newTakeCasePicArr = [NSMutableArray arrayWithCapacity:12];
+    [newTakeCasePicArr addObjectsFromArray:takeCasePicArr];
 
     [self.takeCameraArr removeAllObjects];
-    [self.takeCameraArr addObjectsFromArray:newArr];
+    [self.takeCameraArr addObjectsFromArray:newTakeCasePicArr];
     [self.tableView reloadData];
 }
 
