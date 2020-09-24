@@ -20,11 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单例 */
 + (instancetype)sharedInstance;
 
-/** 1、用户档案创建-图片存入数据库 */
+/** 1、用户档案创建-图片存入沙盒目录 */
 - (void)saveImageInfoToSandboxWith:(NSArray <EPTakePictureModel *>*)imgslist complete:(resultBackBlock)complete;
 
-/** 2、用户档案创建-图片,项目,病人信息存入数据库表 */
-- (void)saveInfoToDataTableWithImg:(NSArray <EPImageModel *>*)imgslist Pro:(NSArray <EPProjectModel *>*)proslist Fri:(NSArray <EPUserInfoModel *>*)frislist complete:(resultBackBlock)complete;
+/** 2、用户档案创建-图片存入本机相册 */
+- (void)saveImageInfoToiPhoneAlbumWith:(NSArray <EPTakePictureModel *>*)imgslist complete:(resultBackBlock)complete;
+
+/** 3、用户档案创建-图片,项目,病人信息存入数据库表 */
+- (void)saveInfoToDataTableWithImg:(NSArray <EPImageModel *>*)imgslist Pro:(EPProjectModel *)proModel Fri:(EPUserInfoModel *)userModel complete:(resultBackBlock)complete;
 
 
 @end

@@ -89,7 +89,7 @@
     proInfo.remark = (arc4random()%2==1)?@"激光祛皱皮":@"玻尿酸";
 
  
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 1; i++) {
         long idNum = 4016 + i;
         NSString * imgID =  [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
         EPImageModel *imgInfo = [self getImageProInfoWithFriID:proInfo.customerId ProID:proInfo.projectId ImgID:imgID];
@@ -120,70 +120,21 @@
 // 备注:考虑到事务需要SQL语句，这里使用框架的模型转换SQL的形式，使用信号量+标记开关来控制数据。
 
 - (IBAction)moniInserUserListAction:(id)sender {
+     
     
     
-    // 使用信号量保证串行队列+异步操作
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    __block BOOL isEnd = NO;
-
-    NSLog(@"1111111");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
-    [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:self.myImgsProDataArr complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(semaphore); // + 1 释放
-
-        if (success) {
-            NSLog(@"1111111-OK");
-
-        }else{
-
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"1111111-NO,");
-                return;
-            });
-        }
-    }];
     
-    if (isEnd) { return; }
-   
-    NSLog(@"22222222");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:self.myProsDataArr complete:^(BOOL success, id  _Nonnull obj) {
-
-        dispatch_semaphore_signal(semaphore);
-        if (success) {
-            NSLog(@"22222222-OK");
-
-        }else{
-
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"22222222-NO");
-                return;
-            });
-        }
-
-    }];
-    
-    if (isEnd) { return; }
-    
-    NSLog(@"33333333");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    [[SqliteManager sharedInstance] updateUsersListWithUID:KUID datalist:self.myFrisDataArr complete:^(BOOL success, id  _Nonnull obj) {
+    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
         
-        dispatch_semaphore_signal(semaphore);
-        if (success) {
-            NSLog(@"33333333-OK");
-
+        if (isSucess) {
+            
+            NSLog(@"新建用户成功");
         }else{
+            NSLog(@"新建用户失败");
 
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"33333333-NO");
-                return;
-            });
         }
-    }];
+    }]; ;
+    
 
     
     
