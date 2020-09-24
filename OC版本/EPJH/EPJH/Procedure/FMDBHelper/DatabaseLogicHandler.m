@@ -1,25 +1,26 @@
 //
-//  SqliteDataHandler.m
+//  DatabaseLogicHandler.m
 //  EPJH
 //
 //  Created by Hans on 2020/9/24.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "SqliteDataHandler.h"
+#import "DatabaseLogicHandler.h"
 
-@interface SqliteDataHandler()
+@interface DatabaseLogicHandler()
 
 @end
 
-@implementation SqliteDataHandler
+
+@implementation DatabaseLogicHandler
 
 /** 单例 */
 + (instancetype)sharedInstance{
-    static SqliteDataHandler *g_instance = nil;
+    static DatabaseLogicHandler *g_instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        g_instance = [[SqliteDataHandler alloc] init];
+        g_instance = [[DatabaseLogicHandler alloc] init];
     });
     return g_instance;
 }
