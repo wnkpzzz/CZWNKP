@@ -51,9 +51,9 @@
 @property (nonatomic, assign) NSInteger partsIndex;                                     /** 节点索引 */
 @property (nonatomic, assign) NSInteger nowIndex;                                       /** 当前拍摄的索引 */
 @property (nonatomic, strong) EPProjectModel *proModel;                                 /** 数据源 */
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;     /** 拍照结果数组（需要展示的图，没拍的位置用默认图显示) */
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCasePicArr;     /** 拍摄的图片数组（没拍用默认图显示) */
 @property (nonatomic, assign) CaseTakePicStatusType takePicStatusType;                  /** 拍照状态枚举 */
- @property (nonatomic, copy)  NSString  * timeStampStr;                                 /** 整个项目唯一时间戳标记 */
+@property (nonatomic, copy)  NSString  * timeStampStr;                                  /** 整个项目唯一时间戳标记 */
 
 @end
 
@@ -114,49 +114,50 @@
 }
 
 /** 传入数据 */
-- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray<EPTakePictureModel *> *)takeCasePicArr indexSign:(NSInteger)nowIndex timeStamp:(NSString *)timeStampStr{
+- (void)reloadDataWithModel:(EPProjectModel *)proModel pictureArr:(NSArray<EPTakePictureModel *> *)takeCasePicArr indexSign:(NSInteger)indexSign timeStamp:(NSString *)timeStampStr{
  
+    // 初始化
     self.nowIndex = 0;
     self.proModel = [[EPProjectModel alloc] init];
     self.takeCasePicArr = [NSMutableArray arrayWithCapacity:12];
-    self.timeStampStr = timeStampStr;
     
-    self.nowIndex = nowIndex;
+    // 赋值
     self.proModel = proModel;
     [self.takeCasePicArr addObjectsFromArray:takeCasePicArr];
+    self.nowIndex = indexSign;
+    self.timeStampStr = timeStampStr;
 
+    
     for (int i = 0; i < kPartsIDArr.count; i++) {
-          if ([proModel.cateId isEqualToString:kPartsIDArr[i]]) {
-              self.partsIndex = i;
-              break;
-          }
+        if ([proModel.cateId isEqualToString:kPartsIDArr[i]]) { self.partsIndex = i; break; }
     }
     
     // 添加相关补充(添加占位图model)
-     if (self.nowIndex == proModel.cameraArr.count) {
-         
-         // Data Model
-         EPImageModel *modelPic = [EPImageModel new];
-         modelPic.subCateId = self.proModel.subCateId;
-         modelPic.subCateName = self.proModel.subCateName;
-         modelPic.cateId = self.proModel.cateId;
-         modelPic.cateName = self.proModel.cateName;
-         modelPic.sort = (int)self.nowIndex;
-         modelPic.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
-         modelPic.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-         modelPic.isPaiZhaoFlag = @"NO";
-         modelPic.cameraImgStr = @"";
-         modelPic.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
-         modelPic.composeImgStr = @"";
-         [self.proModel.cameraArr addObject:modelPic];
-         
-         // UI Model
-         EPTakePictureModel *photoModel = [EPTakePictureModel new];
-         photoModel.partsIndex = self.partsIndex;
-         photoModel.index = self.nowIndex;
-         photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-         [self.takeCasePicArr addObject:photoModel];
-     }
+    if (self.nowIndex == proModel.cameraArr.count) {
+
+        // 拍摄图片的信息数组---存入数据库之用
+        EPImageModel *imgInfoModel = [EPImageModel new];
+        imgInfoModel.subCateId = self.proModel.subCateId;
+        imgInfoModel.subCateName = self.proModel.subCateName;
+        imgInfoModel.cateId = self.proModel.cateId;
+        imgInfoModel.cateName = self.proModel.cateName;
+        imgInfoModel.sort = (int)self.nowIndex;
+        imgInfoModel.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+        imgInfoModel.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+        imgInfoModel.isPaiZhaoFlag = @"NO";
+        imgInfoModel.cameraImgStr = @"";
+        imgInfoModel.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
+        imgInfoModel.composeImgStr = @"";
+        [self.proModel.cameraArr addObject:imgInfoModel];
+
+        // 拍摄的图片数组---存入沙盒之用
+        EPTakePictureModel *takePicModel = [EPTakePictureModel new];
+        takePicModel.index = self.nowIndex;
+        takePicModel.partsIndex = self.partsIndex;
+        takePicModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+        takePicModel.cameraImgStr = imgInfoModel.cameraImgStr;
+        [self.takeCasePicArr addObject:takePicModel];
+    }
 }
 
 /** 初始化系统相机 */
@@ -224,29 +225,36 @@
         
         // 新增空位
         if (!self.nextBtn.selected) {
+            
             self.nowIndex = self.nowIndex + 1;// 更新索引
+            
             // 添加相关补充(添加占位图model)
             if (self.nowIndex == self.proModel.cameraArr.count) {
-                EPImageModel *modelPic = [EPImageModel new];
-                modelPic.subCateId = self.proModel.subCateId;
-                modelPic.subCateName = self.proModel.subCateName;
-                modelPic.cateId = self.proModel.cateId;
-                modelPic.cateName = self.proModel.cateName;
-                modelPic.sort = (int)self.nowIndex;
-                modelPic.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
-                modelPic.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-                modelPic.isPaiZhaoFlag = @"NO";
-                modelPic.cameraImgStr = @"";
-                modelPic.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
-                modelPic.composeImgStr = @"";
-                [self.proModel.cameraArr addObject:modelPic];
-                // 图片数组
-                EPTakePictureModel *photoModel = [EPTakePictureModel new];
-                photoModel.index = self.nowIndex;
-                photoModel.partsIndex = self.partsIndex;
-                photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-                [self.takeCasePicArr addObject:photoModel];
+                
+                // 拍摄图片的信息数组---存入数据库之用
+                EPImageModel *imgInfoModel = [EPImageModel new];
+                imgInfoModel.subCateId = self.proModel.subCateId;
+                imgInfoModel.subCateName = self.proModel.subCateName;
+                imgInfoModel.cateId = self.proModel.cateId;
+                imgInfoModel.cateName = self.proModel.cateName;
+                imgInfoModel.sort = (int)self.nowIndex;
+                imgInfoModel.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+                imgInfoModel.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+                imgInfoModel.isPaiZhaoFlag = @"NO";
+                imgInfoModel.cameraImgStr = @"";
+                imgInfoModel.tempImgStr = kDefaultTempImageArray[self.partsIndex][self.nowIndex];
+                imgInfoModel.composeImgStr = @"";
+                [self.proModel.cameraArr addObject:imgInfoModel];
+                
+                // 拍摄的图片数组---存入沙盒之用
+                EPTakePictureModel *takePicModel = [EPTakePictureModel new];
+                takePicModel.index = self.nowIndex;
+                takePicModel.partsIndex = self.partsIndex;
+                takePicModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+                takePicModel.cameraImgStr = imgInfoModel.cameraImgStr;
+                [self.takeCasePicArr addObject:takePicModel];
             }
+            
             // 更新画面
             [self updateUIAndLoadImageData];
             self.takePicStatusType = CaseTakePicStatusTypeDefault;
@@ -405,27 +413,28 @@
 /** 保存拍摄的图片 */
 - (void)saveTakePicture{
     
-    // 保存新Model(替换)
-    EPImageModel *model = [EPImageModel new];
-    model.subCateId = self.proModel.subCateId;
-    model.subCateName = self.proModel.subCateName;
-    model.cateId = self.proModel.cateId;
-    model.cateName = self.proModel.cateName;
-    model.sort = (int)self.nowIndex;
-    model.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
-    model.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-    model.isPaiZhaoFlag = @"YES";
-    model.cameraImgStr = tableNameImage(KUID, @"iOSPZ", self.timeStampStr, [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
-    model.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
-    [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:model];
+    // Save拍摄图片的信息数组---存入数据库之用
+    EPImageModel *imgInfoModel = [EPImageModel new];
+    imgInfoModel.subCateId = self.proModel.subCateId;
+    imgInfoModel.subCateName = self.proModel.subCateName;
+    imgInfoModel.cateId = self.proModel.cateId;
+    imgInfoModel.cateName = self.proModel.cateName;
+    imgInfoModel.sort = (int)self.nowIndex;
+    imgInfoModel.sortId = kPartsImgsPoIDArr[self.partsIndex][self.nowIndex];
+    imgInfoModel.sortName = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    imgInfoModel.isPaiZhaoFlag = @"YES";
+    imgInfoModel.cameraImgStr = tableNameImage(KUID, @"iOSPZ", self.timeStampStr, [NSString stringWithFormat:@"%ld",(long)self.nowIndex]);
+    imgInfoModel.tempImgStr = self.proModel.cameraArr[self.nowIndex].tempImgStr;// 不改变对比图
+    [self.proModel.cameraArr replaceObjectAtIndex:self.nowIndex withObject:imgInfoModel];
     
-    // 确认照片
-    EPTakePictureModel *photoModel = [EPTakePictureModel new];
-    photoModel.index = self.nowIndex;
-    photoModel.cameraImage = self.outImageView.contentImageView.image;
-    photoModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
-    photoModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
-    [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:photoModel];
+    // Save拍摄的UIImage模型数组---存入沙盒之用
+    EPTakePictureModel *takePicModel = [EPTakePictureModel new];
+    takePicModel.index = self.nowIndex;
+    takePicModel.cameraImage = self.outImageView.contentImageView.image;
+    takePicModel.defaultImage = self.takeCasePicArr[self.nowIndex].defaultImage;
+    takePicModel.title = kPartsImgsPoNameArr[self.partsIndex][self.nowIndex];
+    takePicModel.cameraImgStr = imgInfoModel.cameraImgStr;
+    [self.takeCasePicArr replaceObjectAtIndex:self.nowIndex withObject:takePicModel];
     
     
 }
@@ -476,13 +485,3 @@
 }
 
 @end
-
-///** 懒加载 */
-//- (CZAlbumScrollView *)outImageView{
-//
-//    if (!_outImageView) {
-//        _outImageView = [[CZAlbumScrollView alloc] initWithFrame:CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT * 0.5)];
-//    }
-//
-//    return _outImageView;
-//}
