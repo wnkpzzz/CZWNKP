@@ -7,6 +7,7 @@
 //
 
 #import "SqliteLogicHandler.h"
+#import <Photos/Photos.h>
 
 @interface SqliteLogicHandler()
 
@@ -25,144 +26,6 @@
     });
     return instance;
 }
-
-// 保存项目图片到沙盒---OK
-- (void)saveImageInfoToSandboxWith:(NSArray <EPTakePictureModel *>*)imgslist
-                          complete:(resultBackBlock)complete {
-    
-    __block BOOL isEnd = NO;
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    
-    for (int i = 0; i < imgslist.count; i++) {
-        EPTakePictureModel * imgModel = imgslist[i];
-        if (imgModel.cameraImage) {
-            NSLog(@"任务A开始执行--%d",i);
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
-            [[SqliteManager sharedInstance] saveImageToSandboxWith:imgModel.cameraImage AndName:imgModel.cameraImgStr complete:^(BOOL isSucess) {
-                dispatch_semaphore_signal(semaphore); // + 1 释放
-            
-                // 模拟失败标记
-//                if (i == 3) { isSucess = NO;  }
- 
-                if (isSucess) {
-                    NSLog(@"任务执行完毕-成功--%d",i);
-                }else{
-                    isEnd = YES;
-                    NSLog(@"任务执行完毕-失败--%d",i);
-                }
-            }];
-        }
-        if (isEnd) { complete(NO); break; return; }
-    }
-}
-
-// 保存信息到数据库表
-- (void)saveInfoToDataTableWithFri:(NSArray <EPUserInfoModel *>*)frislist
-                               Pro:(NSArray <EPProjectModel *>*)proslist
-                               Img:(NSArray <EPImageModel *>*)imgslist
-                          complete:(resultBackBlock)complete{
-    
-    if (imgslist == nil || imgslist.count == 0 || proslist == nil || proslist.count == 0 ) {  NSLog(@"传入数据为空"); complete(NO); }
-       
-    // 使用信号量保证串行队列+异步操作
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    __block BOOL isEnd = NO;
-
-    NSLog(@"任务A开始执行");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
-    [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:imgslist complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(semaphore); // + 1 释放
-
-//        success = NO; // 模拟失败标记
-
-        if (success) {
-            NSLog(@"任务A执行完毕-成功");
-        }else{
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"任务A执行完毕-失败");
-                complete(NO);
-                return;
-            });
-        }
-    }];
-
-    if (isEnd) { return; }
-    NSLog(@"任务B开始执行");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:proslist complete:^(BOOL success, id  _Nonnull obj) {
-
-        dispatch_semaphore_signal(semaphore);
-
-        if (success) {
-            NSLog(@"任务B执行完毕-成功");
-        }else{
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"任务B执行完毕-失败");
-                complete(NO);
-                return;
-            });
-        }
-    }];
-
-    if (isEnd) { return; }
-    NSLog(@"任务C开始执行");
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    [[SqliteManager sharedInstance] updateUsersListWithUID:KUID datalist:frislist complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(semaphore);
-
-        if (success) {
-            NSLog(@"任务C执行完毕-成功");
-            complete(YES);
-        }else{
-            isEnd = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"任务C执行完毕-失败");
-                complete(NO);
-                return;
-            });
-        }
-    }];
-}
-
- 
-
-/** 1、案例_创建新用户 */
-- (void)create_newFiles_WithFri:(EPUserInfoModel *)userModel
-                            Pro:(EPProjectModel *)proModel
-                            img:(NSArray <EPImageModel *>*)imgslist
-                            Pic:(NSArray <EPTakePictureModel *>*)picslist
-                       complete:(resultBackBlock)complete{
-    
-    // 1、数据非空校验
-    if (userModel == nil || proModel == nil || imgslist.count == 0 || picslist.count == 0) {
-        complete(NO); NSLog(@"请补全完整信息");
-    }
-    
-    // 2、数据准备
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    NSMutableArray * frislist = [NSMutableArray arrayWithCapacity:10];
-    NSMutableArray * proslist = [NSMutableArray arrayWithCapacity:10];
-    [frislist addObject:userModel]; [proslist addObject:proModel];
- 
-    // 3、图片插入
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
-    [self saveImageInfoToSandboxWith:picslist complete:^(BOOL isSucess) {
-        dispatch_semaphore_signal(semaphore); // + 1 释放
-        if (!isSucess) { complete(NO); return; }
-    }];
-   
-    // 4、数据库插入
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    [self saveInfoToDataTableWithFri:frislist Pro:proslist Img:imgslist complete:^(BOOL isSucess) {
-        dispatch_semaphore_signal(semaphore);
-        if (isSucess) { complete(YES); }else{ complete(NO); return; }
-    }];
-    
-}
-
- 
 
 /*
  * 用户案例新建/案例新增
@@ -299,5 +162,49 @@
         }
     }];
 }
+
+/* 图片存入本机相册
+ * @param  picslist  拍摄的图片UIImage对象（在缓存中）
+ */
+- (void)savePictureToiPhoneAlbumWithPic:(NSArray <EPTakePictureModel *>*)picslist
+                               complete:(resultBackBlock)complete{
+    // 标记数据
+    int endIndex = 0;
+    __block BOOL isEnd = NO;
+
+    // 获取最后一张的索引
+    for (int i = 0; i < picslist.count; i++) {
+        EPTakePictureModel *picModel = [picslist objectAtIndex:i];
+        if (picModel.cameraImage) { endIndex = i; }
+    }
+     
+    // 循环保存
+    for (int i = 0; i < picslist.count; i++) {
+        EPTakePictureModel *picModel = [picslist objectAtIndex:i];
+        if (picModel.cameraImage) {
+
+            // 转NSData(保证图片高质量UIImagePNGRepresentation)
+            NSData *imageData = UIImagePNGRepresentation(picModel.cameraImage);
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];
+                PHAssetCreationRequest *createRequest = [PHAssetCreationRequest creationRequestForAsset];
+                [createRequest addResourceWithType:PHAssetResourceTypePhoto data:imageData options:options];
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    if (success) {
+                        NSLog(@"图片保存本机相册----OK");
+                        if (i == endIndex) {  complete(YES); }
+                    }else{
+                        NSLog(@"图片保存本机相册----NO");
+                        isEnd = YES;
+                    }
+                });
+            }];
+        }
+        if (isEnd) { complete(NO); break; return; }
+    }
+}
+
 
 @end
