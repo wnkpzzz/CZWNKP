@@ -20,6 +20,9 @@
 @property (nonatomic,strong) NSMutableArray *resultProsDataArr;
 @property (nonatomic,strong) NSMutableArray *resultImgsProDataArr;
 
+@property (nonatomic,strong) NSMutableArray<EPTakePictureModel *> *myTakePicDataArr;
+ 
+
 // 信号量控制线程同步
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
@@ -39,7 +42,11 @@
     self.resultFrisDataArr = [NSMutableArray arrayWithCapacity:10];
     self.resultProsDataArr = [NSMutableArray arrayWithCapacity:10];
     self.resultImgsProDataArr = [NSMutableArray arrayWithCapacity:10];
+    
+    self.myTakePicDataArr = [NSMutableArray arrayWithCapacity:10];
 
+
+ 
     [self getLocalFrisData];
 
 }
@@ -122,8 +129,24 @@
 - (IBAction)moniInserUserListAction:(id)sender {
      
     
+    for (int i = 0; i < 5; i++) {
+        
+        EPTakePictureModel * picModel = [[EPTakePictureModel alloc] init];
+        picModel.cameraImage =kImage(@"launch_0");
+        picModel.cameraImgStr = [NSString stringWithFormat:@"16%@",[AppUtils getNowTimeCuo]];
+        [self.myTakePicDataArr addObject:picModel];
+    }
     
-//    
+    [[SqliteLogicHandler sharedInstance] saveImageInfoToSandboxWith:self.myTakePicDataArr complete:^(BOOL isSucess) {
+        
+        if (isSucess) {
+            NSLog(@"图片保存沙盒成功");
+        }else{
+            NSLog(@"图片保存沙盒失败");
+        }
+
+    }];
+
 //    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
 //        
 //        if (isSucess) {

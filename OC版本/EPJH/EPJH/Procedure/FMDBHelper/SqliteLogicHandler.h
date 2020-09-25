@@ -26,11 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 2、用户档案创建-图片存入本机相册 */
 - (void)saveImageInfoToiPhoneAlbumWith:(NSArray <EPTakePictureModel *>*)imgslist complete:(resultBackBlock)complete;
 
-/** 3、用户档案创建-图片,项目,病人信息存入数据库表 */
+/** 3、用户档案创建-将图片+项目/病人信息存入数据库表 */
 - (void)saveInfoToDataTableWithImg:(NSArray <EPImageModel *>*)imgslist
                                 Pro:(NSArray <EPProjectModel *>*)proslist
                                 Fri:(NSArray <EPUserInfoModel *>*)frislist
                            complete:(resultBackBlock)complete;
+
+
+
 
 @end
 
