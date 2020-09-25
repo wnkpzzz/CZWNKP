@@ -123,17 +123,17 @@
      
     
     
-    
-    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
-        
-        if (isSucess) {
-            
-            NSLog(@"新建用户成功");
-        }else{
-            NSLog(@"新建用户失败");
-
-        }
-    }]; ;
+//    
+//    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
+//        
+//        if (isSucess) {
+//            
+//            NSLog(@"新建用户成功");
+//        }else{
+//            NSLog(@"新建用户失败");
+//
+//        }
+//    }]; ;
     
 
     
