@@ -9,8 +9,7 @@
 #import "SqliteLogicHandler.h"
 
 @interface SqliteLogicHandler()
-// 使用信号量保证串行队列+异步操作
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
+
 @end
 
 
@@ -185,7 +184,6 @@
     if ( proModel == nil || imgslist.count == 0 || picslist.count == 0 ) { complete(NO); NSLog(@"请补全完整信息"); }
  
     // 2、数据准备
-    self.semaphore = dispatch_semaphore_create(1);
     NSMutableArray * frislist = [NSMutableArray arrayWithCapacity:10];
     NSMutableArray * proslist = [NSMutableArray arrayWithCapacity:10];
     [frislist addObject:friModel]; [proslist addObject:proModel];
@@ -200,7 +198,6 @@
         if (isSucess) { complete(YES); }else{ complete(NO); }
     }];
     
-    
 }
 
 
@@ -208,15 +205,16 @@
                           complete:(resultBackBlock)complete {
     
     __block BOOL isEnd = NO;
-    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+
     for (int i = 0; i < imgslist.count; i++) {
         EPTakePictureModel * imgModel = imgslist[i];
         if (imgModel.cameraImage) {
             NSLog(@"图片保存任务开始执行--%d",i);
-            dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER); // -1 等待
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
             [[SqliteManager sharedInstance] saveImageToSandboxWith:imgModel.cameraImage AndName:imgModel.cameraImgStr complete:^(BOOL isSucess) {
-                dispatch_semaphore_signal(self.semaphore); // + 1 释放
-              
+              dispatch_semaphore_signal(semaphore); // + 1 释放
+
                 if (isSucess) {
                     NSLog(@"图片保存任务执行完毕-成功--%d",i);
                 }else{
@@ -237,12 +235,13 @@
                            complete:(resultBackBlock)complete{
  
     __block BOOL isEnd = NO;
- 
+ dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+
     NSLog(@"数据表任务A_开始执行");
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER); // -1 等待
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
     [[SqliteManager sharedInstance] updateImagesListWithUID:KUID datalist:imgslist complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(self.semaphore); // + 1 释放
- 
+        dispatch_semaphore_signal(semaphore); // + 1 释放
+
         if (success) {
             NSLog(@"数据表任务A_执行完毕-成功");
         }else{
@@ -257,9 +256,9 @@
 
     if (isEnd) { return; }
     NSLog(@"数据表任务B_开始执行");
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
     [[SqliteManager sharedInstance] updateProjectsListWithUID:KUID datalist:proslist complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(self.semaphore);
+        dispatch_semaphore_signal(semaphore); // + 1 释放
 
         if (success) {
             NSLog(@"数据表任务B_执行完毕-成功");
@@ -283,9 +282,9 @@
 
     if (isEnd) { return; }
     NSLog(@"数据表任务C_开始执行");
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER); // -1 等待
     [[SqliteManager sharedInstance] updateUsersListWithUID:KUID datalist:frislist complete:^(BOOL success, id  _Nonnull obj) {
-        dispatch_semaphore_signal(self.semaphore);
+        dispatch_semaphore_signal(semaphore); // + 1 释放
 
         if (success) {
             NSLog(@"数据表任务C_执行完毕-成功");

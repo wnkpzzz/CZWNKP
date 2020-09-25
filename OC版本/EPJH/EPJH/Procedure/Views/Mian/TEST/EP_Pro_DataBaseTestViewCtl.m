@@ -82,12 +82,7 @@
    
     
     
-    for (int i = 0; i < 5; i++) { 
-        EPTakePictureModel * picModel = [[EPTakePictureModel alloc] init];
-        picModel.cameraImage =kImage(@"launch_0");
-        picModel.cameraImgStr = [NSString stringWithFormat:@"16%@",[AppUtils getNowTimeCuo]];
-        [self.myTakePicDataArr addObject:picModel];
-    }
+   
 }
 
 - (EPProjectModel *)getProjectInfoWithFriID:(NSString *)friID ProID:(NSString *)proID{
@@ -105,10 +100,16 @@
 
  
     for (int i = 0; i < 1; i++) {
+        
         long idNum = 4016 + i;
         NSString * imgID =  [NSString stringWithFormat:@"%ld%@",idNum,[AppUtils getNowTimeCuo]];
         EPImageModel *imgInfo = [self getImageProInfoWithFriID:proInfo.customerId ProID:proInfo.projectId ImgID:imgID];
         [self.myImgsProDataArr addObject:imgInfo];
+        
+        EPTakePictureModel * picModel = [[EPTakePictureModel alloc] init];
+        picModel.cameraImage =kImage(@"launch_0");
+        picModel.cameraImgStr = [NSString stringWithFormat:@"16%@",[AppUtils getNowTimeCuo]];
+        [self.myTakePicDataArr addObject:picModel];
     }
   
     return proInfo;
@@ -135,10 +136,8 @@
 // 备注:考虑到事务需要SQL语句，这里使用框架的模型转换SQL的形式，使用信号量+标记开关来控制数据。
 
 - (IBAction)moniInserUserListAction:(id)sender {
-     
-
-    
-    [[SqliteLogicHandler sharedInstance] createFilesType:CreateFilesTypeNew Fri:self.myFrisDataArr.firstObject Pro:self.myProsDataArr.firstObject Img:self.myImgsProDataArr Pic:self.myTakePicDataArr complete:^(BOOL isSucess) {
+      
+    [[SqliteLogicHandler sharedInstance] createFilesWithType:CreateFilesTypeNew Fri:self.myFrisDataArr.firstObject Pro:self.myProsDataArr.firstObject Img:self.myImgsProDataArr Pic:self.myTakePicDataArr complete:^(BOOL isSucess) {
         
             if (isSucess) {
                 NSLog(@"一键保存数据_成功");

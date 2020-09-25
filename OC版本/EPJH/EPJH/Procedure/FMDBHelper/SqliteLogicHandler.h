@@ -44,11 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
                    complete:(resultBackBlock)complete;
 
 /* 图片存入本机相册
- *
- *
- *
+ * @param  picslist  拍摄的图片UIImage对象（在缓存中）
  */
-- (void)savePictureToiPhoneAlbumWithPic:(NSArray <EPTakePictureModel *>*)imgslist
+- (void)savePictureToiPhoneAlbumWithPic:(NSArray <EPTakePictureModel *>*)picslist
                               complete:(resultBackBlock)complete;
 
 @end
