@@ -80,6 +80,14 @@
         [self.myFrisDataArr addObject:userModel];
      }
    
+    
+    
+    for (int i = 0; i < 5; i++) { 
+        EPTakePictureModel * picModel = [[EPTakePictureModel alloc] init];
+        picModel.cameraImage =kImage(@"launch_0");
+        picModel.cameraImgStr = [NSString stringWithFormat:@"16%@",[AppUtils getNowTimeCuo]];
+        [self.myTakePicDataArr addObject:picModel];
+    }
 }
 
 - (EPProjectModel *)getProjectInfoWithFriID:(NSString *)friID ProID:(NSString *)proID{
@@ -128,14 +136,7 @@
 
 - (IBAction)moniInserUserListAction:(id)sender {
      
-    
-    for (int i = 0; i < 5; i++) {
-        
-        EPTakePictureModel * picModel = [[EPTakePictureModel alloc] init];
-        picModel.cameraImage =kImage(@"launch_0");
-        picModel.cameraImgStr = [NSString stringWithFormat:@"16%@",[AppUtils getNowTimeCuo]];
-        [self.myTakePicDataArr addObject:picModel];
-    }
+
     
     [[SqliteLogicHandler sharedInstance] createFilesType:CreateFilesTypeNew Fri:self.myFrisDataArr.firstObject Pro:self.myProsDataArr.firstObject Img:self.myImgsProDataArr Pic:self.myTakePicDataArr complete:^(BOOL isSucess) {
         
@@ -147,28 +148,7 @@
     }];
     
     
-//    [[SqliteLogicHandler sharedInstance] saveImageInfoToSandboxWith:self.myTakePicDataArr complete:^(BOOL isSucess) {
-//        
-//        if (isSucess) {
-//            NSLog(@"图片保存沙盒成功");
-//        }else{
-//            NSLog(@"图片保存沙盒失败");
-//        }
-//
-//    }];
-
-//    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
-//        
-//        if (isSucess) {
-//            
-//            NSLog(@"新建用户成功");
-//        }else{
-//            NSLog(@"新建用户失败");
-//
-//        }
-//    }]; ;
-    
-
+ 
     
     
 }

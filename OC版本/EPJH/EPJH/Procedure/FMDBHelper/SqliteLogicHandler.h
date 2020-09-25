@@ -25,36 +25,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 单例 */
 + (instancetype)sharedInstance;
-
-/** 1、案例_创建新用户 */
-- (void)create_newFiles_WithFri:(EPUserInfoModel *)userModel
-                            Pro:(EPProjectModel *)proModel
-                            img:(NSArray <EPImageModel *>*)imgslist
-                            Pic:(NSArray <EPTakePictureModel *>*)picslist
-                       complete:(resultBackBlock)complete;
-
-/** 2、案例_为已有用户添加档案信息 */
-- (void)create_addProInfo_WithPro:(EPProjectModel *)proModel
-                              img:(NSArray <EPImageModel *>*)imgslist
-                              Pic:(NSArray <EPTakePictureModel *>*)picslist
-                         complete:(resultBackBlock)complete;
-
  
+ 
+/*
+ * 用户案例新建/案例新增
+ * @param  signType  新建病人/选择已有病人
+ * @param  friModel  病人信息数据
+ * @param  proModel  项目信息数据
+ * @param  imgslist  图片信息数据
+ * @param  picslist  拍摄的图片UIImage对象（在缓存中）
+ * @param  complete  Block返回
+*/
+- (void)createFilesWithType:(CreateFilesType)signType
+                        Fri:(EPUserInfoModel *)friModel
+                        Pro:(EPProjectModel *)proModel
+                        Img:(NSArray <EPImageModel *>*)imgslist
+                        Pic:(NSArray <EPTakePictureModel *>*)picslist
+                   complete:(resultBackBlock)complete;
 
-/** 3、用户档案创建-图片存入本机相册 */
-- (void)saveImageInfoToiPhoneAlbumWith:(NSArray <EPTakePictureModel *>*)imgslist
+/* 图片存入本机相册
+ *
+ *
+ *
+ */
+- (void)savePictureToiPhoneAlbumWithPic:(NSArray <EPTakePictureModel *>*)imgslist
                               complete:(resultBackBlock)complete;
-
-
-
-- (void)createFilesType:(CreateFilesType)signType
-                    Fri:(EPUserInfoModel *)friModel
-                    Pro:(EPProjectModel *)proModel
-                    Img:(NSArray <EPImageModel *>*)imgslist
-                    Pic:(NSArray <EPTakePictureModel *>*)picslist
-               complete:(resultBackBlock)complete;
-
-
 
 @end
 

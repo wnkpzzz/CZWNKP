@@ -166,19 +166,20 @@
  
 
 /*
+ * 用户案例新建/案例新增
  * @param  signType  新建病人/选择已有病人
  * @param  friModel  病人信息数据
  * @param  proModel  项目信息数据
  * @param  imgslist  图片信息数据
  * @param  picslist  拍摄的图片UIImage对象（在缓存中）
  * @param  complete  Block返回
- */
-- (void)createFilesType:(CreateFilesType)signType
-                    Fri:(EPUserInfoModel *)friModel
-                    Pro:(EPProjectModel *)proModel
-                    Img:(NSArray <EPImageModel *>*)imgslist
-                    Pic:(NSArray <EPTakePictureModel *>*)picslist
-               complete:(resultBackBlock)complete{
+*/
+- (void)createFilesWithType:(CreateFilesType)signType
+                        Fri:(EPUserInfoModel *)friModel
+                        Pro:(EPProjectModel *)proModel
+                        Img:(NSArray <EPImageModel *>*)imgslist
+                        Pic:(NSArray <EPTakePictureModel *>*)picslist
+                   complete:(resultBackBlock)complete{
     
     // 1、数据非空校验
     if ( proModel == nil || imgslist.count == 0 || picslist.count == 0 ) { complete(NO); NSLog(@"请补全完整信息"); }
@@ -189,18 +190,14 @@
     NSMutableArray * proslist = [NSMutableArray arrayWithCapacity:10];
     [frislist addObject:friModel]; [proslist addObject:proModel];
 
-    // 3、图片插入
-//    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER); // -1 等待
+    // 3、图片插入沙盒指定目录
     [self savePictureInfoWithImg:picslist complete:^(BOOL isSucess) {
-//        dispatch_semaphore_signal(self.semaphore); // + 1 释放
         if (!isSucess) { complete(NO); return; }
     }];
 
-    // 4、数据库插入
-//    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    // 4、信息插入数据库表
     [self saveInfoToDataTableWithType:signType Fri:frislist Pro:proslist Img:imgslist complete:^(BOOL isSucess) {
-//        dispatch_semaphore_signal(self.semaphore);
-        if (isSucess) { complete(YES); }else{ complete(NO); return; }
+        if (isSucess) { complete(YES); }else{ complete(NO); }
     }];
     
     
@@ -211,7 +208,7 @@
                           complete:(resultBackBlock)complete {
     
     __block BOOL isEnd = NO;
- 
+    
     for (int i = 0; i < imgslist.count; i++) {
         EPTakePictureModel * imgModel = imgslist[i];
         if (imgModel.cameraImage) {
@@ -303,4 +300,5 @@
         }
     }];
 }
+
 @end
