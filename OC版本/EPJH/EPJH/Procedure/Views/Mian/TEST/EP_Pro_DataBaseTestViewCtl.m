@@ -137,15 +137,25 @@
         [self.myTakePicDataArr addObject:picModel];
     }
     
-    [[SqliteLogicHandler sharedInstance] saveImageInfoToSandboxWith:self.myTakePicDataArr complete:^(BOOL isSucess) {
+    [[SqliteLogicHandler sharedInstance] createFilesType:CreateFilesTypeNew Fri:self.myFrisDataArr.firstObject Pro:self.myProsDataArr.firstObject Img:self.myImgsProDataArr Pic:self.myTakePicDataArr complete:^(BOOL isSucess) {
         
-        if (isSucess) {
-            NSLog(@"图片保存沙盒成功");
-        }else{
-            NSLog(@"图片保存沙盒失败");
-        }
-
+            if (isSucess) {
+                NSLog(@"一键保存数据_成功");
+            }else{
+                NSLog(@"一键保存数据_失败");
+            }
     }];
+    
+    
+//    [[SqliteLogicHandler sharedInstance] saveImageInfoToSandboxWith:self.myTakePicDataArr complete:^(BOOL isSucess) {
+//        
+//        if (isSucess) {
+//            NSLog(@"图片保存沙盒成功");
+//        }else{
+//            NSLog(@"图片保存沙盒失败");
+//        }
+//
+//    }];
 
 //    [[SqliteLogicHandler sharedInstance]  saveInfoToDataTableWithImg:self.myImgsProDataArr Pro:self.myProsDataArr.firstObject Fri:self.myFrisDataArr.firstObject complete:^(BOOL isSucess) {
 //        
