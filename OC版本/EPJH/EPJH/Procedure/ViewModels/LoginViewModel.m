@@ -33,7 +33,7 @@
                 [NSUSERDEFAULTS setObject:partyViewDic[@"id"] forKey:kUserID];
                 [NSUSERDEFAULTS setObject:partyViewDic[@"profile"] forKey:kUserImage];
                 [NSUSERDEFAULTS setObject:accountStr forKey:kPhoneNum];
-                
+ 
                 // 2 跳转页面
                 [AppJump goHomeVC];
                 

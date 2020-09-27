@@ -22,6 +22,7 @@
 
 @property (nonatomic,strong) NSMutableArray<EPTakePictureModel *> *myTakePicDataArr;
  
+@property (nonatomic,strong) FMDatabase *db;
 
 // 信号量控制线程同步
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
@@ -35,14 +36,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [NSUSERDEFAULTS setValue:@"10008" forKey:kUserID];
     self.myFrisDataArr = [NSMutableArray arrayWithCapacity:10];
     self.myProsDataArr = [NSMutableArray arrayWithCapacity:10];
     self.myImgsProDataArr = [NSMutableArray arrayWithCapacity:10];
     self.resultFrisDataArr = [NSMutableArray arrayWithCapacity:10];
     self.resultProsDataArr = [NSMutableArray arrayWithCapacity:10];
     self.resultImgsProDataArr = [NSMutableArray arrayWithCapacity:10];
-    
     self.myTakePicDataArr = [NSMutableArray arrayWithCapacity:10];
 
 
@@ -51,12 +50,11 @@
 
 }
  
-
 // 模拟得到批量用户+项目+图片数据
 - (void)getLocalFrisData{
   
-     for (int i=0; i<1; i++) {
-         
+     for (int i = 0; i < 1; i++) {
+
         long idNum = 2016 + i;
         EPUserInfoModel *userModel=  [[EPUserInfoModel alloc] init];
         userModel.bindUserId = KUID;
@@ -134,7 +132,6 @@
 // 1、使用用数据库的事务功能，来保证同时执行成功。
 // 2、自己做开关标记，记录失败，回滚。
 // 备注:考虑到事务需要SQL语句，这里使用框架的模型转换SQL的形式，使用信号量+标记开关来控制数据。
-
 - (IBAction)moniInserUserListAction:(id)sender {
       
     [[SqliteLogicHandler sharedInstance] createFilesWithType:CreateFilesTypeNew Fri:self.myFrisDataArr.firstObject Pro:self.myProsDataArr.firstObject Img:self.myImgsProDataArr Pic:self.myTakePicDataArr complete:^(BOOL isSucess) {
@@ -187,7 +184,8 @@
     NSDictionary *accurateInfo = @{@"customerId":userModel.uid};
     dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
     [[SqliteManager sharedInstance] queryProjectTableWithUID:KUID accurateInfo:accurateInfo fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
-      
+      dispatch_semaphore_signal(weakSelf.semaphore);
+
         if (success) {
           
             NSArray * dataArr = obj;
@@ -197,16 +195,16 @@
                 [weakSelf.resultProsDataArr addObjectsFromArray:sortDataArr];
             }
         }
-        dispatch_semaphore_signal(weakSelf.semaphore);
 
     }];
     
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
     for (EPProjectModel * proModel in weakSelf.resultProsDataArr) {
      
+        dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
         NSDictionary *accurateInfo = @{@"projectId":proModel.projectId};
         [[SqliteManager sharedInstance] queryImageTableWithUID:KUID accurateInfo:accurateInfo fuzzyInfo:nil otherSQLDict:nil complete:^(BOOL success, id  _Nonnull obj) {
-            
+            dispatch_semaphore_signal(weakSelf.semaphore);
+
             NSArray * dataArr = obj;
             NSArray * sortDataArr = [[dataArr reverseObjectEnumerator] allObjects];
             NSLog(@"%@====KK",sortDataArr );
@@ -216,9 +214,50 @@
             }
         }];
                  
-        dispatch_semaphore_signal(weakSelf.semaphore);
 
     }
+ 
+}
+
+
+
+
+- (void)seruofhasdihfkasodhiyf{
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[path lastObject] stringByAppendingPathComponent:@"10001/Fris/fri_10001.sqlite"];
+
+    //创建数据库
+    _db = [FMDatabase databaseWithPath:filePath];
+
+    //打开数据库
+    if ([_db open]) {
+        NSLog(@"打开数据库成功");
+    }else{
+        NSLog(@"打开数据库失败");
+    }
+    
+    /*
+     *查询数据库
+     */
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+
+    NSString *sql = @"select * FROM fri_10001 where sex = 1 and userName like '%1%' order by id asc limit 0,10 ";
+    FMResultSet *rs = [_db executeQuery:sql];
+    while ([rs next]) {
+     
+//        YHUserInfo *model = [[YHUserInfo alloc] init];
+//        model.uid = [rs stringForColumn:@"uid"];
+//        model.accessToken = [rs stringForColumn:@"accessToken"];
+//        model.taxAccount = [rs stringForColumn:@"taxAccount"];
+//        model.mobilephone = [rs stringForColumn:@"mobilephone"];
+//
+//        [array addObject:model];
+
+    }
+    
+    NSLog(@"%@=====KK",array);
+    
  
 }
 
@@ -236,12 +275,6 @@
         }
     }];
 }
-// 删除我的好友表
-- (IBAction)deleteMyFriTable:(id)sender {
-    
- 
-    
-}
 // 查询多个好友
 - (IBAction)selectMoreFrisInfo:(id)sender {
     
@@ -256,14 +289,6 @@
             NSLog(@"%@ not find in database",failUids);
         }
     }];
-}
-// 查询我的好友表
-- (IBAction)selectMyFriTable:(id)sender {
-    
-}
-// 更新某个好友信息
-- (IBAction)updateOneMyFriInfo:(id)sender {
-    
 }
 // 条件查询好友
 - (IBAction)conditionSelectMyFriTable:(id)sender {

@@ -42,12 +42,9 @@
                                 <constraint firstAttribute="width" constant="140" id="e5Z-q5-UkY"/>
                                 <constraint firstAttribute="height" constant="30" id="qfI-d3-nf1"/>
                             </constraints>
-                            <state key="normal" title="删除我的好友表">
+                            <state key="normal">
                                 <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="deleteMyFriTable:" destination="-1" eventType="touchUpInside" id="V9u-4l-SDJ"/>
-                            </connections>
                         </button>
                         <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8W-zd-krC">
                             <rect key="frame" x="82" y="199" width="250" height="30"/>
@@ -70,12 +67,9 @@
                                 <constraint firstAttribute="width" constant="140" id="fMm-S4-5wl"/>
                                 <constraint firstAttribute="height" constant="30" id="q3U-dm-EBD"/>
                             </constraints>
-                            <state key="normal" title="查询我的好友表">
+                            <state key="normal">
                                 <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="selectMyFriTable:" destination="-1" eventType="touchUpInside" id="bU0-e6-7SV"/>
-                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的好友表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6C-wX-9ay">
                             <rect key="frame" x="163.5" y="88" width="87" height="21"/>
@@ -90,12 +84,9 @@
                                 <constraint firstAttribute="height" constant="30" id="Tyb-6v-cgL"/>
                                 <constraint firstAttribute="width" constant="140" id="o3X-Gc-2O8"/>
                             </constraints>
-                            <state key="normal" title="更新某个好友信息">
+                            <state key="normal">
                                 <color key="titleColor" red="0.35594309419999998" green="0.47005120169999998" blue="0.33367563490000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <connections>
-                                <action selector="updateOneMyFriInfo:" destination="-1" eventType="touchUpInside" id="lau-ud-zmE"/>
-                            </connections>
                         </button>
                         <button opaque="NO" tag="206" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgw-fQ-xpX">
                             <rect key="frame" x="137" y="319" width="140" height="30"/>
@@ -207,7 +198,7 @@
                 <constraint firstItem="f8n-xt-0dl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xo8-RL-bqO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-481" y="-31"/>
+            <point key="canvasLocation" x="-729" y="-108"/>
         </view>
     </objects>
 </document>
