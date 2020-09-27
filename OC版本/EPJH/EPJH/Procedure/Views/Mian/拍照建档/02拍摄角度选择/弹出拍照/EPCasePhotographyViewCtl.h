@@ -12,9 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 拍照状态枚举 */
-typedef NS_ENUM(NSInteger, CaseTakePicStatusType) {
-    CaseTakePicStatusTypeDefault  , // 默认状态，隐藏下一步，取消按钮。
-    CaseTakePicStatusTypeTakePic  , // 拍摄完成界面，显示隐藏下一步，取消按钮，隐藏其他无关图标。
+typedef NS_ENUM(NSInteger, CaseTakePicStatus) {
+    CaseTakePicStatusDefault  , // 默认状态，隐藏下一步，取消按钮，根据逻辑隐藏下一步。
+    CaseTakePicStatusTakePic  , // 拍摄完成界面，显示隐藏下一步，取消按钮，隐藏其他无关图标。
 };
 
 @interface EPCasePhotographyViewCtl : RootViewController

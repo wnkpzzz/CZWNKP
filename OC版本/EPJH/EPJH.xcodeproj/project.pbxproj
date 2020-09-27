@@ -395,7 +395,7 @@
 		ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteLogicHandler.m; sourceTree = "<group>"; };
 		ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPAngleSelectCell.xib; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
-		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3B54FD24BEB0E7008CBB51 /* 医拍重构.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "医拍重构.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ED3B550724BEB0E7008CBB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -926,7 +926,7 @@
 		ED3B54FE24BEB0E7008CBB51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */,
+				ED3B54FD24BEB0E7008CBB51 /* 医拍重构.app */,
 				ED3B551524BEB0E8008CBB51 /* EPJHTests.xctest */,
 				ED3B552024BEB0E8008CBB51 /* EPJHUITests.xctest */,
 			);
@@ -1857,7 +1857,7 @@
 			);
 			name = EPJH;
 			productName = EPJH;
-			productReference = ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */;
+			productReference = ED3B54FD24BEB0E7008CBB51 /* 医拍重构.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED3B551424BEB0E8008CBB51 /* EPJHTests */ = {
@@ -2548,7 +2548,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.preoperative.sqsh.zcz;
-				PRODUCT_NAME = CZProjectTestDemo;
+				PRODUCT_NAME = "医拍重构";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2570,7 +2570,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.preoperative.sqsh.zcz;
-				PRODUCT_NAME = CZProjectTestDemo;
+				PRODUCT_NAME = "医拍重构";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

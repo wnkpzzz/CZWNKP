@@ -149,7 +149,7 @@
      
     WS(weakSelf);
     EPCasePhotographyViewCtl *Vc = [[EPCasePhotographyViewCtl alloc] init];
-    [Vc reloadDataWithModel:self.projectModel
+    [Vc reloadDataWithModel:[self.projectModel mutableCopy]
                  pictureArr:self.takeCameraArr
                   indexSign:index
                   timeStamp:self.timeStampStr];

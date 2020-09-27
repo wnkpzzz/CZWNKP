@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED3B54FC24BEB0E7008CBB51"
-               BuildableName = "CZProjectTestDemo.app"
+               BuildableName = "&#x533b;&#x62cd;&#x91cd;&#x6784;.app"
                BlueprintName = "EPJH"
                ReferencedContainer = "container:EPJH.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3B54FC24BEB0E7008CBB51"
-            BuildableName = "CZProjectTestDemo.app"
+            BuildableName = "&#x533b;&#x62cd;&#x91cd;&#x6784;.app"
             BlueprintName = "EPJH"
             ReferencedContainer = "container:EPJH.xcodeproj">
          </BuildableReference>
@@ -74,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3B54FC24BEB0E7008CBB51"
-            BuildableName = "CZProjectTestDemo.app"
+            BuildableName = "&#x533b;&#x62cd;&#x91cd;&#x6784;.app"
             BlueprintName = "EPJH"
             ReferencedContainer = "container:EPJH.xcodeproj">
          </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3B54FC24BEB0E7008CBB51"
-            BuildableName = "CZProjectTestDemo.app"
+            BuildableName = "&#x533b;&#x62cd;&#x91cd;&#x6784;.app"
             BlueprintName = "EPJH"
             ReferencedContainer = "container:EPJH.xcodeproj">
          </BuildableReference>
