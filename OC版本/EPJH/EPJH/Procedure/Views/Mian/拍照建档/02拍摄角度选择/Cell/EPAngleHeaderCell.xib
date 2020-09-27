@@ -162,7 +162,7 @@
                 <outlet property="shuHouBtn" destination="y3M-W4-e68" id="Ibd-4q-aSh"/>
                 <outlet property="shuQianBtn" destination="xjA-Qk-wlm" id="H18-oy-dq5"/>
             </connections>
-            <point key="canvasLocation" x="-749.27536231884062" y="-88.058035714285708"/>
+            <point key="canvasLocation" x="-103" y="-108"/>
         </tableViewCell>
     </objects>
 </document>

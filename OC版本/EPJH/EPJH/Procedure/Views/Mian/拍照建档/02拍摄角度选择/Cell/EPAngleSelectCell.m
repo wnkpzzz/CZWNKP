@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *selectView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectViewHeight;// 选择视图高度约束
 
-@property (nonatomic, strong) NSArray * titleArr;
+@property (nonatomic, strong) NSArray * collectionItems;
 @property (nonatomic, assign) NSInteger rowIndex;// 显示行数
 @property (nonatomic, assign) NSInteger selectedIndex;// 选中索引
  
@@ -41,10 +41,11 @@
        
     self.rowIndex = 0;
     self.selectedIndex = 0;
-    self.titleArr = [[NSArray alloc] init];
-    self.titleArr = kPartsNameArr;
-    self.rowIndex = self.titleArr.count%5==0?self.titleArr.count%5:(self.titleArr.count%5+1);
-    
+    self.collectionItems = [[NSArray alloc] init];
+    self.collectionItems = kPartsNameArr;
+    self.rowIndex = self.collectionItems.count%5==0?self.collectionItems.count%5:(self.collectionItems.count%5+1);
+    self.selectViewHeight.constant = kWidth(30);
+
     [self createCollectionView];
  
 }
@@ -52,12 +53,7 @@
 - (IBAction)shouAction:(UIButton *)sender{
     
     sender.selected = !sender.selected;
-    if (sender.selected) {
-        self.selectViewHeight.constant = self.rowIndex*kWidth(30);
-    }else{
-        self.selectViewHeight.constant = kWidth(30);
-    }
-      
+    self.selectViewHeight.constant = sender.selected ? self.rowIndex*kWidth(30) : kWidth(30);
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
@@ -80,13 +76,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.titleArr.count;
+    return self.collectionItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     EPAngleSelectColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[EPAngleSelectColCell cellID] forIndexPath:indexPath];
-    cell.mainLabel.text = self.titleArr[indexPath.item];
+    cell.mainLabel.text = self.collectionItems[indexPath.item];
     if (self.selectedIndex == indexPath.item) {
         cell.mainLabel.textColor = [UIColor whiteColor];
         cell.mainLabel.backgroundColor = [UIColor colorWithHexString:@"#00B0FF"];
