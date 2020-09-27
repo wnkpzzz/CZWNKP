@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 点击回调Block */
 @property (nonatomic, copy)void(^selectBlock)(NSInteger selectIndex);
 
+@property (nonatomic, copy)void(^refreshFoldBlock)(void);
 
  
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */; };
-		ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */; };
 		ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */; };
 		ED09A13D24CEA1D900045106 /* EPAngleBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */; };
 		ED0A7FA424E52910005E3DC3 /* EPBottomImgSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A7FA224E52910005E3DC3 /* EPBottomImgSelectColCell.m */; };
@@ -49,6 +48,7 @@
 		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
 		ED20479824F4BB2A000A6040 /* EPAngleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */; };
 		ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */; };
+		ED2D1A7F25208CC7006855DE /* EPAngleSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */; };
 		ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
@@ -344,7 +344,6 @@
 		A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EPJH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED09A13424CEA1CA00045106 /* EPAngleSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleSelectCell.h; sourceTree = "<group>"; };
 		ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleSelectCell.m; sourceTree = "<group>"; };
-		ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleSelectCell.xib; sourceTree = "<group>"; };
 		ED09A13924CEA1D900045106 /* EPAngleBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleBottomCell.h; sourceTree = "<group>"; };
 		ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleBottomCell.m; sourceTree = "<group>"; };
 		ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleBottomCell.xib; sourceTree = "<group>"; };
@@ -394,6 +393,7 @@
 		ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPAngleHeaderCell.xib; sourceTree = "<group>"; };
 		ED2778E2251CAA26007946A3 /* SqliteLogicHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteLogicHandler.h; sourceTree = "<group>"; };
 		ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteLogicHandler.m; sourceTree = "<group>"; };
+		ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPAngleSelectCell.xib; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* CZProjectTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZProjectTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -801,7 +801,7 @@
 				ED20479624F4BB2A000A6040 /* EPAngleHeaderCell.xib */,
 				ED09A13424CEA1CA00045106 /* EPAngleSelectCell.h */,
 				ED09A13524CEA1CA00045106 /* EPAngleSelectCell.m */,
-				ED09A13624CEA1CA00045106 /* EPAngleSelectCell.xib */,
+				ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */,
 				ED09A13924CEA1D900045106 /* EPAngleBottomCell.h */,
 				ED09A13A24CEA1D900045106 /* EPAngleBottomCell.m */,
 				ED09A13B24CEA1D900045106 /* EPAngleBottomCell.xib */,
@@ -1992,7 +1992,6 @@
 				ED4B504F24F4F0EA00C0DCF9 /* Mark_X_Camera_Nose_09.jpg in Resources */,
 				ED4B509824F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Face_01.jpg in Resources */,
 				ED4B509724F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_09.jpg in Resources */,
-				ED09A13824CEA1CA00045106 /* EPAngleSelectCell.xib in Resources */,
 				ED4B506B24F4F0EA00C0DCF9 /* Mark_Camera_Nose_03.jpg in Resources */,
 				ED3DB94725145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib in Resources */,
 				ED81FF4324CE740B009844CB /* backItemImage@2x.png in Resources */,
@@ -2124,6 +2123,7 @@
 				ED4B506924F4F0EA00C0DCF9 /* Mark_Camera_Nose_06.jpg in Resources */,
 				ED4B50E524F502D600C0DCF9 /* Mark_Chest_02.jpg in Resources */,
 				ED3E679524C064CF0055B4E7 /* HomeCollectionViewCell.xib in Resources */,
+				ED2D1A7F25208CC7006855DE /* EPAngleSelectCell.xib in Resources */,
 				ED0A802024E54BA9005E3DC3 /* proSelect_0.png in Resources */,
 				ED4B50F324F502D600C0DCF9 /* Mark_Nose_03.jpg in Resources */,
 				ED4B50A124F4F0EA00C0DCF9 /* Mark_Camera_Frame_Chest_05.jpg in Resources */,

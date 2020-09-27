@@ -308,6 +308,8 @@
         EPAngleSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:[EPAngleSelectCell cellID] forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.selectBlock = ^(NSInteger selectIndex) { [weakself selectViewSelectWithIndex:selectIndex]; };
+        cell.refreshFoldBlock = ^{ [weakself.tableView reloadData]; };
+             
         return cell;
     }else{
         

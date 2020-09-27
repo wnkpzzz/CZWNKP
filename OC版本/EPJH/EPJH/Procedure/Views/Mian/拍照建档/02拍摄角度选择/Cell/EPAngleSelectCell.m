@@ -10,14 +10,12 @@
 
 @interface EPAngleSelectCell()<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIButton *showBtn;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectViewHeight;// 选择视图高度约束
 
-@property (nonatomic, strong) NSArray * collectionItems;
 @property (nonatomic, assign) NSInteger rowIndex;// 显示行数
 @property (nonatomic, assign) NSInteger selectedIndex;// 选中索引
- 
+@property (nonatomic, strong) NSArray * collectionItems;
 
 @end
 
@@ -50,10 +48,13 @@
  
 }
  
-- (IBAction)shouAction:(UIButton *)sender{
+- (IBAction)refreshFoldAction:(UIButton *)sender{
     
     sender.selected = !sender.selected;
     self.selectViewHeight.constant = sender.selected ? self.rowIndex*kWidth(30) : kWidth(30);
+    
+    if (self.refreshFoldBlock) {  self.refreshFoldBlock(); }
+    
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
