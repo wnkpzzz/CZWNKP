@@ -34,10 +34,10 @@
  
      if (itemSelected) {
          [self.picImageView setImage:kImage(@"icon_pro_surgery_type")];
-              self.backgroundColor = RGB(180, 180, 180);
+              self.backgroundColor = RGB(234, 234, 234);
      }else{
          [self.picImageView setImage:nil];
-         self.backgroundColor = RGB(250, 250, 250);
+         self.backgroundColor = RGB(244, 248, 254);
      }
 }
 
