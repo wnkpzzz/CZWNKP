@@ -21,6 +21,9 @@
 #define kTipsFlag               @"kTipsFlag"            // 拍摄角度选择页面的提示。
 #define kCheckInstallFlag       @"kCheckInstallFlag"    // 检测是否是初次安装弹出隐私政策
 
- 
+#define kCellID                 @"kCellID"
+#define kSexArray               @[@"保密",@"男", @"女"]
+#define kAgeArray               @[@"00后", @"90后", @"80后", @"70后", @"60后", @"50后"]
+
 
 #endif /* AppCommon_h */

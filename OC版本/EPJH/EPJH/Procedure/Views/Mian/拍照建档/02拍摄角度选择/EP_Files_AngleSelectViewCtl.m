@@ -14,12 +14,10 @@
 @property (nonatomic, assign) NSInteger partsIndex;     // 部位节点索引，面部，身体，四肢。。。
 
 // 用户案例档案数据初始化
-@property (nonatomic, strong) EPUserInfoModel * userModel;
-@property (nonatomic, strong) EPProjectModel  * projectModel; 
-@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;
-@property (nonatomic, copy)   NSString  * timeStampStr; // 整个项目唯一时间戳标记
-
-
+@property (nonatomic, strong) EPUserInfoModel * userModel; // 档案病人Model信息
+@property (nonatomic, strong) EPProjectModel  * projectModel;   // 档案项目Model信息
+@property (nonatomic, strong) NSMutableArray<EPTakePictureModel *> *takeCameraArr;  // 拍摄的照片信息数组
+@property (nonatomic, copy)   NSString  * timeStampStr;   // 档案创建过程中唯一标定时间戳
 
 @end
 

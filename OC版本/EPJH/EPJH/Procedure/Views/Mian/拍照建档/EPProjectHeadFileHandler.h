@@ -18,7 +18,7 @@
 #import "EP_Files_AngleSelectViewCtl.h"
 /** 03项目选择 */
 #import "EP_Files_ProSelectViewCtl.h"
-/** 04填写资料 */
+/** 04填写个人资料 */
 #import "EP_Files_FillInDataViewCtl.h"
 /** 05填写选填选择 */
 #import "EP_Files_OptionalDataViewCtl.h"
@@ -53,6 +53,9 @@
 
 #import "EPTypeListClassifyModel.h"
 
+
+// 04个人资料
+#import "EPCitySelectViewCtl.h"  //  城市选择
 
 
 

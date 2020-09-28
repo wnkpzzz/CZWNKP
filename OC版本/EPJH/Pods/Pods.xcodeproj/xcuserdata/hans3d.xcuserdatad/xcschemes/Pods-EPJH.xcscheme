@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E5006A7C429B496815C1F7E2D03DC6CA"
+               BlueprintIdentifier = "2C4BD7A25A51F402566196E566E0E0DB"
                BuildableName = "Pods_EPJH.framework"
                BlueprintName = "Pods-EPJH"
                ReferencedContainer = "container:Pods.xcodeproj">

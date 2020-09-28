@@ -300,6 +300,8 @@
 		EDBC28632513878A00252E17 /* EP_Files_QueryMainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC28612513878A00252E17 /* EP_Files_QueryMainViewCtl.m */; };
 		EDBC28642513878A00252E17 /* EP_Files_QueryMainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */; };
 		EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */; };
+		EDC1EE98252182BE00E531C3 /* EPCitySelectViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC1EE97252182BE00E531C3 /* EPCitySelectViewCtl.m */; };
+		EDC1EE9C2521840700E531C3 /* EPCityProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC1EE9B2521840700E531C3 /* EPCityProvinceModel.m */; };
 		EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */; };
 		EDFBDDD6251AFFE50077B4DE /* PAirSandbox.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDB1251AFFE40077B4DE /* PAirSandbox.m */; };
 		EDFBDDD7251AFFE50077B4DE /* SBMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDB7251AFFE50077B4DE /* SBMenuController.m */; };
@@ -719,6 +721,10 @@
 		EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Files_QueryMainViewCtl.xib; sourceTree = "<group>"; };
 		EDBC286A2513887200252E17 /* EP_User_MainViewCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EP_User_MainViewCtl.m; sourceTree = "<group>"; };
 		EDBC286B2513887300252E17 /* EP_User_MainViewCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EP_User_MainViewCtl.h; sourceTree = "<group>"; };
+		EDC1EE96252182BE00E531C3 /* EPCitySelectViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCitySelectViewCtl.h; sourceTree = "<group>"; };
+		EDC1EE97252182BE00E531C3 /* EPCitySelectViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCitySelectViewCtl.m; sourceTree = "<group>"; };
+		EDC1EE9A2521840700E531C3 /* EPCityProvinceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCityProvinceModel.h; sourceTree = "<group>"; };
+		EDC1EE9B2521840700E531C3 /* EPCityProvinceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCityProvinceModel.m; sourceTree = "<group>"; };
 		EDCC787124E7962D00B0FC4C /* EPTakePictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTakePictureModel.h; sourceTree = "<group>"; };
 		EDCC787224E7962D00B0FC4C /* EPTakePictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTakePictureModel.m; sourceTree = "<group>"; };
 		EDFBDDB1251AFFE40077B4DE /* PAirSandbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAirSandbox.m; sourceTree = "<group>"; };
@@ -976,6 +982,7 @@
 		ED3B553224BECCE6008CBB51 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				EDC1EE942521826C00E531C3 /* Tools */,
 				ED3B554124BED914008CBB51 /* NetWork */,
 				ED3B553F24BED914008CBB51 /* Category */,
 				ED3B553E24BED914008CBB51 /* Library */,
@@ -1755,6 +1762,33 @@
 			path = "05选填资料";
 			sourceTree = "<group>";
 		};
+		EDC1EE942521826C00E531C3 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				EDC1EE952521829000E531C3 /* 城市筛选 */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		EDC1EE952521829000E531C3 /* 城市筛选 */ = {
+			isa = PBXGroup;
+			children = (
+				EDC1EE99252183E100E531C3 /* Model */,
+				EDC1EE96252182BE00E531C3 /* EPCitySelectViewCtl.h */,
+				EDC1EE97252182BE00E531C3 /* EPCitySelectViewCtl.m */,
+			);
+			path = "城市筛选";
+			sourceTree = "<group>";
+		};
+		EDC1EE99252183E100E531C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDC1EE9A2521840700E531C3 /* EPCityProvinceModel.h */,
+				EDC1EE9B2521840700E531C3 /* EPCityProvinceModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EDDC6C792518447D004CC18F /* TEST */ = {
 			isa = PBXGroup;
 			children = (
@@ -2239,6 +2273,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EPJH/Pods-EPJH-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -2255,6 +2290,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -2284,6 +2320,7 @@
 				ED3E678F24C061140055B4E7 /* EPHomeCollectionView.m in Sources */,
 				EDFBDDD7251AFFE50077B4DE /* SBMenuController.m in Sources */,
 				ED4C624E24F661D000333507 /* EPTypeMaterialListTableViewCell.m in Sources */,
+				EDC1EE9C2521840700E531C3 /* EPCityProvinceModel.m in Sources */,
 				EDFBDDE5251AFFE50077B4DE /* SBSqliteManager.m in Sources */,
 				EDBC28542513821800252E17 /* EP_Files_ProSelectViewCtl.m in Sources */,
 				ED74A6F724BFEE0E00D9FA77 /* RootTableViewDataSource.m in Sources */,
@@ -2362,6 +2399,7 @@
 				ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */,
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
+				EDC1EE98252182BE00E531C3 /* EPCitySelectViewCtl.m in Sources */,
 				ED0A7FB424E53DAE005E3DC3 /* NSObject+YHDBRuntime.m in Sources */,
 				EDFBDDE2251AFFE50077B4DE /* SBTableInfoItem.m in Sources */,
 				ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */,

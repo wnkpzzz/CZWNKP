@@ -27,5 +27,6 @@ target 'EPJH' do
 
     pod 'Bugly', '2.5.0'
     pod 'SSZipArchive'  #zip解压缩
-
+    pod 'BRPickerView'  #各种选择器
+    
 end

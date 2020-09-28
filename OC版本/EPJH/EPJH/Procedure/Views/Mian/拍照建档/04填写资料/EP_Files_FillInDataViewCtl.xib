@@ -10,6 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EP_Files_FillInDataViewCtl">
             <connections>
+                <outlet property="addressTF" destination="0k4-al-dpO" id="yeF-26-YXG"/>
+                <outlet property="locationTF" destination="OdQ-Hx-TJb" id="SVr-Wn-d5C"/>
+                <outlet property="locationView" destination="eam-TH-yYA" id="xrY-bS-x6A"/>
+                <outlet property="nameTF" destination="ayC-Ki-Bsj" id="MRQ-K0-Ekl"/>
+                <outlet property="sexTF" destination="kuF-IH-vVz" id="RCe-jl-O0K"/>
+                <outlet property="sexView" destination="NLf-IH-fct" id="tt2-79-HTc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -261,7 +267,7 @@
                 <constraint firstAttribute="bottom" secondItem="2Zz-1r-JXC" secondAttribute="bottom" id="kgC-Xh-tjk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-512" y="157"/>
+            <point key="canvasLocation" x="-858" y="-115"/>
         </view>
     </objects>
     <resources>
