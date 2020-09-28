@@ -21,9 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void(^addressCompleted)(NSString *province, NSString *city);
 
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END

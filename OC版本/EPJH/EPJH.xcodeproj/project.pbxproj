@@ -982,11 +982,11 @@
 		ED3B553224BECCE6008CBB51 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				EDC1EE942521826C00E531C3 /* Tools */,
+				ED3B554224BED914008CBB51 /* Root */,
+				EDC1EE942521826C00E531C3 /* ToolsApp */,
+				ED3B553E24BED914008CBB51 /* ToolsSDK */,
 				ED3B554124BED914008CBB51 /* NetWork */,
 				ED3B553F24BED914008CBB51 /* Category */,
-				ED3B553E24BED914008CBB51 /* Library */,
-				ED3B554224BED914008CBB51 /* Root */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1032,14 +1032,14 @@
 			path = FMDBHelper;
 			sourceTree = "<group>";
 		};
-		ED3B553E24BED914008CBB51 /* Library */ = {
+		ED3B553E24BED914008CBB51 /* ToolsSDK */ = {
 			isa = PBXGroup;
 			children = (
 				EDFBDDB0251AFFE40077B4DE /* AirSandbox（查看沙盒文件） */,
 				EDFBDDB3251AFFE40077B4DE /* SBWatcher（查看沙盒文件） */,
 				ED3B558524BEF487008CBB51 /* MBProgressHUD */,
 			);
-			path = Library;
+			path = ToolsSDK;
 			sourceTree = "<group>";
 		};
 		ED3B553F24BED914008CBB51 /* Category */ = {
@@ -1762,12 +1762,12 @@
 			path = "05选填资料";
 			sourceTree = "<group>";
 		};
-		EDC1EE942521826C00E531C3 /* Tools */ = {
+		EDC1EE942521826C00E531C3 /* ToolsApp */ = {
 			isa = PBXGroup;
 			children = (
 				EDC1EE952521829000E531C3 /* 城市筛选 */,
 			);
-			path = Tools;
+			path = ToolsApp;
 			sourceTree = "<group>";
 		};
 		EDC1EE952521829000E531C3 /* 城市筛选 */ = {

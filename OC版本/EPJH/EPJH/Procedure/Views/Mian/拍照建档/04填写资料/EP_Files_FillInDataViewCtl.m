@@ -26,10 +26,6 @@
 //详细地址
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 
-
-@property (nonatomic, strong) EPUserInfoModel * userModel; // 档案病人Model信息
-
-
 @end
 
 @implementation EP_Files_FillInDataViewCtl
@@ -41,6 +37,7 @@
 }
 
 #pragma mark - 基础配置
+
 - (void)loadBaseConfig{
  
     self.province = @"";
@@ -80,9 +77,6 @@
 
 #pragma mark - 事件处理
 
-
-
-// 性别城市选择
 - (void)tapViewDidTap:(UITapGestureRecognizer *)tap {
     
     [self.view endEditing:YES];
