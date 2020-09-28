@@ -282,6 +282,7 @@
 		ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86405F24D7E88400FD7F7D /* EPProjectModel.m */; };
 		ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86406224D7E89200FD7F7D /* EPUserInfoModel.m */; };
 		ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86406524D7E8FF00FD7F7D /* EPImageModel.m */; };
+		ED93DE412521B407009E999A /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED93DE402521B407009E999A /* AppLocationManager.m */; };
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
 		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
@@ -692,6 +693,8 @@
 		ED86406224D7E89200FD7F7D /* EPUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPUserInfoModel.m; sourceTree = "<group>"; };
 		ED86406424D7E8FF00FD7F7D /* EPImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPImageModel.h; sourceTree = "<group>"; };
 		ED86406524D7E8FF00FD7F7D /* EPImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPImageModel.m; sourceTree = "<group>"; };
+		ED93DE3F2521B407009E999A /* AppLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLocationManager.h; sourceTree = "<group>"; };
+		ED93DE402521B407009E999A /* AppLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppLocationManager.m; sourceTree = "<group>"; };
 		ED991AB424E51C68006F819C /* EPAngleSelectColCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleSelectColCell.h; sourceTree = "<group>"; };
 		ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAngleSelectColCell.m; sourceTree = "<group>"; };
 		ED991AB724E51CD5006F819C /* RootCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1691,6 +1694,15 @@
 			path = "首页广告";
 			sourceTree = "<group>";
 		};
+		ED93DE3E2521B3F8009E999A /* 定位 */ = {
+			isa = PBXGroup;
+			children = (
+				ED93DE3F2521B407009E999A /* AppLocationManager.h */,
+				ED93DE402521B407009E999A /* AppLocationManager.m */,
+			);
+			path = "定位";
+			sourceTree = "<group>";
+		};
 		EDBC2832251379A500252E17 /* 拍照建档 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1765,6 +1777,7 @@
 		EDC1EE942521826C00E531C3 /* ToolsApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED93DE3E2521B3F8009E999A /* 定位 */,
 				EDC1EE952521829000E531C3 /* 城市筛选 */,
 			);
 			path = ToolsApp;
@@ -2392,6 +2405,7 @@
 				ED3E679E24C078260055B4E7 /* EPHomeCycleScrollView.m in Sources */,
 				ED444EE42519D784004920D2 /* SqliteManager+Image.m in Sources */,
 				EDBC2845251380E200252E17 /* EP_Files_AngleSelectViewCtl.m in Sources */,
+				ED93DE412521B407009E999A /* AppLocationManager.m in Sources */,
 				ED3B557224BEE41A008CBB51 /* EPRegisterViewCtl.m in Sources */,
 				ED3E678624C042AF0055B4E7 /* RootViewModel.m in Sources */,
 				ED3B554824BED945008CBB51 /* RootViewController.m in Sources */,
