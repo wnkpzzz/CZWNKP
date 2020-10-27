@@ -54,7 +54,6 @@
 - (void)getLocalFrisData{
   
      for (int i = 0; i < 1; i++) {
-
         long idNum = 2016 + i;
         EPUserInfoModel *userModel=  [[EPUserInfoModel alloc] init];
         userModel.bindUserId = KUID;
@@ -62,7 +61,7 @@
         userModel.createTime = [AppUtils getNowTimeCuo];
         userModel.timeFormat = [AppUtils timestampChangeTime:[AppUtils getNowTimeCuo] WithFormat:@"yyyy-MM-dd"];
         userModel.realName = [NSString stringWithFormat:@"userName%d",i];     //姓名
-        userModel.sex = (arc4random()%2==1)?@"男":@"女";            // 1-男， 0-女
+        userModel.sex = (arc4random()%2==1)?@"1":@"0";            // 1-男， 0-女
         userModel.headImg = @"";
         userModel.province = (arc4random()%2==1)?@"随机省份":@"广东省";     //省份
         userModel.city  = (arc4random()%2==1)?@"随机工作城市":@"广州";     //工作城市
@@ -77,10 +76,6 @@
           
         [self.myFrisDataArr addObject:userModel];
      }
-   
-    
-    
-   
 }
 
 - (EPProjectModel *)getProjectInfoWithFriID:(NSString *)friID ProID:(NSString *)proID{
