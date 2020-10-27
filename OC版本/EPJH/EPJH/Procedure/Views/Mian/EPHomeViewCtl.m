@@ -84,11 +84,14 @@
 - (EPHomeCollectionView *)centerContentView {
     
     if (!_centerContentView) {
-        
+        WS(weakSelf);
         _centerContentView = [[EPHomeCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.centerBgView.width, self.centerBgView.height)];
         _centerContentView.btnClickBlock = ^(UIView * customView, NSInteger index) {
             
             NSLog(@"%ld点击了",index);
+            EP_Files_QueryMainViewCtl * Vc = [[EP_Files_QueryMainViewCtl alloc] init];
+            [weakSelf.navigationController pushViewController:Vc animated:YES];
+            
         };
        
     }

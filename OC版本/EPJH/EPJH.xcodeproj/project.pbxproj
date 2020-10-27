@@ -267,6 +267,8 @@
 		ED4B511224F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B511024F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m */; };
 		ED4C624E24F661D000333507 /* EPTypeMaterialListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4C624D24F661D000333507 /* EPTypeMaterialListTableViewCell.m */; };
 		ED4C625E24F66C7400333507 /* EPTypeMaterialListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4C625D24F66C7400333507 /* EPTypeMaterialListView.xib */; };
+		ED5FED542547B2F800899F17 /* EP_Files_QueryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5FED522547B2F800899F17 /* EP_Files_QueryInfoCell.m */; };
+		ED5FED552547B2F800899F17 /* EP_Files_QueryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED5FED532547B2F800899F17 /* EP_Files_QueryInfoCell.xib */; };
 		ED66F48624F5F629001E8F2C /* EPTypeListClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED66F48524F5F629001E8F2C /* EPTypeListClassifyModel.m */; };
 		ED66F48C24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED66F48A24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.m */; };
 		ED66F48D24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED66F48B24F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.xib */; };
@@ -667,6 +669,9 @@
 		ED4C624C24F661D000333507 /* EPTypeMaterialListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTypeMaterialListTableViewCell.h; sourceTree = "<group>"; };
 		ED4C624D24F661D000333507 /* EPTypeMaterialListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTypeMaterialListTableViewCell.m; sourceTree = "<group>"; };
 		ED4C625D24F66C7400333507 /* EPTypeMaterialListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPTypeMaterialListView.xib; sourceTree = "<group>"; };
+		ED5FED512547B2F800899F17 /* EP_Files_QueryInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Files_QueryInfoCell.h; sourceTree = "<group>"; };
+		ED5FED522547B2F800899F17 /* EP_Files_QueryInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Files_QueryInfoCell.m; sourceTree = "<group>"; };
+		ED5FED532547B2F800899F17 /* EP_Files_QueryInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Files_QueryInfoCell.xib; sourceTree = "<group>"; };
 		ED66F48424F5F629001E8F2C /* EPTypeListClassifyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPTypeListClassifyModel.h; sourceTree = "<group>"; };
 		ED66F48524F5F629001E8F2C /* EPTypeListClassifyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPTypeListClassifyModel.m; sourceTree = "<group>"; };
 		ED66F48924F6018A001E8F2C /* EPCameraBodyPartCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCameraBodyPartCollectionViewCell.h; sourceTree = "<group>"; };
@@ -985,6 +990,7 @@
 		ED3B553224BECCE6008CBB51 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				ED3B553D24BED914008CBB51 /* FMDBHelper */,
 				ED3B554224BED914008CBB51 /* Root */,
 				EDC1EE942521826C00E531C3 /* ToolsApp */,
 				ED3B553E24BED914008CBB51 /* ToolsSDK */,
@@ -999,7 +1005,6 @@
 			children = (
 				ED3B555224BED990008CBB51 /* AppJump.h */,
 				ED3B555324BED990008CBB51 /* AppJump.m */,
-				ED3B553D24BED914008CBB51 /* FMDBHelper */,
 				ED74A71324C023EA00D9FA77 /* Views */,
 				ED84878F24C9A15F002B3964 /* Model */,
 				ED74A71424C0240C00D9FA77 /* ViewModels */,
@@ -1553,6 +1558,23 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		ED5FED4F2547AFE400899F17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED5FED512547B2F800899F17 /* EP_Files_QueryInfoCell.h */,
+				ED5FED522547B2F800899F17 /* EP_Files_QueryInfoCell.m */,
+				ED5FED532547B2F800899F17 /* EP_Files_QueryInfoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		ED5FED502547B1C100899F17 /* 项目筛选 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "项目筛选";
+			sourceTree = "<group>";
+		};
 		ED66F48724F5FEEA001E8F2C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1646,6 +1668,8 @@
 		ED84878B24C9A136002B3964 /* 档案查询 */ = {
 			isa = PBXGroup;
 			children = (
+				ED5FED502547B1C100899F17 /* 项目筛选 */,
+				ED5FED4F2547AFE400899F17 /* Cell */,
 				EDBC28602513878A00252E17 /* EP_Files_QueryMainViewCtl.h */,
 				EDBC28612513878A00252E17 /* EP_Files_QueryMainViewCtl.m */,
 				EDBC28622513878A00252E17 /* EP_Files_QueryMainViewCtl.xib */,
@@ -2160,6 +2184,7 @@
 				ED4B50F224F502D600C0DCF9 /* Mark_Nose_01.jpg in Resources */,
 				ED4B504824F4F0EA00C0DCF9 /* Mark_X_Camera_Section_06.jpg in Resources */,
 				ED0A801F24E54BA9005E3DC3 /* proSelect_1.png in Resources */,
+				ED5FED552547B2F800899F17 /* EP_Files_QueryInfoCell.xib in Resources */,
 				ED4B504124F4F0EA00C0DCF9 /* Mark_X_Camera_Section_03.jpg in Resources */,
 				ED4B507C24F4F0EA00C0DCF9 /* Mark_Camera_Face_01.jpg in Resources */,
 				ED4B508824F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_07.jpg in Resources */,
@@ -2379,6 +2404,7 @@
 				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
 				EDBC286D2513887300252E17 /* EP_User_MainViewCtl.m in Sources */,
 				ED444EE12519D774004920D2 /* SqliteManager+project.m in Sources */,
+				ED5FED542547B2F800899F17 /* EP_Files_QueryInfoCell.m in Sources */,
 				ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */,
 				ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */,
 				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
