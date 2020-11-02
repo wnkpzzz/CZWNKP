@@ -206,5 +206,128 @@
     }
 }
 
+/* 查询首页-SQL语句
+ * @param  key  查询参数
+ */
+- (NSString *)formatSQLStrWithName:(NSString *)nameKey
+                              Date:(NSString *)dateKey    
+                               Pro:(NSString *)proKey
+                               Age:(NSString *)ageKey
+                          Province:(NSString *)provinceKey
+                              City:(NSString *)cityKey
+                           Collect:(NSString *)collectKey
+                              Page:(NSInteger)pageKey{
+ 
+    NSString * sqlStr = @"";
+
+    NSString * nameSqlStr = @"";
+    NSString * dateSqlStr = @"";
+    NSString * proSqlStr = @"";
+    NSString * ageSqlStr = @"";
+    NSString * locationSqlStr = @"";
+    NSString * collectSqlStr = @"";
+    NSString * pagingSqlStr = @"";
+    
+    NSInteger page = pageKey * 10 + 1;
+    NSInteger pageSize = (pageKey + 1) * 10;
+    NSString *firTabName = [NSString stringWithFormat:@"fri_%@",KUID];
+    NSString *proTabName = [NSString stringWithFormat:@"pro_%@",KUID];
+    
+    if (nameKey && nameKey.length > 0 ) {
+          nameSqlStr = [NSString stringWithFormat:@" and realName like '%%%@%%' " , nameKey];
+    }
+   
+    if (ageKey && ageKey.length > 0 )   {
+        if ([ageKey isEqualToString:@"00后"]) {  ageSqlStr = @" and age > 8  and age <= 18 "; }
+        if ([ageKey isEqualToString:@"90后"]) {  ageSqlStr = @" and age > 18 and age <= 28 "; }
+        if ([ageKey isEqualToString:@"80后"]) {  ageSqlStr = @" and age > 28 and age <= 38 "; }
+        if ([ageKey isEqualToString:@"70后"]) {  ageSqlStr = @" and age > 38 and age <= 48 "; }
+        if ([ageKey isEqualToString:@"60后"]) {  ageSqlStr = @" and age > 48 and age <= 58 "; }
+        if ([ageKey isEqualToString:@"50后"]) {  ageSqlStr = @" and age > 58 and age <= 68 "; }
+    }
+    if (cityKey && cityKey.length > 0 && provinceKey.length > 0 && provinceKey.length > 0) {
+        locationSqlStr = [NSString stringWithFormat:@" and province = %@ and city = %@" , provinceKey,cityKey];
+    }
+    if (collectKey && collectKey.length > 0 ) {
+        collectSqlStr = [NSString stringWithFormat:@" and isCollect = %@" , collectKey];
+    }
+    pagingSqlStr = [NSString stringWithFormat:@" order by id asc limit %ld,%ld" , page,pageSize];
+ 
+    
+    NSString * proTablSQLStr = @"";
+//    if (dateKey && dateKey.length > 0 ) {
+//        dateSqlStr = [NSString stringWithFormat:@" and createTime = %@" , dateKey];
+//    }
+//    if (proKey && proKey.length > 0 )   {
+//        proSqlStr  = [NSString stringWithFormat:@" and project = %@" , proKey];
+//    }
+//
+//    NSString * proTablSQLStr = [NSString stringWithFormat:@" and customerId in (select customerId from %@  where bindUserId = %@ %@ %@) ",proTabName,KUID,dateSqlStr,proSqlStr];
+//    NSLog(@"%@",proTablSQLStr);
+     
+    sqlStr = [NSString stringWithFormat:@"select * from %@ where bindUserId = %@ %@ %@ %@ %@ %@ %@",firTabName,KUID,nameSqlStr,proTablSQLStr,ageSqlStr,locationSqlStr,collectSqlStr,pagingSqlStr];
+    NSLog(@"%@",sqlStr);
+    
+    return sqlStr;
+    
+}
+
+
 
 @end
+
+///* 查询首页-SQL语句
+// * @param  key  查询参数
+// */
+//- (NSString *)formatSQLStrWithName:(NSString *)nameKey
+//                              Date:(NSString *)dateKey
+//                               Pro:(NSString *)proKey
+//                               Age:(NSString *)ageKey
+//                          Province:(NSString *)provinceKey
+//                              City:(NSString *)cityKey
+//                           Collect:(NSString *)collectKey
+//                              Page:(NSInteger)pageKey{
+//
+//    NSString * sqlStr = @"";
+//    NSString * nameSqlStr = @"";
+//    NSString * dateSqlStr = @"";
+//    NSString * proSqlStr = @"";
+//    NSString * ageSqlStr = @"";
+//    NSString * locationSqlStr = @"";
+//    NSString * collectSqlStr = @"";
+//    NSString * pagingSqlStr = @"";
+//    NSInteger page = pageKey * 10 + 1;
+//    NSInteger pageSize = (pageKey + 1) * 10;
+//    NSString *tabName = [NSString stringWithFormat:@"fri_%@",KUID];
+//
+//    if (nameKey && nameKey.length > 0 ) {
+//          nameSqlStr = [NSString stringWithFormat:@" and realName like '%%%@%%' " , nameKey];
+//    }
+//    if (dateKey && dateKey.length > 0 ) {
+//        dateSqlStr = [NSString stringWithFormat:@" and timeFormat = %@" , dateKey];
+//    }
+//    if (proKey && proKey.length > 0 )   {
+//        proSqlStr  = [NSString stringWithFormat:@" and subCateName = %@" , proKey];
+//    }
+//    if (ageKey && ageKey.length > 0 )   {
+//        if ([ageKey isEqualToString:@"00后"]) {  ageSqlStr = @" and age > 8  and age <= 18 "; }
+//        if ([ageKey isEqualToString:@"90后"]) {  ageSqlStr = @" and age > 18 and age <= 28 "; }
+//        if ([ageKey isEqualToString:@"80后"]) {  ageSqlStr = @" and age > 28 and age <= 38 "; }
+//        if ([ageKey isEqualToString:@"70后"]) {  ageSqlStr = @" and age > 38 and age <= 48 "; }
+//        if ([ageKey isEqualToString:@"60后"]) {  ageSqlStr = @" and age > 48 and age <= 58 "; }
+//        if ([ageKey isEqualToString:@"50后"]) {  ageSqlStr = @" and age > 58 and age <= 68 "; }
+//    }
+//    if (cityKey && cityKey.length > 0 && provinceKey.length > 0 && provinceKey.length > 0) {
+//        locationSqlStr = [NSString stringWithFormat:@" and province = %@ and city = %@" , provinceKey,cityKey];
+//    }
+//    if (collectKey && collectKey.length > 0 ) {
+//        collectSqlStr = [NSString stringWithFormat:@" and isCollect = %@" , collectKey];
+//    }
+//    pagingSqlStr = [NSString stringWithFormat:@" order by id asc limit %ld,%ld" , page,pageSize];
+//
+//    sqlStr = [NSString stringWithFormat:@"select * from %@ where bindUserId = %@ %@ %@ %@ %@ %@ %@ %@",tabName,KUID,nameSqlStr,dateSqlStr,proSqlStr,ageSqlStr,locationSqlStr,collectSqlStr,pagingSqlStr];
+//    NSLog(@"%@",sqlStr);
+//
+//    return sqlStr;
+//
+//}

@@ -43,6 +43,7 @@
 		ED0A803824E54BA9005E3DC3 /* proSelect_no_12.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801C24E54BA9005E3DC3 /* proSelect_no_12.png */; };
 		ED0A803924E54BA9005E3DC3 /* proSelect_no_10.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */; };
 		ED0A803A24E54BA9005E3DC3 /* proSelect_no_11.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */; };
+		ED147D16254A645000179C5C /* PersonVO.m in Sources */ = {isa = PBXBuildFile; fileRef = ED147D15254A645000179C5C /* PersonVO.m */; };
 		ED20479224F4B1D4000A6040 /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */; };
 		ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */; };
 		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
@@ -390,6 +391,8 @@
 		ED0A801C24E54BA9005E3DC3 /* proSelect_no_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_12.png; sourceTree = "<group>"; };
 		ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_10.png; sourceTree = "<group>"; };
 		ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_11.png; sourceTree = "<group>"; };
+		ED147D14254A644F00179C5C /* PersonVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonVO.h; sourceTree = "<group>"; };
+		ED147D15254A645000179C5C /* PersonVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonVO.m; sourceTree = "<group>"; };
 		ED20478F24F4B1D4000A6040 /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
 		ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
 		ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographyViewCtl.xib; sourceTree = "<group>"; };
@@ -1829,6 +1832,8 @@
 		EDDC6C792518447D004CC18F /* TEST */ = {
 			isa = PBXGroup;
 			children = (
+				ED147D14254A644F00179C5C /* PersonVO.h */,
+				ED147D15254A645000179C5C /* PersonVO.m */,
 				ED3DB94325145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.h */,
 				ED3DB94425145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m */,
 				ED3DB94525145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.xib */,
@@ -2417,6 +2422,7 @@
 				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,
 				ED3B553924BED868008CBB51 /* AppDelegate+Common.m in Sources */,
 				EDFBDDE4251AFFE50077B4DE /* SBWatcherManager.m in Sources */,
+				ED147D16254A645000179C5C /* PersonVO.m in Sources */,
 				ED3B554524BED934008CBB51 /* AppNetRequest.m in Sources */,
 				ED66F48624F5F629001E8F2C /* EPTypeListClassifyModel.m in Sources */,
 				EDBC284A2513819B00252E17 /* EP_Files_CreateMainViewCtl.m in Sources */,

@@ -772,4 +772,5 @@
     NSString *timeString = [NSString stringWithFormat:@"%.5f", a];//转为字符型
     return timeString;
 }
+
 @end

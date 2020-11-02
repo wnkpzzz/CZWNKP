@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 单例 */
 + (instancetype)sharedInstance;
  
- 
 /*
  * 用户案例新建/案例新增
  * @param  signType  新建病人/选择已有病人
@@ -49,6 +48,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)savePictureToiPhoneAlbumWithPic:(NSArray <EPTakePictureModel *>*)picslist
                               complete:(resultBackBlock)complete;
 
+/* 查询首页-SQL语句
+ * @param  key  查询参数
+ */
+- (NSString *)formatSQLStrWithName:(NSString *)nameKey
+                              Date:(NSString *)dateKey
+                               Pro:(NSString *)proKey
+                               Age:(NSString *)ageKey
+                          Province:(NSString *)provinceKey
+                              City:(NSString *)cityKey
+                           Collect:(NSString *)collectKey
+                              Page:(NSInteger)pageKey;
 @end
 
 NS_ASSUME_NONNULL_END
