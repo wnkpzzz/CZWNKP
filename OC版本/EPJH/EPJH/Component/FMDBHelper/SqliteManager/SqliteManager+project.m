@@ -46,10 +46,11 @@
     
     // 数据表路径
     NSString *pathMyFri = pathProjectWithDir(ZCProjectDir, uid);
+
     NSFileManager *fileM = [NSFileManager defaultManager];
-    
+
     //如果不存在,则说明是第一次运行这个程序，那么建立这个文件夹
-    if(![fileM fileExistsAtPath:ZCProjectDir]){ 
+    if(![fileM fileExistsAtPath:ZCProjectDir]){
         if (![fileM fileExistsAtPath:ZCUserDir]) {
             [fileM createDirectoryAtPath:ZCUserDir withIntermediateDirectories:YES attributes:nil error:nil];
         }
@@ -57,10 +58,9 @@
             [fileM createDirectoryAtPath:ZCProjectDir withIntermediateDirectories:YES attributes:nil error:nil];
         }
     }
-    
+
     NSLog(@"第一次建我的项目表,数据库操作路径:\n%@",pathMyFri);
-    
-    
+
     CreatTable *model = [[CreatTable alloc] init];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:pathMyFri];
     
