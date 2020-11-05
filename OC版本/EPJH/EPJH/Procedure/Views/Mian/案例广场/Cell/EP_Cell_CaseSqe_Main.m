@@ -8,7 +8,7 @@
 
 #import "EP_Cell_CaseSqe_Main.h"
 #import "EP_Cell_CaseSqe_Details.h"
-#import "EP_Model_CaseSqeList.h"
+#import "EP_Model_CaseSqe_MainList.h"
 
 @interface EP_Cell_CaseSqe_Main ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -44,7 +44,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setDataModel:(EP_Model_CaseSqeList *)dataModel{
+- (void)setDataModel:(EP_Model_CaseSqe_MainList *)dataModel{
     
     _dataModel = dataModel;
 

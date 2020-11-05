@@ -11,12 +11,19 @@
 #import "EP_Pop_CaseSqe_SelectView.h"
 #import "EP_Cell_CaseSqe_Main.h"
 
+#import "EP_ViewModel_Home.h"
+
 @interface EP_Main_CaseSquareViewCtl ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) EP_ViewModel_Home * homeViewModel;
 
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic,strong) NSMutableArray * tableItems;
-@property (assign, nonatomic) NSInteger pageInt;
 
+@property (nonatomic, strong) NSString * brandStr;
+@property (nonatomic, strong) NSString * projectStr;
+@property (nonatomic, assign) NSInteger pageInt;
+@property (nonatomic, assign) BOOL isCollectFlag;
 
 @end
 
@@ -33,9 +40,52 @@
 - (void)loadBaseConfig{
     
     self.navigationItem.title = @"案例广场";
+
+    self.pageInt = 1;
+    self.brandStr = @"";
+    self.projectStr = @"";
+    self.homeViewModel = [[EP_ViewModel_Home alloc] init];
+    self.isCollectFlag = NO;
     
     [self createTableView];
+    
+ 
+    
+}
 
+// 获取主页列表数据
+- (void)getAllDataWithBrand:(NSString *)brandId Project:(NSString *)proId{
+ 
+    WS(weakSelf);
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.homeViewModel requestCaseSquareWithBrand:brandId Project:proId Completion:^(BOOL isSuccess, id  _Nonnull response, NSString * _Nonnull msgStr) {
+       [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+       [weakSelf.tableView.mj_header endRefreshing];
+       [weakSelf.tableView.mj_footer endRefreshing];
+       
+       if (isSuccess) {
+           
+           NSArray * listArr = response;
+           if (weakSelf.pageInt == 1) {
+               [weakSelf.tableItems removeAllObjects];
+               [weakSelf.tableItems addObjectsFromArray:listArr];
+           }else{
+               [weakSelf.tableItems addObjectsFromArray:listArr];
+           }
+//    if (weakSelf.tableItems.count > 0) {  weakSelf.placeHolderView.hidden = YES; }else{ weakSelf.placeHolderView.hidden = NO; }
+           [weakSelf.tableView reloadData];
+           
+       }else{
+           [MBProgressHUD showError:msgStr];
+       }
+       
+    }];
+    
+}
+
+// 获得收藏列表
+- (void)getCollectListData{
+    
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
@@ -48,7 +98,18 @@
     self.tableView.rowHeight = (APP_WIDTH - 60) * 0.5  + 80 + 80;
     self.tableView.backgroundColor = RGB(250, 250, 250);
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EP_Cell_CaseSqe_Main class]) bundle:nil] forCellReuseIdentifier:[EP_Cell_CaseSqe_Main cellID]];
-   
+    
+    // 上下拉刷新
+    WS(weakSelf);
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.pageInt = 1;
+        if (weakSelf.isCollectFlag) { [weakSelf getCollectListData]; }else{ [weakSelf getAllDataWithBrand:nil Project:nil]; }
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.pageInt = weakSelf.pageInt + 1;
+        if (weakSelf.isCollectFlag) { [weakSelf getCollectListData]; }else{ [weakSelf getAllDataWithBrand:nil Project:nil]; }
+    }];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

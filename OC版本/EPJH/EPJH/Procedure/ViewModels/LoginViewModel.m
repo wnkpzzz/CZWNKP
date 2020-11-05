@@ -48,7 +48,6 @@
 /** 获取验证码 */
 - (void)requestGetCodeWith:(NSString *)accountStr withType:(GetCodeRequestType)type completion:(CallbackSimpleCompletion)handler{
     
-
     if ([AppUtils app_isBlankString:accountStr]) {  [MBProgressHUD showError:@"请输入手机号码"]; return; }
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];

@@ -9,6 +9,11 @@
 #ifndef AppTools_h
 #define AppTools_h
 
+
+#define kNetErrorStr                 @"暂无网络连接"
+
+
+
 // Block弱引用
 #define WS(weakSelf)                 __weak __typeof(&*self)weakSelf = self;
 

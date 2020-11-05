@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EP_Model_CaseSqeList.h"
+#import "EP_Model_CaseSqe_MainList.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Cell_CaseSqe_Main : RootTableViewCell
 
 // Model
-@property (nonatomic,strong) EP_Model_CaseSqeList *dataModel;
+@property (nonatomic,strong) EP_Model_CaseSqe_MainList *dataModel;
 
 // Block点击事件
 @property (copy,nonatomic) void (^collectClickBlock)(UITableViewCell * cell);   // 收藏

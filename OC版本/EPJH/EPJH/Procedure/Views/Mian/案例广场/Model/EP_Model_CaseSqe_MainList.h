@@ -1,5 +1,5 @@
 //
-//  EP_Model_CaseSqeList.h
+//  EP_Model_CaseSqe_MainList.h
 //  EPJH
 //
 //  Created by Hans on 2020/11/5.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EP_Model_CaseSqeList : NSObject
+@interface EP_Model_CaseSqe_MainList : NSObject
 
-@property (nonatomic,strong) NSArray<EP_Model_CaseSqeList *> * datas;
+@property (nonatomic,strong) NSArray<EP_Model_CaseSqe_MainList *> * datas;
 
 @property (nonatomic, strong) NSString * id;
 
@@ -33,3 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+//EP_Model_CaseSqe_MainList
+//EP_Model_CaseSqe_DetailList

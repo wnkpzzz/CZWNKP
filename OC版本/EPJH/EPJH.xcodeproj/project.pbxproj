@@ -297,11 +297,12 @@
 		ED8B32A32553D93200EBCF8C /* EP_Pop_CaseSqe_HeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8B32A22553D93200EBCF8C /* EP_Pop_CaseSqe_HeadView.xib */; };
 		ED8B32A62553D95C00EBCF8C /* EP_Pop_CaseSqe_SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32A52553D95C00EBCF8C /* EP_Pop_CaseSqe_SelectView.m */; };
 		ED8B32A82553D96F00EBCF8C /* EP_Pop_CaseSqe_SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8B32A72553D96F00EBCF8C /* EP_Pop_CaseSqe_SelectView.xib */; };
-		ED8B32B22553DF4A00EBCF8C /* EP_Model_CaseSqeList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32B12553DF4A00EBCF8C /* EP_Model_CaseSqeList.m */; };
 		ED8B32BC2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32BA2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.m */; };
 		ED8B32BD2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8B32BB2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.xib */; };
 		ED8B32C12553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32BF2553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.m */; };
 		ED8B32C22553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8B32C02553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.xib */; };
+		ED8B32C82553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32C72553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m */; };
+		ED8B32CB2553EDC300EBCF8C /* EP_ViewModel_Home.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8B32CA2553EDC300EBCF8C /* EP_ViewModel_Home.m */; };
 		ED93DE412521B407009E999A /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED93DE402521B407009E999A /* AppLocationManager.m */; };
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
@@ -736,14 +737,16 @@
 		ED8B32A42553D95C00EBCF8C /* EP_Pop_CaseSqe_SelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Pop_CaseSqe_SelectView.h; sourceTree = "<group>"; };
 		ED8B32A52553D95C00EBCF8C /* EP_Pop_CaseSqe_SelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Pop_CaseSqe_SelectView.m; sourceTree = "<group>"; };
 		ED8B32A72553D96F00EBCF8C /* EP_Pop_CaseSqe_SelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Pop_CaseSqe_SelectView.xib; sourceTree = "<group>"; };
-		ED8B32B02553DF4A00EBCF8C /* EP_Model_CaseSqeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Model_CaseSqeList.h; sourceTree = "<group>"; };
-		ED8B32B12553DF4A00EBCF8C /* EP_Model_CaseSqeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Model_CaseSqeList.m; sourceTree = "<group>"; };
 		ED8B32B92553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Cell_CaseSqe_Details.h; sourceTree = "<group>"; };
 		ED8B32BA2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Cell_CaseSqe_Details.m; sourceTree = "<group>"; };
 		ED8B32BB2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Cell_CaseSqe_Details.xib; sourceTree = "<group>"; };
 		ED8B32BE2553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Cell_CaseSqe_Main.h; sourceTree = "<group>"; };
 		ED8B32BF2553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Cell_CaseSqe_Main.m; sourceTree = "<group>"; };
 		ED8B32C02553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Cell_CaseSqe_Main.xib; sourceTree = "<group>"; };
+		ED8B32C62553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Model_CaseSqe_MainList.h; sourceTree = "<group>"; };
+		ED8B32C72553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Model_CaseSqe_MainList.m; sourceTree = "<group>"; };
+		ED8B32C92553EDC300EBCF8C /* EP_ViewModel_Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_ViewModel_Home.h; sourceTree = "<group>"; };
+		ED8B32CA2553EDC300EBCF8C /* EP_ViewModel_Home.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_ViewModel_Home.m; sourceTree = "<group>"; };
 		ED93DE3F2521B407009E999A /* AppLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLocationManager.h; sourceTree = "<group>"; };
 		ED93DE402521B407009E999A /* AppLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppLocationManager.m; sourceTree = "<group>"; };
 		ED991AB424E51C68006F819C /* EPAngleSelectColCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAngleSelectColCell.h; sourceTree = "<group>"; };
@@ -1670,6 +1673,8 @@
 			children = (
 				ED74A71824C024C900D9FA77 /* LoginViewModel.h */,
 				ED74A71924C024C900D9FA77 /* LoginViewModel.m */,
+				ED8B32C92553EDC300EBCF8C /* EP_ViewModel_Home.h */,
+				ED8B32CA2553EDC300EBCF8C /* EP_ViewModel_Home.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1809,8 +1814,8 @@
 		ED8B32AF2553DB1F00EBCF8C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ED8B32B02553DF4A00EBCF8C /* EP_Model_CaseSqeList.h */,
-				ED8B32B12553DF4A00EBCF8C /* EP_Model_CaseSqeList.m */,
+				ED8B32C62553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.h */,
+				ED8B32C72553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2497,6 +2502,7 @@
 				ED3E679424C064CF0055B4E7 /* HomeCollectionViewCell.m in Sources */,
 				EDFBDDE6251AFFE50077B4DE /* SBClient.m in Sources */,
 				EDBC285E2513822F00252E17 /* EP_Files_OptionalDataViewCtl.m in Sources */,
+				ED8B32C82553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m in Sources */,
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
 				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
@@ -2507,6 +2513,7 @@
 				ED0A7FB724E53F07005E3DC3 /* SqliteManager.m in Sources */,
 				ED3B555724BED9AF008CBB51 /* ViewController.m in Sources */,
 				ED8B32922553D01400EBCF8C /* EP_Files_ContrastCaseViewCtl.m in Sources */,
+				ED8B32CB2553EDC300EBCF8C /* EP_ViewModel_Home.m in Sources */,
 				ED3B555E24BEDC28008CBB51 /* EPLoginViewCtl.m in Sources */,
 				ED8B32A62553D95C00EBCF8C /* EP_Pop_CaseSqe_SelectView.m in Sources */,
 				EDCC787324E7962D00B0FC4C /* EPTakePictureModel.m in Sources */,
@@ -2516,7 +2523,6 @@
 				ED09A13724CEA1CA00045106 /* EPAngleSelectCell.m in Sources */,
 				ED444EEA2519F37D004920D2 /* SqliteManager+user.m in Sources */,
 				EDFBDDD9251AFFE50077B4DE /* SBDataDisplayView.m in Sources */,
-				ED8B32B22553DF4A00EBCF8C /* EP_Model_CaseSqeList.m in Sources */,
 				ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */,
 				EDFBDDDA251AFFE50077B4DE /* SBScanDataCell.m in Sources */,
 				ED48BE3524EA28E600060411 /* CZAlbumScrollView.m in Sources */,
