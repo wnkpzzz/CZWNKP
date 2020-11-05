@@ -9,11 +9,14 @@
 #import "EP_Main_CaseSquareViewCtl.h"
 #import "EP_Pop_CaseSqe_HeadView.h"
 #import "EP_Pop_CaseSqe_SelectView.h"
+#import "EP_Cell_CaseSqe_Main.h"
 
-@interface EP_Main_CaseSquareViewCtl ()
+@interface EP_Main_CaseSquareViewCtl ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic,strong) NSMutableArray * tableItems;
+@property (assign, nonatomic) NSInteger pageInt;
+
 
 @end
 
@@ -21,10 +24,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self loadBaseConfig];
+}
+
+#pragma mark --- 基础配置
+
+- (void)loadBaseConfig{
+    
+    self.navigationItem.title = @"案例广场";
+    
+    [self createTableView];
+
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
+
+- (void)createTableView {
+    
+    // UITableView
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = (APP_WIDTH - 60) * 0.5  + 80 + 80;
+    self.tableView.backgroundColor = RGB(250, 250, 250);
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EP_Cell_CaseSqe_Main class]) bundle:nil] forCellReuseIdentifier:[EP_Cell_CaseSqe_Main cellID]];
+   
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
    
@@ -46,33 +71,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    WS(weakSelf);
-//
-//
-//      YPAnLiTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:[YPAnLiTableViewCell cellID]];
-//      cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//
-//      YPCaseListModel * model = self.tableItems[indexPath.section];
-//      cell.item = model;
-//
-//      cell.btnClickBlock = ^(UITableViewCell *cell) {
-//          NSLog(@"收藏标签");
-//          [weakSelf collectGetListAction:model];
-//      };
-//
-//      cell.btnClickpPopBlock = ^(UITableViewCell *cell) {
-//          NSLog(@"跳转标签");
-//          YPCaseListModel * model = weakSelf.tableItems[indexPath.section];
-//          YPMyCaseViewCtl * Vc = [[YPMyCaseViewCtl alloc] init];
-//          Vc.model = model;
-//          [weakSelf.navigationController pushViewController:Vc animated:YES];
-//      };
-//
-//
-//
-//      return cell;
-        
-    return nil;
+    WS(weakSelf);
+    EP_Cell_CaseSqe_Main *cell = [tableView dequeueReusableCellWithIdentifier:[EP_Cell_CaseSqe_Main cellID] forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.collectClickBlock = ^(UITableViewCell *cell) {
+        NSLog(@"收藏标签");
+    };
+    cell.popClickpBlock = ^(UITableViewCell *cell) {
+        NSLog(@"跳转标签");
+    };
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

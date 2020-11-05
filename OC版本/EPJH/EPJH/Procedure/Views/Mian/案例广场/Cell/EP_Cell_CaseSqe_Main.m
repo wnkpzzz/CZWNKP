@@ -1,16 +1,16 @@
 //
-//  EP_Cell_CaseSqe.m
+//  EP_Cell_CaseSqe_Main.m
 //  EPJH
 //
 //  Created by Hans on 2020/11/5.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
-#import "EP_Cell_CaseSqe.h"
-#import "EP_Model_CaseSqeList.h"
+#import "EP_Cell_CaseSqe_Main.h"
 #import "EP_Cell_CaseSqe_Details.h"
+#import "EP_Model_CaseSqeList.h"
 
-@interface EP_Cell_CaseSqe ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface EP_Cell_CaseSqe_Main ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation EP_Cell_CaseSqe
+@implementation EP_Cell_CaseSqe_Main
 
 - (void)awakeFromNib {
     [super awakeFromNib];
