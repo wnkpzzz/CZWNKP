@@ -88,10 +88,32 @@
         _centerContentView = [[EPHomeCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.centerBgView.width, self.centerBgView.height)];
         _centerContentView.btnClickBlock = ^(UIView * customView, NSInteger index) {
             
-            NSLog(@"%ld点击了",index);
-            EP_Files_QueryMainViewCtl * Vc = [[EP_Files_QueryMainViewCtl alloc] init];
-            [weakSelf.navigationController pushViewController:Vc animated:YES];
+            NSLog(@"首页ContentView用户点击了第%ld个。",index);
+
+            UIViewController * Vc ;
             
+            switch (index) {
+                case 0:
+                    Vc = [[EP_Main_CaseSquareViewCtl alloc] init];
+                    break;
+                case 1:
+                    Vc = [[EP_Files_QueryMainViewCtl alloc] init];
+                    break;
+                case 2:
+                    Vc = [[EP_Main_PhotoPickerViewCtl alloc] init];
+                    break;
+                case 3:
+                    Vc = [[EP_Main_OperationViewCtl alloc] init];
+                    break;
+                case 4:
+                    Vc = [[EP_Files_ContrastCaseViewCtl alloc] init];
+                    break;
+                default:
+                    break;
+            }
+            
+            [weakSelf.navigationController pushViewController:Vc animated:YES];
+
         };
        
     }

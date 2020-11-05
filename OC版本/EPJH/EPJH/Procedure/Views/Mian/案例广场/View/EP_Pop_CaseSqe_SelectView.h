@@ -1,5 +1,5 @@
 //
-//  EP_Main_CaseSquareViewCtl.h
+//  EP_Pop_CaseSqe_SelectView.h
 //  EPJH
 //
 //  Created by Hans on 2020/11/5.
@@ -10,10 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EP_Main_CaseSquareViewCtl : UIViewController
+@interface EP_Pop_CaseSqe_SelectView : RootView
 
 @end
 
 NS_ASSUME_NONNULL_END
-
- 

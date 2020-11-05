@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UFL-wl-PIU" customClass="EP_Cell_CaseSqe_Details">
+            <rect key="frame" x="0.0" y="0.0" width="204" height="202"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="204" height="202"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ix-EE-Mlv">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="202"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-z1-nYS">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="NdL-yy-M7c"/>
+                            <constraint firstAttribute="width" secondItem="9U0-z1-nYS" secondAttribute="height" multiplier="2:1" id="z3V-TT-qDC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3ix-EE-Mlv" secondAttribute="trailing" id="BJk-e5-Ais"/>
+                <constraint firstItem="9U0-z1-nYS" firstAttribute="leading" secondItem="UFL-wl-PIU" secondAttribute="leading" id="VaJ-r0-pz6"/>
+                <constraint firstItem="3ix-EE-Mlv" firstAttribute="leading" secondItem="UFL-wl-PIU" secondAttribute="leading" id="aWi-tV-B74"/>
+                <constraint firstItem="3ix-EE-Mlv" firstAttribute="top" secondItem="UFL-wl-PIU" secondAttribute="top" id="cD9-iA-Cyk"/>
+                <constraint firstItem="9U0-z1-nYS" firstAttribute="top" secondItem="UFL-wl-PIU" secondAttribute="top" id="cI3-Ij-RH3"/>
+                <constraint firstAttribute="bottom" secondItem="3ix-EE-Mlv" secondAttribute="bottom" id="iWb-TA-YiJ"/>
+                <constraint firstItem="9U0-z1-nYS" firstAttribute="width" secondItem="9U0-z1-nYS" secondAttribute="height" multiplier="2:1" id="rvf-jT-CrR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ccW-5V-1bp"/>
+            <size key="customSize" width="204" height="202"/>
+            <connections>
+                <outlet property="flagImageView" destination="3ix-EE-Mlv" id="cuW-I5-v6K"/>
+                <outlet property="mainImageView" destination="9U0-z1-nYS" id="tkT-ZQ-Pmk"/>
+            </connections>
+            <point key="canvasLocation" x="-480" y="8"/>
+        </collectionViewCell>
+    </objects>
+</document>
