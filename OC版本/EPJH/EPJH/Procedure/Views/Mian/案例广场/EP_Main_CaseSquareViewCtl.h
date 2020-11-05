@@ -1,8 +1,8 @@
 //
-//  EPHomeViewCtl.h
+//  EP_Main_CaseSquareViewCtl.h
 //  EPJH
 //
-//  Created by Hans on 2020/7/15.
+//  Created by Hans on 2020/11/5.
 //  Copyright © 2020 hans3d. All rights reserved.
 //
 
@@ -10,11 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPHomeViewCtl : RootViewController 
+@interface EP_Main_CaseSquareViewCtl : UIViewController
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-
-
