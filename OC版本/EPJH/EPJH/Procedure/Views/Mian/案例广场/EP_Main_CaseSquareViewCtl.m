@@ -58,7 +58,10 @@
  
     WS(weakSelf);
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.homeViewModel requestCaseSquareWithBrand:brandId Project:proId Completion:^(BOOL isSuccess, id  _Nonnull response, NSString * _Nonnull msgStr) {
+    [self.homeViewModel requestCaseSquareWithBrand:brandId
+                                           Project:proId
+                                              Page:self.pageInt
+                                        Completion:^(BOOL isSuccess, id  _Nonnull response, NSString * _Nonnull msgStr) {
        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
        [weakSelf.tableView.mj_header endRefreshing];
        [weakSelf.tableView.mj_footer endRefreshing];
@@ -132,7 +135,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    WS(weakSelf);
     EP_Cell_CaseSqe_Main *cell = [tableView dequeueReusableCellWithIdentifier:[EP_Cell_CaseSqe_Main cellID] forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.collectClickBlock = ^(UITableViewCell *cell) {

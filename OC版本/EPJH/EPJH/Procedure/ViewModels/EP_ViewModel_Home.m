@@ -14,6 +14,7 @@
 /** 案例广场 */
 - (void)requestCaseSquareWithBrand:(NSString *)brandId
                            Project:(NSString *)proId
+                              Page:(NSInteger )pageInt
                         Completion:(CallbackAllCompletion)handler{
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

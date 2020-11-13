@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 案例广场 */
 - (void)requestCaseSquareWithBrand:(NSString *)brandId
                            Project:(NSString *)proId
+                              Page:(NSInteger )pageInt
                         Completion:(CallbackAllCompletion)handler;
 
 
