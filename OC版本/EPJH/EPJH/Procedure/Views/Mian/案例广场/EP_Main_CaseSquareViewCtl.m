@@ -16,7 +16,7 @@
 
 @interface EP_Main_CaseSquareViewCtl ()<UITableViewDataSource,UITableViewDelegate>
 
-
+@property (weak, nonatomic) IBOutlet UIView *headBgView;
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic,strong) NSMutableArray * tableItems;
 
@@ -57,7 +57,8 @@
     self.tableItems = [NSMutableArray arrayWithCapacity:10];
     
     [self createTableView];
-     
+    [self.headBgView addSubview:self.headView];
+
 }
 
 #pragma mark - 懒加载
@@ -66,13 +67,12 @@
     
     if (!_headView) {
         _headView =  [EP_Pop_CaseSqe_HeadView initWithCustomView];
-        _headView.frame = CGRectMake(0, 0, APP_WIDTH, 85);
+        _headView.frame = CGRectMake(0, 0, self.headBgView.width, self.headBgView.height);
     
     }
     return _headView;
 }
-
-
+ 
 // 获取主页列表数据
 - (void)getAllDataWithBrand:(NSString *)brandId Project:(NSString *)proId{
  
@@ -156,6 +156,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    WS(weakSelf);
     EP_Cell_CaseSqe_Main *cell = [tableView dequeueReusableCellWithIdentifier:[EP_Cell_CaseSqe_Main cellID] forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     EP_Model_CaseSqe_MainList * model = self.tableItems[indexPath.section];
@@ -165,6 +166,10 @@
     };
     cell.popClickpBlock = ^(UITableViewCell *cell) {
         NSLog(@"跳转标签");
+        EP_Model_CaseSqe_MainList * model = weakSelf.tableItems[indexPath.section];
+        EP_Main_Cs_DetailsViewCtl * Vc = [[EP_Main_Cs_DetailsViewCtl alloc] init];
+        Vc.dataModel = model;
+        [weakSelf.navigationController pushViewController:Vc animated:YES];
     };
     return cell;
 }

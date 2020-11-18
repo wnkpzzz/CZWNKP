@@ -54,11 +54,9 @@
     self.timeLab.text =[AppUtils timestampChangeTime:[NSString stringWithFormat:@"%ld",(long)_dataModel.caseDate] WithFormat:@"yyyy/MM/dd"];
     self.nameLab.text = _dataModel.uploadName;
     [self.headImg sd_setImageWithURL:[NSURL URLWithString:_dataModel.uploadHeadImage] placeholderImage:placeHolderImg];
-    
-
+     
 }
-
-
+ 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
 
 - (void)createCollectionView{
@@ -71,8 +69,7 @@
     flowLayout.minimumLineSpacing = 10; // 两个Item上下间距大小
     flowLayout.minimumInteritemSpacing = 10;  // 两个Item左右间距大小
     flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5); // 每一个 section 与周边的间距
-    
-
+     
     self.collectionView.frame = CGRectMake(0, 0, APP_WIDTH, APP_HEIGHT);
     self.collectionView.collectionViewLayout = flowLayout;
     self.collectionView.delegate = self;
@@ -101,7 +98,6 @@
         NSDictionary * dic = self.collectionItems[indexPath.row];  cell.dataDic = dic;
     }
 
- 
     return cell;
 }
 
