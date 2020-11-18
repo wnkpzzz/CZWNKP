@@ -32,3 +32,6 @@
 - (IBAction)clickBtnAction:(id)sender { if (self.btnClickBlock) { self.btnClickBlock(self); } }
 
 @end
+
+
+

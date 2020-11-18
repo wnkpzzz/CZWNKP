@@ -10,12 +10,17 @@
 
 @implementation EP_Pop_CaseSqe_HeadView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+    
+    [self loadBaseConfig];
 }
-*/
+
+- (void)loadBaseConfig {
+    
+ 
+}
+ 
 
 @end

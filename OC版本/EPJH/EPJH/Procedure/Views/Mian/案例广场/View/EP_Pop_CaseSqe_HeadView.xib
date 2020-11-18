@@ -1,48 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EP_Pop_CaseSqe_HeadView">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="86"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIE-Le-QD0">
-                    <rect key="frame" x="-41" y="332" width="442" height="35"/>
-                    <color key="backgroundColor" red="1" green="0.04247262358" blue="0.033695564220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="s5K-If-dye"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kmj-5S-2a5" userLabel="lineView">
-                    <rect key="frame" x="-41" y="331" width="442" height="1"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="Ugy-V6-D79"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="svJ-bl-WtV" userLabel="headView">
-                    <rect key="frame" x="-41" y="281" width="442" height="50"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svJ-bl-WtV" userLabel="headView">
+                    <rect key="frame" x="0.0" y="0.0" width="423" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUV-fH-HVl" userLabel="1111111View">
-                            <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="106" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-YG-UKf">
-                                    <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="精选案例">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c39-ye-EMd" userLabel="lineView1">
-                                    <rect key="frame" x="0.0" y="49" width="62" height="1"/>
+                                    <rect key="frame" x="0.0" y="49" width="106" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="nWC-RH-mSY"/>
@@ -60,31 +46,31 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAv-MV-veE" userLabel="2222222View">
-                            <rect key="frame" x="62" y="0.0" width="62" height="50"/>
+                            <rect key="frame" x="106" y="0.0" width="105.5" height="50"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="case_searchbar_sea_0" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-dN-W8l">
-                                    <rect key="frame" x="51" y="20" width="11" height="10"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_casesqe__sea_no" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-dN-W8l">
+                                    <rect key="frame" x="72.5" y="20" width="11" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="11" id="47h-Fm-4ok"/>
                                         <constraint firstAttribute="height" constant="10" id="8XK-M0-Boe"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0J-7D-pYj" userLabel="lineView2">
-                                    <rect key="frame" x="0.0" y="49" width="62" height="1"/>
+                                    <rect key="frame" x="0.0" y="49" width="105.5" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="Kq4-ax-hKx"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQQ-Ep-lxa" userLabel="tempView">
-                                    <rect key="frame" x="26" y="24" width="10" height="2"/>
+                                    <rect key="frame" x="47.5" y="24" width="10" height="2"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="9aI-fB-8lT"/>
                                         <constraint firstAttribute="height" constant="2" id="q10-sN-zXe"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZA-aR-I0T">
-                                    <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105.5" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="项目">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,31 +92,31 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnG-rr-gFG" userLabel="3333333View">
-                            <rect key="frame" x="124" y="0.0" width="62" height="50"/>
+                            <rect key="frame" x="211.5" y="0.0" width="106" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mK-Df-HzH" userLabel="tempView">
-                                    <rect key="frame" x="26" y="24" width="10" height="2"/>
+                                    <rect key="frame" x="48" y="24" width="10" height="2"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="0Gr-37-bgl"/>
                                         <constraint firstAttribute="width" constant="10" id="bMc-Nh-J3n"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="case_searchbar_sea_0" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-Ew-Osg">
-                                    <rect key="frame" x="51" y="20" width="11" height="10"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_casesqe__sea_no" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-Ew-Osg">
+                                    <rect key="frame" x="73" y="20" width="11" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="11" id="0H6-V6-mdQ"/>
                                         <constraint firstAttribute="height" constant="10" id="hQf-JL-Tnu"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IuW-Ly-SgE" userLabel="lineView3">
-                                    <rect key="frame" x="0.0" y="49" width="62" height="1"/>
+                                    <rect key="frame" x="0.0" y="49" width="106" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="7ev-z8-bco"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIt-fX-14x">
-                                    <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="产品">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,31 +138,31 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Dc-DL-qr9" userLabel="4444444View">
-                            <rect key="frame" x="186" y="0.0" width="62" height="50"/>
+                            <rect key="frame" x="317.5" y="0.0" width="105.5" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yy6-fe-2ns" userLabel="tempView">
-                                    <rect key="frame" x="26" y="24" width="10" height="2"/>
+                                    <rect key="frame" x="47.5" y="24" width="10" height="2"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="Q9k-iq-L0h"/>
                                         <constraint firstAttribute="width" constant="10" id="y0D-ba-sb2"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="case_searchbar_col_0" translatesAutoresizingMaskIntoConstraints="NO" id="3wa-bS-IeJ">
-                                    <rect key="frame" x="51" y="20" width="11" height="10"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_casesqe__col_no" translatesAutoresizingMaskIntoConstraints="NO" id="3wa-bS-IeJ">
+                                    <rect key="frame" x="72.5" y="20" width="11" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="LWB-sp-m8x"/>
                                         <constraint firstAttribute="width" constant="11" id="XO2-S1-ec0"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5i-Sq-4SX" userLabel="lineView4">
-                                    <rect key="frame" x="0.0" y="49" width="62" height="1"/>
+                                    <rect key="frame" x="0.0" y="49" width="105.5" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="6Br-Fc-UIl"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-Hn-LvJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105.5" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="收藏">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -219,18 +205,43 @@
                         <constraint firstAttribute="bottom" secondItem="9Dc-DL-qr9" secondAttribute="bottom" id="ztS-Rh-wF2"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmj-5S-2a5" userLabel="lineView">
+                    <rect key="frame" x="0.0" y="50" width="423" height="1"/>
+                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Ugy-V6-D79"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIE-Le-QD0">
+                    <rect key="frame" x="0.0" y="51" width="423" height="35"/>
+                    <color key="backgroundColor" red="1" green="0.04247262358" blue="0.033695564220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="s5K-If-dye"/>
+                    </constraints>
+                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="hIE-Le-QD0" firstAttribute="top" secondItem="kmj-5S-2a5" secondAttribute="bottom" id="7jr-um-gi7"/>
+                <constraint firstItem="hIE-Le-QD0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DyO-kR-Otx"/>
                 <constraint firstItem="kmj-5S-2a5" firstAttribute="top" secondItem="svJ-bl-WtV" secondAttribute="bottom" id="G1H-hP-HIh"/>
+                <constraint firstAttribute="trailing" secondItem="kmj-5S-2a5" secondAttribute="trailing" id="OjK-1f-fuF"/>
+                <constraint firstItem="svJ-bl-WtV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UNC-gT-soM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hIE-Le-QD0" secondAttribute="trailing" id="i6m-fY-UEX"/>
+                <constraint firstItem="svJ-bl-WtV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jW5-nY-aIS"/>
+                <constraint firstItem="kmj-5S-2a5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mA2-0m-jtR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="svJ-bl-WtV" secondAttribute="trailing" id="xDV-8x-Ufj"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-93" y="135"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-138.40579710144928" y="-186.16071428571428"/>
         </view>
     </objects>
     <resources>
-        <image name="case_searchbar_col_0" width="128" height="128"/>
-        <image name="case_searchbar_sea_0" width="128" height="128"/>
+        <image name="icon_casesqe__col_no" width="24" height="24"/>
+        <image name="icon_casesqe__sea_no" width="24" height="24"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

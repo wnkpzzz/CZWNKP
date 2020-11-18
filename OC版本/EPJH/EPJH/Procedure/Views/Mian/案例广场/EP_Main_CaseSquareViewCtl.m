@@ -15,10 +15,12 @@
 
 @interface EP_Main_CaseSquareViewCtl ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) EP_ViewModel_Home * homeViewModel;
 
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic,strong) NSMutableArray * tableItems;
+
+@property (nonatomic, strong) EP_ViewModel_Home * homeViewModel;
+@property (nonatomic, strong) EP_Pop_CaseSqe_HeadView * headView;
 
 @property (nonatomic, strong) NSString * brandStr;
 @property (nonatomic, strong) NSString * projectStr;
@@ -35,6 +37,11 @@
     [self loadBaseConfig];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+   
+}
+
 #pragma mark --- 基础配置
 
 - (void)loadBaseConfig{
@@ -44,14 +51,25 @@
     self.pageInt = 1;
     self.brandStr = @"";
     self.projectStr = @"";
-    self.homeViewModel = [[EP_ViewModel_Home alloc] init];
     self.isCollectFlag = NO;
-    
+    self.homeViewModel = [[EP_ViewModel_Home alloc] init];
+     
     [self createTableView];
-    
- 
-    
+     
 }
+
+#pragma mark - 懒加载
+ 
+- (EP_Pop_CaseSqe_HeadView *)headView {
+    
+    if (!_headView) {
+        _headView =  [EP_Pop_CaseSqe_HeadView initWithCustomView];
+        _headView.frame = CGRectMake(0, 0, APP_WIDTH, 85);
+    
+    }
+    return _headView;
+}
+
 
 // 获取主页列表数据
 - (void)getAllDataWithBrand:(NSString *)brandId Project:(NSString *)proId{
@@ -100,6 +118,7 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = (APP_WIDTH - 60) * 0.5  + 80 + 80;
     self.tableView.backgroundColor = RGB(250, 250, 250);
+    self.tableView.tableHeaderView = self.headView;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EP_Cell_CaseSqe_Main class]) bundle:nil] forCellReuseIdentifier:[EP_Cell_CaseSqe_Main cellID]];
     
     // 上下拉刷新

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EP_Main_CaseSquareViewCtl : UIViewController
+@interface EP_Main_CaseSquareViewCtl : RootViewController
 
 @end
 

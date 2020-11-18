@@ -342,6 +342,8 @@
 		EDFBDDE4251AFFE50077B4DE /* SBWatcherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD1251AFFE50077B4DE /* SBWatcherManager.m */; };
 		EDFBDDE5251AFFE50077B4DE /* SBSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD2251AFFE50077B4DE /* SBSqliteManager.m */; };
 		EDFBDDE6251AFFE50077B4DE /* SBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBDDD4251AFFE50077B4DE /* SBClient.m */; };
+		EDFBF45B255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFBF459255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.m */; };
+		EDFBF45C255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFBF45A255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.xib */; };
 		F3A3340CEACEAF3CDE886ED1 /* Pods_EPJH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A9C78DC21AF42AF6882B8 /* Pods_EPJH.framework */; };
 /* End PBXBuildFile section */
 
@@ -818,6 +820,9 @@
 		EDFBDDD3251AFFE50077B4DE /* SBTableInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableInfoItem.h; sourceTree = "<group>"; };
 		EDFBDDD4251AFFE50077B4DE /* SBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBClient.m; sourceTree = "<group>"; };
 		EDFBDDD5251AFFE50077B4DE /* SBWatcherHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWatcherHeader.h; sourceTree = "<group>"; };
+		EDFBF458255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Cell_CaseSqe_Pop.h; sourceTree = "<group>"; };
+		EDFBF459255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Cell_CaseSqe_Pop.m; sourceTree = "<group>"; };
+		EDFBF45A255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Cell_CaseSqe_Pop.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1807,6 +1812,9 @@
 				ED8B32B92553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.h */,
 				ED8B32BA2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.m */,
 				ED8B32BB2553E44E00EBCF8C /* EP_Cell_CaseSqe_Details.xib */,
+				EDFBF458255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.h */,
+				EDFBF459255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.m */,
+				EDFBF45A255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2283,6 +2291,7 @@
 				ED4B506624F4F0EA00C0DCF9 /* Mark_Camera_Nose_04.jpg in Resources */,
 				ED8B32C22553E6AF00EBCF8C /* EP_Cell_CaseSqe_Main.xib in Resources */,
 				ED0A802624E54BA9005E3DC3 /* proSelect_5.png in Resources */,
+				EDFBF45C255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.xib in Resources */,
 				ED4B50E224F502D600C0DCF9 /* Mark_Expression_04.jpg in Resources */,
 				ED4B50AD24F4F0EA00C0DCF9 /* Mark_Camera_Frame_Face_05.jpg in Resources */,
 				ED4B50AA24F4F0EA00C0DCF9 /* Mark_Camera_Frame_Face_06.jpg in Resources */,
@@ -2505,6 +2514,7 @@
 				ED8B32C82553EC3E00EBCF8C /* EP_Model_CaseSqe_MainList.m in Sources */,
 				ED86406024D7E88400FD7F7D /* EPProjectModel.m in Sources */,
 				ED48BE3824EA7A4100060411 /* UIImage+Util.m in Sources */,
+				EDFBF45B255E5F2D00E7A735 /* EP_Cell_CaseSqe_Pop.m in Sources */,
 				ED3B559224BF0144008CBB51 /* KCountdownButton.m in Sources */,
 				ED41547124F6505500FA07F2 /* EPTypeMaterialListView.m in Sources */,
 				ED86406324D7E89200FD7F7D /* EPUserInfoModel.m in Sources */,

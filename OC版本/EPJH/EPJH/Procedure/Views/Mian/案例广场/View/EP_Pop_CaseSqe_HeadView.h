@@ -12,6 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EP_Pop_CaseSqe_HeadView : RootView
 
+@property (nonatomic,strong) NSArray * btnArray;
+@property (weak, nonatomic) IBOutlet UIButton *caseBtn;
+@property (weak, nonatomic) IBOutlet UIButton *projectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *productBtn;
+@property (weak, nonatomic) IBOutlet UIButton *collectBtn;
+
+@property (weak, nonatomic) IBOutlet UIImageView *projectImg;
+@property (weak, nonatomic) IBOutlet UIImageView *productImg;
+@property (weak, nonatomic) IBOutlet UIImageView *collectImg;
+
+@property (weak, nonatomic) IBOutlet UIView *lineView1;
+@property (weak, nonatomic) IBOutlet UIView *lineView2;
+@property (weak, nonatomic) IBOutlet UIView *lineView3;
+@property (weak, nonatomic) IBOutlet UIView *lineView4;
+
 @end
 
 NS_ASSUME_NONNULL_END
