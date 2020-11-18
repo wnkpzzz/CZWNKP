@@ -36,6 +36,7 @@
 #define kMainBlueColor               RGB(0, 176, 255) // 主题蓝色
 #define kMainTextColor               RGB(44, 46, 48)  // 文字颜色
 #define kLightTextColor              RGB(115, 115, 115)  // 不重要文字颜色
+#define kWhiteColor                  [UIColor whiteColor]
 
 
 /*日志打印 */
