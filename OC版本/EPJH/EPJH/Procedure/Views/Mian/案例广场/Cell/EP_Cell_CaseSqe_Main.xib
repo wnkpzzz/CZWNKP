@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +61,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVd-Wy-16B">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVd-Wy-16B">
                                 <rect key="frame" x="0.0" y="0.0" width="392" height="196"/>
                                 <connections>
                                     <action selector="popBtnAction:" destination="YeT-Xj-Lrb" eventType="touchUpInside" id="GTx-YJ-tMK"/>
@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="width" constant="30" id="om7-Ub-Y8G"/>
                                     <constraint firstAttribute="width" secondItem="2DJ-vn-QWV" secondAttribute="height" multiplier="2:2" id="tC4-iR-JRB"/>
                                 </constraints>
-                                <state key="normal" image="newphotos_collection_0"/>
+                                <state key="normal" image="icon_newphotos_collection_no"/>
                                 <connections>
                                     <action selector="collectBtnAction:" destination="YeT-Xj-Lrb" eventType="touchUpInside" id="5nW-Qp-uWD"/>
                                 </connections>
@@ -145,10 +145,10 @@
                 <outlet property="projectLab" destination="Fub-Ea-HeQ" id="RsN-I7-KqJ"/>
                 <outlet property="timeLab" destination="zbC-cS-zOu" id="iEh-b3-IGT"/>
             </connections>
-            <point key="canvasLocation" x="-1184" y="-4"/>
+            <point key="canvasLocation" x="-894" y="-158"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="newphotos_collection_0" width="128" height="128"/>
+        <image name="icon_newphotos_collection_no" width="48" height="48"/>
     </resources>
 </document>

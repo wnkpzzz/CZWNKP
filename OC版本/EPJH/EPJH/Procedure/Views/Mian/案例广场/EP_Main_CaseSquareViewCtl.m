@@ -12,6 +12,7 @@
 #import "EP_Cell_CaseSqe_Main.h"
 
 #import "EP_ViewModel_Home.h"
+#import "EP_Main_Cs_DetailsViewCtl.h"
 
 @interface EP_Main_CaseSquareViewCtl ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -53,7 +54,8 @@
     self.projectStr = @"";
     self.isCollectFlag = NO;
     self.homeViewModel = [[EP_ViewModel_Home alloc] init];
-     
+    self.tableItems = [NSMutableArray arrayWithCapacity:10];
+    
     [self createTableView];
      
 }
@@ -118,7 +120,7 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = (APP_WIDTH - 60) * 0.5  + 80 + 80;
     self.tableView.backgroundColor = RGB(250, 250, 250);
-    self.tableView.tableHeaderView = self.headView;
+//    self.tableView.tableHeaderView = self.headView;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EP_Cell_CaseSqe_Main class]) bundle:nil] forCellReuseIdentifier:[EP_Cell_CaseSqe_Main cellID]];
     
     // 上下拉刷新
@@ -156,6 +158,8 @@
     
     EP_Cell_CaseSqe_Main *cell = [tableView dequeueReusableCellWithIdentifier:[EP_Cell_CaseSqe_Main cellID] forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    EP_Model_CaseSqe_MainList * model = self.tableItems[indexPath.section];
+    cell.dataModel = model;
     cell.collectClickBlock = ^(UITableViewCell *cell) {
         NSLog(@"收藏标签");
     };
@@ -167,6 +171,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    EP_Model_CaseSqe_MainList * model = self.tableItems[indexPath.section];
+    EP_Main_Cs_DetailsViewCtl * Vc = [[EP_Main_Cs_DetailsViewCtl alloc] init];
+    Vc.dataModel = model;
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 @end

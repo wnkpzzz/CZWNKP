@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 获取一个随机整数，范围在[from,to），包括from，不包括to */
 + (int)getRandomNumber:(int)from to:(int)to ;
 
+/** 添加四边阴影效果 */
++ (void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

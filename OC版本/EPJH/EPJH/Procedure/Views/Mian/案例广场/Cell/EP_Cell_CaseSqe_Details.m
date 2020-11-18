@@ -24,8 +24,8 @@
     }];
     
     NSString *anc = dataDic[@"cate"];
-    if ([anc isEqualToString:@"术前"]) {  self.flagImageView.image = [UIImage imageNamed:@"gallery_before"]; }
-    if ([anc isEqualToString:@"术后"]) {  self.flagImageView.image = [UIImage imageNamed:@"gallery_after"];  }
+    if ([anc isEqualToString:@"术前"]) {  self.flagImageView.image = kImage(@"icon_gallery_before"); }
+    if ([anc isEqualToString:@"术后"]) {  self.flagImageView.image = kImage(@"icon_gallery_after");  }
     
 }
  

@@ -307,6 +307,8 @@
 		ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB524E51C68006F819C /* EPAngleSelectColCell.m */; };
 		ED991AB924E51CD5006F819C /* RootCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */; };
 		ED991ABD24E52302006F819C /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ED991ABC24E52302006F819C /* UIColor+Util.m */; };
+		EDBB5ED62564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBB5ED42564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m */; };
+		EDBB5EDC256504260009B445 /* EP_Main_Cs_DetailsViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBB5EDB256504260009B445 /* EP_Main_Cs_DetailsViewCtl.xib */; };
 		EDBC2845251380E200252E17 /* EP_Files_AngleSelectViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC2843251380E200252E17 /* EP_Files_AngleSelectViewCtl.m */; };
 		EDBC2846251380E200252E17 /* EP_Files_AngleSelectViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBC2844251380E200252E17 /* EP_Files_AngleSelectViewCtl.xib */; };
 		EDBC284A2513819B00252E17 /* EP_Files_CreateMainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBC28482513819B00252E17 /* EP_Files_CreateMainViewCtl.m */; };
@@ -757,6 +759,9 @@
 		ED991AB824E51CD5006F819C /* RootCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewCell.m; sourceTree = "<group>"; };
 		ED991ABB24E52302006F819C /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
 		ED991ABC24E52302006F819C /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
+		EDBB5ED32564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Main_Cs_DetailsViewCtl.h; sourceTree = "<group>"; };
+		EDBB5ED42564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Main_Cs_DetailsViewCtl.m; sourceTree = "<group>"; };
+		EDBB5EDB256504260009B445 /* EP_Main_Cs_DetailsViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_Main_Cs_DetailsViewCtl.xib; sourceTree = "<group>"; };
 		EDBC2842251380E200252E17 /* EP_Files_AngleSelectViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EP_Files_AngleSelectViewCtl.h; sourceTree = "<group>"; };
 		EDBC2843251380E200252E17 /* EP_Files_AngleSelectViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EP_Files_AngleSelectViewCtl.m; sourceTree = "<group>"; };
 		EDBC2844251380E200252E17 /* EP_Files_AngleSelectViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EP_Files_AngleSelectViewCtl.xib; sourceTree = "<group>"; };
@@ -1831,6 +1836,9 @@
 		ED8B32B32553E30300EBCF8C /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				EDBB5ED32564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.h */,
+				EDBB5ED42564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m */,
+				EDBB5EDB256504260009B445 /* EP_Main_Cs_DetailsViewCtl.xib */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -2270,6 +2278,7 @@
 				ED4B50A724F4F0EA00C0DCF9 /* Mark_Camera_Frame_Expression_02.jpg in Resources */,
 				ED4B506224F4F0EA00C0DCF9 /* Mark_Camera_Chest_01.jpg in Resources */,
 				ED4B50B624F4F0EB00C0DCF9 /* Mark_Camera_Frame_Section_06.jpg in Resources */,
+				EDBB5EDC256504260009B445 /* EP_Main_Cs_DetailsViewCtl.xib in Resources */,
 				ED4B505624F4F0EA00C0DCF9 /* Mark_X_Camera_Chest_04.jpg in Resources */,
 				ED4B50F624F502D600C0DCF9 /* Mark_Nose_07.jpg in Resources */,
 				ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */,
@@ -2543,6 +2552,7 @@
 				ED4B510D24F5152600C0DCF9 /* EPSurgeryTypeTableViewCell.m in Sources */,
 				ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */,
 				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
+				EDBB5ED62564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m in Sources */,
 				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
 				EDFBDDDE251AFFE50077B4DE /* SBFileItem.m in Sources */,
 				ED66F49124F6019D001E8F2C /* EPSurgeryTypeCollectionViewCell.m in Sources */,
