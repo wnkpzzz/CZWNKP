@@ -40,7 +40,8 @@
 
 - (void)loadBaseConfig {
     
- 
+    self.btnArray = @[self.caseBtn,self.projectBtn,self.productBtn,self.collectBtn];
+
 }
 
 // 点击事件
@@ -111,24 +112,23 @@
     }
     
     if (btn == self.projectBtn) {
-        [self.projectImg setImage:[UIImage imageNamed:@"case_searchbar_sea_1"]];
+        [self.projectImg setImage:[UIImage imageNamed:@"icon_casesqe__sea_yes"]];
     }else{
-        [self.projectImg setImage:[UIImage imageNamed:@"case_searchbar_sea_0"]];
+        [self.projectImg setImage:[UIImage imageNamed:@"icon_casesqe__sea_no"]];
     }
     
     if (btn == self.productBtn) {
-        [self.productImg setImage:[UIImage imageNamed:@"case_searchbar_sea_1"]];
+        [self.productImg setImage:[UIImage imageNamed:@"icon_casesqe__sea_yes"]];
     }else{
-        [self.productImg setImage:[UIImage imageNamed:@"case_searchbar_sea_0"]];
+        [self.productImg setImage:[UIImage imageNamed:@"icon_casesqe__sea_no"]];
     }
     
     if (btn == self.collectBtn) {
-        [self.collectImg setImage:[UIImage imageNamed:@"case_searchbar_col_1"]];
+        [self.collectImg setImage:[UIImage imageNamed:@"icon_casesqe__col_yes"]];
     }else{
-        [self.collectImg setImage:[UIImage imageNamed:@"case_searchbar_col_0"]];
+        [self.collectImg setImage:[UIImage imageNamed:@"icon_casesqe__col_no"]];
     }
     
 }
  
-
 @end
