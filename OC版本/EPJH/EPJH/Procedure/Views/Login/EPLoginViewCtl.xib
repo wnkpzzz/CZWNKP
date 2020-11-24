@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ff8-gI-3aW">
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="17688899302" placeholder="请输入手机号码" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZNC-MK-CIO">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="17688899300" placeholder="请输入手机号码" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZNC-MK-CIO">
                                             <rect key="frame" x="5" y="0.0" width="330" height="40"/>
                                             <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -66,7 +66,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZw-dJ-GOA">
                                     <rect key="frame" x="0.0" y="50" width="335" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请输入6-16位密码" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1wA-hZ-HxV">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123123" placeholder="请输入6-16位密码" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1wA-hZ-HxV">
                                             <rect key="frame" x="5" y="0.0" width="272" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="q5n-vI-bgD"/>
@@ -137,7 +137,7 @@
                                 <action selector="btnClickAction:" destination="-1" eventType="touchUpInside" id="5Q3-ah-a4w"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-B3-N8C">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-B3-N8C">
                             <rect key="frame" x="20" y="383" width="335" height="50"/>
                             <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -196,7 +196,7 @@
                                 <constraint firstItem="iDJ-yN-C8g" firstAttribute="centerX" secondItem="8k7-Ka-w68" secondAttribute="centerX" id="tGq-VQ-gcD"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-YG-pab">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-YG-pab">
                             <rect key="frame" x="0.0" y="674" width="375" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="l5d-Pt-xv6"/>
@@ -210,6 +210,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <viewLayoutGuide key="safeArea" id="9ae-h4-yNZ"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="FEv-B3-N8C" firstAttribute="leading" secondItem="fAW-Rg-nTr" secondAttribute="leading" constant="20" id="20M-vq-J9v"/>
@@ -229,9 +230,9 @@
                         <constraint firstItem="d9d-Ey-GQp" firstAttribute="leading" secondItem="fAW-Rg-nTr" secondAttribute="leading" constant="20" id="za1-Kv-Owf"/>
                         <constraint firstItem="8k7-Ka-w68" firstAttribute="top" secondItem="FEv-B3-N8C" secondAttribute="bottom" constant="30" id="zxn-qN-uz1"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="9ae-h4-yNZ"/>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fAW-Rg-nTr" secondAttribute="trailing" id="44B-gh-sOL"/>
@@ -239,8 +240,7 @@
                 <constraint firstItem="fAW-Rg-nTr" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="SXY-mm-m2x"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="fAW-Rg-nTr" secondAttribute="bottom" id="dEc-UF-mhq"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-359" y="-171"/>
+            <point key="canvasLocation" x="121" y="-168"/>
         </view>
     </objects>
     <resources>

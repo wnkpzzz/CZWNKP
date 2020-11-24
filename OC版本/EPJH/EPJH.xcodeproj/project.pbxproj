@@ -44,6 +44,8 @@
 		ED0A803924E54BA9005E3DC3 /* proSelect_no_10.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801D24E54BA9005E3DC3 /* proSelect_no_10.png */; };
 		ED0A803A24E54BA9005E3DC3 /* proSelect_no_11.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */; };
 		ED147D16254A645000179C5C /* PersonVO.m in Sources */ = {isa = PBXBuildFile; fileRef = ED147D15254A645000179C5C /* PersonVO.m */; };
+		ED1FF775256CD6F400E74D47 /* YPUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1FF774256CD6F400E74D47 /* YPUserInfoModel.m */; };
+		ED1FF77B256CD82B00E74D47 /* YPPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1FF77A256CD82B00E74D47 /* YPPictureModel.m */; };
 		ED20479224F4B1D4000A6040 /* EPCasePhotographyViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */; };
 		ED20479324F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */; };
 		ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED20479524F4BB2A000A6040 /* EPAngleHeaderCell.m */; };
@@ -51,6 +53,9 @@
 		ED2778E4251CAA26007946A3 /* SqliteLogicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */; };
 		ED2D1A7F25208CC7006855DE /* EPAngleSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */; };
 		ED3234192514489200A6ABD9 /* EP_User_MainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */; };
+		ED399E9E256BDA35008E66FF /* YPProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED399E9D256BDA35008E66FF /* YPProjectModel.m */; };
+		ED399EA8256BDA57008E66FF /* SqliteMainViewCtl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED399EA5256BDA57008E66FF /* SqliteMainViewCtl.m */; };
+		ED399EA9256BDA57008E66FF /* SqliteMainViewCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED399EA6256BDA57008E66FF /* SqliteMainViewCtl.xib */; };
 		ED3B550224BEB0E7008CBB51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3B550124BEB0E7008CBB51 /* AppDelegate.m */; };
 		ED3B550824BEB0E7008CBB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550624BEB0E7008CBB51 /* Main.storyboard */; };
 		ED3B550A24BEB0E8008CBB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3B550924BEB0E8008CBB51 /* Assets.xcassets */; };
@@ -415,6 +420,10 @@
 		ED0A801E24E54BA9005E3DC3 /* proSelect_no_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proSelect_no_11.png; sourceTree = "<group>"; };
 		ED147D14254A644F00179C5C /* PersonVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonVO.h; sourceTree = "<group>"; };
 		ED147D15254A645000179C5C /* PersonVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonVO.m; sourceTree = "<group>"; };
+		ED1FF773256CD6F400E74D47 /* YPUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPUserInfoModel.h; sourceTree = "<group>"; };
+		ED1FF774256CD6F400E74D47 /* YPUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPUserInfoModel.m; sourceTree = "<group>"; };
+		ED1FF779256CD82B00E74D47 /* YPPictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPPictureModel.h; sourceTree = "<group>"; };
+		ED1FF77A256CD82B00E74D47 /* YPPictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPPictureModel.m; sourceTree = "<group>"; };
 		ED20478F24F4B1D4000A6040 /* EPCasePhotographyViewCtl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCasePhotographyViewCtl.h; sourceTree = "<group>"; };
 		ED20479024F4B1D4000A6040 /* EPCasePhotographyViewCtl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCasePhotographyViewCtl.m; sourceTree = "<group>"; };
 		ED20479124F4B1D4000A6040 /* EPCasePhotographyViewCtl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPCasePhotographyViewCtl.xib; sourceTree = "<group>"; };
@@ -425,6 +434,11 @@
 		ED2778E3251CAA26007946A3 /* SqliteLogicHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteLogicHandler.m; sourceTree = "<group>"; };
 		ED2D1A7E25208CC6006855DE /* EPAngleSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPAngleSelectCell.xib; sourceTree = "<group>"; };
 		ED3234182514489200A6ABD9 /* EP_User_MainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EP_User_MainViewCtl.xib; sourceTree = "<group>"; };
+		ED399E9C256BDA35008E66FF /* YPProjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPProjectModel.h; sourceTree = "<group>"; };
+		ED399E9D256BDA35008E66FF /* YPProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPProjectModel.m; sourceTree = "<group>"; };
+		ED399EA5256BDA57008E66FF /* SqliteMainViewCtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteMainViewCtl.m; sourceTree = "<group>"; };
+		ED399EA6256BDA57008E66FF /* SqliteMainViewCtl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SqliteMainViewCtl.xib; sourceTree = "<group>"; };
+		ED399EA7256BDA57008E66FF /* SqliteMainViewCtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteMainViewCtl.h; sourceTree = "<group>"; };
 		ED3B54FD24BEB0E7008CBB51 /* 医拍重构.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "医拍重构.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3B550024BEB0E7008CBB51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3B550124BEB0E7008CBB51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -984,6 +998,30 @@
 			path = "项目选择_NO";
 			sourceTree = "<group>";
 		};
+		ED399E9B256BDA1D008E66FF /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				ED399EAD256BDA61008E66FF /* Model */,
+				ED399EA7256BDA57008E66FF /* SqliteMainViewCtl.h */,
+				ED399EA5256BDA57008E66FF /* SqliteMainViewCtl.m */,
+				ED399EA6256BDA57008E66FF /* SqliteMainViewCtl.xib */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		ED399EAD256BDA61008E66FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED399E9C256BDA35008E66FF /* YPProjectModel.h */,
+				ED399E9D256BDA35008E66FF /* YPProjectModel.m */,
+				ED1FF773256CD6F400E74D47 /* YPUserInfoModel.h */,
+				ED1FF774256CD6F400E74D47 /* YPUserInfoModel.m */,
+				ED1FF779256CD82B00E74D47 /* YPPictureModel.h */,
+				ED1FF77A256CD82B00E74D47 /* YPPictureModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ED3B54F424BEB0E7008CBB51 = {
 			isa = PBXGroup;
 			children = (
@@ -1011,6 +1049,7 @@
 			children = (
 				ED3B550024BEB0E7008CBB51 /* AppDelegate.h */,
 				ED3B550124BEB0E7008CBB51 /* AppDelegate.m */,
+				ED399E9B256BDA1D008E66FF /* DataBase */,
 				ED3B553424BECCE6008CBB51 /* Config */,
 				ED3B553224BECCE6008CBB51 /* Component */,
 				ED3B553324BECCE6008CBB51 /* Procedure */,
@@ -2368,6 +2407,7 @@
 				ED4B50B024F4F0EA00C0DCF9 /* Mark_Camera_Frame_Face_04.jpg in Resources */,
 				ED0A802A24E54BA9005E3DC3 /* proSelect_11.png in Resources */,
 				ED4B508124F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Custom.jpg in Resources */,
+				ED399EA9256BDA57008E66FF /* SqliteMainViewCtl.xib in Resources */,
 				ED4B505224F4F0EA00C0DCF9 /* Mark_X_Camera_Face_05.jpg in Resources */,
 				ED4B508024F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_05.jpg in Resources */,
 				ED4B508424F4F0EA00C0DCF9 /* Mark_X_Camera_Frame_Nose_10.jpg in Resources */,
@@ -2554,6 +2594,7 @@
 				ED3DB94625145FCB00EC5F1E /* EP_Pro_DataBaseTestViewCtl.m in Sources */,
 				EDBB5ED62564FD230009B445 /* EP_Main_Cs_DetailsViewCtl.m in Sources */,
 				ED20479724F4BB2A000A6040 /* EPAngleHeaderCell.m in Sources */,
+				ED1FF77B256CD82B00E74D47 /* YPPictureModel.m in Sources */,
 				EDFBDDDE251AFFE50077B4DE /* SBFileItem.m in Sources */,
 				ED66F49124F6019D001E8F2C /* EPSurgeryTypeCollectionViewCell.m in Sources */,
 				ED0A7FB324E53DAE005E3DC3 /* FMDatabase+YHDatabase.m in Sources */,
@@ -2561,6 +2602,7 @@
 				ED3B554E24BED964008CBB51 /* RootTableViewCell.m in Sources */,
 				ED991AB624E51C68006F819C /* EPAngleSelectColCell.m in Sources */,
 				ED3B553924BED868008CBB51 /* AppDelegate+Common.m in Sources */,
+				ED1FF775256CD6F400E74D47 /* YPUserInfoModel.m in Sources */,
 				EDFBDDE4251AFFE50077B4DE /* SBWatcherManager.m in Sources */,
 				ED147D16254A645000179C5C /* PersonVO.m in Sources */,
 				ED3B554524BED934008CBB51 /* AppNetRequest.m in Sources */,
@@ -2572,6 +2614,7 @@
 				ED4B511224F5167B00C0DCF9 /* EPSurgeryDetailTableViewCell.m in Sources */,
 				ED8B32A12553D91E00EBCF8C /* EP_Pop_CaseSqe_HeadView.m in Sources */,
 				ED41546D24F631F100FA07F2 /* EPCameraTypeLayout.m in Sources */,
+				ED399E9E256BDA35008E66FF /* YPProjectModel.m in Sources */,
 				EDFBDDE1251AFFE50077B4DE /* SBNavigationController.m in Sources */,
 				EDFBDDDB251AFFE50077B4DE /* SBScanDataHeaderView.m in Sources */,
 				ED8B32832553CEC300EBCF8C /* EP_Main_OperationViewCtl.m in Sources */,
@@ -2587,6 +2630,7 @@
 				ED3B554824BED945008CBB51 /* RootViewController.m in Sources */,
 				ED4B510824F5151600C0DCF9 /* EPBodyPartTableViewCell.m in Sources */,
 				ED74A71A24C024C900D9FA77 /* LoginViewModel.m in Sources */,
+				ED399EA8256BDA57008E66FF /* SqliteMainViewCtl.m in Sources */,
 				ED09A13C24CEA1D900045106 /* EPAngleBottomCell.m in Sources */,
 				ED86406624D7E8FF00FD7F7D /* EPImageModel.m in Sources */,
 				EDC1EE98252182BE00E531C3 /* EPCitySelectViewCtl.m in Sources */,

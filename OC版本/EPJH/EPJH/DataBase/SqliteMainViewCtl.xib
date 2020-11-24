@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SqliteMainViewCtl">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpD-QL-6OO">
+                    <rect key="frame" x="20" y="176" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Ikt-z7-Vkj"/>
+                        <constraint firstAttribute="height" constant="100" id="iED-1V-RLR"/>
+                    </constraints>
+                    <state key="normal" title="创建表1">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createTable1Method:" destination="-1" eventType="touchUpInside" id="7uL-e4-jkq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RT-3Y-waH">
+                    <rect key="frame" x="138" y="174" width="92" height="96"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="aYA-RC-Bbo"/>
+                        <constraint firstAttribute="width" constant="100" id="xLD-q4-OAj"/>
+                    </constraints>
+                    <state key="normal" title="添加1条数据">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addOneDataToTable1Method:" destination="-1" eventType="touchUpInside" id="mq6-KB-rJY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rII-sD-Ml0">
+                    <rect key="frame" x="130" y="54" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="90n-pS-DUh"/>
+                        <constraint firstAttribute="height" constant="100" id="lLs-rd-pbj"/>
+                    </constraints>
+                    <state key="normal" title="删除数据库">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteSQLiteMethod:" destination="-1" eventType="touchUpInside" id="59k-4L-NAf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-bh-vry">
+                    <rect key="frame" x="20" y="54" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="GKT-eq-QeE"/>
+                        <constraint firstAttribute="width" constant="100" id="RgB-ud-BpW"/>
+                    </constraints>
+                    <state key="normal" title="新建数据库">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createSQLiteMethod:" destination="-1" eventType="touchUpInside" id="t6S-CG-NWq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCC-V1-SQC">
+                    <rect key="frame" x="248" y="174" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="iv7-1i-Cgm"/>
+                        <constraint firstAttribute="height" constant="100" id="t8h-9L-Iey"/>
+                    </constraints>
+                    <state key="normal" title="添加多条数据">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addMoreDataToTable1Method:" destination="-1" eventType="touchUpInside" id="LhP-iG-xRf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="TpD-QL-6OO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Jsn-rE-rMO"/>
+                <constraint firstItem="TpD-QL-6OO" firstAttribute="top" secondItem="C6b-bh-vry" secondAttribute="bottom" constant="22" id="Pfm-iH-C9d"/>
+                <constraint firstItem="cCC-V1-SQC" firstAttribute="leading" secondItem="5RT-3Y-waH" secondAttribute="trailing" constant="10" id="Vx0-jD-97q"/>
+                <constraint firstItem="rII-sD-Ml0" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="gNt-r0-g9j"/>
+                <constraint firstItem="C6b-bh-vry" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="goJ-0u-k2t"/>
+                <constraint firstItem="5RT-3Y-waH" firstAttribute="top" secondItem="rII-sD-Ml0" secondAttribute="bottom" constant="20" id="pxR-hZ-PTl"/>
+                <constraint firstItem="cCC-V1-SQC" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="130" id="pyV-9i-h8O"/>
+                <constraint firstItem="rII-sD-Ml0" firstAttribute="leading" secondItem="C6b-bh-vry" secondAttribute="trailing" constant="10" id="sCr-ny-fYW"/>
+                <constraint firstItem="C6b-bh-vry" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="sJc-kH-pCW"/>
+                <constraint firstItem="5RT-3Y-waH" firstAttribute="leading" secondItem="TpD-QL-6OO" secondAttribute="trailing" constant="18" id="tM1-Hg-thV"/>
+            </constraints>
+            <point key="canvasLocation" x="-1919" y="-76"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

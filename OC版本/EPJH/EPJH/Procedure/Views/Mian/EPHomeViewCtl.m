@@ -10,6 +10,7 @@
 #import "EPHomeHeadFileHandler.h"
 #import "EP_Pro_DataBaseTestViewCtl.h"
 
+#import "SqliteMainViewCtl.h"
 
 @interface EPHomeViewCtl ()
 
@@ -66,7 +67,7 @@
         
     } else if (sender.tag == 1) { // 3D
          
-        EP_Pro_DataBaseTestViewCtl * Vc = [[EP_Pro_DataBaseTestViewCtl alloc] init];
+        SqliteMainViewCtl * Vc = [[SqliteMainViewCtl alloc] init];
         [self.navigationController pushViewController:Vc animated:YES];
         
     } else if (sender.tag == 2) { //拍照
@@ -75,6 +76,10 @@
         [self.navigationController pushViewController:Vc animated:YES];
      
     } else if (sender.tag == 3) { // 对比
+        
+        EP_Pro_DataBaseTestViewCtl * Vc = [[EP_Pro_DataBaseTestViewCtl alloc] init];
+        [self.navigationController pushViewController:Vc animated:YES];
+
    
     }
 }
