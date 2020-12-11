@@ -50,11 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
 // 其他备注
 @property (nonatomic,copy) NSString * extr;
 
+#pragma mark - 2019.12.06新增字段
+@property (nonatomic,copy) NSString * isCollect;    // 收藏 1为收藏，0为没收藏
+
 #pragma mark - 衍生
 @property (nonatomic, assign) BOOL isSelected;
 
-#pragma mark - 2019.12.06新增字段
-@property (nonatomic,copy) NSString * isCollect;    // 收藏 1为收藏，0为没收藏
+
 
 @end
 

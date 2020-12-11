@@ -3,22 +3,4 @@
    uuid = "40DD9080-52DC-4A78-9D82-5931FD221B25"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F1897C29-81F1-4C36-AC32-F5E198500B76"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EPJH/Procedure/Views/Mian/&#x6848;&#x4f8b;&#x5e7f;&#x573a;/EP_Main_CaseSquareViewCtl.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-getAllDataWithBrand:Project:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

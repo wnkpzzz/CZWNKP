@@ -39,13 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString * tempImgStr;       // 对比照
 @property (nonatomic,copy) NSString * composeImgStr;    // 合成照片
 
-#pragma mark - 衍生
-@property (nonatomic, assign) BOOL isSelected;
-@property (nonatomic,copy) NSString * tempTitle;
-
 @property (nonatomic,copy) NSString * cameraImgUrlStr;  // 本次拍照网络照片
 @property (nonatomic,copy) NSString * tempImgUrlStr;    // 对比照网络照片
 @property (nonatomic,copy) NSString * composeImgUrlStr; // 合成照片网络照片
+
+#pragma mark - 衍生
+@property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic,copy) NSString * tempTitle;
 
 @end
 

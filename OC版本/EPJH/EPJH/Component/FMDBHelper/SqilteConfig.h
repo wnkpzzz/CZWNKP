@@ -37,76 +37,67 @@
 
 //用户数据目录路径
 #define ZCUserDir [ZCDocumentDir stringByAppendingPathComponent:KUID]
-
  
-/** ******************用户表************** */
+//数据库文件目录
+#define ZCFriendsDir [ZCDocumentDir stringByAppendingPathComponent:KUID]
+#define ZCProjectDir [ZCDocumentDir stringByAppendingPathComponent:KUID]
+#define ZCImageProDir [ZCDocumentDir stringByAppendingPathComponent:KUID]
+#define ZCContrastDir [ZCDocumentDir stringByAppendingPathComponent:KUID]
+//#define ZCFriendsDir [ZCUserDir stringByAppendingPathComponent:@"Friends"]    //用户数据库数据目录
+//#define ZCProjectDir [ZCUserDir stringByAppendingPathComponent:@"Project"]    //项目数据库数据目录
+//#define ZCImageProDir [ZCUserDir stringByAppendingPathComponent:@"ImagePro"]  //图片数据库数据目录
+//#define ZCContrastDir [ZCUserDir stringByAppendingPathComponent:@"Contrast"]  //对比工具数据库数据目录
 
-//病人表数据目录
-#define ZCFriendsDir [ZCUserDir stringByAppendingPathComponent:@"Friends"]
-
-//病人表路径
+//数据库文件路径
+//病人路径
 static inline NSString *pathFrisWithDir( NSString *dir,NSString *friID){
     NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"fri_%@.sqlite",friID]];
     return pathLog;
 }
+//项目路径
+static inline NSString *pathProjectWithDir( NSString *dir,NSString *friID){
+//    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"pro_%@.sqlite",friID]];
+    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"epjh_%@.sqlite",friID]];
+    return pathLog;
+}
+//图片路径
+static inline NSString *pathImageProWithDir( NSString *dir,NSString *friID){
+//    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"imagePro_%@.sqlite",friID]];
+    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"epjh_%@.sqlite",friID]];
+    return pathLog;
+}
+//对比表路径
+static inline NSString *pathContrastWithDir( NSString *dir,NSString *friID){
+//    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"duibi_%@.sqlite",friID]];
+    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"epjh_%@.sqlite",friID]];
+    return pathLog;
+}
+
+/** ******************用户表************** */
 
 //病人表名的命名方式
 static inline NSString *tableNameFris(NSString *friID){
-    
     return [NSString stringWithFormat:@"fri_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
 
 /** ******************项目表************** */
 
-
-//项目表数据目录
-#define ZCProjectDir [ZCUserDir stringByAppendingPathComponent:@"Project"]
-
-//项目表路径
-static inline NSString *pathProjectWithDir( NSString *dir,NSString *friID){
-    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"pro_%@.sqlite",friID]];
-    return pathLog;
-}
-
 //项目表名的命名方式
 static inline NSString *tableNameProject(NSString *friID){
-
     return [NSString stringWithFormat:@"pro_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
  
-
 /** ******************图片表************** */
-
-//图片表数据目录
-#define ZCImageProDir [ZCUserDir stringByAppendingPathComponent:@"ImagePro"]
-
-//项目表路径
-static inline NSString *pathImageProWithDir( NSString *dir,NSString *friID){
-    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"imagePro_%@.sqlite",friID]];
-    return pathLog;
-}
 
 //项目表名的命名方式
 static inline NSString *tableNameImagePro(NSString *friID){
-
     return [NSString stringWithFormat:@"imagePro_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
 
 /** ******************对比相册表************** */
  
-
-//对比相册表数据目录
-#define ZCContrastDir [ZCUserDir stringByAppendingPathComponent:@"Contrast"]
-
-//对比相册表路径
-static inline NSString *pathContrastWithDir( NSString *dir,NSString *friID){
-    NSString *pathLog = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"duibi_%@.sqlite",friID]];
-    return pathLog;
-}
-
 //对比相册表名的命名方式
 static inline NSString *tableNameContrast(NSString *friID){
-    
     return [NSString stringWithFormat:@"duibi_%@",[friID stringByReplacingOccurrencesOfString:@"-" withString:@""]];
 }
 
